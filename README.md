@@ -6,8 +6,15 @@
 - Implement ability scores from DnD as character stats
 - Rework combat system to involve d20 dice rolls
 - Implement a spellcasting system
+- New enemy types
+- New items
+- Better inventory management
 
 # Contributors
 
-Thanks goes to these wonderful people who helped in making this project a success. ([emoji key](https://github.com/all-contributors/all-contributors#emoji-key))
-#### Intentionally left blank
+Thanks goes to these wonderful people who helped in making this project a success. 
+<!--([emoji key](https://github.com/all-contributors/all-contributors#emoji-key))-->
+- Josh Hill
+- Kelvin Ngor
+- Kimberley Evans-Parker
+- Matt Eden
