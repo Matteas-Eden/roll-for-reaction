@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "06762e49ea150e2a2fd6",
+    "revision": "e92137de2276978f7039",
     "url": "/roll-for-reaction/static/css/main.0ead16bb.chunk.css"
   },
   {
-    "revision": "06762e49ea150e2a2fd6",
-    "url": "/roll-for-reaction/static/js/main.00a9fe1d.chunk.js"
+    "revision": "e92137de2276978f7039",
+    "url": "/roll-for-reaction/static/js/main.17c07bca.chunk.js"
   },
   {
     "revision": "397f132f399293d50fe1",
@@ -52,12 +52,12 @@ self.__precacheManifest = [
     "url": "/roll-for-reaction/static/media/player_walk.9f19440f.png"
   },
   {
-    "revision": "987b84570ea69ee660455b8d5e91f5f1",
-    "url": "/roll-for-reaction/static/media/roboto-latin-100.987b8457.woff2"
-  },
-  {
     "revision": "e9dbbe8a693dd275c16d32feb101f1c1",
     "url": "/roll-for-reaction/static/media/roboto-latin-100.e9dbbe8a.woff"
+  },
+  {
+    "revision": "987b84570ea69ee660455b8d5e91f5f1",
+    "url": "/roll-for-reaction/static/media/roboto-latin-100.987b8457.woff2"
   },
   {
     "revision": "6232f43d15b0e7a0bf0fe82e295bdd06",
@@ -80,16 +80,16 @@ self.__precacheManifest = [
     "url": "/roll-for-reaction/static/media/roboto-latin-300italic.d69924b9.woff2"
   },
   {
+    "revision": "210a7c781f5a354a0e4985656ab456d9",
+    "url": "/roll-for-reaction/static/media/roboto-latin-300italic.210a7c78.woff"
+  },
+  {
     "revision": "5d4aeb4e5f5ef754e307d7ffaef688bd",
     "url": "/roll-for-reaction/static/media/roboto-latin-400.5d4aeb4e.woff2"
   },
   {
     "revision": "bafb105baeb22d965c70fe52ba6b49d9",
     "url": "/roll-for-reaction/static/media/roboto-latin-400.bafb105b.woff"
-  },
-  {
-    "revision": "210a7c781f5a354a0e4985656ab456d9",
-    "url": "/roll-for-reaction/static/media/roboto-latin-300italic.210a7c78.woff"
   },
   {
     "revision": "d8bcbe724fd6f4ba44d0ee6a2675890f",
@@ -292,7 +292,7 @@ self.__precacheManifest = [
     "url": "/roll-for-reaction/static/media/montserrat-latin-900italic.43b527fe.woff"
   },
   {
-    "revision": "35479b8e03fcd6e29548ffbe844b44da",
+    "revision": "a7135c7f7a96b2c881209416afdb5f83",
     "url": "/roll-for-reaction/index.html"
   }
 ];
