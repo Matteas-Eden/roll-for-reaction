@@ -52,16 +52,12 @@ self.__precacheManifest = [
     "url": "/roll-for-reaction/static/media/player_walk.9f19440f.png"
   },
   {
-    "revision": "987b84570ea69ee660455b8d5e91f5f1",
-    "url": "/roll-for-reaction/static/media/roboto-latin-100.987b8457.woff2"
-  },
-  {
     "revision": "e9dbbe8a693dd275c16d32feb101f1c1",
     "url": "/roll-for-reaction/static/media/roboto-latin-100.e9dbbe8a.woff"
   },
   {
-    "revision": "d704bb3d579b7d5e40880c75705c8a71",
-    "url": "/roll-for-reaction/static/media/roboto-latin-100italic.d704bb3d.woff"
+    "revision": "987b84570ea69ee660455b8d5e91f5f1",
+    "url": "/roll-for-reaction/static/media/roboto-latin-100.987b8457.woff2"
   },
   {
     "revision": "6232f43d15b0e7a0bf0fe82e295bdd06",
@@ -72,12 +68,16 @@ self.__precacheManifest = [
     "url": "/roll-for-reaction/static/media/roboto-latin-300.55536c8e.woff2"
   },
   {
-    "revision": "a1471d1d6431c893582a5f6a250db3f9",
-    "url": "/roll-for-reaction/static/media/roboto-latin-300.a1471d1d.woff"
+    "revision": "d704bb3d579b7d5e40880c75705c8a71",
+    "url": "/roll-for-reaction/static/media/roboto-latin-100italic.d704bb3d.woff"
   },
   {
     "revision": "d69924b98acd849cdeba9fbff3f88ea6",
     "url": "/roll-for-reaction/static/media/roboto-latin-300italic.d69924b9.woff2"
+  },
+  {
+    "revision": "a1471d1d6431c893582a5f6a250db3f9",
+    "url": "/roll-for-reaction/static/media/roboto-latin-300.a1471d1d.woff"
   },
   {
     "revision": "210a7c781f5a354a0e4985656ab456d9",
@@ -112,12 +112,12 @@ self.__precacheManifest = [
     "url": "/roll-for-reaction/static/media/roboto-latin-500.de8b7431.woff"
   },
   {
-    "revision": "ffcc050b2d92d4b14a4fcb527ee0bcc8",
-    "url": "/roll-for-reaction/static/media/roboto-latin-500italic.ffcc050b.woff"
-  },
-  {
     "revision": "037d830416495def72b7881024c14b7b",
     "url": "/roll-for-reaction/static/media/roboto-latin-700.037d8304.woff2"
+  },
+  {
+    "revision": "ffcc050b2d92d4b14a4fcb527ee0bcc8",
+    "url": "/roll-for-reaction/static/media/roboto-latin-500italic.ffcc050b.woff"
   },
   {
     "revision": "cf6613d1adf490972c557a8e318e0868",
@@ -216,12 +216,12 @@ self.__precacheManifest = [
     "url": "/roll-for-reaction/static/media/montserrat-latin-500.f0f2716c.woff2"
   },
   {
-    "revision": "4590ebba421b3288c305305d7fa7b504",
-    "url": "/roll-for-reaction/static/media/montserrat-latin-500italic.4590ebba.woff2"
-  },
-  {
     "revision": "991b453bf90a0980e78966d2af7e3d3a",
     "url": "/roll-for-reaction/static/media/montserrat-latin-500.991b453b.woff"
+  },
+  {
+    "revision": "4590ebba421b3288c305305d7fa7b504",
+    "url": "/roll-for-reaction/static/media/montserrat-latin-500italic.4590ebba.woff2"
   },
   {
     "revision": "f3d41e4cdcc2314e49ddcea751d6f87f",
@@ -292,7 +292,7 @@ self.__precacheManifest = [
     "url": "/roll-for-reaction/static/media/montserrat-latin-900italic.43b527fe.woff"
   },
   {
-    "revision": "a23d832e9bb41190334b9fe0c47b18e0",
+    "revision": "152843209dca0a099a27a274d0c65ce3",
     "url": "/roll-for-reaction/index.html"
   }
 ];
