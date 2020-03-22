@@ -116,7 +116,7 @@ This class relies predominantly on ranged attacks, but typically carries a small
         - Chest (AC 6)
         - Boots (AC 1)
 
-#### Warlock
+#### Wizard
 This class relies predominantly on spellcasting, and while they do conceal a small melee weapon for emergencies, it is often too late by the time it needs to be used.
 - Starting Items
     - Dagger (1d4)
