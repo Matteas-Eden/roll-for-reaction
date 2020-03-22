@@ -60,16 +60,16 @@ self.__precacheManifest = [
     "url": "/roll-for-reaction/static/media/roboto-latin-100.e9dbbe8a.woff"
   },
   {
+    "revision": "d704bb3d579b7d5e40880c75705c8a71",
+    "url": "/roll-for-reaction/static/media/roboto-latin-100italic.d704bb3d.woff"
+  },
+  {
     "revision": "6232f43d15b0e7a0bf0fe82e295bdd06",
     "url": "/roll-for-reaction/static/media/roboto-latin-100italic.6232f43d.woff2"
   },
   {
     "revision": "55536c8e9e9a532651e3cf374f290ea3",
     "url": "/roll-for-reaction/static/media/roboto-latin-300.55536c8e.woff2"
-  },
-  {
-    "revision": "d704bb3d579b7d5e40880c75705c8a71",
-    "url": "/roll-for-reaction/static/media/roboto-latin-100italic.d704bb3d.woff"
   },
   {
     "revision": "a1471d1d6431c893582a5f6a250db3f9",
@@ -80,12 +80,12 @@ self.__precacheManifest = [
     "url": "/roll-for-reaction/static/media/roboto-latin-300italic.d69924b9.woff2"
   },
   {
-    "revision": "5d4aeb4e5f5ef754e307d7ffaef688bd",
-    "url": "/roll-for-reaction/static/media/roboto-latin-400.5d4aeb4e.woff2"
-  },
-  {
     "revision": "210a7c781f5a354a0e4985656ab456d9",
     "url": "/roll-for-reaction/static/media/roboto-latin-300italic.210a7c78.woff"
+  },
+  {
+    "revision": "5d4aeb4e5f5ef754e307d7ffaef688bd",
+    "url": "/roll-for-reaction/static/media/roboto-latin-400.5d4aeb4e.woff2"
   },
   {
     "revision": "bafb105baeb22d965c70fe52ba6b49d9",
@@ -108,12 +108,12 @@ self.__precacheManifest = [
     "url": "/roll-for-reaction/static/media/roboto-latin-500italic.510dec37.woff2"
   },
   {
-    "revision": "ffcc050b2d92d4b14a4fcb527ee0bcc8",
-    "url": "/roll-for-reaction/static/media/roboto-latin-500italic.ffcc050b.woff"
-  },
-  {
     "revision": "de8b7431b74642e830af4d4f4b513ec9",
     "url": "/roll-for-reaction/static/media/roboto-latin-500.de8b7431.woff"
+  },
+  {
+    "revision": "ffcc050b2d92d4b14a4fcb527ee0bcc8",
+    "url": "/roll-for-reaction/static/media/roboto-latin-500italic.ffcc050b.woff"
   },
   {
     "revision": "037d830416495def72b7881024c14b7b",
@@ -216,12 +216,12 @@ self.__precacheManifest = [
     "url": "/roll-for-reaction/static/media/montserrat-latin-500.f0f2716c.woff2"
   },
   {
-    "revision": "991b453bf90a0980e78966d2af7e3d3a",
-    "url": "/roll-for-reaction/static/media/montserrat-latin-500.991b453b.woff"
-  },
-  {
     "revision": "4590ebba421b3288c305305d7fa7b504",
     "url": "/roll-for-reaction/static/media/montserrat-latin-500italic.4590ebba.woff2"
+  },
+  {
+    "revision": "991b453bf90a0980e78966d2af7e3d3a",
+    "url": "/roll-for-reaction/static/media/montserrat-latin-500.991b453b.woff"
   },
   {
     "revision": "f3d41e4cdcc2314e49ddcea751d6f87f",
