@@ -1,4 +1,8 @@
 # Roll For Reaction
+
+
+<img src="https://github.com/Matteas-Eden/roll-for-reaction/blob/master/public/logo.png" width="400">
+
 #### SOFTENG 750/COMPSCI 732
 
 *Roll For Reaction* is an open-source fork of [react-rpg](https://github.com/ASteinheiser/react-rpg.com) created for SOFTENG750/COMPSCI 732 at the University of Auckland. This project aims to enhance the systems already present in the base game by modifying and adding elements to lightly emulate the popular tabletop role-playing game *Dungeons and Dragons: 5th Edition*. In doing so, the following features are planned to be added:
