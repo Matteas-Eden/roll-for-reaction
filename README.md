@@ -1,6 +1,4 @@
-# Roll For Reaction
-
-<img src="https://github.com/Matteas-Eden/roll-for-reaction/blob/master/public/logo.png" width="400">
+<img src="https://user-images.githubusercontent.com/45865186/77014224-a9265180-69d6-11ea-92d3-18af1d76c740.png" width="400">
 
 #### SOFTENG 750/COMPSCI 732
 
