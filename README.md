@@ -1,6 +1,4 @@
-<p align="center">
-<img src="https://user-images.githubusercontent.com/45865186/77014224-a9265180-69d6-11ea-92d3-18af1d76c740.png" width="400">
-</p>
+<img src="public/logo/logo-wide-no-background.png">
 
 #### SOFTENG 750/COMPSCI 732
 
