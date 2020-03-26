@@ -36,7 +36,7 @@ const GameInstructions = ({ loadStartingItems, showFirstStoryMessage }) => {
                     <span style={{ paddingBottom: 12 }}>{`MOVEMENT`}</span>
                 )}
 
-                <div className={`flex-row align-center space-evenly`}>
+                <div className={`align-center space-evenly`}>
                     {mobileVersion ? (
                         <>
                             <img src={Swipe} alt="swipe" />
@@ -46,31 +46,36 @@ const GameInstructions = ({ loadStartingItems, showFirstStoryMessage }) => {
                         </>
                     ) : (
                         <>
-                            <img src={ArrowKeys} alt="arrow-keys" />
+                            <img
+                                src={ArrowKeys}
+                                alt="arrow-keys"
+                                style={{ paddingRight: '2em' }}
+                            />
                             <img src={WASDKeys} alt="wasd-keys" />
                         </>
                     )}
                 </div>
 
-                {!mobileVersion && (
-                    <span style={{ paddingTop: 12 }}>{`ATTACK`}</span>
-                )}
+                {mobileVersion ? (
+                    <>
+                        <img src={DoubleTap} alt="double-tap" />
+                        <div className="game-instructions__native-text">
+                            {'DOUBLE TAP to ATTACK'}
+                        </div>
+                    </>
+                ) : (
+                    <>
+                        <span style={{ paddingTop: 12 }}>{`ATTACK`}</span>
+                        <div className={`align-center space-evenly`}>
+                            <img src={Space} alt="space" height="35em" />
+                        </div>
 
-                <div className={`flex-row align-center space-evenly`}>
-                    {mobileVersion ? (
-                        <>
-                            <img src={DoubleTap} alt="double-tap" />
-                            <div className="game-instructions__native-text">
-                                {'DOUBLE TAP to ATTACK'}
-                            </div>
-                        </>
-                    ) : (
-                        <>
-                            <img src={Space} alt="space" />
-                            <img src={Enter} alt="enter" />
-                        </>
-                    )}
-                </div>
+                        <span style={{ paddingTop: 12 }}>{`CONTINUE`}</span>
+                        <div className={`align-center space-evenly`}>
+                            <img src={Enter} alt="enter" height="45em" />
+                        </div>
+                    </>
+                )}
             </div>
 
             <div className="flex-column game-instructions__button">
