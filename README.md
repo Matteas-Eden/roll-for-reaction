@@ -33,7 +33,7 @@ In order to run *Roll for Reaction* locally, you must ensure you have setup, ins
 
 This implementation is fully supported and tested on Arch Linux and Windows 10.
 
-### Install & Setup
+#### Install & Setup
 
 1. Clone the repo
 
@@ -53,7 +53,7 @@ This implementation is fully supported and tested on Arch Linux and Windows 10.
 
 ## Contributors
 
-Thanks goes to these wonderful people who helped in making this project a success: 
+Thanks goes to all of these wonderful people who helped in making this project a success. For more information on the types of contributions, [see this page](../../wiki/Contributions).
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
