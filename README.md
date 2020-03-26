@@ -22,7 +22,7 @@
 
 > Races include Human, Elf and Dwarf
 
-## Install Instructions
+## Developer Instructions
 
 The game is hosted via GitHub pages at https://matteas.nz/roll-for-reaction, but for development purposes it is a requirement to be able to run the game locally. 
 
@@ -32,6 +32,8 @@ In order to run *Roll for Reaction* locally, you must ensure you have setup, ins
 - `yarn`
 
 This implementation is fully supported and tested on Arch Linux and Windows 10.
+
+### Install & Setup
 
 1. Clone the repo
 
