@@ -37,7 +37,7 @@ This implementation is fully supported and tested on Arch Linux and Windows 10.
 
 1. Clone the repo
 
-`git clone git@github.com:Matteas-Eden/roll-for-reaction` or `git clone https://github.com/Matteas-Eden/roll-for-reaction`
+`git clone https://github.com/Matteas-Eden/roll-for-reaction`
 
 2. Change to the directory containing the repository
 
