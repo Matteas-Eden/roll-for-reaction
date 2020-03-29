@@ -1,0 +1,33 @@
+.character-creation__title {
+    font-size: 26px;
+    text-align: center;
+
+    padding: 12px 0;
+}
+
+.character-creation__text {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    font-size: 20px;
+    color: var(--gray);
+
+    letter-spacing: 1px;
+    text-transform: none;
+    text-align: center;
+
+    padding: 0 36px;
+
+    .character-creation__native-text {
+        padding-left: 8px;
+        max-width: 175px;
+    }
+}
+
+.character-creation__button {
+    padding: 12px 0 16px;
+
+    align-items: center;
+}
