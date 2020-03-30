@@ -37,19 +37,19 @@ This implementation is fully supported and tested on Arch Linux and Windows 10.
 
 1. Clone the repo
 
-`git clone https://github.com/Matteas-Eden/roll-for-reaction`
+    `git clone https://github.com/Matteas-Eden/roll-for-reaction`
 
 2. Change to the directory containing the repository
 
-`cd roll-for-reaction`
+    `cd roll-for-reaction`
 
 3. Install the dependencies
 
-`yarn install --frozen-lockfile`
+   `yarn install --frozen-lockfile`
 
 4. Start the game locally
 
-`yarn start`
+   `yarn start`
 
 ## Contributors
 
