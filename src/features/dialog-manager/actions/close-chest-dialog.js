@@ -1,8 +1,11 @@
 export default function closeChestDialog() {
-    return dispatch => {
+    return (dispatch, getState) => {
+        const { dialog } = getState();
+        const { chestOpen } = dialog;
+
         dispatch({
             type: 'SET_CHEST_DATA',
-            payload: false,
+            payload: chestOpen.item ? chestOpen : false,
         });
         dispatch({
             type: 'PAUSE',

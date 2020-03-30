@@ -1,8 +1,13 @@
 export default function pickupItem() {
     return (dispatch, getState) => {
-        const { inventory, dialog } = getState();
+        const { inventory, dialog, world, player } = getState();
 
-        const { item } = dialog.chestOpen;
+        // const { item } = dialog.chestOpen;
+        const { chests } = world;
+        console.log(chests);
+        const chest = chests[player.position[0] + ', ' + player.position[1]];
+        console.log(player.position);
+        const item = chest.item;
 
         if (!item) return;
 
