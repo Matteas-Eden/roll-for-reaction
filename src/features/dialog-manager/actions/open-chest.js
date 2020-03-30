@@ -2,13 +2,11 @@ import randomItem from '../dialogs/chest-loot/random-item';
 
 export default function openChest() {
     return (dispatch, getState) => {
-        const { stats, world } = getState();
-        const { chests } = world;
-        console.log(chests);
+        const { stats } = getState();
         const { level, expToLevel } = stats;
         // give the player a 25% chance to get a random item
         let itemDrop = false;
-        const chance = 10; //Math.floor(Math.random() * 100) + 1;
+        const chance = Math.floor(Math.random() * 100) + 1;
         if (chance <= 25) {
             itemDrop = randomItem(level);
         }

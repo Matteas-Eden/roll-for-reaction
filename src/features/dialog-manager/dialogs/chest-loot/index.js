@@ -9,16 +9,9 @@ import closeChestDialog from '../../actions/close-chest-dialog';
 
 import './styles.scss';
 
-const ChestLoot = ({
-    world,
-    dialog,
-    pickupItem,
-    openChest,
-    closeChestDialog,
-}) => {
-    console.log('WORLD', world);
+const ChestLoot = ({ dialog, pickupItem, openChest, closeChestDialog }) => {
     const { chestOpen } = dialog;
-    let { gold, exp, item } = chestOpen;
+    const { gold, exp, item } = chestOpen;
 
     useEffect(() => {
         if (!chestOpen) openChest();

@@ -6,7 +6,7 @@ const initialState = {
     gameSelect: null,
     gameWin: false,
     paused: true,
-    chest: null,
+    chest: false,
     chestOpen: false,
     shop: false,
     settings: false,
