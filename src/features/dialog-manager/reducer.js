@@ -3,6 +3,7 @@ const initialState = {
     gameOver: false,
     gameStart: true,
     gameInstructions: false,
+    characterCreation: false,
     gameSelect: null,
     gameWin: false,
     paused: true,
@@ -27,6 +28,7 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
                 gameWin,
                 gameSelect,
                 gameInstructions,
+                characterCreation,
                 levelUp,
                 pause,
             } = payload;
@@ -43,6 +45,7 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
                 gameWin: gameWin || false,
                 gameSelect: gameSelect || null,
                 gameInstructions: gameInstructions || false,
+                characterCreation: characterCreation || false,
                 paused: pause,
             };
 

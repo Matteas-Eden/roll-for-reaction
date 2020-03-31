@@ -7,6 +7,14 @@ export default function startMainGame() {
             type: 'PAUSE',
             payload: {
                 pause: true,
+                characterCreation: true,
+            },
+        });
+
+        dispatch({
+            type: 'PAUSE',
+            payload: {
+                pause: true,
                 gameInstructions: true,
             },
         });
