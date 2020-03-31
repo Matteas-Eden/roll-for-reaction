@@ -1,27 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { isMobile } from 'react-device-detect';
 
 import Button from '../../../../components/button';
 import Dialog from '../../../../components/dialog';
-import loadStartingItems from '../../../inventory/actions/load-starting-items';
-import showFirstStoryMessage from '../../actions/show-first-story-message';
+// import loadStartingItems from '../../../inventory/actions/load-starting-items';
+// import showFirstStoryMessage from '../../actions/show-first-story-message';
+import startMainGame from '../../../world/actions/start-main-game';
 
 import './styles.scss';
 
-const GameInstructions = ({ loadStartingItems, showFirstStoryMessage }) => {
-    let mobileVersion = false;
-    if (window.location.search === '?nativeApp=true' || isMobile) {
-        mobileVersion = true;
-    }
-
+// const CharacterCreation = ({ loadStartingItems, showFirstStoryMessage }) => {
+const CharacterCreation = ({ startMainGame }) => {
     function handleContinue() {
-        loadStartingItems();
-        showFirstStoryMessage();
+        // loadStartingItems();
+        // showFirstStoryMessage();
+        startMainGame();
     }
 
     return (
         <Dialog onKeyPress={handleContinue}>
+            {/* <Dialog onKeyPress={startMainGame}> */}
             <div className="character-creation__title">
                 {'Character Creation'}
             </div>
@@ -85,11 +83,14 @@ const GameInstructions = ({ loadStartingItems, showFirstStoryMessage }) => {
 
             <div className="flex-column character-creation__button">
                 <Button onClick={handleContinue} title={'Continue'} />
+                {/* <Button onClick={startMainGame} title={'Continue'} /> */}
             </div>
         </Dialog>
     );
 };
 
-const actions = { loadStartingItems, showFirstStoryMessage };
+// const actions = { loadStartingItems, showFirstStoryMessage };
+const actions = { startMainGame };
 
-export default connect(null, actions)(GameInstructions);
+// export default connect(null, actions)(CharacterCreation);
+export default connect(null, actions)(CharacterCreation);
