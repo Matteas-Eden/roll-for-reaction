@@ -3,19 +3,20 @@ import { START_MAP } from '../../../config/constants';
 
 export default function startMainGame() {
     return (dispatch, getState) => {
-        dispatch({
-            type: 'PAUSE',
-            payload: {
-                pause: true,
-                characterCreation: true,
-            },
-        });
+        // dispatch({
+        //     type: 'PAUSE',
+        //     payload: {
+        //         pause: true,
+        //         characterCreation: true,
+        //     },
+        // });
 
         dispatch({
             type: 'PAUSE',
             payload: {
                 pause: true,
-                gameInstructions: true,
+                characterCreation: true,
+                // gameInstructions: true,
             },
         });
 
