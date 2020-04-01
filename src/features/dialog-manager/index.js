@@ -46,15 +46,8 @@ const DialogManager = ({ dialog }) => {
             PauseComp = (
                 <GameTextDialog text1={gameText.title} text2={gameText.body} />
             );
-        if (characterCreation) {
-            console.log('Creating a character');
-            PauseComp = <CharacterCreation />;
-        }
-        if (gameInstructions) {
-            console.log('Show game instructions');
-            PauseComp = <GameInstructions />;
-        }
-        // if (gameInstructions) PauseComp = <CharacterCreation />;
+        if (characterCreation) PauseComp = <CharacterCreation />;
+        if (gameInstructions) PauseComp = <GameInstructions />;
         if (gameOver) PauseComp = <GameOver />;
         if (gameStart) PauseComp = <GameSelect />;
         if (gameSelect) {

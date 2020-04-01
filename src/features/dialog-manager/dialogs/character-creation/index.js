@@ -3,27 +3,13 @@ import { connect } from 'react-redux';
 
 import Button from '../../../../components/button';
 import Dialog from '../../../../components/dialog';
-// import loadStartingItems from '../../../inventory/actions/load-starting-items';
-// import showFirstStoryMessage from '../../actions/show-first-story-message';
-// import startMainGame from '../../../world/actions/start-main-game';
 import createCharacter from '../../actions/create-character';
 
 import './styles.scss';
 
-// const CharacterCreation = ({ loadStartingItems, showFirstStoryMessage }) => {
-// const CharacterCreation = ({ startMainGame }) => {
 const CharacterCreation = ({ createCharacter }) => {
-    function handleContinue() {
-        // loadStartingItems();
-        // showFirstStoryMessage();
-        // startMainGame();
-        createCharacter();
-    }
-
     return (
-        // <Dialog onKeyPress={handleContinue}>
         <Dialog onKeyPress={createCharacter}>
-            {/* <Dialog onKeyPress={startMainGame}> */}
             <div className="character-creation__title">
                 {'Character Creation'}
             </div>
@@ -86,17 +72,12 @@ const CharacterCreation = ({ createCharacter }) => {
             {/* name = document.getElementById("searchTxt").value; */}
 
             <div className="flex-column character-creation__button">
-                {/* <Button onClick={handleContinue} title={'Continue'} /> */}
                 <Button onClick={createCharacter} title={'Continue'} />
-                {/* <Button onClick={startMainGame} title={'Continue'} /> */}
             </div>
         </Dialog>
     );
 };
 
-// const actions = { loadStartingItems, showFirstStoryMessage };
-// const actions = { startMainGame };
 const actions = { createCharacter };
 
-// export default connect(null, actions)(CharacterCreation);
 export default connect(null, actions)(CharacterCreation);
