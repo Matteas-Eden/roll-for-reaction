@@ -82,7 +82,7 @@ class Snackbar extends Component {
 
         let width;
         if (sideMenu) width = 180;
-        else if (largeView) width = 400;
+        else if (largeView) width = 398;
         else width = 350;
 
         return (
@@ -90,7 +90,7 @@ class Snackbar extends Component {
                 className="snackbar__container white-border"
                 style={{
                     marginLeft: sideMenu ? 8 : 0,
-                    top: sideMenu ? 230 : 260,
+                    top: sideMenu ? 230 : -50,
                     width,
                     fontSize: sideMenu ? 18 : 20,
                     opacity: show === '' ? 0 : 1,
