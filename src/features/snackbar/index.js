@@ -90,11 +90,11 @@ class Snackbar extends Component {
                 className="snackbar__container white-border"
                 style={{
                     marginLeft: sideMenu ? 8 : 0,
-                    top: sideMenu ? 230 : 100,
+                    top: sideMenu ? 230 : 260,
                     width,
                     fontSize: sideMenu ? 18 : 20,
                     opacity: show === '' ? 0 : 1,
-                    zIndex: show === '' ? 0 : 101,
+                    zIndex: show === '' ? 0 : 151,
                     transition:
                         show === ''
                             ? 'opacity .35s ease-in-out, z-index .35s step-end'
