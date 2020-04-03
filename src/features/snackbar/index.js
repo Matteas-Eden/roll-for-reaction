@@ -85,8 +85,6 @@ class Snackbar extends Component {
         else if (largeView) width = 398;
         else width = 350;
 
-        let height = 50;
-
         return (
             <div
                 className="snackbar__container white-border"
@@ -94,7 +92,7 @@ class Snackbar extends Component {
                     marginLeft: sideMenu ? -402 : 0,
                     top: sideMenu ? 340 : -50,
                     width,
-                    height,
+                    height: sideMenu ? 50 : 40,
                     fontSize: sideMenu ? 18 : 20,
                     opacity: show === '' ? 0 : 1,
                     zIndex: show === '' ? 0 : 151,
