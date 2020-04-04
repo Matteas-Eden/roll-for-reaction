@@ -3,6 +3,8 @@ import ReactTimeout from 'react-timeout';
 import { connect } from 'react-redux';
 
 import { SNACK_DURATION } from '../../config/constants';
+import Button from '../../components/button';
+import equipItem from '../inventory/actions/equip-item';
 
 import './styles.scss';
 
@@ -12,6 +14,7 @@ class Snackbar extends Component {
 
         this.state = {
             show: '',
+            item: null,
         };
 
         this.handleHideSnack = this.handleHideSnack.bind(this);
@@ -23,6 +26,7 @@ class Snackbar extends Component {
             itemDropped,
             notEnoughGold,
             tooManyItems,
+            item,
         } = this.props.snackbar;
         const lastItemReceived = prevProps.snackbar.itemReceived;
         const lastItemDropped = prevProps.snackbar.itemDropped;
@@ -37,6 +41,7 @@ class Snackbar extends Component {
             // see if any items were dropped
             this.setState({
                 show: `LOST AN ITEM: ${itemDropped.split('-')[0]}`,
+                item: item,
             });
             this.props.setTimeout(this.handleHideSnack, SNACK_DURATION);
         } else if (
@@ -47,6 +52,7 @@ class Snackbar extends Component {
             // see if any items were received
             this.setState({
                 show: `GOT NEW ITEM: ${itemReceived.split('-')[0]}`,
+                item: item,
             });
             this.props.setTimeout(this.handleHideSnack, SNACK_DURATION);
         } else if (
@@ -57,6 +63,7 @@ class Snackbar extends Component {
             // see if player tried to buy item without enough gold
             this.setState({
                 show: `NOT ENOUGH GOLD FOR: ${notEnoughGold.split('-')[0]}`,
+                item: item,
             });
             this.props.setTimeout(this.handleHideSnack, SNACK_DURATION);
         } else if (
@@ -67,6 +74,7 @@ class Snackbar extends Component {
             // see if player tried to get item with full inventory
             this.setState({
                 show: `NOT ENOUGH SPACE FOR: ${tooManyItems.split('-')[0]}`,
+                item: item,
             });
             this.props.setTimeout(this.handleHideSnack, SNACK_DURATION);
         }
@@ -78,12 +86,15 @@ class Snackbar extends Component {
 
     render() {
         const { sideMenu, largeView } = this.props;
-        const { show } = this.state;
+        const { show, item } = this.state;
 
         let width;
         if (sideMenu) width = 400;
         else if (largeView) width = 398;
         else width = 350;
+
+        let showType = show ? show.substring(0, show.indexOf(':')) : show;
+        console.log(item);
 
         return (
             <div
@@ -102,7 +113,19 @@ class Snackbar extends Component {
                             : 'opacity .35s ease-in-out, z-index .35s step-start',
                 }}
             >
-                <span className="snackbar__text">{show}</span>
+                {showType === 'GOT NEW ITEM' ? (
+                    <div>
+                        <span className="snackbar__equip__text">{show}</span>
+                        <Button
+                            onClick={() => {
+                                equipItem(item);
+                            }}
+                            icon="hand-paper"
+                        />
+                    </div>
+                ) : (
+                    <span className="snackbar__text">{show}</span>
+                )}
             </div>
         );
     }
@@ -110,4 +133,6 @@ class Snackbar extends Component {
 
 const mapStateToProps = ({ snackbar }) => ({ snackbar });
 
-export default connect(mapStateToProps)(ReactTimeout(Snackbar));
+const actions = { equipItem };
+
+export default connect(mapStateToProps, actions)(ReactTimeout(Snackbar));
