@@ -37,16 +37,7 @@ class Stats extends Component {
 
     render() {
         const { disabled, stats, sideMenu, largeView } = this.props;
-        const {
-            level,
-            exp,
-            expToLevel,
-            damage,
-            defence,
-            hp,
-            maxHp,
-            gold,
-        } = stats;
+        const { abilities, level, exp, expToLevel, hp, maxHp, gold } = stats;
         const { statsBgColor } = this.state;
 
         let height = disabled ? 66 : 120;
@@ -74,6 +65,13 @@ class Stats extends Component {
         if (sideMenu) width = 330;
         else if (largeView) width = 360;
         else width = 324;
+
+        let STRbonus = Math.floor((abilities.strength - 10) / 2);
+        let CONbonus = Math.floor((abilities.constitution - 10) / 2);
+        let DEXbonus = Math.floor((abilities.dexterity - 10) / 2);
+        let CHRbonus = Math.floor((abilities.charisma - 10) / 2);
+        let INTbonus = Math.floor((abilities.intelligence - 10) / 2);
+        let WISbonus = Math.floor((abilities.wisdom - 10) / 2);
 
         return (
             <div
@@ -118,7 +116,15 @@ class Stats extends Component {
                                     {'STR: '}
                                 </span>
                                 <span className="stats__text--melee">
-                                    {damage + ' (+' + '10' + ')'}
+                                    {STRbonus > 0
+                                        ? abilities.strength +
+                                          ' (+' +
+                                          STRbonus +
+                                          ')'
+                                        : abilities.strength +
+                                          ' (' +
+                                          STRbonus +
+                                          ')'}
                                 </span>
                             </div>
 
@@ -127,7 +133,15 @@ class Stats extends Component {
                                     {'CON: '}
                                 </span>
                                 <span className="stats__text--melee">
-                                    {defence + ' (+' + '10' + ')'}
+                                    {CONbonus > 0
+                                        ? abilities.constitution +
+                                          ' (+' +
+                                          CONbonus +
+                                          ')'
+                                        : abilities.constitution +
+                                          ' (' +
+                                          CONbonus +
+                                          ')'}
                                 </span>
                             </div>
                         </div>
@@ -172,7 +186,15 @@ class Stats extends Component {
                                     {'DEX: '}
                                 </span>
                                 <span className="stats__text--ranged">
-                                    {30 + ' (+' + '10' + ')'}
+                                    {DEXbonus > 0
+                                        ? abilities.dexterity +
+                                          ' (+' +
+                                          DEXbonus +
+                                          ')'
+                                        : abilities.dexterity +
+                                          ' (' +
+                                          DEXbonus +
+                                          ')'}
                                 </span>
                             </div>
 
@@ -181,7 +203,15 @@ class Stats extends Component {
                                     {'CHR: '}
                                 </span>
                                 <span className="stats__text--ranged">
-                                    {30 + ' (+' + '10' + ')'}
+                                    {CHRbonus > 0
+                                        ? abilities.charisma +
+                                          ' (+' +
+                                          CHRbonus +
+                                          ')'
+                                        : abilities.charisma +
+                                          ' (' +
+                                          CHRbonus +
+                                          ')'}
                                 </span>
                             </div>
                         </div>
@@ -228,7 +258,15 @@ class Stats extends Component {
                                     {'INT: '}
                                 </span>
                                 <span className="stats__text--magic">
-                                    {30 + ' (+' + '10' + ')'}
+                                    {INTbonus > 0
+                                        ? abilities.intelligence +
+                                          ' (+' +
+                                          INTbonus +
+                                          ')'
+                                        : abilities.intelligence +
+                                          ' (' +
+                                          INTbonus +
+                                          ')'}
                                 </span>
                             </div>
 
@@ -237,7 +275,15 @@ class Stats extends Component {
                                     {'WIS: '}
                                 </span>
                                 <span className="stats__text--magic">
-                                    {30 + ' (+' + '10' + ')'}
+                                    {WISbonus > 0
+                                        ? abilities.wisdom +
+                                          ' (+' +
+                                          WISbonus +
+                                          ')'
+                                        : abilities.wisdom +
+                                          ' (' +
+                                          WISbonus +
+                                          ')'}
                                 </span>
                             </div>
                         </div>
