@@ -11,6 +11,7 @@ const Button = ({
     onClick,
     small,
     extraClass,
+    selected,
 }) => {
     function handleClick() {
         if (typeof onClick === 'function') {
@@ -25,8 +26,8 @@ const Button = ({
             className={`button__container white-border ${
                 small ? 'button__container--small' : ''
             } ${extraClass ? extraClass : ''}`}
-            style={style || {}}
             onClick={handleClick}
+            color="primary"
         >
             {icon && (
                 <i
