@@ -100,7 +100,7 @@ const AbilityDialog = ({
                     />
                     <span className="ability-score-dialog__text">
                         Ability Points remaining:{' '}
-                        <span className="ability-score-dialog__button">
+                        <span className="ability-score-dialog__points">
                             {points}
                         </span>
                     </span>
