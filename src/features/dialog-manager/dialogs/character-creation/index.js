@@ -8,6 +8,29 @@ import createCharacter from '../../actions/create-character';
 import './styles.scss';
 
 const CharacterCreation = ({ createCharacter }) => {
+    var characterClass = '';
+    var characterRace = '';
+
+    const handleClass = newClass => {
+        characterClass = newClass;
+        // changePath("/details", history);
+        // onConfirmClick(selectedTime);
+    };
+
+    const handleRace = newRace => {
+        console.log(characterRace);
+        console.log(newRace);
+        console.log(characterRace === newRace);
+
+        characterRace = newRace;
+
+        console.log(characterRace);
+        console.log(newRace);
+        console.log(characterRace === newRace);
+        // changePath("/details", history);
+        // onConfirmClick(selectedTime);
+    };
+
     return (
         <Dialog onKeyPress={createCharacter}>
             <div className="character-creation__title">
@@ -22,7 +45,7 @@ const CharacterCreation = ({ createCharacter }) => {
                 <input
                     name="Character name"
                     type="text"
-                    maxlength="512"
+                    maxLength="512"
                     id="character-name"
                     // className="character-creation__input"
                     style={{
@@ -40,15 +63,41 @@ const CharacterCreation = ({ createCharacter }) => {
                 <div className="container space-around">
                     <Button
                         title={'Human'}
-                        extraClass="character-creation__select-button"
+                        // extraClass="character-creation__select-button selected"
+                        extraClass={
+                            'Human' === characterRace
+                                ? 'character-creation__select-button selected'
+                                : 'character-creation__select-button unselected'
+                        }
+                        onClick={() => handleRace('Human')}
+                        // style = {{backgroundColor: "green"}}
+                        // style = {{backgroundColor: {'Human' === characterRace ? "yellow" : "green"}}}
+                        // {'Human' === characterRace ? style={{backgroundColor: "green"}} : style={{backgroundColor: "yellow"}}}
+                        // backgroundColor={'Human' === characterRace ? "yellow" : "green"}
+                        // color={"green"}
+                        // {...characterRace == }
                     />
                     <Button
                         title={'Elf'}
-                        extraClass="character-creation__select-button"
+                        // extraClass="character-creation__select-button"
+                        extraClass={
+                            'Elf' === characterRace
+                                ? 'character-creation__select-button selected'
+                                : 'character-creation__select-button unselected'
+                        }
+                        onClick={() => handleRace('Elf')}
+                        // onClick={() => handleRace(this.title)}
                     />
                     <Button
                         title={'Dwarf'}
-                        extraClass="character-creation__select-button"
+                        // extraClass="character-creation__select-button"
+                        extraClass={
+                            'Dwarf' === characterRace
+                                ? 'character-creation__select-button selected'
+                                : 'character-creation__select-button unselected'
+                        }
+                        onClick={() => handleRace('Dwarf')}
+                        // onClick={() => handleRace(this.title)}
                     />
                 </div>
 
@@ -57,14 +106,17 @@ const CharacterCreation = ({ createCharacter }) => {
                     <Button
                         title={'Fighter'}
                         extraClass="character-creation__select-button"
+                        // onClick={() => handleClass(this.title)}
                     />
                     <Button
                         title={'Wizard'}
                         extraClass="character-creation__select-button"
+                        // onClick={() => handleClass(this.title)}
                     />
                     <Button
                         title={'Ranger'}
                         extraClass="character-creation__select-button"
+                        // onClick={() => handleClass(this.title)}
                     />
                 </div>
             </div>

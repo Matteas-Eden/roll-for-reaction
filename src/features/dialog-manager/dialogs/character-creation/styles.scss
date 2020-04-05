@@ -52,3 +52,11 @@
     width: 6em;
     float: left !important;
 }
+
+.selected {
+    background-color: green !important;
+}
+
+.unselected {
+    background-color: yellow !important;
+}

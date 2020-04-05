@@ -13,6 +13,7 @@ const Button = ({
     tiny,
     noBorder,
     extraClass,
+    selected,
 }) => {
     function handleClick() {
         if (typeof onClick === 'function') {
@@ -31,8 +32,8 @@ const Button = ({
                     ? 'button__container--tiny'
                     : ''
             } ${extraClass ? extraClass : ''}`}
-            style={style || {}}
             onClick={handleClick}
+            color="primary"
         >
             {icon && (
                 <i
