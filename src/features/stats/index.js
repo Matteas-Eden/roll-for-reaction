@@ -71,7 +71,7 @@ class Stats extends Component {
         else padding = '12px';
 
         let width;
-        if (sideMenu) width = 330;
+        if (sideMenu) width = 340;
         else if (largeView) width = 360;
         else width = 324;
 
@@ -107,8 +107,8 @@ class Stats extends Component {
                             <div
                                 className="flex-row"
                                 style={{
-                                    paddingBottom: sideMenu ? 32 : 15,
-                                    paddingTop: sideMenu ? 32 : 0,
+                                    paddingBottom: sideMenu ? 10 : 15,
+                                    paddingTop: sideMenu ? 10 : 0,
                                 }}
                             >
                                 <span className="stats-hp-bar__container">
@@ -169,8 +169,8 @@ class Stats extends Component {
                                 <div
                                     className="flex-row"
                                     style={
-                                        ({ paddingBottom: sideMenu ? 32 : 0 },
-                                        { paddingTop: sideMenu ? 32 : 0 })
+                                        ({ paddingBottom: sideMenu ? 10 : 0 },
+                                        { paddingTop: sideMenu ? 10 : 0 })
                                     }
                                 >
                                     <span className="stats-mana-bar__container">
@@ -190,7 +190,7 @@ class Stats extends Component {
 
                             <div
                                 className="flex-row"
-                                style={{ paddingTop: sideMenu ? 0 : 0 }}
+                                style={{ paddingTop: sideMenu ?  10 : 0 }}
                             >
                                 <span className="stats__text--spacing">
                                     {'DEX: '}
@@ -225,7 +225,7 @@ class Stats extends Component {
                                     className={`flex-row ${
                                         sideMenu ? '' : 'flex-1'
                                     }`}
-                                    style={{ paddingTop: sideMenu ? 32 : 36 }}
+                                    style={{ paddingTop: sideMenu ? 38 : 36 }}
                                 >
                                     <span className="exp-bar__container">
                                         <span className="flex-row stats-exp-bar__text">
@@ -244,7 +244,7 @@ class Stats extends Component {
 
                             <div
                                 className="flex-row"
-                                style={{ paddingTop: sideMenu ? 0 : 0 }}
+                                style={{ paddingTop: sideMenu ? 9 : 0 }}
                             >
                                 <span className="stats__text--spacing">
                                     {'INT: '}
