@@ -92,7 +92,10 @@ class Stats extends Component {
                 {!disabled && (
                     <>
                         <div className="flex-column">
-                            <div className="flex-row">
+                            <div
+                                className="flex-row"
+                                style={{ paddingBottom: sideMenu ? 0 : 15 }}
+                            >
                                 <span className="stats__text--spacing">
                                     {'LEVEL: '}
                                 </span>
@@ -100,22 +103,31 @@ class Stats extends Component {
                                     {level}
                                 </span>
                             </div>
+
                             <div
-                                className={`flex-row ${
-                                    sideMenu ? '' : 'stats__row--spacing'
-                                }`}
+                                className="flex-row"
+                                style={{
+                                    paddingBottom: sideMenu ? 32 : 15,
+                                    paddingTop: sideMenu ? 32 : 0,
+                                }}
                             >
-                                <span className="stats__text--spacing">
-                                    {'GOLD: '}
-                                </span>
-                                <span className="stats__text--gold">
-                                    {gold}
+                                <span className="stats-hp-bar__container">
+                                    <span className="flex-row stats-health-bar__text">
+                                        {hp + '/' + maxHp}
+                                    </span>
+                                    <span
+                                        className="stats-hp-bar__value"
+                                        style={{
+                                            width: `${hpPercent}%`,
+                                            borderRadius: hpBorder,
+                                        }}
+                                    ></span>
                                 </span>
                             </div>
 
                             <div
                                 className="flex-row"
-                                style={{ paddingTop: sideMenu ? 0 : 10 }}
+                                style={{ paddingTop: sideMenu ? 0 : 0 }}
                             >
                                 <span className="stats__text--spacing">
                                     {'STR: '}
@@ -137,20 +149,15 @@ class Stats extends Component {
 
                         <div className={`flex-column ${columnStyle}`}>
                             <div
-                                className="flex-row"
-                                style={{ paddingBottom: sideMenu ? 32 : 10 }}
+                                className={`flex-row ${
+                                    sideMenu ? '' : 'stats__row--spacing'
+                                }`}
                             >
-                                <span className="stats-hp-bar__container">
-                                    <span className="flex-row stats-health-bar__text">
-                                        {hp + '/' + maxHp}
-                                    </span>
-                                    <span
-                                        className="stats-hp-bar__value"
-                                        style={{
-                                            width: `${hpPercent}%`,
-                                            borderRadius: hpBorder,
-                                        }}
-                                    ></span>
+                                <span className="stats__text--spacing">
+                                    {'GOLD: '}
+                                </span>
+                                <span className="stats__text--gold">
+                                    {gold}
                                 </span>
                             </div>
 
@@ -161,7 +168,10 @@ class Stats extends Component {
                             >
                                 <div
                                     className="flex-row"
-                                    style={{ paddingBottom: sideMenu ? 32 : 0 }}
+                                    style={
+                                        ({ paddingBottom: sideMenu ? 32 : 0 },
+                                        { paddingTop: sideMenu ? 32 : 0 })
+                                    }
                                 >
                                     <span className="stats-mana-bar__container">
                                         <span className="flex-row stats-mana-bar__text">
@@ -215,7 +225,7 @@ class Stats extends Component {
                                     className={`flex-row ${
                                         sideMenu ? '' : 'flex-1'
                                     }`}
-                                    style={{ paddingBottom: sideMenu ? 32 : 0 }}
+                                    style={{ paddingTop: sideMenu ? 32 : 36 }}
                                 >
                                     <span className="exp-bar__container">
                                         <span className="flex-row stats-exp-bar__text">
@@ -234,7 +244,7 @@ class Stats extends Component {
 
                             <div
                                 className="flex-row"
-                                style={{ paddingTop: sideMenu ? 0 : 30 }}
+                                style={{ paddingTop: sideMenu ? 0 : 0 }}
                             >
                                 <span className="stats__text--spacing">
                                     {'INT: '}
