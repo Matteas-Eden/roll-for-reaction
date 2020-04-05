@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import ReactTimeout from 'react-timeout';
 
 import { ANIMATION_SPEED } from '../../config/constants';
+import calculateModifier from '../../utils/calculate-modifier';
 
 import './styles.scss';
 
@@ -66,12 +67,19 @@ class Stats extends Component {
         else if (largeView) width = 360;
         else width = 324;
 
-        let STRbonus = Math.floor((abilities.strength - 10) / 2);
-        let CONbonus = Math.floor((abilities.constitution - 10) / 2);
-        let DEXbonus = Math.floor((abilities.dexterity - 10) / 2);
-        let CHRbonus = Math.floor((abilities.charisma - 10) / 2);
-        let INTbonus = Math.floor((abilities.intelligence - 10) / 2);
-        let WISbonus = Math.floor((abilities.wisdom - 10) / 2);
+        // let STRbonus = Math.floor((abilities.strength - 10) / 2);
+        // let CONbonus = Math.floor((abilities.constitution - 10) / 2);
+        // let DEXbonus = Math.floor((abilities.dexterity - 10) / 2);
+        // let CHRbonus = Math.floor((abilities.charisma - 10) / 2);
+        // let INTbonus = Math.floor((abilities.intelligence - 10) / 2);
+        // let WISbonus = Math.floor((abilities.wisdom - 10) / 2);
+
+        let STRbonus = calculateModifier(abilities.strength);
+        let CONbonus = calculateModifier(abilities.constitution);
+        let DEXbonus = calculateModifier(abilities.dexterity);
+        let CHRbonus = calculateModifier(abilities.charisma);
+        let INTbonus = calculateModifier(abilities.intelligence);
+        let WISbonus = calculateModifier(abilities.wisdom);
 
         return (
             <div
