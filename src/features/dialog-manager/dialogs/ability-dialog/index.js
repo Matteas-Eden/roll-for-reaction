@@ -17,7 +17,6 @@ import incrementDexterity from './actions/increment-dexterity';
 import decrementCharisma from './actions/decrement-charisma';
 import incrementCharisma from './actions/increment-charisma';
 
-
 import setAbilityScores from '../../actions/set-ability-scores';
 import closeDialog from '../../actions/close-dialog';
 import Dialog from '../../../../components/dialog';
@@ -64,10 +63,10 @@ const AbilityDialog = ({
                         Modify your Abilities
                     </span>
                     <Ability
-                        name="Charisma"
-                        value={charisma}
-                        increment={incrementCharisma}
-                        decrement={decrementCharisma}
+                        name="Strength"
+                        value={strength}
+                        increment={incrementStrength}
+                        decrement={decrementStrength}
                     />
                     <Ability
                         name="Constitution"
@@ -82,16 +81,16 @@ const AbilityDialog = ({
                         decrement={decrementDexterity}
                     />
                     <Ability
+                        name="Charisma"
+                        value={charisma}
+                        increment={incrementCharisma}
+                        decrement={decrementCharisma}
+                    />
+                    <Ability
                         name="Intelligence"
                         value={intelligence}
                         increment={incrementIntelligence}
                         decrement={decrementIntelligence}
-                    />
-                    <Ability
-                        name="Strength"
-                        value={strength}
-                        increment={incrementStrength}
-                        decrement={decrementStrength}
                     />
                     <Ability
                         name="Wisdom"
@@ -115,7 +114,6 @@ const AbilityDialog = ({
         </>
     );
 };
-
 
 const mapStateToProps = ({ dialog }) => ({ dialog });
 const actions = {
