@@ -4,7 +4,7 @@ export default function abilityScoreDialog() {
             type: 'PAUSE',
             payload: {
                 pause: true,
-                abilities: true,
+                abilityDialog: true,
             },
         });
     };

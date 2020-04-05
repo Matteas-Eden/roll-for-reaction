@@ -17,13 +17,14 @@ import incrementDexterity from './actions/increment-dexterity';
 import decrementCharisma from './actions/decrement-charisma';
 import incrementCharisma from './actions/increment-charisma';
 
+import setAbilityScores from '../../actions/set-ability-scores';
 import closeDialog from '../../actions/close-dialog';
 import Dialog from '../../../../components/dialog';
 
 import './styles.scss';
 
 const AbilityDialog = ({
-    stats,
+    dialog,
     closeDialog,
     decrementIntelligence,
     incrementIntelligence,
@@ -37,6 +38,7 @@ const AbilityDialog = ({
     incrementDexterity,
     decrementCharisma,
     incrementCharisma,
+    setAbilityScores,
 }) => {
     const {
         constitution,
@@ -45,10 +47,17 @@ const AbilityDialog = ({
         strength,
         wisdom,
         charisma,
-    } = stats.abilities;
+        points,
+    } = dialog.abilities;
+
+    const finishAllocation = () => {
+        setAbilityScores();
+        closeDialog();
+    };
+
     return (
         <>
-            <Dialog onKeyPress={closeDialog}>
+            <Dialog onKeyPress={finishAllocation}>
                 <div className="flex-column ability-score-dialog__container">
                     <span className="game-text-dialog__text">
                         Modify your Abilities
@@ -92,12 +101,12 @@ const AbilityDialog = ({
                     <span className="ability-score-dialog__text">
                         Ability Points remaining:{' '}
                         <span className="ability-score-dialog__button">
-                            {stats.points}
+                            {points}
                         </span>
                     </span>
                     <Button
                         title="Confirm"
-                        onClick={closeDialog}
+                        onClick={finishAllocation}
                         small={true}
                     />
                 </div>
@@ -106,7 +115,7 @@ const AbilityDialog = ({
     );
 };
 
-const mapStateToProps = ({ stats }) => ({ stats });
+const mapStateToProps = ({ dialog }) => ({ dialog });
 const actions = {
     closeDialog,
     decrementIntelligence,
@@ -121,5 +130,6 @@ const actions = {
     incrementDexterity,
     decrementCharisma,
     incrementCharisma,
+    setAbilityScores,
 };
 export default connect(mapStateToProps, actions)(AbilityDialog);
