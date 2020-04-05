@@ -17,6 +17,7 @@ import incrementDexterity from './actions/increment-dexterity';
 import decrementCharisma from './actions/decrement-charisma';
 import incrementCharisma from './actions/increment-charisma';
 
+
 import setAbilityScores from '../../actions/set-ability-scores';
 import closeDialog from '../../actions/close-dialog';
 import Dialog from '../../../../components/dialog';
@@ -114,6 +115,7 @@ const AbilityDialog = ({
         </>
     );
 };
+
 
 const mapStateToProps = ({ dialog }) => ({ dialog });
 const actions = {
