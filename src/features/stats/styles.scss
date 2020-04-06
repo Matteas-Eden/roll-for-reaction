@@ -15,16 +15,19 @@
     padding-right: 10px;
     font-size: 15px;
     text-indent: -5px;
+    font-family: "Roboto Mono";
 }
 
 .stats__text--level {
     color: var(--blue);
     font-size: 18px;
+    font-family: "Roboto Mono";
 }
 
 .stats__text--gold {
     color: var(--orange);
     font-size: 18px;
+    font-family: "Roboto Mono";
 }
 
 .stats__text--blank {
@@ -34,16 +37,19 @@
 .stats__text--melee {
     color: var(--light-red);
     font-size: 14px;
+    font-family: "Roboto Mono";
 }
 
 .stats__text--ranged {
     color: var(--green);
     font-size: 14px;
+    font-family: "Roboto Mono";
 }
 
 .stats__text--magic {
     color: var(--blue);
     font-size: 14px;
+    font-family: "Roboto Mono";
 }
 
 .stats-column__spacing {
