@@ -94,7 +94,6 @@ class Snackbar extends Component {
         else width = 350;
 
         let showType = show ? show.substring(0, show.indexOf(':')) : show;
-        console.log(item);
 
         return (
             <div
@@ -131,7 +130,7 @@ class Snackbar extends Component {
     }
 }
 
-const mapStateToProps = ({ snackbar }) => ({ snackbar });
+const mapStateToProps = ({ snackbar, stats }) => ({ snackbar, stats });
 
 const actions = { equipItem };
 
