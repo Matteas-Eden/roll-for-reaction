@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import Button from '../../../../components/button';
 import Dialog from '../../../../components/dialog';
-// import abilityScoreDialog from '../../actions/ability-score-dialog';
 import closeDialog from '../../actions/close-dialog';
 
 import './styles.scss';
