@@ -1,4 +1,4 @@
-export default function confirmAbilityDialog() {
+export default function confirmAbilityScoreDialog() {
     return (dispatch, getState) => {
         const {
             constitution,
