@@ -80,7 +80,7 @@ class Snackbar extends Component {
         ) {
             // see if player tried to get item with full inventory
             this.setState({
-                show: `NOT ENOUGH SPACE FOR: ${tooManyItems.split('-')[0]}`,
+                show: `NO ROOM FOR: ${tooManyItems.split('-')[0]}`,
                 item: item,
             });
             this.props.setTimeout(this.handleHideSnack, SNACK_DURATION);
