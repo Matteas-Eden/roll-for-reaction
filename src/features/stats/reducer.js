@@ -28,15 +28,6 @@ const initialState = {
 
 const statsReducer = (state = initialState, { type, payload }) => {
     let newState;
-    const { points, abilities } = state;
-    const {
-        constitution,
-        intelligence,
-        strength,
-        dexterity,
-        wisdom,
-        charisma,
-    } = abilities;
 
     switch (type) {
         case 'GET_GOLD':
