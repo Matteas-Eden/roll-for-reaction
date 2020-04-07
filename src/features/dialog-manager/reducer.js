@@ -18,6 +18,7 @@ const initialState = {
     settings: false,
     inventory: false,
     levelUp: false,
+    fromLevelUp: false,
     abilityDialog: false,
     playerCustomisation: false,
     abilities: {
@@ -36,10 +37,18 @@ const initialState = {
         armourColour: '#7f3291',
         clothesColour: '#c03a28',
     },
+    abilities_minimum: {
+        min_constitution: 0,
+        min_dexterity: 0,
+        min_strength: 0,
+        min_wisdom: 0,
+        min_intelligence: 0,
+        min_charisma: 0,
+    },
 };
 
 const dialogManagerReducer = (state = initialState, { type, payload }) => {
-    const { abilities, appearance } = state;
+    const { abilities, abilities_minimum, appearance } = state;
     const {
         constitution,
         intelligence,
@@ -49,6 +58,7 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
         charisma,
         points,
     } = abilities;
+
     const {
         hairColour,
         eyeColour,
@@ -56,6 +66,15 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
         armourColour,
         clothesColour,
     } = appearance;
+
+    const {
+        min_constitution,
+        min_intelligence,
+        min_strength,
+        min_dexterity,
+        min_wisdom,
+        min_charisma,
+    } = abilities_minimum;
 
     switch (type) {
         case 'PAUSE':
@@ -70,6 +89,7 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
                 gameSelect,
                 gameInstructions,
                 levelUp,
+                fromLevelUp,
                 abilityDialog,
                 playerCustomisation,
                 pause,
@@ -78,6 +98,7 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 levelUp: levelUp || false,
+                fromLevelUp: fromLevelUp || false,
                 shop: shop || false,
                 chest: chest || false,
                 gameStart: gameStart || false,
@@ -130,6 +151,20 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
 
             return state;
 
+        case 'LEVEL_UP_ABILITIES':
+            return {
+                ...state,
+                abilities: payload.abilities,
+                abilities_minimum: {
+                    min_charisma: payload.abilities.charisma,
+                    min_constitution: payload.abilities.constitution,
+                    min_strength: payload.abilities.strength,
+                    min_intelligence: payload.abilities.intelligence,
+                    min_wisdom: payload.abilities.wisdom,
+                    min_dexterity: payload.abilities.dexterity,
+                },
+            };
+
         case 'INCREMENT_CHARISMA':
             if (points < 1 || charisma >= MAX_ABILITY_SCORE) {
                 return { ...state };
@@ -143,7 +178,7 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
                 },
             };
         case 'DECREMENT_CHARISMA':
-            if (charisma < 1) {
+            if (charisma <= min_charisma) {
                 return { ...state };
             }
             return {
@@ -168,7 +203,7 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
             };
 
         case 'DECREMENT_CONSTITUTION':
-            if (constitution < 1) {
+            if (constitution <= min_constitution) {
                 return { ...state };
             }
             return {
@@ -193,7 +228,7 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
                 },
             };
         case 'DECREMENT_STRENGTH':
-            if (strength < 1) {
+            if (strength <= min_strength) {
                 return { ...state };
             }
             return {
@@ -218,7 +253,7 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
                 },
             };
         case 'DECREMENT_WISDOM':
-            if (wisdom < 1) {
+            if (wisdom <= min_wisdom) {
                 return { ...state };
             }
             return {
@@ -243,7 +278,7 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
                 },
             };
         case 'DECREMENT_DEXTERITY':
-            if (dexterity < 1) {
+            if (dexterity <= min_dexterity) {
                 return { ...state };
             }
             return {
@@ -268,7 +303,7 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
                 },
             };
         case 'DECREMENT_INTELLIGENCE':
-            if (intelligence < 1) {
+            if (intelligence <= min_intelligence) {
                 return { ...state };
             }
             return {
