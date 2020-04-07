@@ -51,7 +51,7 @@ class Snackbar extends Component {
         ) {
             // see if any items were received
             this.setState({
-                show: `GOT NEW ITEM: ${itemReceived.split('-')[0]}`,
+                show: `NEW ITEM: ${itemReceived.split('-')[0]}`,
                 item: item,
             });
             this.props.setTimeout(this.handleHideSnack, SNACK_DURATION);
@@ -100,9 +100,9 @@ class Snackbar extends Component {
                 className="snackbar__container white-border"
                 style={{
                     marginLeft: sideMenu ? -402 : 0,
-                    top: sideMenu ? 340 : -50,
+                    top: sideMenu ? 350 : -50,
                     width,
-                    height: sideMenu ? 50 : 40,
+                    height: sideMenu ? 40 : 40,
                     fontSize: sideMenu ? 18 : 20,
                     opacity: show === '' ? 0 : 1,
                     zIndex: show === '' ? 0 : 151,
@@ -112,15 +112,20 @@ class Snackbar extends Component {
                             : 'opacity .35s ease-in-out, z-index .35s step-start',
                 }}
             >
-                {showType === 'GOT NEW ITEM' ? (
+                {showType === 'NEW ITEM' ? (
                     <div>
-                        <span className="snackbar__equip__text">{show}</span>
-                        <Button
-                            onClick={() => {
-                                equipItem(item);
-                            }}
-                            icon="hand-paper"
-                        />
+                        <span className="snackbar__equip__text">
+                            {show}
+                            <button
+                                className="snackbar__equip__button white-border"
+                                onClick={() => {
+                                    this.props.equipItem(item);
+                                    this.handleHideSnack();
+                                }}
+                            >
+                                <i class="fa fa-hand-paper button__icon" />
+                            </button>
+                        </span>
                     </div>
                 ) : (
                     <span className="snackbar__text">{show}</span>
