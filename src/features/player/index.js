@@ -10,7 +10,14 @@ import PlayerDeath from './assets/player-death.mp3';
 import SwordSlash from './assets/sword-slash.png';
 import PlayerStep from './assets/player-step.wav';
 import SwordSwish from './assets/player-sword-swish.wav';
-import WalkSprite from './assets/player_walk.png';
+
+import PlayerHair from './assets/player-hair.png';
+import PlayerEyes from './assets/player-eyes.png';
+import PlayerSkin from './assets/player-skin.png';
+import PlayerArmour from './assets/player-armour.png';
+import PlayerClothes from './assets/player-clothes.png';
+import PlayerOutline from './assets/player-outline.png';
+
 import { ANIMATION_SPEED, SPRITE_SIZE } from '../../config/constants';
 
 import './styles.scss';
@@ -55,8 +62,75 @@ class Player extends Component {
                 if (frame > 7 || frame < 0) frame = 0;
 
                 ctx.clearRect(0, 0, SPRITE_SIZE, SPRITE_SIZE);
+                // Draw player hair
+                ctx.filter = 'none';
                 ctx.drawImage(
-                    this.sprite,
+                    this.sprite.hair,
+                    frame * SPRITE_SIZE,
+                    spriteLine,
+                    SPRITE_SIZE,
+                    SPRITE_SIZE,
+                    0,
+                    0,
+                    SPRITE_SIZE,
+                    SPRITE_SIZE
+                );
+                // Draw player eyes
+                ctx.filter = 'none';
+                ctx.drawImage(
+                    this.sprite.eyes,
+                    frame * SPRITE_SIZE,
+                    spriteLine,
+                    SPRITE_SIZE,
+                    SPRITE_SIZE,
+                    0,
+                    0,
+                    SPRITE_SIZE,
+                    SPRITE_SIZE
+                );
+                // Draw player skin
+                ctx.filter = 'none';
+                ctx.drawImage(
+                    this.sprite.skin,
+                    frame * SPRITE_SIZE,
+                    spriteLine,
+                    SPRITE_SIZE,
+                    SPRITE_SIZE,
+                    0,
+                    0,
+                    SPRITE_SIZE,
+                    SPRITE_SIZE
+                );
+                // Draw player armour
+                ctx.filter = 'none';
+                ctx.drawImage(
+                    this.sprite.armour,
+                    frame * SPRITE_SIZE,
+                    spriteLine,
+                    SPRITE_SIZE,
+                    SPRITE_SIZE,
+                    0,
+                    0,
+                    SPRITE_SIZE,
+                    SPRITE_SIZE
+                );
+                // Draw player clothes
+                ctx.filter = 'none';
+                ctx.drawImage(
+                    this.sprite.clothes,
+                    frame * SPRITE_SIZE,
+                    spriteLine,
+                    SPRITE_SIZE,
+                    SPRITE_SIZE,
+                    0,
+                    0,
+                    SPRITE_SIZE,
+                    SPRITE_SIZE
+                );
+                // Draw player outline
+                ctx.filter = 'none';
+                ctx.drawImage(
+                    this.sprite.outline,
                     frame * SPRITE_SIZE,
                     spriteLine,
                     SPRITE_SIZE,
@@ -100,8 +174,22 @@ class Player extends Component {
     }
 
     componentDidMount() {
-        this.sprite = new Image();
-        this.sprite.src = WalkSprite;
+        this.sprite = {
+            hair: new Image(),
+            eyes: new Image(),
+            skin: new Image(),
+            armour: new Image(),
+            clothes: new Image(),
+            outline: new Image(),
+        };
+
+        this.sprite.hair.src = PlayerHair;
+        this.sprite.eyes.src = PlayerEyes;
+        this.sprite.skin.src = PlayerSkin;
+        this.sprite.armour.src = PlayerArmour;
+        this.sprite.clothes.src = PlayerClothes;
+        this.sprite.outline.src = PlayerOutline;
+
         this.sprite.onload = () => {
             this.avatar('draw', this.directionMap[this.props.player.direction]);
         };
