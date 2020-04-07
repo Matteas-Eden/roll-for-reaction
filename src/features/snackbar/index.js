@@ -3,7 +3,6 @@ import ReactTimeout from 'react-timeout';
 import { connect } from 'react-redux';
 
 import { SNACK_DURATION } from '../../config/constants';
-import Button from '../../components/button';
 import equipItem from '../inventory/actions/equip-item';
 
 import './styles.scss';
@@ -112,14 +111,16 @@ class Snackbar extends Component {
                             : 'opacity .35s ease-in-out, z-index .35s step-start',
                 }}
             >
-                {showType === 'NEW ITEM' && item.type != 'potion' ? (
+                {showType === 'NEW ITEM' && item.type !== 'potion' ? (
                     <div>
                         <span className="snackbar__equip__text">
                             {show}
                             <button
                                 className="snackbar__equip__button white-border"
                                 onClick={() => {
-                                    this.props.equipItem(item);
+                                    this.props.equipItem(
+                                        this.props.inventory.items.slice(-1)[0]
+                                    );
                                     this.handleHideSnack();
                                 }}
                             >
@@ -135,7 +136,7 @@ class Snackbar extends Component {
     }
 }
 
-const mapStateToProps = ({ snackbar, stats }) => ({ snackbar, stats });
+const mapStateToProps = ({ snackbar, inventory }) => ({ snackbar, inventory });
 
 const actions = { equipItem };
 
