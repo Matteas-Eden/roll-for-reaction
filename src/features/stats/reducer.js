@@ -1,10 +1,5 @@
 import _cloneDeep from 'lodash.clonedeep';
 
-import {
-    MAX_ABILITY_SCORE,
-    STARTING_ABILITY_SCORE_VALUE,
-} from '../../config/constants';
-
 const initialState = {
     abilities: {
         constitution: 0,
