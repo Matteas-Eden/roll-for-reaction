@@ -37,11 +37,19 @@ class Snackbar extends Component {
             itemDropped &&
             typeof itemDropped !== 'undefined'
         ) {
-            // see if any items were dropped
-            this.setState({
-                show: `LOST AN ITEM: ${itemDropped.split('-')[0]}`,
-                item: item,
-            });
+            // see if potion was dropped (i.e. used)
+            if (item.type === 'potion') {
+                this.setState({
+                    show: `USED ITEM: ${itemDropped.split('-')[0]}`,
+                    item: item,
+                });
+            } else {
+                // see if any items were dropped
+                this.setState({
+                    show: `LOST ITEM: ${itemDropped.split('-')[0]}`,
+                    item: item,
+                });
+            }
             this.props.setTimeout(this.handleHideSnack, SNACK_DURATION);
         } else if (
             lastItemReceived !== itemReceived &&
