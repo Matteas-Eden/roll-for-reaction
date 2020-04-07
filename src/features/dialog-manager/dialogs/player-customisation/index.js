@@ -19,12 +19,15 @@ const PlayerCustomisation = ({
     return (
         <>
             <Dialog onKeyPress={finishCustomisation}>
-                <h1>Hello World</h1>
-                <Button
-                    title="Continue"
-                    onClick={finishCustomisation}
-                    small={true}
-                />
+                <div className="flex-column player-customisation__container">
+                    <h1>Hello World</h1>
+                    <Button
+                        title="Continue"
+                        onClick={finishCustomisation}
+                        small={true}
+                        icon="angle-double-right"
+                    />
+                </div>
             </Dialog>
         </>
     );
