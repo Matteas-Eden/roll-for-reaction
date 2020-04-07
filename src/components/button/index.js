@@ -17,7 +17,7 @@ const Button = ({
         }
     }
 
-    // if (!title) return null;
+    if (!title) return null;
 
     return (
         <button
