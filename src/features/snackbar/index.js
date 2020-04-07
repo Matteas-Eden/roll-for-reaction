@@ -112,7 +112,7 @@ class Snackbar extends Component {
                             : 'opacity .35s ease-in-out, z-index .35s step-start',
                 }}
             >
-                {showType === 'NEW ITEM' ? (
+                {showType === 'NEW ITEM' && item.type != 'potion' ? (
                     <div>
                         <span className="snackbar__equip__text">
                             {show}
