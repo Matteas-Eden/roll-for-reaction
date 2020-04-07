@@ -119,7 +119,10 @@ class Snackbar extends Component {
                                 className="snackbar__equip__button white-border"
                                 onClick={() => {
                                     this.props.equipItem(
-                                        this.props.inventory.items.slice(-1)[0]
+                                        this.props.inventory.items[
+                                            this.props.inventory.items.length -
+                                                1
+                                        ]
                                     );
                                     this.handleHideSnack();
                                 }}
