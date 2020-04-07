@@ -35,14 +35,9 @@ export const SCREEN_MEDIUM_HEIGHT = 680;
 export const MAP_PADDING_DISTANCE = 5;
 // set the time for the map to transition in/out
 export const MAP_TRANSITION_DELAY = 500;
-
-// Create the chest's name given it's (x, y) coordinates.
-export function chestName(map, x, y) {
-    return map + '(' + x + ',' + y + ')';
-}
-
-// Retrieve a coordinate (x, y) from a position.
-// This is mainly used to map the player to the specific (x, y) position in the map.
-export function spriteToCoordinates(position) {
-    return { x: position[0] / SPRITE_SIZE, y: position[1] / SPRITE_SIZE };
-}
+// The max value any ability score can have
+export const MAX_ABILITY_SCORE = 20;
+// The default value of an ability score
+export const STARTING_ABILITY_SCORE_VALUE = 8;
+// The starting points a player can allocate
+export const STARTING_ABILITY_POINTS = 40;

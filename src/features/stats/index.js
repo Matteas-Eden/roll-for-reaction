@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import ReactTimeout from 'react-timeout';
 
 import { ANIMATION_SPEED } from '../../config/constants';
+import calculateModifier from '../../utils/calculate-modifier';
 
 import './styles.scss';
 
@@ -37,16 +38,7 @@ class Stats extends Component {
 
     render() {
         const { disabled, stats, sideMenu, largeView } = this.props;
-        const {
-            level,
-            exp,
-            expToLevel,
-            damage,
-            defence,
-            hp,
-            maxHp,
-            gold,
-        } = stats;
+        const { abilities, level, exp, expToLevel, hp, maxHp, gold } = stats;
         const { statsBgColor } = this.state;
 
         let height = disabled ? 66 : 120;
@@ -71,9 +63,16 @@ class Stats extends Component {
         else padding = '12px';
 
         let width;
-        if (sideMenu) width = 330;
+        if (sideMenu) width = 340;
         else if (largeView) width = 360;
         else width = 324;
+
+        let STRbonus = calculateModifier(abilities.strength);
+        let CONbonus = calculateModifier(abilities.constitution);
+        let DEXbonus = calculateModifier(abilities.dexterity);
+        let CHRbonus = calculateModifier(abilities.charisma);
+        let INTbonus = calculateModifier(abilities.intelligence);
+        let WISbonus = calculateModifier(abilities.wisdom);
 
         return (
             <div
@@ -92,7 +91,10 @@ class Stats extends Component {
                 {!disabled && (
                     <>
                         <div className="flex-column">
-                            <div className="flex-row">
+                            <div
+                                className="flex-row"
+                                style={{ paddingBottom: sideMenu ? 0 : 15 }}
+                            >
                                 <span className="stats__text--spacing">
                                     {'LEVEL: '}
                                 </span>
@@ -100,6 +102,67 @@ class Stats extends Component {
                                     {level}
                                 </span>
                             </div>
+
+                            <div
+                                className="flex-row"
+                                style={{
+                                    paddingBottom: sideMenu ? 10 : 15,
+                                    paddingTop: sideMenu ? 10 : 0,
+                                }}
+                            >
+                                <span className="stats-hp-bar__container">
+                                    <span className="flex-row stats-health-bar__text">
+                                        {hp + '/' + maxHp}
+                                    </span>
+                                    <span
+                                        className="stats-hp-bar__value"
+                                        style={{
+                                            width: `${hpPercent}%`,
+                                            borderRadius: hpBorder,
+                                        }}
+                                    ></span>
+                                </span>
+                            </div>
+
+                            <div
+                                className="flex-row"
+                                style={{ paddingTop: sideMenu ? 0 : 0 }}
+                            >
+                                <span className="stats__text--spacing">
+                                    {'STR: '}
+                                </span>
+                                <span className="stats__text--melee">
+                                    {STRbonus > 0
+                                        ? abilities.strength +
+                                          ' (+' +
+                                          STRbonus +
+                                          ')'
+                                        : abilities.strength +
+                                          ' (' +
+                                          STRbonus +
+                                          ')'}
+                                </span>
+                            </div>
+
+                            <div className="flex-row">
+                                <span className="stats__text--spacing">
+                                    {'CON: '}
+                                </span>
+                                <span className="stats__text--melee">
+                                    {CONbonus > 0
+                                        ? abilities.constitution +
+                                          ' (+' +
+                                          CONbonus +
+                                          ')'
+                                        : abilities.constitution +
+                                          ' (' +
+                                          CONbonus +
+                                          ')'}
+                                </span>
+                            </div>
+                        </div>
+
+                        <div className={`flex-column ${columnStyle}`}>
                             <div
                                 className={`flex-row ${
                                     sideMenu ? '' : 'stats__row--spacing'
@@ -113,33 +176,6 @@ class Stats extends Component {
                                 </span>
                             </div>
 
-                            <div className="flex-row">
-                                <span className="stats__text--spacing">
-                                    {'STR: '}
-                                </span>
-                                <span className="stats__text--melee">
-                                    {damage + ' (+' + '10' + ')'}
-                                </span>
-                            </div>
-
-                            <div className="flex-row">
-                                <span className="stats__text--spacing">
-                                    {'CON: '}
-                                </span>
-                                <span className="stats__text--melee">
-                                    {defence + ' (+' + '10' + ')'}
-                                </span>
-                            </div>
-                        </div>
-
-                        <div className={`flex-column ${columnStyle}`}>
-                            <div className="flex-row">
-                                <span className="stats__text--spacing">{}</span>
-                                <span className="stats__text--blank">
-                                    {123123}
-                                </span>
-                            </div>
-
                             <div
                                 className={`flex-row ${
                                     sideMenu ? '' : 'stats__row--spacing'
@@ -147,14 +183,17 @@ class Stats extends Component {
                             >
                                 <div
                                     className="flex-row"
-                                    style={{ paddingBottom: sideMenu ? 32 : 0 }}
+                                    style={
+                                        ({ paddingBottom: sideMenu ? 10 : 0 },
+                                        { paddingTop: sideMenu ? 10 : 0 })
+                                    }
                                 >
-                                    <span className="stats-hp-bar__container">
-                                        <span className="flex-row stats-health-bar__text">
+                                    <span className="stats-mana-bar__container">
+                                        <span className="flex-row stats-mana-bar__text">
                                             {hp + '/' + maxHp}
                                         </span>
                                         <span
-                                            className="stats-hp-bar__value"
+                                            className="stats-mana-bar__value"
                                             style={{
                                                 width: `${hpPercent}%`,
                                                 borderRadius: hpBorder,
@@ -166,13 +205,21 @@ class Stats extends Component {
 
                             <div
                                 className="flex-row"
-                                style={{ paddingTop: sideMenu ? 0 : 25 }}
+                                style={{ paddingTop: sideMenu ? 10 : 0 }}
                             >
                                 <span className="stats__text--spacing">
                                     {'DEX: '}
                                 </span>
                                 <span className="stats__text--ranged">
-                                    {30 + ' (+' + '10' + ')'}
+                                    {DEXbonus > 0
+                                        ? abilities.dexterity +
+                                          ' (+' +
+                                          DEXbonus +
+                                          ')'
+                                        : abilities.dexterity +
+                                          ' (' +
+                                          DEXbonus +
+                                          ')'}
                                 </span>
                             </div>
 
@@ -181,16 +228,32 @@ class Stats extends Component {
                                     {'CHR: '}
                                 </span>
                                 <span className="stats__text--ranged">
-                                    {30 + ' (+' + '10' + ')'}
+                                    {CHRbonus > 0
+                                        ? abilities.charisma +
+                                          ' (+' +
+                                          CHRbonus +
+                                          ')'
+                                        : abilities.charisma +
+                                          ' (' +
+                                          CHRbonus +
+                                          ')'}
                                 </span>
                             </div>
                         </div>
 
                         <div className={`flex-column ${columnStyle}`}>
-                            <div className="flex-row">
+                            <div
+                                className="flex-row"
+                                style={{ paddingTop: sideMenu ? 7 : 37 }}
+                            >
                                 <span className="stats__text--spacing">{}</span>
-                                <span className="stats__text--blank">
-                                    {123123}
+                                <span
+                                    className="stats__text--blank"
+                                    style={{
+                                        display: sideMenu ? 'inline' : 'none',
+                                    }}
+                                >
+                                    {1}
                                 </span>
                             </div>
 
@@ -203,7 +266,10 @@ class Stats extends Component {
                                     className={`flex-row ${
                                         sideMenu ? '' : 'flex-1'
                                     }`}
-                                    style={{ paddingBottom: sideMenu ? 32 : 0 }}
+                                    style={
+                                        ({ paddingTop: sideMenu ? 0 : 36 },
+                                        { paddingRight: sideMenu ? 30 : 0 })
+                                    }
                                 >
                                     <span className="exp-bar__container">
                                         <span className="flex-row stats-exp-bar__text">
@@ -222,13 +288,21 @@ class Stats extends Component {
 
                             <div
                                 className="flex-row"
-                                style={{ paddingTop: sideMenu ? 0 : 25 }}
+                                style={{ paddingTop: sideMenu ? 9 : 0 }}
                             >
                                 <span className="stats__text--spacing">
                                     {'INT: '}
                                 </span>
                                 <span className="stats__text--magic">
-                                    {30 + ' (+' + '10' + ')'}
+                                    {INTbonus > 0
+                                        ? abilities.intelligence +
+                                          ' (+' +
+                                          INTbonus +
+                                          ')'
+                                        : abilities.intelligence +
+                                          ' (' +
+                                          INTbonus +
+                                          ')'}
                                 </span>
                             </div>
 
@@ -237,7 +311,15 @@ class Stats extends Component {
                                     {'WIS: '}
                                 </span>
                                 <span className="stats__text--magic">
-                                    {30 + ' (+' + '10' + ')'}
+                                    {WISbonus > 0
+                                        ? abilities.wisdom +
+                                          ' (+' +
+                                          WISbonus +
+                                          ')'
+                                        : abilities.wisdom +
+                                          ' (' +
+                                          WISbonus +
+                                          ')'}
                                 </span>
                             </div>
                         </div>

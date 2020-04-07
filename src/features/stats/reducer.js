@@ -1,6 +1,14 @@
 import _cloneDeep from 'lodash.clonedeep';
 
 const initialState = {
+    abilities: {
+        constitution: 0,
+        dexterity: 0,
+        strength: 0,
+        wisdom: 0,
+        intelligence: 0,
+        charisma: 0,
+    },
     hp: 10,
     maxHp: 10,
     damage: 3,
@@ -24,6 +32,9 @@ const statsReducer = (state = initialState, { type, payload }) => {
         case 'LOSE_GOLD':
             // add gold to current gold
             return { ...state, gold: state.gold - payload };
+
+        case 'SET_ABILITY_SCORES':
+            return { ...state, abilities: payload.abilities };
 
         case 'UNEQUIP_ITEM':
             newState = _cloneDeep(state);
