@@ -19,6 +19,7 @@ const initialState = {
     inventory: false,
     levelUp: false,
     abilityDialog: false,
+    playerCustomisation: false,
     abilities: {
         constitution: STARTING_ABILITY_SCORE_VALUE,
         dexterity: STARTING_ABILITY_SCORE_VALUE,
@@ -28,10 +29,17 @@ const initialState = {
         charisma: STARTING_ABILITY_SCORE_VALUE,
         points: STARTING_ABILITY_POINTS,
     },
+    appearance: {
+        hairColour: '#d09e2a',
+        skinColour: '#f2c977',
+        eyeColour: '#000000',
+        armourColour: '#7f3291',
+        clothesColour: '#c03a28',
+    },
 };
 
 const dialogManagerReducer = (state = initialState, { type, payload }) => {
-    const { abilities } = state;
+    const { abilities, appearance } = state;
     const {
         constitution,
         intelligence,
@@ -41,6 +49,13 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
         charisma,
         points,
     } = abilities;
+    const {
+        hairColour,
+        eyeColour,
+        skinColour,
+        armourColour,
+        clothesColour,
+    } = appearance;
 
     switch (type) {
         case 'PAUSE':
@@ -56,6 +71,7 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
                 gameInstructions,
                 levelUp,
                 abilityDialog,
+                playerCustomisation,
                 pause,
             } = payload;
 
@@ -72,6 +88,7 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
                 gameSelect: gameSelect || null,
                 gameInstructions: gameInstructions || false,
                 abilityDialog: abilityDialog || false,
+                playerCustomisation: playerCustomisation || false,
                 paused: pause,
             };
 
