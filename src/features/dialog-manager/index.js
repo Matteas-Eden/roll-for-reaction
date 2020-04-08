@@ -46,6 +46,7 @@ const DialogManager = ({ dialog }) => {
             PauseComp = (
                 <GameTextDialog text1={gameText.title} text2={gameText.body} />
             );
+        if (abilityDialog) PauseComp = <AbilityScores />;
         if (characterCreation) PauseComp = <CharacterCreation />;
         if (gameInstructions) PauseComp = <GameInstructions />;
         if (gameOver) PauseComp = <GameOver />;
@@ -55,7 +56,6 @@ const DialogManager = ({ dialog }) => {
             if (gameSelect === 'endless') PauseComp = <EndlessGameStart />;
         }
         if (gameWin) PauseComp = <GameWin />;
-        if (abilityDialog) PauseComp = <AbilityScores />;
     }
     if (settings) SettingsComp = <SettingsDialog />;
     if (levelUp) LevelUpComp = <LevelUp />;

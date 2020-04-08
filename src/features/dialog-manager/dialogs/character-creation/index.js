@@ -7,29 +7,30 @@ import createCharacter from '../../actions/create-character';
 
 import './styles.scss';
 
-const CharacterCreation = ({ createCharacter }) => {
-    var characterClass = '';
-    var characterRace = '';
-
+const CharacterCreation = ({ dialog, createCharacter }) => {
     const handleClass = newClass => {
-        characterClass = newClass;
+        // document.getElementById("Fighter").className="button-selected";
+        dialog.characterClass = newClass;
         // changePath("/details", history);
         // onConfirmClick(selectedTime);
     };
 
-    const handleRace = newRace => {
-        console.log(characterRace);
-        console.log(newRace);
-        console.log(characterRace === newRace);
+    // const handleRace = newRace => {
+    function handleRace(button) {
+        // console.log(dialog.characterRace);
+        console.log(button.title);
+        // console.log(dialog.characterRace === newRace);
 
-        characterRace = newRace;
+        document.getElementsByClassName('button-selected')[0].className = '';
+        button.className = 'button-selected';
+        // dialog.characterRace = newRace;
 
-        console.log(characterRace);
-        console.log(newRace);
-        console.log(characterRace === newRace);
+        // console.log(dialog.characterRace);
+        // console.log(newRace);
+        // console.log(dialog.characterRace === newRace);
         // changePath("/details", history);
         // onConfirmClick(selectedTime);
-    };
+    }
 
     return (
         <Dialog onKeyPress={createCharacter}>
@@ -65,11 +66,13 @@ const CharacterCreation = ({ createCharacter }) => {
                         title={'Human'}
                         // extraClass="character-creation__select-button selected"
                         extraClass={
-                            'Human' === characterRace
+                            'Human' === dialog.characterRace
                                 ? 'character-creation__select-button selected'
                                 : 'character-creation__select-button unselected'
                         }
-                        onClick={() => handleRace('Human')}
+                        // onClick={() => handleRace('Human')}
+                        onClick="handleRace(this);"
+
                         // style = {{backgroundColor: "green"}}
                         // style = {{backgroundColor: {'Human' === characterRace ? "yellow" : "green"}}}
                         // {'Human' === characterRace ? style={{backgroundColor: "green"}} : style={{backgroundColor: "yellow"}}}
@@ -81,22 +84,24 @@ const CharacterCreation = ({ createCharacter }) => {
                         title={'Elf'}
                         // extraClass="character-creation__select-button"
                         extraClass={
-                            'Elf' === characterRace
+                            'Elf' === dialog.characterRace
                                 ? 'character-creation__select-button selected'
                                 : 'character-creation__select-button unselected'
                         }
-                        onClick={() => handleRace('Elf')}
+                        // onClick={() => handleRace('Elf')}
+                        onClick="handleRace(this);"
                         // onClick={() => handleRace(this.title)}
                     />
                     <Button
                         title={'Dwarf'}
                         // extraClass="character-creation__select-button"
                         extraClass={
-                            'Dwarf' === characterRace
+                            'Dwarf' === dialog.characterRace
                                 ? 'character-creation__select-button selected'
                                 : 'character-creation__select-button unselected'
                         }
-                        onClick={() => handleRace('Dwarf')}
+                        // onClick={() => handleRace('Dwarf')}
+                        onClick="handleRace(this);"
                         // onClick={() => handleRace(this.title)}
                     />
                 </div>
@@ -104,18 +109,22 @@ const CharacterCreation = ({ createCharacter }) => {
                 <span style={{ paddingTop: 12 }}>{`Your Class`}</span>
                 <div className="container space-around">
                     <Button
+                        id={'Fighter'}
                         title={'Fighter'}
                         extraClass="character-creation__select-button"
+                        onClick={() => handleClass('Fighter')}
                         // onClick={() => handleClass(this.title)}
                     />
                     <Button
                         title={'Wizard'}
                         extraClass="character-creation__select-button"
+                        onClick={() => handleClass('Wizard')}
                         // onClick={() => handleClass(this.title)}
                     />
                     <Button
                         title={'Ranger'}
                         extraClass="character-creation__select-button"
+                        onClick={() => handleClass('Ranger')}
                         // onClick={() => handleClass(this.title)}
                     />
                 </div>
@@ -130,6 +139,7 @@ const CharacterCreation = ({ createCharacter }) => {
     );
 };
 
+const mapStateToProps = ({ dialog }) => ({ dialog });
 const actions = { createCharacter };
 
-export default connect(null, actions)(CharacterCreation);
+export default connect(mapStateToProps, actions)(CharacterCreation);

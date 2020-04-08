@@ -1,10 +1,26 @@
 export default function createCharacter() {
-    return dispatch => {
+    return (dispatch, getState) => {
+        const {
+            characterName,
+            characterRace,
+            characterClass,
+        } = getState().dialog;
+
+        dispatch({
+            type: 'CREATE_CHARACTER',
+            payload: {
+                characterName: characterName,
+                characterRace: characterRace,
+                characterClass: characterClass,
+            },
+        });
+        // return dispatch => {
         dispatch({
             type: 'PAUSE',
             payload: {
                 pause: true,
-                gameInstructions: true,
+                abilityDialog: true,
+                // gameInstructions: true,
             },
         });
     };
