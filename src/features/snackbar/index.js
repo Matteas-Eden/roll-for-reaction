@@ -75,8 +75,7 @@ class Snackbar extends Component {
         ) {
             // see if player tried to buy item without enough gold
             this.setState({
-                show: `NO GOLD FOR: ${notEnoughGold.split('-')[0]}`,
-                item: item,
+                show: `NOT ENOUGH GOLD`,
             });
             this.props.setTimeout(this.handleHideSnack, SNACK_DURATION);
         } else if (
