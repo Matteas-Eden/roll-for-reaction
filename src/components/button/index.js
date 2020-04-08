@@ -6,12 +6,14 @@ const Button = ({
     icon,
     title,
     iconStyle,
+    style,
     indicator,
     onClick,
     small,
     tiny,
     noBorder,
     extraClass,
+    selected,
 }) => {
     function handleClick() {
         if (typeof onClick === 'function') {
