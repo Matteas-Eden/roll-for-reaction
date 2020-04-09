@@ -18,8 +18,11 @@ const ChestLoot = ({ dialog, pickupItem, openChest, closeChestDialog }) => {
     }, []);
 
     function handleContinue() {
-        pickupItem();
+        // Do it this way so this dialog is closed first
         closeChestDialog();
+        // ... before we actually give them their items, which allows
+        //     the level up dialog to occur after this dialog.
+        pickupItem();
     }
 
     return (
@@ -27,15 +30,19 @@ const ChestLoot = ({ dialog, pickupItem, openChest, closeChestDialog }) => {
             <span className="chest-loot__title">{'Chest Loot!'}</span>
 
             <div className="flex-column chest-loot__contents">
-                <div className="flex-row chest-loot__value--spacing">
-                    <span>{'Gold: '}</span>
-                    <span>{gold}</span>
-                </div>
+                {gold !== 0 && (
+                    <div className="flex-row chest-loot__value--spacing">
+                        <span>{'Gold: '}</span>
+                        <span>{gold}</span>
+                    </div>
+                )}
 
-                <div className="flex-row chest-loot__value--spacing">
-                    <span>{'Exp: '}</span>
-                    <span>{exp}</span>
-                </div>
+                {exp !== 0 && (
+                    <div className="flex-row chest-loot__value--spacing">
+                        <span>{'Exp: '}</span>
+                        <span>{exp}</span>
+                    </div>
+                )}
 
                 {item && (
                     <div className="flex-row chest-loot__item">

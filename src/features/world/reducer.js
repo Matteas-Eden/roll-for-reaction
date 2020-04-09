@@ -4,12 +4,15 @@ import attachMetaToTiles from '../../utils/attach-meta-to-tiles';
 import generatePaddingTiles from '../../utils/generate-padding-tiles';
 import maps from '../../data/maps';
 
+import { getChestName } from '../../utils/get-chest-name';
+
 const initialState = {
     currentMap: null,
     gameMode: null,
     turn: 0,
     storyMaps: {},
     randomMaps: [],
+    chests: {},
     floorNum: null,
     mapTransition: false,
 };
@@ -33,11 +36,45 @@ const worldReducer = (state = initialState, { type, payload }) => {
             }
             return newState;
 
-        case 'OPEN_CHEST':
+        case 'SET_CHEST_DATA':
             newState = _cloneDeep(state);
             currentMapData = getCurrentMap(newState);
-            // set current chest to ground tile
-            currentMapData.tiles[payload.y][payload.x].value = -2;
+
+            if (payload) {
+                // We pass 'false' around if we're setting up a new chest, so here we've got an existing chest
+                const { x, y, item } = payload;
+                if (item === null) {
+                    // This chest has either been completely looted, or there never was an item in it.
+                    // This will make the chest appear to the player as open.
+                    currentMapData.tiles[y][x].value = -2;
+                }
+
+                if (x !== undefined && y !== undefined) {
+                    // This will either:
+                    //   1. Ensure any item's left in the chest are still there, or
+                    //   2. Ensure that the item for this chest is null (meaning it
+                    //      either never had an item, or it was just looted completely)
+                    newState.chests[getChestName(state.currentMap, x, y)] = {
+                        item: item,
+                    };
+                }
+            }
+
+            return newState;
+
+        case 'OPEN_CHEST':
+            const { x, y } = payload;
+            const chest = state.chests[getChestName(state.currentMap, x, y)];
+            if (chest === undefined) {
+                // This chest hasn't been opened before, so let's generate one
+                state.chests[getChestName(state.currentMap, x, y)] = {
+                    item: null,
+                };
+            }
+
+            newState = _cloneDeep(state);
+            currentMapData = getCurrentMap(newState);
+
             return newState;
 
         case 'EXPLORE_TILES':
