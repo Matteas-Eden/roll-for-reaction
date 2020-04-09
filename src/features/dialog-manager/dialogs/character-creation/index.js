@@ -12,6 +12,7 @@ import './styles.scss';
 
 const CharacterCreation = ({ dialog, createCharacter, setClass, setRace }) => {
     function handleContinue() {
+        dialog.characterName = document.getElementById('characterName').value;
         createCharacter();
     }
 
@@ -72,8 +73,6 @@ const CharacterCreation = ({ dialog, createCharacter, setClass, setRace }) => {
                     />
                 </div>
             </div>
-
-            {/* name = document.getElementById("searchTxt").value; */}
 
             <div className="flex-column character-creation__button">
                 <Button onClick={handleContinue} title={'Continue'} />
