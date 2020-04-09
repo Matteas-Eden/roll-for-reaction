@@ -2,6 +2,7 @@ const initialState = {
     notEnoughGold: '',
     tooManyItems: '',
     itemDropped: '',
+    itemUsed: '',
     itemReceived: '',
     item: null,
 };
@@ -33,6 +34,13 @@ const snackbarReducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 itemDropped: `${payload.name}-${new Date().getTime()}`,
+                item: payload,
+            };
+
+        case 'USE_ITEM':
+            return {
+                ...state,
+                itemUsed: `${payload.name}-${new Date().getTime()}`,
                 item: payload,
             };
 

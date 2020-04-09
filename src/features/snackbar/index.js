@@ -22,24 +22,38 @@ class Snackbar extends Component {
     componentDidUpdate(prevProps, prevState) {
         const {
             itemReceived,
+            itemUsed,
             itemDropped,
             notEnoughGold,
             tooManyItems,
             item,
         } = this.props.snackbar;
+
         const lastItemReceived = prevProps.snackbar.itemReceived;
         const lastItemDropped = prevProps.snackbar.itemDropped;
+        const lastItemUsed = prevProps.snackbar.itemUsed;
         const lastNotEnoughGold = prevProps.snackbar.notEnoughGold;
         const lastTooManyItems = prevProps.snackbar.tooManyItems;
 
         if (
+            lastItemUsed !== itemUsed &&
+            itemUsed &&
+            typeof itemUsed !== 'undefined'
+        ) {
+            // see if any items were used
+            this.setState({
+                show: `USED ITEM: ${itemUsed.split('-')[0]}`,
+                item: item,
+            });
+            this.props.setTimeout(this.handleHideSnack, SNACK_DURATION);
+        } else if (
             lastItemDropped !== itemDropped &&
             itemDropped &&
             typeof itemDropped !== 'undefined'
         ) {
             // see if any items were dropped
             this.setState({
-                show: `LOST AN ITEM: ${itemDropped.split('-')[0]}`,
+                show: `LOST ITEM: ${itemDropped.split('-')[0]}`,
                 item: item,
             });
             this.props.setTimeout(this.handleHideSnack, SNACK_DURATION);
@@ -61,8 +75,7 @@ class Snackbar extends Component {
         ) {
             // see if player tried to buy item without enough gold
             this.setState({
-                show: `NOT ENOUGH GOLD FOR: ${notEnoughGold.split('-')[0]}`,
-                item: item,
+                show: `NOT ENOUGH GOLD`,
             });
             this.props.setTimeout(this.handleHideSnack, SNACK_DURATION);
         } else if (
@@ -72,7 +85,7 @@ class Snackbar extends Component {
         ) {
             // see if player tried to get item with full inventory
             this.setState({
-                show: `NOT ENOUGH SPACE FOR: ${tooManyItems.split('-')[0]}`,
+                show: `NO ROOM FOR: ${tooManyItems.split('-')[0]}`,
                 item: item,
             });
             this.props.setTimeout(this.handleHideSnack, SNACK_DURATION);
@@ -104,7 +117,7 @@ class Snackbar extends Component {
                     height: sideMenu ? 40 : 40,
                     fontSize: sideMenu ? 18 : 20,
                     opacity: show === '' ? 0 : 1,
-                    zIndex: show === '' ? 0 : 151,
+                    zIndex: show === '' ? 0 : 1003,
                     transition:
                         show === ''
                             ? 'opacity .35s ease-in-out, z-index .35s step-end'
