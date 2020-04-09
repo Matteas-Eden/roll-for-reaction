@@ -6,6 +6,7 @@ const Button = ({
     icon,
     title,
     iconStyle,
+    style,
     indicator,
     onClick,
     small,
@@ -30,6 +31,7 @@ const Button = ({
                     ? 'button__container--tiny'
                     : ''
             } ${extraClass ? extraClass : ''}`}
+            style={style || {}}
             onClick={handleClick}
         >
             {icon && (
