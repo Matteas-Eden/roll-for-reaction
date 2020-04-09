@@ -152,9 +152,6 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
             };
 
         case 'CREATE_CHARACTER':
-            console.log(payload.characterName);
-            console.log(payload.characterRace);
-            console.log(payload.characterClass);
             return {
                 ...state,
                 characterName: payload.characterName,
