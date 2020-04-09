@@ -11,8 +11,8 @@ const initialState = {
     gameInstructions: false,
     characterCreation: false,
     characterName: '',
-    characterRace: null,
-    characterClass: null,
+    characterRace: 'Human',
+    characterClass: 'Fighter',
     gameSelect: null,
     gameWin: false,
     paused: true,
@@ -139,15 +139,27 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
 
             return state;
 
+        case 'SET_RACE':
+            return {
+                ...state,
+                characterRace: payload.characterRace,
+            };
+
+        case 'SET_CLASS':
+            return {
+                ...state,
+                characterClass: payload.characterClass,
+            };
+
         case 'CREATE_CHARACTER':
             console.log(payload.characterName);
             console.log(payload.characterRace);
             console.log(payload.characterClass);
             return {
                 ...state,
-                name: payload.characterName,
-                race: payload.characterRace,
-                class: payload.characterClass,
+                characterName: payload.characterName,
+                characterRace: payload.characterRace,
+                characterClass: payload.characterClass,
             };
 
         case 'LEVEL_UP_ABILITIES':

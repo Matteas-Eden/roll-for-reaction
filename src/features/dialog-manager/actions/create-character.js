@@ -14,13 +14,12 @@ export default function createCharacter() {
                 characterClass: characterClass,
             },
         });
-        // return dispatch => {
+
         dispatch({
             type: 'PAUSE',
             payload: {
                 pause: true,
                 abilityDialog: true,
-                // gameInstructions: true,
             },
         });
     };

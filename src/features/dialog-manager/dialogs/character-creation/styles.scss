@@ -32,7 +32,13 @@
 }
 
 .character-creation__input {
-    padding-top: 0.5em;
+    // padding-top: 0.5em;
+    height: 2.5em;
+    background-color: black;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
 }
 
 .container {
@@ -54,13 +60,5 @@
 }
 
 .selected {
-    background-color: green !important;
-}
-
-.unselected {
-    background-color: yellow !important;
-}
-
-.button-selected {
-    border: 2px solid red;
+    background-color: #383838 !important;
 }

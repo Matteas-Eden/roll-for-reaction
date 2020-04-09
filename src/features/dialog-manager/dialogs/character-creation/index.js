@@ -4,33 +4,14 @@ import { connect } from 'react-redux';
 import Button from '../../../../components/button';
 import Dialog from '../../../../components/dialog';
 import createCharacter from '../../actions/create-character';
+import setClass from '../../actions/set-class';
+import setRace from '../../actions/set-race';
 
 import './styles.scss';
 
-const CharacterCreation = ({ dialog, createCharacter }) => {
+const CharacterCreation = ({ dialog, createCharacter, setClass, setRace }) => {
     function handleContinue() {
-        dialog.name = document.getElementById('characterName').nodeValue;
         createCharacter();
-    }
-
-    const handleClass = newClass => {
-        document.getElementById('Fighter').className = 'button-selected';
-        dialog.characterClass = newClass;
-    };
-
-    // const handleRace = newRace => {
-    function handleRace(button) {
-        // console.log(dialog.characterRace);
-        console.log(button.title);
-        // console.log(dialog.characterRace === newRace);
-
-        document.getElementsByClassName('button-selected')[0].className = '';
-        button.className = 'button-selected';
-        // dialog.characterRace = newRace;
-
-        // console.log(dialog.characterRace);
-        // console.log(newRace);
-        // console.log(dialog.characterRace === newRace);
     }
 
     return (
@@ -49,61 +30,37 @@ const CharacterCreation = ({ dialog, createCharacter }) => {
                     type="text"
                     maxLength="512"
                     id="characterName"
-                    // className="character-creation__input"
-                    style={{
-                        height: '2.5em',
-                        backgroundColor: 'black',
-                        paddingLeft: '0.5em',
-                        paddingRight: '0.5em',
-                        marginLeft: '0.5em',
-                        marginRight: '0.5em',
-                    }}
-                    className="white-border"
+                    className="white-border character-creation__input"
                 />
 
                 <span style={{ paddingTop: 12 }}>{`Your Race`}</span>
                 <div className="container space-around">
                     <Button
                         title={'Human'}
-                        // extraClass="character-creation__select-button selected"
                         extraClass={
                             'Human' === dialog.characterRace
                                 ? 'character-creation__select-button selected'
-                                : 'character-creation__select-button unselected'
+                                : 'character-creation__select-button'
                         }
-                        onClick={() => handleRace('Human')}
-                        // onClick="handleRace(this);"
-
-                        // style = {{backgroundColor: "green"}}
-                        // style = {{backgroundColor: {'Human' === characterRace ? "yellow" : "green"}}}
-                        // {'Human' === characterRace ? style={{backgroundColor: "green"}} : style={{backgroundColor: "yellow"}}}
-                        // backgroundColor={'Human' === characterRace ? "yellow" : "green"}
-                        // color={"green"}
-                        // {...characterRace == }
+                        onClick={() => setRace('Human')}
                     />
                     <Button
                         title={'Elf'}
-                        // extraClass="character-creation__select-button"
                         extraClass={
                             'Elf' === dialog.characterRace
                                 ? 'character-creation__select-button selected'
-                                : 'character-creation__select-button unselected'
+                                : 'character-creation__select-button'
                         }
-                        onClick={() => handleRace('Elf')}
-                        // onClick="handleRace(this);"
-                        // onClick={() => handleRace(this.title)}
+                        onClick={() => setRace('Elf')}
                     />
                     <Button
                         title={'Dwarf'}
-                        // extraClass="character-creation__select-button"
                         extraClass={
                             'Dwarf' === dialog.characterRace
                                 ? 'character-creation__select-button selected'
-                                : 'character-creation__select-button unselected'
+                                : 'character-creation__select-button'
                         }
-                        onClick={() => handleRace('Dwarf')}
-                        // onClick="handleRace(this);"
-                        // onClick={() => handleRace(this.title)}
+                        onClick={() => setRace('Dwarf')}
                     />
                 </div>
 
@@ -112,21 +69,31 @@ const CharacterCreation = ({ dialog, createCharacter }) => {
                     <Button
                         id="Fighter"
                         title={'Fighter'}
-                        extraClass="character-creation__select-button"
-                        onClick={() => handleClass('Fighter')}
-                        // onClick={() => handleClass(this.title)}
+                        extraClass={
+                            'Fighter' === dialog.characterClass
+                                ? 'character-creation__select-button selected'
+                                : 'character-creation__select-button'
+                        }
+                        // extraClass="character-creation__select-button"
+                        onClick={() => setClass('Fighter')}
                     />
                     <Button
                         title={'Wizard'}
-                        extraClass="character-creation__select-button"
-                        onClick={() => handleClass('Wizard')}
-                        // onClick={() => handleClass(this.title)}
+                        extraClass={
+                            'Wizard' === dialog.characterClass
+                                ? 'character-creation__select-button selected'
+                                : 'character-creation__select-button'
+                        }
+                        onClick={() => setClass('Wizard')}
                     />
                     <Button
                         title={'Ranger'}
-                        extraClass="character-creation__select-button"
-                        onClick={() => handleClass('Ranger')}
-                        // onClick={() => handleClass(this.title)}
+                        extraClass={
+                            'Ranger' === dialog.characterClass
+                                ? 'character-creation__select-button selected'
+                                : 'character-creation__select-button'
+                        }
+                        onClick={() => setClass('Ranger')}
                     />
                 </div>
             </div>
@@ -141,6 +108,6 @@ const CharacterCreation = ({ dialog, createCharacter }) => {
 };
 
 const mapStateToProps = ({ dialog }) => ({ dialog });
-const actions = { createCharacter };
+const actions = { createCharacter, setClass, setRace };
 
 export default connect(mapStateToProps, actions)(CharacterCreation);
