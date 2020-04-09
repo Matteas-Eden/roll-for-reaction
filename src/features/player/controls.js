@@ -143,7 +143,7 @@ const Controls = ({
                 // attack with space key
                 return attackMonster();
             case 73:
-                // open inventory
+                // open inventory with i key
                 return toggleInventory();
             default:
             // console.log('key not mapped: ', event.keyCode);
