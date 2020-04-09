@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import SelectButton from '../../../../components/select-button';
 import Button from '../../../../components/button';
 import Dialog from '../../../../components/dialog';
 import createCharacter from '../../actions/create-character';
@@ -35,65 +36,39 @@ const CharacterCreation = ({ dialog, createCharacter, setClass, setRace }) => {
 
                 <span style={{ paddingTop: 12 }}>{`Your Race`}</span>
                 <div className="container space-around">
-                    <Button
+                    <SelectButton
                         title={'Human'}
-                        extraClass={
-                            'Human' === dialog.characterRace
-                                ? 'character-creation__select-button selected'
-                                : 'character-creation__select-button'
-                        }
-                        onClick={() => setRace('Human')}
+                        selectedValue={dialog.characterRace}
+                        onClick={setRace}
                     />
-                    <Button
+                    <SelectButton
                         title={'Elf'}
-                        extraClass={
-                            'Elf' === dialog.characterRace
-                                ? 'character-creation__select-button selected'
-                                : 'character-creation__select-button'
-                        }
-                        onClick={() => setRace('Elf')}
+                        selectedValue={dialog.characterRace}
+                        onClick={setRace}
                     />
-                    <Button
+                    <SelectButton
                         title={'Dwarf'}
-                        extraClass={
-                            'Dwarf' === dialog.characterRace
-                                ? 'character-creation__select-button selected'
-                                : 'character-creation__select-button'
-                        }
-                        onClick={() => setRace('Dwarf')}
+                        selectedValue={dialog.characterRace}
+                        onClick={setRace}
                     />
                 </div>
 
                 <span style={{ paddingTop: 12 }}>{`Your Class`}</span>
                 <div className="container space-around">
-                    <Button
-                        id="Fighter"
+                    <SelectButton
                         title={'Fighter'}
-                        extraClass={
-                            'Fighter' === dialog.characterClass
-                                ? 'character-creation__select-button selected'
-                                : 'character-creation__select-button'
-                        }
-                        // extraClass="character-creation__select-button"
-                        onClick={() => setClass('Fighter')}
+                        selectedValue={dialog.characterClass}
+                        onClick={setClass}
                     />
-                    <Button
+                    <SelectButton
                         title={'Wizard'}
-                        extraClass={
-                            'Wizard' === dialog.characterClass
-                                ? 'character-creation__select-button selected'
-                                : 'character-creation__select-button'
-                        }
-                        onClick={() => setClass('Wizard')}
+                        selectedValue={dialog.characterClass}
+                        onClick={setClass}
                     />
-                    <Button
+                    <SelectButton
                         title={'Ranger'}
-                        extraClass={
-                            'Ranger' === dialog.characterClass
-                                ? 'character-creation__select-button selected'
-                                : 'character-creation__select-button'
-                        }
-                        onClick={() => setClass('Ranger')}
+                        selectedValue={dialog.characterClass}
+                        onClick={setClass}
                     />
                 </div>
             </div>

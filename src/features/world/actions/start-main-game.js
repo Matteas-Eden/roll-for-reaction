@@ -3,14 +3,6 @@ import { START_MAP } from '../../../config/constants';
 
 export default function startMainGame() {
     return (dispatch, getState) => {
-        // dispatch({
-        //     type: 'PAUSE',
-        //     payload: {
-        //         pause: true,
-        //         abilityDialog: true,
-        //     },
-        // });
-
         dispatch({
             type: 'PAUSE',
             payload: {
