@@ -8,11 +8,14 @@ import createCharacter from '../../actions/create-character';
 import './styles.scss';
 
 const CharacterCreation = ({ dialog, createCharacter }) => {
+    function handleContinue() {
+        dialog.name = document.getElementById('characterName').nodeValue;
+        createCharacter();
+    }
+
     const handleClass = newClass => {
-        // document.getElementById("Fighter").className="button-selected";
+        document.getElementById('Fighter').className = 'button-selected';
         dialog.characterClass = newClass;
-        // changePath("/details", history);
-        // onConfirmClick(selectedTime);
     };
 
     // const handleRace = newRace => {
@@ -28,12 +31,10 @@ const CharacterCreation = ({ dialog, createCharacter }) => {
         // console.log(dialog.characterRace);
         // console.log(newRace);
         // console.log(dialog.characterRace === newRace);
-        // changePath("/details", history);
-        // onConfirmClick(selectedTime);
     }
 
     return (
-        <Dialog onKeyPress={createCharacter}>
+        <Dialog onKeyPress={handleContinue}>
             <div className="character-creation__title">
                 {'Character Creation'}
             </div>
@@ -47,7 +48,7 @@ const CharacterCreation = ({ dialog, createCharacter }) => {
                     name="Character name"
                     type="text"
                     maxLength="512"
-                    id="character-name"
+                    id="characterName"
                     // className="character-creation__input"
                     style={{
                         height: '2.5em',
@@ -70,8 +71,8 @@ const CharacterCreation = ({ dialog, createCharacter }) => {
                                 ? 'character-creation__select-button selected'
                                 : 'character-creation__select-button unselected'
                         }
-                        // onClick={() => handleRace('Human')}
-                        onClick="handleRace(this);"
+                        onClick={() => handleRace('Human')}
+                        // onClick="handleRace(this);"
 
                         // style = {{backgroundColor: "green"}}
                         // style = {{backgroundColor: {'Human' === characterRace ? "yellow" : "green"}}}
@@ -88,8 +89,8 @@ const CharacterCreation = ({ dialog, createCharacter }) => {
                                 ? 'character-creation__select-button selected'
                                 : 'character-creation__select-button unselected'
                         }
-                        // onClick={() => handleRace('Elf')}
-                        onClick="handleRace(this);"
+                        onClick={() => handleRace('Elf')}
+                        // onClick="handleRace(this);"
                         // onClick={() => handleRace(this.title)}
                     />
                     <Button
@@ -100,8 +101,8 @@ const CharacterCreation = ({ dialog, createCharacter }) => {
                                 ? 'character-creation__select-button selected'
                                 : 'character-creation__select-button unselected'
                         }
-                        // onClick={() => handleRace('Dwarf')}
-                        onClick="handleRace(this);"
+                        onClick={() => handleRace('Dwarf')}
+                        // onClick="handleRace(this);"
                         // onClick={() => handleRace(this.title)}
                     />
                 </div>
@@ -109,7 +110,7 @@ const CharacterCreation = ({ dialog, createCharacter }) => {
                 <span style={{ paddingTop: 12 }}>{`Your Class`}</span>
                 <div className="container space-around">
                     <Button
-                        id={'Fighter'}
+                        id="Fighter"
                         title={'Fighter'}
                         extraClass="character-creation__select-button"
                         onClick={() => handleClass('Fighter')}
@@ -133,7 +134,7 @@ const CharacterCreation = ({ dialog, createCharacter }) => {
             {/* name = document.getElementById("searchTxt").value; */}
 
             <div className="flex-column character-creation__button">
-                <Button onClick={createCharacter} title={'Continue'} />
+                <Button onClick={handleContinue} title={'Continue'} />
             </div>
         </Dialog>
     );
