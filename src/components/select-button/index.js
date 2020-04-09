@@ -2,6 +2,8 @@ import React from 'react';
 
 import Button from '../button';
 
+import './styles.scss';
+
 const SelectButton = ({
     icon,
     title,
@@ -25,11 +27,10 @@ const SelectButton = ({
     return (
         <Button
             title={title}
-            extraClass={
-                title === selectedValue
-                    ? 'select-button selected ' + extraClass
-                    : 'select-button ' + extraClass
-            }
+            extraClass={`select-button ${
+                title === selectedValue ? 'selected ' : ''
+            } 
+                ${extraClass ? extraClass : ''}`}
             onClick={handleClick}
             icon={icon}
             iconStyle={iconStyle}
