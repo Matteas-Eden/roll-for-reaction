@@ -31,6 +31,7 @@ const Button = ({
                     : ''
             } ${extraClass ? extraClass : ''}`}
             onClick={handleClick}
+            color="primary"
         >
             {icon && (
                 <i
