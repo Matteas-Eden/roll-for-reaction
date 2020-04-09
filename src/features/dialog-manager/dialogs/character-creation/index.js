@@ -12,7 +12,9 @@ import './styles.scss';
 
 const CharacterCreation = ({ dialog, createCharacter, setClass, setRace }) => {
     function handleContinue() {
-        dialog.characterName = document.getElementById('characterName').value;
+        dialog.character.characterName = document.getElementById(
+            'characterName'
+        ).value;
         createCharacter();
     }
 
@@ -39,17 +41,17 @@ const CharacterCreation = ({ dialog, createCharacter, setClass, setRace }) => {
                 <div className="container space-around">
                     <SelectButton
                         title={'Human'}
-                        selectedValue={dialog.characterRace}
+                        selectedValue={dialog.character.characterRace}
                         onClick={setRace}
                     />
                     <SelectButton
                         title={'Elf'}
-                        selectedValue={dialog.characterRace}
+                        selectedValue={dialog.character.characterRace}
                         onClick={setRace}
                     />
                     <SelectButton
                         title={'Dwarf'}
-                        selectedValue={dialog.characterRace}
+                        selectedValue={dialog.character.characterRace}
                         onClick={setRace}
                     />
                 </div>
@@ -58,17 +60,17 @@ const CharacterCreation = ({ dialog, createCharacter, setClass, setRace }) => {
                 <div className="container space-around">
                     <SelectButton
                         title={'Fighter'}
-                        selectedValue={dialog.characterClass}
+                        selectedValue={dialog.character.characterClass}
                         onClick={setClass}
                     />
                     <SelectButton
                         title={'Wizard'}
-                        selectedValue={dialog.characterClass}
+                        selectedValue={dialog.character.characterClass}
                         onClick={setClass}
                     />
                     <SelectButton
                         title={'Ranger'}
-                        selectedValue={dialog.characterClass}
+                        selectedValue={dialog.character.characterClass}
                         onClick={setClass}
                     />
                 </div>

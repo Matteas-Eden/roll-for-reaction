@@ -4,7 +4,7 @@ export default function createCharacter() {
             characterName,
             characterRace,
             characterClass,
-        } = getState().dialog;
+        } = getState().dialog.character;
 
         dispatch({
             type: 'CREATE_CHARACTER',

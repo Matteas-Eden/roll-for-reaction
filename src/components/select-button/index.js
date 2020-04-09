@@ -2,7 +2,7 @@ import React from 'react';
 
 import Button from '../button';
 
-import './styles.scss';
+// import './styles.scss';
 
 const SelectButton = ({
     icon,
