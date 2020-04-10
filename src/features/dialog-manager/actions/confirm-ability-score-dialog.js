@@ -1,29 +1,17 @@
 export default function confirmAbilityScoreDialog() {
     return (dispatch, getState) => {
-        const {
-            constitution,
-            charisma,
-            dexterity,
-            strength,
-            wisdom,
-            intelligence,
-        } = getState().dialog.abilities;
-
-        dispatch({
-            type: 'SET_ABILITY_SCORES',
-            payload: {
-                abilities: {
-                    charisma: charisma,
-                    constitution: constitution,
-                    dexterity: dexterity,
-                    strength: strength,
-                    wisdom: wisdom,
-                    intelligence: intelligence,
-                },
-            },
-        });
+        const { abilities } = getState().dialog;
 
         if (getState().dialog.fromLevelUp) {
+            dispatch({
+                type: 'SET_ABILITY_SCORES',
+                payload: {
+                    abilities: {
+                        ...abilities,
+                    },
+                },
+            });
+
             dispatch({
                 type: 'PAUSE',
                 payload: {
@@ -32,6 +20,16 @@ export default function confirmAbilityScoreDialog() {
                 },
             });
         } else {
+            dispatch({
+                type: 'SET_ABILITY_SCORES',
+                payload: {
+                    abilities: {
+                        ...abilities,
+                        points: 0,
+                    },
+                },
+            });
+
             dispatch({
                 type: 'PAUSE',
                 payload: {
