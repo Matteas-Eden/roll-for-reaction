@@ -11,9 +11,9 @@ const initialState = {
     gameInstructions: false,
     characterCreation: false,
     character: {
-        characterName: '',
-        characterRace: 'Human',
-        characterClass: 'Fighter',
+        charName: 'Adventurer',
+        charRace: 'Human',
+        charClass: 'Fighter',
     },
     gameSelect: null,
     gameWin: false,
@@ -66,7 +66,7 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
         min_charisma,
     } = abilities_minimum;
 
-    const { characterName, characterRace, characterClass } = character;
+    const { charName, charRace, charClass } = character;
 
     switch (type) {
         case 'PAUSE':
@@ -148,7 +148,7 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
                 ...state,
                 character: {
                     ...character,
-                    characterRace: payload.characterRace,
+                    charRace: payload.charRace,
                 },
             };
 
@@ -157,7 +157,7 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
                 ...state,
                 character: {
                     ...character,
-                    characterClass: payload.characterClass,
+                    charClass: payload.charClass,
                 },
             };
 
@@ -165,10 +165,9 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 character: {
-                    ...character,
-                    characterName: payload.characterName,
-                    characterRace: payload.characterRace,
-                    characterClass: payload.characterClass,
+                    charName: payload.charName || charName,
+                    charRace: payload.charRace || charRace,
+                    charClass: payload.charClass || charClass,
                 },
             };
 

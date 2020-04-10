@@ -4,17 +4,15 @@ import { connect } from 'react-redux';
 import SelectButton from '../../../../components/select-button';
 import Button from '../../../../components/button';
 import Dialog from '../../../../components/dialog';
-import createCharacter from '../../actions/create-character';
-import setClass from '../../actions/set-class';
-import setRace from '../../actions/set-race';
+import createCharacter from './actions/create-character';
+import setClass from './actions/set-class';
+import setRace from './actions/set-race';
 
 import './styles.scss';
 
 const CharacterCreation = ({ dialog, createCharacter, setClass, setRace }) => {
     function handleContinue() {
-        dialog.character.characterName = document.getElementById(
-            'characterName'
-        ).value;
+        dialog.character.charName = document.getElementById('charName').value;
         createCharacter();
     }
 
@@ -33,7 +31,7 @@ const CharacterCreation = ({ dialog, createCharacter, setClass, setRace }) => {
                     name="Character name"
                     type="text"
                     maxLength="512"
-                    id="characterName"
+                    id="charName"
                     className="white-border character-creation__input"
                 />
 
@@ -41,17 +39,17 @@ const CharacterCreation = ({ dialog, createCharacter, setClass, setRace }) => {
                 <div className="container space-around">
                     <SelectButton
                         title={'Human'}
-                        selectedValue={dialog.character.characterRace}
+                        selected={dialog.character.charRace === 'Human'}
                         onClick={setRace}
                     />
                     <SelectButton
                         title={'Elf'}
-                        selectedValue={dialog.character.characterRace}
+                        selected={dialog.character.charRace === 'Elf'}
                         onClick={setRace}
                     />
                     <SelectButton
                         title={'Dwarf'}
-                        selectedValue={dialog.character.characterRace}
+                        selected={dialog.character.charRace === 'Dwarf'}
                         onClick={setRace}
                     />
                 </div>
@@ -60,17 +58,17 @@ const CharacterCreation = ({ dialog, createCharacter, setClass, setRace }) => {
                 <div className="container space-around">
                     <SelectButton
                         title={'Fighter'}
-                        selectedValue={dialog.character.characterClass}
+                        selected={dialog.character.charClass === 'Fighter'}
                         onClick={setClass}
                     />
                     <SelectButton
                         title={'Wizard'}
-                        selectedValue={dialog.character.characterClass}
+                        selected={dialog.character.charClass === 'Wizard'}
                         onClick={setClass}
                     />
                     <SelectButton
                         title={'Ranger'}
-                        selectedValue={dialog.character.characterClass}
+                        selected={dialog.character.charClass === 'Ranger'}
                         onClick={setClass}
                     />
                 </div>
