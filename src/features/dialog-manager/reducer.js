@@ -9,12 +9,6 @@ const initialState = {
     gameOver: false,
     gameStart: true,
     gameInstructions: false,
-    characterCreation: false,
-    character: {
-        charName: 'Adventurer',
-        charRace: 'Human',
-        charClass: 'Fighter',
-    },
     gameSelect: null,
     gameWin: false,
     paused: true,
@@ -43,6 +37,12 @@ const initialState = {
         min_intelligence: 0,
         min_charisma: 0,
     },
+    characterCreation: false,
+    character: {
+        characterName: 'Adventurer',
+        characterRace: 'Human',
+        characterClass: 'Fighter',
+    },
 };
 
 const dialogManagerReducer = (state = initialState, { type, payload }) => {
@@ -66,7 +66,7 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
         min_charisma,
     } = abilities_minimum;
 
-    const { charName, charRace, charClass } = character;
+    const { characterName, characterRace, characterClass } = character;
 
     switch (type) {
         case 'PAUSE':
@@ -148,7 +148,7 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
                 ...state,
                 character: {
                     ...character,
-                    charRace: payload.charRace,
+                    characterRace: payload.characterRace,
                 },
             };
 
@@ -157,7 +157,7 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
                 ...state,
                 character: {
                     ...character,
-                    charClass: payload.charClass,
+                    characterClass: payload.characterClass,
                 },
             };
 
@@ -165,9 +165,9 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 character: {
-                    charName: payload.charName || charName,
-                    charRace: payload.charRace || charRace,
-                    charClass: payload.charClass || charClass,
+                    characterName: payload.characterName || characterName,
+                    characterRace: payload.characterRace || characterRace,
+                    characterClass: payload.characterClass || characterClass,
                 },
             };
 

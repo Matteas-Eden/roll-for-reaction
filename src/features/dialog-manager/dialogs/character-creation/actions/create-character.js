@@ -1,13 +1,17 @@
 export default function createCharacter() {
     return (dispatch, getState) => {
-        const { charName, charRace, charClass } = getState().dialog.character;
+        const {
+            characterName,
+            characterRace,
+            characterClass,
+        } = getState().dialog.character;
 
         dispatch({
             type: 'CREATE_CHARACTER',
             payload: {
-                charName: charName,
-                charRace: charRace,
-                charClass: charClass,
+                characterName: characterName,
+                characterRace: characterRace,
+                characterClass: characterClass,
             },
         });
 

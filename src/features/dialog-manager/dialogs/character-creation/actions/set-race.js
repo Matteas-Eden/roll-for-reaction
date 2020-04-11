@@ -1,8 +1,8 @@
-export default function setRace(charRace) {
+export default function setRace(characterRace) {
     return dispatch => {
         dispatch({
             type: 'SET_RACE',
-            payload: { charRace: charRace },
+            payload: { characterRace: characterRace },
         });
     };
 }
