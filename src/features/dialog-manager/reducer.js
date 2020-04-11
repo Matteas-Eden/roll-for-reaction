@@ -9,6 +9,12 @@ const initialState = {
     gameOver: false,
     gameStart: true,
     gameInstructions: false,
+    characterCreation: false,
+    character: {
+        characterName: '',
+        characterRace: 'Human',
+        characterClass: 'Fighter',
+    },
     gameSelect: null,
     gameWin: false,
     paused: true,
@@ -48,7 +54,7 @@ const initialState = {
 };
 
 const dialogManagerReducer = (state = initialState, { type, payload }) => {
-    const { abilities, abilities_minimum, appearance } = state;
+    const { abilities, abilities_minimum, character, appearance } = state;
     const {
         constitution,
         intelligence,
@@ -76,6 +82,8 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
         min_charisma,
     } = abilities_minimum;
 
+    const { characterName, characterRace, characterClass } = character;
+
     switch (type) {
         case 'PAUSE':
             const {
@@ -88,6 +96,7 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
                 gameWin,
                 gameSelect,
                 gameInstructions,
+                characterCreation,
                 levelUp,
                 fromLevelUp,
                 abilityDialog,
@@ -110,6 +119,7 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
                 gameInstructions: gameInstructions || false,
                 abilityDialog: abilityDialog || false,
                 playerCustomisation: playerCustomisation || false,
+                characterCreation: characterCreation || false,
                 paused: pause,
             };
 
@@ -150,6 +160,35 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
             }
 
             return state;
+
+        case 'SET_RACE':
+            return {
+                ...state,
+                character: {
+                    ...character,
+                    characterRace: payload.characterRace,
+                },
+            };
+
+        case 'SET_CLASS':
+            return {
+                ...state,
+                character: {
+                    ...character,
+                    characterClass: payload.characterClass,
+                },
+            };
+
+        case 'CREATE_CHARACTER':
+            return {
+                ...state,
+                character: {
+                    ...character,
+                    characterName: payload.characterName,
+                    characterRace: payload.characterRace,
+                    characterClass: payload.characterClass,
+                },
+            };
 
         case 'LEVEL_UP_ABILITIES':
             return {
