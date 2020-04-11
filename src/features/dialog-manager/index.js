@@ -15,7 +15,7 @@ import SettingsDialog from './dialogs/settings-dialog';
 import ShopDialog from './dialogs/shop-dialog';
 import LevelUp from './dialogs/level-up';
 import AbilityScores from './dialogs/ability-dialog';
-import PlayerCustomisation from './dialogs/player-customisation';
+import CharacterCustomisation from './dialogs/character-customisation';
 
 const DialogManager = ({ dialog }) => {
     const {
@@ -33,7 +33,7 @@ const DialogManager = ({ dialog }) => {
         shop,
         levelUp,
         abilityDialog,
-        playerCustomisation,
+        characterCustomisation,
     } = dialog;
 
     let PauseComp = null;
@@ -50,7 +50,7 @@ const DialogManager = ({ dialog }) => {
             );
         if (abilityDialog) PauseComp = <AbilityScores />;
         if (characterCreation) PauseComp = <CharacterCreation />;
-        if (playerCustomisation) PauseComp = <PlayerCustomisation />;
+        if (characterCustomisation) PauseComp = <CharacterCustomisation />;
         if (gameInstructions) PauseComp = <GameInstructions />;
         if (gameOver) PauseComp = <GameOver />;
         if (gameStart) PauseComp = <GameSelect />;

@@ -7,7 +7,7 @@ import finishCustomisation from '../../actions/finish-customisation';
 
 import './styles.scss';
 
-const PlayerCustomisation = ({
+const CharacterCustomisation = ({
     dialog,
     finishCustomisation,
     setHairColour,
@@ -19,7 +19,7 @@ const PlayerCustomisation = ({
     return (
         <>
             <Dialog onKeyPress={finishCustomisation}>
-                <div className="flex-column player-customisation__container">
+                <div className="flex-column character-customisation__container">
                     <h1>Hello World</h1>
                     <Button
                         title="Continue"
@@ -37,4 +37,4 @@ const mapStateToProps = ({ dialog }) => ({ dialog });
 
 const actions = { finishCustomisation };
 
-export default connect(mapStateToProps, actions)(PlayerCustomisation);
+export default connect(mapStateToProps, actions)(CharacterCustomisation);

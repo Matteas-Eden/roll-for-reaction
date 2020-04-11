@@ -26,7 +26,7 @@ const initialState = {
     levelUp: false,
     fromLevelUp: false,
     abilityDialog: false,
-    playerCustomisation: false,
+    characterCustomisation: false,
     abilities: {
         constitution: STARTING_ABILITY_SCORE_VALUE,
         dexterity: STARTING_ABILITY_SCORE_VALUE,
@@ -100,7 +100,7 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
                 levelUp,
                 fromLevelUp,
                 abilityDialog,
-                playerCustomisation,
+                characterCustomisation,
                 pause,
             } = payload;
 
@@ -118,7 +118,7 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
                 gameSelect: gameSelect || null,
                 gameInstructions: gameInstructions || false,
                 abilityDialog: abilityDialog || false,
-                playerCustomisation: playerCustomisation || false,
+                characterCustomisation: characterCustomisation || false,
                 characterCreation: characterCreation || false,
                 paused: pause,
             };
