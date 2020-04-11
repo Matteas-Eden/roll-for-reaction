@@ -19,7 +19,7 @@ export default function createCharacter() {
             type: 'PAUSE',
             payload: {
                 pause: true,
-                abilityDialog: true,
+                playerCustomisation: true,
             },
         });
     };
