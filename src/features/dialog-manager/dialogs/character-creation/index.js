@@ -12,7 +12,9 @@ import './styles.scss';
 
 const CharacterCreation = ({ dialog, createCharacter, setClass, setRace }) => {
     function handleContinue() {
-        dialog.character.charName = document.getElementById('charName').value;
+        dialog.character.characterName = document.getElementById(
+            'characterName'
+        ).value;
         createCharacter();
     }
 
@@ -31,7 +33,7 @@ const CharacterCreation = ({ dialog, createCharacter, setClass, setRace }) => {
                     name="Character name"
                     type="text"
                     maxLength="512"
-                    id="charName"
+                    id="characterName"
                     className="white-border character-creation__input"
                 />
 
@@ -39,17 +41,17 @@ const CharacterCreation = ({ dialog, createCharacter, setClass, setRace }) => {
                 <div className="container space-around">
                     <SelectButton
                         title={'Human'}
-                        selected={dialog.character.charRace === 'Human'}
+                        selectedValue={dialog.character.characterRace}
                         onClick={setRace}
                     />
                     <SelectButton
                         title={'Elf'}
-                        selected={dialog.character.charRace === 'Elf'}
+                        selectedValue={dialog.character.characterRace}
                         onClick={setRace}
                     />
                     <SelectButton
                         title={'Dwarf'}
-                        selected={dialog.character.charRace === 'Dwarf'}
+                        selectedValue={dialog.character.characterRace}
                         onClick={setRace}
                     />
                 </div>
@@ -58,17 +60,17 @@ const CharacterCreation = ({ dialog, createCharacter, setClass, setRace }) => {
                 <div className="container space-around">
                     <SelectButton
                         title={'Fighter'}
-                        selected={dialog.character.charClass === 'Fighter'}
+                        selectedValue={dialog.character.characterClass}
                         onClick={setClass}
                     />
                     <SelectButton
                         title={'Wizard'}
-                        selected={dialog.character.charClass === 'Wizard'}
+                        selectedValue={dialog.character.characterClass}
                         onClick={setClass}
                     />
                     <SelectButton
                         title={'Ranger'}
-                        selected={dialog.character.charClass === 'Ranger'}
+                        selectedValue={dialog.character.characterClass}
                         onClick={setClass}
                     />
                 </div>
