@@ -15,6 +15,7 @@ const InventoryDialog = ({ toggleInventory }) => {
 
     return (
         <Dialog
+            keys={[73]}
             onKeyPress={() => {
                 toggleInventory();
             }}
