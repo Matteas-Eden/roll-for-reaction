@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 import './styles.scss';
 
-const Dialog = ({ children, goBack, onKeyPress, keys }) => {
+const Dialog = ({ children, goBack, onKeyPress }) => {
     useEffect(() => {
         if (onKeyPress) window.addEventListener('keydown', handleKeyPress);
         return () => {
@@ -12,10 +12,8 @@ const Dialog = ({ children, goBack, onKeyPress, keys }) => {
     }, []);
 
     function handleKeyPress(event) {
-        // case for 'enter' and 'i' for closing inventory
         // check if a key is pressed and bound to an action
-        // initially checks common key input 'enter'
-        if (event.keyCode === 13 || (keys && keys.includes(event.keyCode))) {
+        if (event.keyCode === 13 || event.keyCode === 73) {
             onKeyPress();
         }
     }
