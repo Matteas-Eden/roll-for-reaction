@@ -13,7 +13,9 @@ const Dialog = ({ children, goBack, onKeyPress, keys }) => {
 
     function handleKeyPress(event) {
         // case for 'enter' and 'i' for closing inventory
-        if (keys && keys.includes(event.keyCode)) {
+        // check if a key is pressed and bound to an action
+        // initially checks common key input 'enter'
+        if (event.keyCode === 13 || (keys && keys.includes(event.keyCode))) {
             onKeyPress();
         }
     }
