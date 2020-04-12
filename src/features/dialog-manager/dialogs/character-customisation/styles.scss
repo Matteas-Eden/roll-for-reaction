@@ -1,4 +1,4 @@
-$sprite-top-offset: 6.5rem;
+$sprite-top-offset: 5.5rem;
 $sprite-left-offset: 2rem;
 
 .character-customisation__container {
@@ -8,8 +8,22 @@ $sprite-left-offset: 2rem;
     align-items: center;
 }
 
+.character-customisation__title {
+    font-size: 26px;
+    text-align: center;
+
+    padding: 10px 0;
+}
+
 .character-customisation__text {
     font-family: 'Roboto Mono';
+}
+
+.character-customisation__options-container {
+    flex: 1;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 4rem;
 }
 
 .character-customisation__sprite-container {

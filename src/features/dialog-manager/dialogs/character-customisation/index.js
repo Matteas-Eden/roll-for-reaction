@@ -22,6 +22,11 @@ const CharacterCustomisation = ({
     setSkinColour,
     setArmourColour,
     setClothesColour,
+    hairColour,
+    eyeColour,
+    skinColour,
+    armourColour,
+    clothesColour,
 }) => {
     const SPRITE_HEIGHT = 200;
 
@@ -29,7 +34,9 @@ const CharacterCustomisation = ({
         <>
             <Dialog onKeyPress={finishCustomisation}>
                 <div className="flex-column character-customisation__container">
-                    <h1>Hello World</h1>
+                    <div className="flex-column character-customisation__title">
+                        Customise Character
+                    </div>
                     <div className="flex-column character-customisation__player-sprite">
                         <img
                             className="character-customisation__player-sprite-hair"
@@ -67,6 +74,13 @@ const CharacterCustomisation = ({
                             alt="outline"
                             height={SPRITE_HEIGHT}
                         />
+                    </div>
+                    <div className="flex-column character-customisation__options-container">
+                        {/*<p>Hair</p>
+                      <p>Skin</p>
+                      <p>Armour</p>
+                      <p>Clothes</p>
+                      <p>Eye</p>*/}
                     </div>
                     <Button
                         title="Continue"
