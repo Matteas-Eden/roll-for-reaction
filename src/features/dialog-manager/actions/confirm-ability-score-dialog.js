@@ -19,6 +19,23 @@ export default function confirmAbilityScoreDialog() {
                     fromLevelUp: false,
                 },
             });
+        } else if (getState().dialog.playerOpenedAbilityDialog) {
+            dispatch({
+                type: 'PAUSE',
+                payload: {
+                    pause: false,
+                    playerOpenedAbilityDialog: false,
+                },
+            });
+
+            dispatch({
+                type: 'SET_ABILITY_SCORES',
+                payload: {
+                    abilities: {
+                        ...abilities,
+                    },
+                },
+            });
         } else {
             dispatch({
                 type: 'SET_ABILITY_SCORES',
