@@ -1,4 +1,6 @@
 import _cloneDeep from 'lodash.clonedeep';
+import calculateModifier from '../../utils/calculate-modifier';
+import calculateMaxManapool from '../../utils/calculate-manapool-intelligence';
 
 const initialState = {
     abilities: {
@@ -37,6 +39,11 @@ const statsReducer = (state = initialState, { type, payload }) => {
             return { ...state, gold: state.gold - payload };
 
         case 'SET_ABILITY_SCORES':
+            const moreMana =
+                calculateMaxManapool(
+                    calculateModifier(payload.abilities.intelligence)
+                ) - state.maxMana;
+            state.mana += moreMana;
             return { ...state, abilities: payload.abilities };
 
         case 'UNEQUIP_ITEM':
