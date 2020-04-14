@@ -23,7 +23,6 @@ const initialState = {
     gold: 0,
     equippedItems: {},
     levelUp: { level: 0, hp: 0, dmg: 0 },
-    start: true,
 };
 
 const statsReducer = (state = initialState, { type, payload }) => {

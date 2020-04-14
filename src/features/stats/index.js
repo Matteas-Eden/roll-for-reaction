@@ -49,7 +49,6 @@ class Stats extends Component {
             mana,
             maxMana,
             gold,
-            start,
         } = stats;
         const { statsBgColor } = this.state;
 
@@ -61,10 +60,6 @@ class Stats extends Component {
         let wisBonus = calculateModifier(abilities.wisdom);
 
         stats.maxMana = calculateMaxManapool(intBonus);
-        if (abilities.intelligence >= 10 && start) {
-            mana = maxMana;
-            start = false;
-        }
 
         let height = disabled ? 66 : 120;
         if (sideMenu) height = disabled ? 100 : 110;
