@@ -4,6 +4,7 @@ import ReactTimeout from 'react-timeout';
 
 import { ANIMATION_SPEED } from '../../config/constants';
 import calculateModifier from '../../utils/calculate-modifier';
+import calculateMaxManapool from '../../utils/calculate-manapool-intelligence';
 
 import './styles.scss';
 
@@ -38,8 +39,27 @@ class Stats extends Component {
 
     render() {
         const { disabled, stats, sideMenu, largeView } = this.props;
-        const { abilities, level, exp, expToLevel, hp, maxHp, gold } = stats;
+        const {
+            abilities,
+            level,
+            exp,
+            expToLevel,
+            hp,
+            maxHp,
+            mana,
+            maxMana,
+            gold,
+        } = stats;
         const { statsBgColor } = this.state;
+
+        let STRbonus = calculateModifier(abilities.strength);
+        let CONbonus = calculateModifier(abilities.constitution);
+        let DEXbonus = calculateModifier(abilities.dexterity);
+        let CHRbonus = calculateModifier(abilities.charisma);
+        let INTbonus = calculateModifier(abilities.intelligence);
+        let WISbonus = calculateModifier(abilities.wisdom);
+
+        stats.maxMana = calculateMaxManapool(INTbonus);
 
         let height = disabled ? 66 : 120;
         if (sideMenu) height = disabled ? 100 : 110;
@@ -51,6 +71,14 @@ class Stats extends Component {
         if (hpPercent >= 99) hpBorder = '5px';
         else if (hpPercent >= 97) hpBorder = '5px 3px 3px 5px';
         else hpBorder = '5px 0 0 5px';
+
+        let manaPercent = (mana / maxMana) * 100;
+        if (manaPercent > 100) manaPercent = 100;
+
+        let manaBorder;
+        if (manaPercent >= 99) manaBorder = '5px';
+        else if (manaPercent >= 97) manaBorder = '5px 3px 3px 5px';
+        else manaBorder = '5px 0 0 5px';
 
         let columnStyle = 'stats-column__spacing';
         if (!sideMenu && largeView) {
@@ -66,13 +94,6 @@ class Stats extends Component {
         if (sideMenu) width = 340;
         else if (largeView) width = 360;
         else width = 324;
-
-        let STRbonus = calculateModifier(abilities.strength);
-        let CONbonus = calculateModifier(abilities.constitution);
-        let DEXbonus = calculateModifier(abilities.dexterity);
-        let CHRbonus = calculateModifier(abilities.charisma);
-        let INTbonus = calculateModifier(abilities.intelligence);
-        let WISbonus = calculateModifier(abilities.wisdom);
 
         return (
             <div
@@ -190,13 +211,13 @@ class Stats extends Component {
                                 >
                                     <span className="stats-mana-bar__container">
                                         <span className="flex-row stats-mana-bar__text">
-                                            {hp + '/' + maxHp}
+                                            {mana + '/' + maxMana}
                                         </span>
                                         <span
                                             className="stats-mana-bar__value"
                                             style={{
-                                                width: `${hpPercent}%`,
-                                                borderRadius: hpBorder,
+                                                width: `${manaPercent}%`,
+                                                borderRadius: manaBorder,
                                             }}
                                         ></span>
                                     </span>

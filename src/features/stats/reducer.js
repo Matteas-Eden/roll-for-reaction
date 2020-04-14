@@ -11,6 +11,8 @@ const initialState = {
     },
     hp: 10,
     maxHp: 10,
+    mana: 0,
+    maxMana: 0,
     damage: 3,
     defence: 0,
     level: 1,
