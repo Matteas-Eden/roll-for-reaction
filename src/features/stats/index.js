@@ -53,14 +53,14 @@ class Stats extends Component {
         } = stats;
         const { statsBgColor } = this.state;
 
-        let STRbonus = calculateModifier(abilities.strength);
-        let CONbonus = calculateModifier(abilities.constitution);
-        let DEXbonus = calculateModifier(abilities.dexterity);
-        let CHRbonus = calculateModifier(abilities.charisma);
-        let INTbonus = calculateModifier(abilities.intelligence);
-        let WISbonus = calculateModifier(abilities.wisdom);
+        let strBonus = calculateModifier(abilities.strength);
+        let conBonus = calculateModifier(abilities.constitution);
+        let dexBonus = calculateModifier(abilities.dexterity);
+        let chrBonus = calculateModifier(abilities.charisma);
+        let intBonus = calculateModifier(abilities.intelligence);
+        let wisBonus = calculateModifier(abilities.wisdom);
 
-        stats.maxMana = calculateMaxManapool(INTbonus);
+        stats.maxMana = calculateMaxManapool(intBonus);
         if (abilities.intelligence >= 10 && stats.start) {
             stats.mana = stats.maxMana;
             stats.start = false;
@@ -158,14 +158,14 @@ class Stats extends Component {
                                     {'STR: '}
                                 </span>
                                 <span className="stats__text--melee">
-                                    {STRbonus > 0
+                                    {strBonus > 0
                                         ? abilities.strength +
                                           ' (+' +
-                                          STRbonus +
+                                          strBonus +
                                           ')'
                                         : abilities.strength +
                                           ' (' +
-                                          STRbonus +
+                                          strBonus +
                                           ')'}
                                 </span>
                             </div>
@@ -175,14 +175,14 @@ class Stats extends Component {
                                     {'CON: '}
                                 </span>
                                 <span className="stats__text--melee">
-                                    {CONbonus > 0
+                                    {conBonus > 0
                                         ? abilities.constitution +
                                           ' (+' +
-                                          CONbonus +
+                                          conBonus +
                                           ')'
                                         : abilities.constitution +
                                           ' (' +
-                                          CONbonus +
+                                          conBonus +
                                           ')'}
                                 </span>
                             </div>
@@ -237,14 +237,14 @@ class Stats extends Component {
                                     {'DEX: '}
                                 </span>
                                 <span className="stats__text--ranged">
-                                    {DEXbonus > 0
+                                    {dexBonus > 0
                                         ? abilities.dexterity +
                                           ' (+' +
-                                          DEXbonus +
+                                          dexBonus +
                                           ')'
                                         : abilities.dexterity +
                                           ' (' +
-                                          DEXbonus +
+                                          dexBonus +
                                           ')'}
                                 </span>
                             </div>
@@ -254,14 +254,14 @@ class Stats extends Component {
                                     {'CHR: '}
                                 </span>
                                 <span className="stats__text--ranged">
-                                    {CHRbonus > 0
+                                    {chrBonus > 0
                                         ? abilities.charisma +
                                           ' (+' +
-                                          CHRbonus +
+                                          chrBonus +
                                           ')'
                                         : abilities.charisma +
                                           ' (' +
-                                          CHRbonus +
+                                          chrBonus +
                                           ')'}
                                 </span>
                             </div>
@@ -320,14 +320,14 @@ class Stats extends Component {
                                     {'INT: '}
                                 </span>
                                 <span className="stats__text--magic">
-                                    {INTbonus > 0
+                                    {intBonus > 0
                                         ? abilities.intelligence +
                                           ' (+' +
-                                          INTbonus +
+                                          intBonus +
                                           ')'
                                         : abilities.intelligence +
                                           ' (' +
-                                          INTbonus +
+                                          intBonus +
                                           ')'}
                                 </span>
                             </div>
@@ -337,14 +337,14 @@ class Stats extends Component {
                                     {'WIS: '}
                                 </span>
                                 <span className="stats__text--magic">
-                                    {WISbonus > 0
+                                    {wisBonus > 0
                                         ? abilities.wisdom +
                                           ' (+' +
-                                          WISbonus +
+                                          wisBonus +
                                           ')'
                                         : abilities.wisdom +
                                           ' (' +
-                                          WISbonus +
+                                          wisBonus +
                                           ')'}
                                 </span>
                             </div>
