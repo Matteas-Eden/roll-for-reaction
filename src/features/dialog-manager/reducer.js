@@ -9,12 +9,6 @@ const initialState = {
     gameOver: false,
     gameStart: true,
     gameInstructions: false,
-    characterCreation: false,
-    character: {
-        characterName: '',
-        characterRace: 'Human',
-        characterClass: 'Fighter',
-    },
     gameSelect: null,
     gameWin: false,
     paused: true,
@@ -43,6 +37,12 @@ const initialState = {
         min_wisdom: 0,
         min_intelligence: 0,
         min_charisma: 0,
+    },
+    characterCreation: false,
+    character: {
+        characterName: '',
+        characterRace: 'Human',
+        characterClass: 'Fighter',
     },
 };
 
@@ -166,7 +166,6 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 character: {
-                    ...character,
                     characterName: payload.characterName,
                     characterRace: payload.characterRace,
                     characterClass: payload.characterClass,
