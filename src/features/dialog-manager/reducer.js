@@ -67,8 +67,6 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
         min_charisma,
     } = abilities_minimum;
 
-    const { characterName, characterRace, characterClass } = character;
-
     switch (type) {
         case 'PAUSE':
             const {
