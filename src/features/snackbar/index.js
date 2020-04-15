@@ -140,7 +140,7 @@ class Snackbar extends Component {
                                     this.handleHideSnack();
                                 }}
                             >
-                                <i class="fa fa-hand-paper button__icon" />
+                                <i className="fa fa-hand-paper button__icon" />
                             </button>
                         </span>
                     </div>

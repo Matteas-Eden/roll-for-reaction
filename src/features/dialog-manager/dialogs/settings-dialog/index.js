@@ -13,16 +13,28 @@ const SettingsDialog = ({ state, resetGameState, closeSettings }) => {
     const [confirmQuit, setConfirmQuit] = useState(false);
 
     const saveGame = () => {
-        const url = window.URL.createObjectURL(
-            new Blob([JSON.stringify(state)]),
-            { type: 'octet/stream' }
-        );
+        const blob = new Blob([JSON.stringify(state)]);
+        const filename = state.dialog.character.characterName + '.json';
+
         const save = document.getElementById('save-game-dialog');
-        save.href = url;
-        save.download = 'ror-save-game.json';
-        save.click();
-        window.URL.revokeObjectURL(url);
+        if (save.download !== undefined) {
+            // Chrome/Firefox
+            const url = window.URL.createObjectURL(blob, {
+                type: 'octet/stream',
+            });
+            save.href = url;
+            save.download = filename;
+            save.click();
+            window.URL.revokeObjectURL(url);
+        } else if (navigator.msSaveBlob) {
+            // Internet Explorer and maybe Edge ??
+            navigator.msSaveBlob(blob, filename);
+        }
     };
+
+    const playerCreated =
+        state.dialog.character.characterName ||
+        state.dialog.character.characterName.length > 0;
 
     return (
         <Dialog>
@@ -35,8 +47,22 @@ const SettingsDialog = ({ state, resetGameState, closeSettings }) => {
                     title="Return to Menu"
                 />
 
-                <Button onClick={saveGame} icon="save" title="Save Game" />
-                <a href="" id="save-game-dialog" style={{ display: 'none' }} />
+                {playerCreated && (
+                    <>
+                        <Button
+                            onClick={saveGame}
+                            icon="save"
+                            title="Save Game"
+                        />
+                        <a
+                            href="#save"
+                            id="save-game-dialog"
+                            style={{ display: 'none' }}
+                        >
+                            Save
+                        </a>
+                    </>
+                )}
 
                 <Button onClick={closeSettings} icon="times" title="Close" />
             </div>
