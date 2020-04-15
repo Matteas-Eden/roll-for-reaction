@@ -9,7 +9,7 @@ const mapReducer = (state = initialState, { type, payload }) => {
             return { ...state, sound: payload };
 
         case 'LOAD_DATA':
-            return payload.gameMenu;
+            return { ...initialState, ...payload.gameMenu };
 
         default:
             return state;

@@ -48,7 +48,7 @@ const snackbarReducer = (state = initialState, { type, payload }) => {
             return initialState;
 
         case 'LOAD_DATA':
-            return payload.snackbar;
+            return { ...initialState, ...payload.snackbar };
 
         default:
             return state;

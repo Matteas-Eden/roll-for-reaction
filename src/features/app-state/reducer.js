@@ -16,7 +16,7 @@ const appStateReducer = (state = initialState, { payload, type }) => {
             return { ...state, sideMenu: payload };
 
         case 'LOAD_DATA':
-            return payload.appState;
+            return { ...initialState, ...payload.appState };
 
         default:
             return state;

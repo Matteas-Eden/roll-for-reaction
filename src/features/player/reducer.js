@@ -37,7 +37,7 @@ const playerReducer = (state = initialState, { type, payload }) => {
             return initialState;
 
         case 'LOAD_DATA':
-            return payload.player;
+            return { ...initialState, ...payload.player };
 
         default:
             return state;

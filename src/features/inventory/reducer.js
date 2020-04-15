@@ -44,7 +44,7 @@ const inventoryReducer = (state = initialState, { type, payload }) => {
             return initialState;
 
         case 'LOAD_DATA':
-            return payload.inventory;
+            return { ...initialState, ...payload.inventory };
 
         default:
             return state;

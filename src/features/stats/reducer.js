@@ -334,7 +334,7 @@ const statsReducer = (state = initialState, { type, payload }) => {
             return initialState;
 
         case 'LOAD_DATA':
-            return payload.stats;
+            return { ...initialState, ...payload.stats };
 
         default:
             return state;

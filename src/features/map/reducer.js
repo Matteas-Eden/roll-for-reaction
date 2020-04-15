@@ -17,7 +17,7 @@ const mapReducer = (state = initialState, { type, payload }) => {
             return initialState;
 
         case 'LOAD_DATA':
-            return payload.map;
+            return { ...initialState, ...payload.map };
 
         default:
             return state;

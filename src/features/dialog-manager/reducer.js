@@ -343,7 +343,7 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
             return initialState;
 
         case 'LOAD_DATA':
-            return payload.dialog;
+            return { ...initialState, ...payload.dialog };
 
         default:
             return state;
