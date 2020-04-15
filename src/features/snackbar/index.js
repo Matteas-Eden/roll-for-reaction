@@ -40,7 +40,6 @@ class Snackbar extends Component {
         if (lastErrorMessage !== errorMessage && errorMessage) {
             this.setState({
                 show: errorMessage.split('-')[0],
-                item: item,
             });
             this.props.setTimeout(this.handleHideSnack, SNACK_DURATION);
         } else if (

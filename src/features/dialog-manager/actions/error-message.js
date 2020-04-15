@@ -2,7 +2,7 @@ export default function errorMessage(errorMessage) {
     return dispatch => {
         dispatch({
             type: 'ERROR_MESSAGE',
-            payload: { name: errorMessage, item: errorMessage },
+            payload: { name: errorMessage },
         });
     };
 }
