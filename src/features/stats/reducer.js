@@ -337,11 +337,11 @@ const statsReducer = (state = initialState, { type, payload }) => {
                     calculateModifier(state.abilities.constitution)
                 );
                 console.log(newAbilityModifierHp);
-                const hpDifference =
+                newState.levelUp.hp =
                     newAbilityModifierHp - state.abilityModifierHp;
-                console.log(hpDifference);
-                newState.hp += hpDifference;
-                newState.maxHp += hpDifference;
+                console.log(newState.levelUp.hp);
+                newState.hp += newState.levelUp.hp;
+                newState.maxHp += newState.levelUp.hp;
                 newState.abilityModifierHp = newAbilityModifierHp;
 
                 // get more damage (+1)
