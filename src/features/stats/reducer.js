@@ -38,11 +38,11 @@ const statsReducer = (state = initialState, { type, payload }) => {
             return { ...state, gold: state.gold - payload };
 
         case 'SET_ABILITY_SCORES':
-            const moreMana =
-                calculateMaxManapool(
-                    calculateModifier(payload.abilities.intelligence)
-                ) - state.maxMana;
+            const intBonus = calculateModifier(payload.abilities.intelligence);
+            const newMaxMana = calculateMaxManapool(intBonus);
+            const moreMana = newMaxMana - state.maxMana;
             state.mana += moreMana;
+            state.maxMana = newMaxMana;
             return { ...state, abilities: payload.abilities };
 
         case 'UNEQUIP_ITEM':

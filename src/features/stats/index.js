@@ -59,7 +59,7 @@ class Stats extends Component {
         let intBonus = calculateModifier(abilities.intelligence);
         let wisBonus = calculateModifier(abilities.wisdom);
 
-        stats.maxMana = calculateMaxManapool(intBonus);
+        //stats.maxMana = calculateMaxManapool(intBonus);
 
         let height = disabled ? 66 : 120;
         if (sideMenu) height = disabled ? 100 : 110;
