@@ -37,7 +37,7 @@ class Snackbar extends Component {
         const lastTooManyItems = prevProps.snackbar.tooManyItems;
         const lastErrorMessage = prevProps.snackbar.errorMessage;
 
-        if (lastErrorMessage !== errorMessage && errorMessage && errorMessage) {
+        if (lastErrorMessage !== errorMessage && errorMessage) {
             this.setState({
                 show: errorMessage.split('-')[0],
                 item: item,
