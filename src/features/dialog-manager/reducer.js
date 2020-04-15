@@ -39,7 +39,7 @@ const initialState = {
     },
     characterCreation: false,
     character: {
-        characterName: 'Adventurer',
+        characterName: '',
         characterRace: 'Human',
         characterClass: 'Fighter',
     },
