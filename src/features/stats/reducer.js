@@ -49,8 +49,6 @@ const statsReducer = (state = initialState, { type, payload }) => {
             state.maxMana = newMaxMana;
 
             // calculate new hp
-            // state.abilityModifierHp = calculateMaxHpPool(state.level, state.constitution);
-
             const newAbilityModifierHp = calculateMaxHpPool(
                 state.level,
                 calculateModifier(payload.abilities.constitution)
