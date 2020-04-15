@@ -19,9 +19,9 @@ const CharacterCreation = ({
     setRace,
 }) => {
     function handleContinue() {
-        dialog.character.characterName = document.getElementById(
-            'characterName'
-        ).value;
+        dialog.character.characterName = document
+            .getElementById('characterName')
+            .value.trim();
         if (dialog.character.characterName) {
             createCharacter();
         } else {
