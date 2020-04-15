@@ -55,7 +55,6 @@ const statsReducer = (state = initialState, { type, payload }) => {
                 state.level,
                 calculateModifier(payload.abilities.constitution)
             );
-            console.log(newAbilityModifierHp);
             const hpDifference = newAbilityModifierHp - state.abilityModifierHp;
             state.hp += hpDifference;
             state.maxHp += hpDifference;
@@ -325,21 +324,13 @@ const statsReducer = (state = initialState, { type, payload }) => {
                 } else {
                 } // let the exp goal remain static if they are lv 20+
 
-                // get more maxHp and currHp (roll 1-5)
-                // const moreHp = Math.floor(Math.random() * 5) + 1;
-                // newState.hp += moreHp;
-                // newState.maxHp += moreHp;
-                // newState.levelUp.hp = moreHp;
-
                 // calculate new hp
                 const newAbilityModifierHp = calculateMaxHpPool(
                     newState.level,
                     calculateModifier(state.abilities.constitution)
                 );
-                console.log(newAbilityModifierHp);
                 newState.levelUp.hp =
                     newAbilityModifierHp - state.abilityModifierHp;
-                console.log(newState.levelUp.hp);
                 newState.hp += newState.levelUp.hp;
                 newState.maxHp += newState.levelUp.hp;
                 newState.abilityModifierHp = newAbilityModifierHp;
