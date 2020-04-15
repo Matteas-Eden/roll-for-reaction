@@ -1,6 +1,7 @@
 import _cloneDeep from 'lodash.clonedeep';
 import calculateModifier from '../../utils/calculate-modifier';
 import calculateMaxManaPool from '../../utils/calculate-max-mana-pool';
+import calculateMaxHpPool from '../../utils/calculate-max-hp-pool';
 
 const initialState = {
     abilities: {
@@ -12,8 +13,10 @@ const initialState = {
         charisma: 0,
         points: 0,
     },
-    hp: 10,
-    maxHp: 10,
+    hp: 0,
+    abilityModifierHp: 0,
+    extraHp: 0,
+    maxHp: 0,
     mana: 0,
     maxMana: 0,
     damage: 3,
@@ -44,6 +47,20 @@ const statsReducer = (state = initialState, { type, payload }) => {
             );
             state.mana += newMaxMana - state.maxMana;
             state.maxMana = newMaxMana;
+
+            // calculate new hp
+            // state.abilityModifierHp = calculateMaxHpPool(state.level, state.constitution);
+
+            const newAbilityModifierHp = calculateMaxHpPool(
+                state.level,
+                calculateModifier(payload.abilities.constitution)
+            );
+            console.log(newAbilityModifierHp);
+            const hpDifference = newAbilityModifierHp - state.abilityModifierHp;
+            state.hp += hpDifference;
+            state.maxHp += hpDifference;
+            state.abilityModifierHp = newAbilityModifierHp;
+
             return { ...state, abilities: payload.abilities };
 
         case 'UNEQUIP_ITEM':
@@ -309,10 +326,23 @@ const statsReducer = (state = initialState, { type, payload }) => {
                 } // let the exp goal remain static if they are lv 20+
 
                 // get more maxHp and currHp (roll 1-5)
-                const moreHp = Math.floor(Math.random() * 5) + 1;
-                newState.hp += moreHp;
-                newState.maxHp += moreHp;
-                newState.levelUp.hp = moreHp;
+                // const moreHp = Math.floor(Math.random() * 5) + 1;
+                // newState.hp += moreHp;
+                // newState.maxHp += moreHp;
+                // newState.levelUp.hp = moreHp;
+
+                // calculate new hp
+                const newAbilityModifierHp = calculateMaxHpPool(
+                    newState.level,
+                    calculateModifier(state.abilities.constitution)
+                );
+                console.log(newAbilityModifierHp);
+                const hpDifference =
+                    newAbilityModifierHp - state.abilityModifierHp;
+                console.log(hpDifference);
+                newState.hp += hpDifference;
+                newState.maxHp += hpDifference;
+                newState.abilityModifierHp = newAbilityModifierHp;
 
                 // get more damage (+1)
                 let moreDmg = 1;
