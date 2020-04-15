@@ -4,7 +4,6 @@ import ReactTimeout from 'react-timeout';
 
 import { ANIMATION_SPEED } from '../../config/constants';
 import calculateModifier from '../../utils/calculate-modifier';
-import calculateMaxManapool from '../../utils/calculate-manapool-intelligence';
 
 import './styles.scss';
 
