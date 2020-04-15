@@ -1,7 +1,6 @@
 import React from 'react';
 
 import SelectButton from '../select-button';
-import uuidv4 from '../../utils/uuid-v4';
 
 const SelectButtonGroup = ({
     values,
@@ -17,7 +16,7 @@ const SelectButtonGroup = ({
 }) => {
     return values.map(value => (
         <SelectButton
-            key={uuidv4()}
+            key={value}
             title={value}
             selected={select(value)}
             onClick={onClick}
