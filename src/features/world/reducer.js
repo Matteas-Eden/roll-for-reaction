@@ -178,6 +178,9 @@ const worldReducer = (state = initialState, { type, payload }) => {
         case 'RESET':
             return initialState;
 
+        case 'LOAD_DATA':
+            return payload.world;
+
         default:
             return state;
     }
