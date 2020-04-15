@@ -14,8 +14,9 @@ const SelectButtonGroup = ({
     noBorder,
     extraClass,
 }) => {
-    return values.map(value => (
+    return values.map((value, key) => (
         <SelectButton
+            key={key}
             title={value}
             selected={select(value)}
             onClick={onClick}
