@@ -13,7 +13,7 @@ const snackbarReducer = (state = initialState, { type, payload }) => {
         case 'ERROR_MESSAGE':
             return {
                 ...state,
-                errorMessage: `${payload.name}-${new Date().getTime()}`,
+                errorMessage: `${payload}-${new Date().getTime()}`,
             };
 
         case 'NOT_ENOUGH_GOLD':
