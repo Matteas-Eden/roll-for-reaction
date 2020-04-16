@@ -8,15 +8,15 @@
 
 *Roll For Reaction* is an open-source fork of [react-rpg](https://github.com/ASteinheiser/react-rpg.com) created for SOFTENG750/COMPSCI 732 at the University of Auckland. This project aims to enhance the systems already present in the base game by modifying and adding elements to lightly emulate the popular tabletop role-playing game *Dungeons and Dragons: 5th Edition*. In doing so, the following features are planned to be added:
 
-| Definitely                            | Hopefully                                 | Maybe                   |
-| ------------------------------------- | ----------------------------------------- | ----------------------- |
-| :x: DnD Ability Scores for Player     | :x: UI/UX Improvements                    | :x: Particle Effects    |
-| :x: DnD Classes and Races             | :x: Final Fantasy-esque Turn Based Combat | :x: Character Dialogue  |
-| :x: Dice-based Combat                 | :heavy_check_mark: Save/Load System       | :x: Cinematic Cutscenes |
-| :x: New Maps/Levels                   | :x: New Enemy Types                       | :x: Online Multiplayer  |
-| :heavy_check_mark: Character Creation | :x: Customisable Outfit Colour            | :x: Party System        |
-| :x: Additional Items in Shop          | :x: Split Screen Local Multiplayer        |                         |
-| :x: Spellcasting System               |                                           |                         |
+| Definitely                                         | Hopefully                                                  | Maybe                                    |
+| -------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------- |
+| ![x][icon-octicon-x] DnD Ability Scores for Player | ![x][icon-octicon-x] UI/UX Improvements                    | ![x][icon-octicon-x] Particle Effects    |
+| ![x][icon-octicon-x]DnD Classes and Races          | ![x][icon-octicon-x] Final Fantasy-esque Turn Based Combat | ![x][icon-octicon-x] Character Dialogue  |
+| ![x][icon-octicon-x] Dice-based Combat             | ![check][icon-octicon-check] Save/Load System              | ![x][icon-octicon-x] Cinematic Cutscenes |
+| ![x][icon-octicon-x] New Maps/Levels               | ![x][icon-octicon-x] New Enemy Types                       | ![x][icon-octicon-x] Online Multiplayer  |
+| ![check][icon-octicon-check] Character Creation    | ![x][icon-octicon-x] Customisable Outfit Colour            | ![x][icon-octicon-x] Party System        |
+| ![x][icon-octicon-x] Additional Items in Shop      | ![x][icon-octicon-x]Split Screen Local Multiplayer         |                                          |
+| ![x][icon-octicon-x] Spellcasting System           |                                                            |                                          |
 
 > Classes include Fighter, Ranger and Wizard
 
