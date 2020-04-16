@@ -8,15 +8,15 @@
 
 *Roll For Reaction* is an open-source fork of [react-rpg](https://github.com/ASteinheiser/react-rpg.com) created for SOFTENG750/COMPSCI 732 at the University of Auckland. This project aims to enhance the systems already present in the base game by modifying and adding elements to lightly emulate the popular tabletop role-playing game *Dungeons and Dragons: 5th Edition*. In doing so, the following features are planned to be added:
 
-| Definitely                      | Hopefully                             | Maybe               |
-| ------------------------------- | ------------------------------------- | ------------------- |
-| DnD Ability Scores for Player   | UI/UX Improvements                    | Particle Effects    |
-| DnD Classes and Races           | Final Fantasy-esque Turn Based Combat | Character Dialogue  |
-| Dice-based Combat               | Save/Load System                      | Cinematic Cutscenes |
-| New Maps/Levels                 | New Enemy Types                       | Online Multiplayer  |
-| Character Creation              | Customisable Outfit Colour            | Party System        |
-| Additional Items in Shop        | Split Screen Local Multiplayer        |                     |
-| Spellcasting System             |                                       |                     |
+| Definitely                            | Hopefully                                 | Maybe                   |
+| ------------------------------------- | ----------------------------------------- | ----------------------- |
+| :x: DnD Ability Scores for Player     | :x: UI/UX Improvements                    | :x: Particle Effects    |
+| :x: DnD Classes and Races             | :x: Final Fantasy-esque Turn Based Combat | :x: Character Dialogue  |
+| :x: Dice-based Combat                 | :heavy_check_mark: Save/Load System       | :x: Cinematic Cutscenes |
+| :x: New Maps/Levels                   | :x: New Enemy Types                       | :x: Online Multiplayer  |
+| :heavy_check_mark: Character Creation | :x: Customisable Outfit Colour            | :x: Party System        |
+| :x: Additional Items in Shop          | :x: Split Screen Local Multiplayer        |                         |
+| :x: Spellcasting System               |                                           |                         |
 
 > Classes include Fighter, Ranger and Wizard
 
@@ -24,7 +24,7 @@
 
 ## Developer Instructions
 
-The game is hosted via GitHub pages at https://matteas.nz/roll-for-reaction, but for development purposes it is a requirement to be able to run the game locally. 
+The game is hosted via GitHub pages at https://matteas.nz/roll-for-reaction, but for development purposes it is a requirement to be able to run the game locally.
 
 #### Requirements
 In order to run *Roll for Reaction* locally, you must ensure you have setup, installed and tested:
