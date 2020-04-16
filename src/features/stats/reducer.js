@@ -13,9 +13,9 @@ const initialState = {
         points: 0,
     },
     character: {
-        characterName: 'Adventurer',
-        characterRace: 'Human',
-        characterClass: 'Fighter',
+        characterName: '',
+        characterRace: '',
+        characterClass: '',
     },
     hp: 10,
     maxHp: 10,
