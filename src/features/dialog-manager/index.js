@@ -27,7 +27,7 @@ const DialogManager = ({ dialog }) => {
         gameWin,
         gameInstructions,
         characterCreation,
-        characterName,
+        character,
         paused,
         settings,
         shop,
@@ -46,8 +46,14 @@ const DialogManager = ({ dialog }) => {
         if (gameText)
             PauseComp = (
                 <GameTextDialog
-                    text1={gameText.title.replace(/<>/g, characterName)}
-                    text2={gameText.body.replace(/<>/g, characterName)}
+                    text1={gameText.title.replace(
+                        /<>/g,
+                        character.characterName
+                    )}
+                    text2={gameText.body.replace(
+                        /<>/g,
+                        character.characterName
+                    )}
                 />
             );
         if (abilityDialog) PauseComp = <AbilityScores />;
