@@ -82,6 +82,7 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
                 gameSelect,
                 gameInstructions,
                 characterCreation,
+                characterName,
                 levelUp,
                 fromLevelUp,
                 abilityDialog,
@@ -105,6 +106,8 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
                 abilityDialog: abilityDialog || false,
                 playerOpenedAbilityDialog: playerOpenedAbilityDialog || false,
                 characterCreation: characterCreation || false,
+                characterName:
+                    state.character.characterName || 'the adventurer',
                 paused: pause,
             };
 
