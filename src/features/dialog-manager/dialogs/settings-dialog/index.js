@@ -16,9 +16,12 @@ const SettingsDialog = ({ state, resetGameState, closeSettings }) => {
         const blob = new Blob([JSON.stringify(state)]);
         const filename = state.dialog.character.characterName + '.json';
 
-        const save = document.getElementById('save-game-dialog');
-        if (save.download !== undefined) {
+        if (window.navigator.msSaveBlob) {
+            // Internet Explorer/Edge
+            window.navigator.msSaveBlob(blob, filename);
+        } else {
             // Chrome/Firefox
+            const save = document.getElementById('save-game-dialog');
             const url = window.URL.createObjectURL(blob, {
                 type: 'octet/stream',
             });
@@ -26,9 +29,6 @@ const SettingsDialog = ({ state, resetGameState, closeSettings }) => {
             save.download = filename;
             save.click();
             window.URL.revokeObjectURL(url);
-        } else if (navigator.msSaveBlob) {
-            // Internet Explorer and maybe Edge ??
-            navigator.msSaveBlob(blob, filename);
         }
     };
 
