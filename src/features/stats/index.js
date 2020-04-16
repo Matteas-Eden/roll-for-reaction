@@ -40,6 +40,7 @@ class Stats extends Component {
         const { disabled, stats, sideMenu, largeView } = this.props;
         const {
             abilities,
+            character,
             level,
             exp,
             expToLevel,
@@ -113,6 +114,18 @@ class Stats extends Component {
                                 className="flex-row"
                                 style={{ paddingBottom: sideMenu ? 0 : 15 }}
                             >
+                                {/* <span className="stats__text--spacing">
+                                    {'NAME: '}
+                                </span> */}
+                                <span className="stats__text--info">
+                                    {character.characterName}
+                                </span>
+                            </div>
+
+                            <div
+                                className="flex-row"
+                                style={{ paddingBottom: sideMenu ? 0 : 15 }}
+                            >
                                 <span className="stats__text--spacing">
                                     {'LEVEL: '}
                                 </span>
@@ -181,6 +194,18 @@ class Stats extends Component {
                         </div>
 
                         <div className={`flex-column ${columnStyle}`}>
+                            <div
+                                className="flex-row"
+                                style={{ paddingBottom: sideMenu ? 0 : 15 }}
+                            >
+                                <span className="stats__text--spacing">
+                                    {'RACE: '}
+                                </span>
+                                <span className="stats__text--info">
+                                    {character.characterRace}
+                                </span>
+                            </div>
+
                             <div
                                 className={`flex-row ${
                                     sideMenu ? '' : 'stats__row--spacing'
@@ -260,6 +285,18 @@ class Stats extends Component {
                         </div>
 
                         <div className={`flex-column ${columnStyle}`}>
+                            <div
+                                className="flex-row"
+                                style={{ paddingBottom: sideMenu ? 0 : 15 }}
+                            >
+                                <span className="stats__text--spacing">
+                                    {'RACE: '}
+                                </span>
+                                <span className="stats__text--info">
+                                    {character.characterClass}
+                                </span>
+                            </div>
+
                             <div
                                 className="flex-row"
                                 style={{ paddingTop: sideMenu ? 7 : 37 }}

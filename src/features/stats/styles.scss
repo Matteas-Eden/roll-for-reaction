@@ -18,6 +18,13 @@
     font-family: 'Roboto Mono';
 }
 
+.stats__text--info {
+    color: var(--white);
+    font-size: 16px;
+    text-transform: none;
+    font-family: 'Montserrat';
+}
+
 .stats__text--level {
     color: var(--blue);
     font-size: 18px;
