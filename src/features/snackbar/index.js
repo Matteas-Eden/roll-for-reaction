@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import { SNACK_DURATION } from '../../config/constants';
 import equipItem from '../inventory/actions/equip-item';
+import clearNotification from './actions/clear-notification';
 
 import './styles.scss';
 
@@ -94,6 +95,7 @@ class Snackbar extends Component {
 
     handleHideSnack() {
         this.setState({ show: '' });
+        this.props.clearNotification();
     }
 
     render() {
@@ -154,6 +156,6 @@ class Snackbar extends Component {
 
 const mapStateToProps = ({ snackbar, inventory }) => ({ snackbar, inventory });
 
-const actions = { equipItem };
+const actions = { equipItem, clearNotification };
 
 export default connect(mapStateToProps, actions)(ReactTimeout(Snackbar));

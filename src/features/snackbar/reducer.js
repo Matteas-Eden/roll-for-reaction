@@ -44,6 +44,7 @@ const snackbarReducer = (state = initialState, { type, payload }) => {
                 item: payload,
             };
 
+        case 'CLEAR_NOTIFICATION':
         case 'RESET':
             return initialState;
 
