@@ -82,7 +82,6 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
                 gameSelect,
                 gameInstructions,
                 characterCreation,
-                characterName,
                 levelUp,
                 fromLevelUp,
                 abilityDialog,
