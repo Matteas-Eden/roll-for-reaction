@@ -2,7 +2,9 @@ import {
     STARTING_ABILITY_POINTS,
     STARTING_ABILITY_SCORE_VALUE,
     MAX_ABILITY_SCORE,
+    RACE_BONUS_STARTING_ABILITY_SCORE_VALUE,
 } from '../../config/constants';
+import resetAbilityScoreValues from '../../utils/reset-starting-abilities';
 
 const initialState = {
     gameText: false,
@@ -48,6 +50,23 @@ const initialState = {
 
 const dialogManagerReducer = (state = initialState, { type, payload }) => {
     const { abilities, abilities_minimum, character } = state;
+    resetAbilityScoreValues(abilities);
+    switch (character.characterRace) {
+        case 'Human':
+            abilities.strength = RACE_BONUS_STARTING_ABILITY_SCORE_VALUE;
+            abilities.intelligence = RACE_BONUS_STARTING_ABILITY_SCORE_VALUE;
+            break;
+        case 'Elf':
+            abilities.dexterity = RACE_BONUS_STARTING_ABILITY_SCORE_VALUE;
+            abilities.charisma = RACE_BONUS_STARTING_ABILITY_SCORE_VALUE;
+            break;
+        case 'Dwarf':
+            abilities.constitution = RACE_BONUS_STARTING_ABILITY_SCORE_VALUE;
+            abilities.wisdom = RACE_BONUS_STARTING_ABILITY_SCORE_VALUE;
+            break;
+        default:
+    }
+
     const {
         constitution,
         intelligence,
