@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Button from '../button';
+import { MAX_ABILITY_SCORE } from '../../config/constants';
 
 import './styles.scss';
 
@@ -11,7 +12,10 @@ const Ability = ({ name, value, minValue, increment, decrement }) => {
                 <span className="ability-score__text">{name}:</span>
                 <div
                     className="ability-score__button"
-                    style={{ visibility: value === 20 ? 'hidden' : 'visible' }}
+                    style={{
+                        visibility:
+                            value === MAX_ABILITY_SCORE ? 'hidden' : 'visible',
+                    }}
                 >
                     <Button
                         title=" "
