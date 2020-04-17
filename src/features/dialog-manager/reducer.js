@@ -42,29 +42,39 @@ const initialState = {
     },
     characterCreation: false,
     character: {
-        characterName: '',
+        characterName: ' ',
         characterRace: 'Human',
         characterClass: 'Fighter',
     },
+    startBuild: true,
 };
 
 const dialogManagerReducer = (state = initialState, { type, payload }) => {
     const { abilities, abilities_minimum, character } = state;
-    resetAbilityScoreValues(abilities);
-    switch (character.characterRace) {
-        case 'Human':
-            abilities.strength = RACE_BONUS_STARTING_ABILITY_SCORE_VALUE;
-            abilities.intelligence = RACE_BONUS_STARTING_ABILITY_SCORE_VALUE;
-            break;
-        case 'Elf':
-            abilities.dexterity = RACE_BONUS_STARTING_ABILITY_SCORE_VALUE;
-            abilities.charisma = RACE_BONUS_STARTING_ABILITY_SCORE_VALUE;
-            break;
-        case 'Dwarf':
-            abilities.constitution = RACE_BONUS_STARTING_ABILITY_SCORE_VALUE;
-            abilities.wisdom = RACE_BONUS_STARTING_ABILITY_SCORE_VALUE;
-            break;
-        default:
+    // if in character creation mode
+    if (state.characterCreation && character.characterName !== ' ') {
+        resetAbilityScoreValues(abilities);
+        switch (character.characterRace) {
+            case 'Human':
+                abilities.strength = RACE_BONUS_STARTING_ABILITY_SCORE_VALUE;
+                abilities.intelligence = RACE_BONUS_STARTING_ABILITY_SCORE_VALUE;
+                abilities_minimum.min_strength = 2;
+                abilities_minimum.min_intelligence = 2;
+                break;
+            case 'Elf':
+                abilities.dexterity = RACE_BONUS_STARTING_ABILITY_SCORE_VALUE;
+                abilities.charisma = RACE_BONUS_STARTING_ABILITY_SCORE_VALUE;
+                abilities_minimum.min_dexterity = 2;
+                abilities_minimum.min_charisma = 2;
+                break;
+            case 'Dwarf':
+                abilities.constitution = RACE_BONUS_STARTING_ABILITY_SCORE_VALUE;
+                abilities.wisdom = RACE_BONUS_STARTING_ABILITY_SCORE_VALUE;
+                abilities_minimum.min_constitution = 2;
+                abilities_minimum.min_wisdom = 2;
+                break;
+            default:
+        }
     }
 
     const {
