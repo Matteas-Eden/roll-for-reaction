@@ -4,8 +4,7 @@ import {
     MAX_ABILITY_SCORE,
 } from '../../config/constants';
 import resetAbilityScoreValues from '../../utils/reset-starting-abilities';
-import addRaceAbilityBonus from '../../utils/add-race-ability-bonus';
-import setAbilityMinimum from '../../utils/set-ability-minimum';
+import setRaceBonus from '../../utils/set-race-bonus';
 
 const initialState = {
     gameText: false,
@@ -53,31 +52,8 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
     const { abilities, abilities_minimum, character } = state;
     // if in character creation mode
     if (state.characterCreation && character.characterName !== ' ') {
-        resetAbilityScoreValues(abilities);
-        switch (character.characterRace) {
-            case 'Human':
-                addRaceAbilityBonus(abilities.strength, abilities.intelligence);
-                setAbilityMinimum(
-                    abilities_minimum.min_strength,
-                    abilities_minimum.min_intelligence
-                );
-                break;
-            case 'Elf':
-                addRaceAbilityBonus(abilities.dexterity, abilities.charisma);
-                setAbilityMinimum(
-                    abilities_minimum.min_dexterity,
-                    abilities_minimum.min_charisma
-                );
-                break;
-            case 'Dwarf':
-                addRaceAbilityBonus(abilities.constitution, abilities.wisdom);
-                addRaceAbilityBonus(
-                    abilities_minimum.min_constitution,
-                    abilities_minimum.min_wisdom
-                );
-                break;
-            default:
-        }
+        resetAbilityScoreValues(abilities, abilities_minimum);
+        setRaceBonus(character.characterRace, abilities, abilities_minimum);
     }
 
     const {
