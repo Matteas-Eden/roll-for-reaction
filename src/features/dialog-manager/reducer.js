@@ -2,7 +2,7 @@ import {
     STARTING_ABILITY_POINTS,
     STARTING_ABILITY_SCORE_VALUE,
     MAX_ABILITY_SCORE,
-    RACE_BONUS_STARTING_ABILITY_SCORE_VALUE,
+    RACE_ABILITY_BONUS,
 } from '../../config/constants';
 import resetAbilityScoreValues from '../../utils/reset-starting-abilities';
 
@@ -55,22 +55,22 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
         resetAbilityScoreValues(abilities);
         switch (character.characterRace) {
             case 'Human':
-                abilities.strength = RACE_BONUS_STARTING_ABILITY_SCORE_VALUE;
-                abilities.intelligence = RACE_BONUS_STARTING_ABILITY_SCORE_VALUE;
-                abilities_minimum.min_strength = 2;
-                abilities_minimum.min_intelligence = 2;
+                abilities.strength += RACE_ABILITY_BONUS;
+                abilities.intelligence += RACE_ABILITY_BONUS;
+                abilities_minimum.min_strength = RACE_ABILITY_BONUS;
+                abilities_minimum.min_intelligence = RACE_ABILITY_BONUS;
                 break;
             case 'Elf':
-                abilities.dexterity = RACE_BONUS_STARTING_ABILITY_SCORE_VALUE;
-                abilities.charisma = RACE_BONUS_STARTING_ABILITY_SCORE_VALUE;
-                abilities_minimum.min_dexterity = 2;
-                abilities_minimum.min_charisma = 2;
+                abilities.dexterity += RACE_ABILITY_BONUS;
+                abilities.charisma += RACE_ABILITY_BONUS;
+                abilities_minimum.min_dexterity = RACE_ABILITY_BONUS;
+                abilities_minimum.min_charisma = RACE_ABILITY_BONUS;
                 break;
             case 'Dwarf':
-                abilities.constitution = RACE_BONUS_STARTING_ABILITY_SCORE_VALUE;
-                abilities.wisdom = RACE_BONUS_STARTING_ABILITY_SCORE_VALUE;
-                abilities_minimum.min_constitution = 2;
-                abilities_minimum.min_wisdom = 2;
+                abilities.constitution += RACE_ABILITY_BONUS;
+                abilities.wisdom += RACE_ABILITY_BONUS;
+                abilities_minimum.min_constitution = RACE_ABILITY_BONUS;
+                abilities_minimum.min_wisdom = RACE_ABILITY_BONUS;
                 break;
             default:
         }
