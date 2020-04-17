@@ -105,6 +105,13 @@ class Snackbar extends Component {
         this.props.clearNotification();
     }
 
+    handleEquip() {
+        this.props.equipItem(
+            this.props.inventory.items[this.props.inventory.items.length - 1]
+        );
+        this.handleHideSnack();
+    }
+
     render() {
         const { sideMenu, largeView } = this.props;
         const { show, item } = this.state;
@@ -141,15 +148,7 @@ class Snackbar extends Component {
                             {show}
                             <button
                                 className="snackbar__equip__button white-border"
-                                onClick={() => {
-                                    this.props.equipItem(
-                                        this.props.inventory.items[
-                                            this.props.inventory.items.length -
-                                                1
-                                        ]
-                                    );
-                                    this.handleHideSnack();
-                                }}
+                                onClick={this.handleEquip}
                             >
                                 <i className="fa fa-hand-paper button__icon" />
                             </button>
