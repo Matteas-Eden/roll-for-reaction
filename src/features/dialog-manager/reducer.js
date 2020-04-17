@@ -2,9 +2,10 @@ import {
     STARTING_ABILITY_POINTS,
     STARTING_ABILITY_SCORE_VALUE,
     MAX_ABILITY_SCORE,
-    RACE_ABILITY_BONUS,
 } from '../../config/constants';
 import resetAbilityScoreValues from '../../utils/reset-starting-abilities';
+import addRaceAbilityBonus from '../../utils/add-race-ability-bonus';
+import setAbilityMinimum from '../../utils/set-ability-minimum';
 
 const initialState = {
     gameText: false,
@@ -55,22 +56,25 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
         resetAbilityScoreValues(abilities);
         switch (character.characterRace) {
             case 'Human':
-                abilities.strength += RACE_ABILITY_BONUS;
-                abilities.intelligence += RACE_ABILITY_BONUS;
-                abilities_minimum.min_strength = RACE_ABILITY_BONUS;
-                abilities_minimum.min_intelligence = RACE_ABILITY_BONUS;
+                addRaceAbilityBonus(abilities.strength, abilities.intelligence);
+                setAbilityMinimum(
+                    abilities_minimum.min_strength,
+                    abilities_minimum.min_intelligence
+                );
                 break;
             case 'Elf':
-                abilities.dexterity += RACE_ABILITY_BONUS;
-                abilities.charisma += RACE_ABILITY_BONUS;
-                abilities_minimum.min_dexterity = RACE_ABILITY_BONUS;
-                abilities_minimum.min_charisma = RACE_ABILITY_BONUS;
+                addRaceAbilityBonus(abilities.dexterity, abilities.charisma);
+                setAbilityMinimum(
+                    abilities_minimum.min_dexterity,
+                    abilities_minimum.min_charisma
+                );
                 break;
             case 'Dwarf':
-                abilities.constitution += RACE_ABILITY_BONUS;
-                abilities.wisdom += RACE_ABILITY_BONUS;
-                abilities_minimum.min_constitution = RACE_ABILITY_BONUS;
-                abilities_minimum.min_wisdom = RACE_ABILITY_BONUS;
+                addRaceAbilityBonus(abilities.constitution, abilities.wisdom);
+                addRaceAbilityBonus(
+                    abilities_minimum.min_constitution,
+                    abilities_minimum.min_wisdom
+                );
                 break;
             default:
         }
