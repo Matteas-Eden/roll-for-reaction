@@ -46,7 +46,6 @@ const initialState = {
         characterRace: 'Human',
         characterClass: 'Fighter',
     },
-    startBuild: true,
 };
 
 const dialogManagerReducer = (state = initialState, { type, payload }) => {
