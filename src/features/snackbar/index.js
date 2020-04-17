@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import ReactTimeout from 'react-timeout';
 import { connect } from 'react-redux';
 
-import { SNACK_DURATION } from '../../config/constants';
+import { SNACK_DURATION, E_KEY } from '../../config/constants';
 import equipItem from '../inventory/actions/equip-item';
 import clearNotification from './actions/clear-notification';
+import Dialog from '../../components/dialog';
 
 import './styles.scss';
 
@@ -124,8 +125,18 @@ class Snackbar extends Component {
         let showType = show ? show.substring(0, show.indexOf(':')) : show;
 
         return (
-            <div
+            <Dialog
                 className="snackbar__container white-border"
+                keys={[E_KEY]}
+                onKeyPress={() => {
+                    if (
+                        this.state.show.includes('NEW ITEM') &&
+                        this.state.item.type !== 'potion' &&
+                        this.state.item.name !== 'Rusty Sword'
+                    ) {
+                        this.handleEquip();
+                    }
+                }}
                 style={{
                     marginLeft: sideMenu ? -402 : 0,
                     top: sideMenu ? 360 : -50,
@@ -148,7 +159,7 @@ class Snackbar extends Component {
                             {show}
                             <button
                                 className="snackbar__equip__button white-border"
-                                onClick={this.handleEquip}
+                                onClick={() => this.handleEquip()}
                             >
                                 <i className="fa fa-hand-paper button__icon" />
                             </button>
@@ -157,7 +168,7 @@ class Snackbar extends Component {
                 ) : (
                     <span className="snackbar__text">{show}</span>
                 )}
-            </div>
+            </Dialog>
         );
     }
 }
