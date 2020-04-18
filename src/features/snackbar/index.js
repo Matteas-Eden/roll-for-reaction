@@ -16,6 +16,7 @@ class Snackbar extends Component {
         this.state = {
             show: '',
             item: null,
+            equip: false,
         };
 
         this.handleHideSnack = this.handleHideSnack.bind(this);
@@ -42,6 +43,8 @@ class Snackbar extends Component {
         if (lastErrorMessage !== errorMessage && errorMessage) {
             this.setState({
                 show: errorMessage.split('-')[0],
+                item: null,
+                equip: false,
             });
             this.props.setTimeout(this.handleHideSnack, SNACK_DURATION);
         } else if (
@@ -53,6 +56,7 @@ class Snackbar extends Component {
             this.setState({
                 show: `USED ITEM: ${itemUsed.split('-')[0]}`,
                 item: item,
+                equip: false,
             });
             this.props.setTimeout(this.handleHideSnack, SNACK_DURATION);
         } else if (
@@ -64,6 +68,7 @@ class Snackbar extends Component {
             this.setState({
                 show: `LOST ITEM: ${itemDropped.split('-')[0]}`,
                 item: item,
+                equip: false,
             });
             this.props.setTimeout(this.handleHideSnack, SNACK_DURATION);
         } else if (
@@ -75,7 +80,10 @@ class Snackbar extends Component {
             this.setState({
                 show: `NEW ITEM: ${itemReceived.split('-')[0]}`,
                 item: item,
+                equip: false,
             });
+            if (item.type !== 'potion' && item.name !== 'Rusty Sword')
+                this.setState({ equip: true });
             this.props.setTimeout(this.handleHideSnack, SNACK_DURATION);
         } else if (
             lastNotEnoughGold !== notEnoughGold &&
@@ -85,6 +93,8 @@ class Snackbar extends Component {
             // see if player tried to buy item without enough gold
             this.setState({
                 show: `NOT ENOUGH GOLD`,
+                item: item,
+                equip: false,
             });
             this.props.setTimeout(this.handleHideSnack, SNACK_DURATION);
         } else if (
@@ -96,6 +106,7 @@ class Snackbar extends Component {
             this.setState({
                 show: `NO ROOM FOR: ${tooManyItems.split('-')[0]}`,
                 item: item,
+                equip: false,
             });
             this.props.setTimeout(this.handleHideSnack, SNACK_DURATION);
         }
@@ -115,27 +126,19 @@ class Snackbar extends Component {
 
     render() {
         const { sideMenu, largeView } = this.props;
-        const { show, item } = this.state;
+        const { show, equip } = this.state;
 
         let width;
         if (sideMenu) width = 400;
         else if (largeView) width = 398;
         else width = 350;
 
-        let showType = show ? show.substring(0, show.indexOf(':')) : show;
-
         return (
             <Dialog
                 className="snackbar__container white-border"
                 keys={[E_KEY]}
                 onKeyPress={() => {
-                    if (
-                        this.state.show.includes('NEW ITEM') &&
-                        this.state.item.type !== 'potion' &&
-                        this.state.item.name !== 'Rusty Sword'
-                    ) {
-                        this.handleEquip();
-                    }
+                    if (this.state.equip) this.handleEquip();
                 }}
                 style={{
                     marginLeft: sideMenu ? -402 : 0,
@@ -151,9 +154,7 @@ class Snackbar extends Component {
                             : 'opacity .35s ease-in-out, z-index .35s step-start',
                 }}
             >
-                {showType === 'NEW ITEM' &&
-                item.type !== 'potion' &&
-                item.name !== 'Rusty Sword' ? (
+                {equip ? (
                     <div>
                         <span className="snackbar__equip__text">
                             {show}
