@@ -50,8 +50,7 @@ const initialState = {
 
 const dialogManagerReducer = (state = initialState, { type, payload }) => {
     const { abilities, abilities_minimum, character } = state;
-    // if in character creation mode
-    if (state.characterCreation && character.characterName !== '') {
+    if (state.characterCreation && character.characterName) {
         resetAbilityScoreValues(abilities, abilities_minimum);
         setRaceBonus(character.characterRace, abilities, abilities_minimum);
     }
