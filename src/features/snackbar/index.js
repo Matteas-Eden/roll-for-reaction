@@ -108,6 +108,7 @@ class Snackbar extends Component {
                 show: `SOLD ITEM: ${itemSold.split('-')[0]}`,
                 item: item,
             });
+            this.props.setTimeout(this.handleHideSnack, SNACK_DURATION);
         }
     }
 
