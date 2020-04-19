@@ -117,7 +117,7 @@ class Snackbar extends Component {
             this.setState({
                 show: `SOLD ITEM: ${itemSold.split('-')[0]}`,
                 item: item,
-		equip: false,
+                equip: false,
             });
             this.props.setTimeout(this.handleHideSnack, SNACK_DURATION);
         }
