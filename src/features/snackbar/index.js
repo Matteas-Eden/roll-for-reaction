@@ -82,10 +82,8 @@ class Snackbar extends Component {
             this.setState({
                 show: `NEW ITEM: ${itemReceived.split('-')[0]}`,
                 item: item,
-                equip: false,
+                equip: item.type !== 'potion' && item.name !== 'Rusty Sword',
             });
-            if (item.type !== 'potion' && item.name !== 'Rusty Sword')
-                this.setState({ equip: true });
             this.props.setTimeout(this.handleHideSnack, SNACK_DURATION);
         } else if (
             lastNotEnoughGold !== notEnoughGold &&
