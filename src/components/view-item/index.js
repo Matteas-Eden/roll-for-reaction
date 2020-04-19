@@ -75,7 +75,6 @@ const ViewItem = ({
         case 'weapon':
             itemIsEquipped =
                 JSON.stringify(equipped.weapon) === JSON.stringify(data);
-
             itemStats.push(
                 <StatsItem
                     stats={{ name: 'damage', value: data.damage }}

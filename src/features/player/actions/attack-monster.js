@@ -24,7 +24,7 @@ export default function attackMonster() {
                 // get monster
                 const currMonster = components[currentMap][monsterId];
                 const monsterPos = currMonster.position;
-                // Roll associated dice, and add the modifier
+
                 let damage = calculateDamage(weapon.damage);
 
                 dispatch({
