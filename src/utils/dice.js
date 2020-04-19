@@ -6,41 +6,80 @@ const ops = {
     '+': {
         precedence: 1,
         op: (left, right) => {
+            if (Array.isArray(left)) {
+                left = left.reduce((sum, value) => sum + value);
+            }
+            if (Array.isArray(right)) {
+                right = right.reduce((sum, value) => sum + value);
+            }
             return parseInt(left) + parseInt(right);
         },
     },
     '-': {
         precedence: 1,
         op: (left, right) => {
+            if (Array.isArray(left)) {
+                left = left.reduce((sum, value) => sum + value);
+            }
+            if (Array.isArray(right)) {
+                right = right.reduce((sum, value) => sum + value);
+            }
             return parseInt(left) - parseInt(right);
         },
     },
     '*': {
         precedence: 2,
         op: (left, right) => {
+            if (Array.isArray(left)) {
+                left = left.reduce((sum, value) => sum + value);
+            }
+            if (Array.isArray(right)) {
+                right = right.reduce((sum, value) => sum + value);
+            }
             return parseInt(left) * parseInt(right);
         },
     },
     '/': {
         precedence: 2,
         op: (left, right) => {
+            if (Array.isArray(left)) {
+                left = left.reduce((sum, value) => sum + value);
+            }
+            if (Array.isArray(right)) {
+                right = right.reduce((sum, value) => sum + value);
+            }
             return parseInt(left) / parseInt(right);
         },
     },
-    d: {
+    l: {
         precedence: 3,
+        op: (left, right) => {
+            // Remove the lowest `right` number of rolls
+            return left.sort().splice(right);
+        },
+    },
+    h: {
+        precedence: 3,
+        op: (left, right) => {
+            // Select the highest `right` number of rolls
+            return left.sort((l, r) => r - l).splice(right);
+        },
+    },
+    d: {
+        precedence: 4,
         op: (left, right) => {
             let mul = parseInt(left);
             let sides = parseInt(right);
-            let dice = 0;
+            let rolls = [];
             for (let i = 0; i < mul; i++) {
-                dice += roll(sides);
+                rolls.push(roll(sides));
             }
-            return dice;
+            return rolls;
         },
     },
 };
 
+// Djikstra's shunting yard algorithm to convert infix notation to postfix notation
 let yard = infix => {
     let peek = a => a[a.length - 1];
     let stack = [];
@@ -89,5 +128,6 @@ const rpn = postfix => {
 // Calculates damage to deal based on Dice Notation (https://en.wikipedia.org/wiki/Dice_notation)
 export default function calculateDamage(notation) {
     const damage = rpn(yard(notation));
+    console.log(damage);
     return damage;
 }
