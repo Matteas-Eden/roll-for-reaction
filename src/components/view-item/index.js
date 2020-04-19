@@ -75,7 +75,6 @@ const ViewItem = ({
         case 'weapon':
             itemIsEquipped =
                 JSON.stringify(equipped.weapon) === JSON.stringify(data);
-            // Clone the dice, because otherwise the forEach will modify the dice in the object
 
             itemStats.push(
                 <StatsItem
