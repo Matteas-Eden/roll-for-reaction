@@ -1,12 +1,10 @@
 import LichBaneImg from './lich-bane.png';
-import { d4 } from '../../../../utils/dice';
 
 const LichBane = {
     name: 'Lich Bane',
     type: 'weapon',
     range: 'melee',
-    modifier: 2,
-    dice: [d4, d4],
+    damage: '2d4 + 2',
     bonus: 'lich::2',
     image: LichBaneImg,
     value: 666,

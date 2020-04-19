@@ -3,6 +3,7 @@ import {
     getNewPosition,
     observeBoundaries,
 } from './move-player';
+import calculateDamage from '../../../utils/dice';
 import getNextTile from '../../../utils/get-next-tile';
 import { SPRITE_SIZE } from '../../../config/constants';
 
@@ -24,8 +25,7 @@ export default function attackMonster() {
                 const currMonster = components[currentMap][monsterId];
                 const monsterPos = currMonster.position;
                 // Roll associated dice, and add the modifier
-                let damage = weapon.modifier;
-                weapon.dice.forEach(die => (damage += die.roll()));
+                let damage = calculateDamage(weapon.damage);
 
                 dispatch({
                     type: 'PLAYER_ATTACK',

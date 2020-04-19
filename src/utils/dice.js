@@ -1,41 +1,93 @@
-const Die = {
-    roll: sides => {
-        return Math.floor(Math.random() * sides) + 1;
+const roll = sides => {
+    return Math.floor(Math.random() * sides) + 1;
+};
+
+const ops = {
+    '+': {
+        precedence: 1,
+        op: (left, right) => {
+            return parseInt(left) + parseInt(right);
+        },
+    },
+    '-': {
+        precedence: 1,
+        op: (left, right) => {
+            return parseInt(left) - parseInt(right);
+        },
+    },
+    '*': {
+        precedence: 2,
+        op: (left, right) => {
+            return parseInt(left) * parseInt(right);
+        },
+    },
+    '/': {
+        precedence: 2,
+        op: (left, right) => {
+            return parseInt(left) / parseInt(right);
+        },
+    },
+    d: {
+        precedence: 3,
+        op: (left, right) => {
+            let mul = parseInt(left);
+            let sides = parseInt(right);
+            let dice = 0;
+            for (let i = 0; i < mul; i++) {
+                dice += roll(sides);
+            }
+            return dice;
+        },
     },
 };
-export const d4 = {
-    roll: () => {
-        return Die.roll(4);
-    },
-    type: 'd4',
+
+let yard = infix => {
+    let peek = a => a[a.length - 1];
+    let stack = [];
+
+    return infix
+        .split('')
+        .reduce((output, token) => {
+            if (token in ops) {
+                while (
+                    peek(stack) in ops &&
+                    ops[token].precedence <= ops[peek(stack)].precedence
+                )
+                    output.push(stack.pop());
+                stack.push(token);
+            } else if (parseInt(token)) {
+                output.push(token);
+            } else if (token === '(') {
+                stack.push(token);
+            } else if (token === ')') {
+                while (peek(stack) !== '(') output.push(stack.pop());
+                stack.pop();
+            }
+
+            return output;
+        }, [])
+        .concat(stack.reverse())
+        .join(' ');
 };
-export const d6 = {
-    roll: () => {
-        return Die.roll(6);
-    },
-    type: 'd6',
+
+const rpn = postfix => {
+    let stack = [];
+
+    postfix.split(' ').forEach(token => {
+        if (token in ops) {
+            let right = stack.pop();
+            let left = stack.pop();
+            stack.push(ops[token].op(left, right));
+        } else {
+            stack.push(token);
+        }
+    });
+
+    return stack[0];
 };
-export const d8 = {
-    roll: () => {
-        return Die.roll(8);
-    },
-    type: 'd8',
-};
-export const d10 = {
-    roll: () => {
-        return Die.roll(10);
-    },
-    type: 'd10',
-};
-export const d12 = {
-    roll: () => {
-        return Die.roll(12);
-    },
-    type: 'd12',
-};
-export const d20 = {
-    roll: () => {
-        return Die.roll(20);
-    },
-    type: 'd20',
-};
+
+// calculates damage to deal based on attacker's damage and enemy's defence
+export default function calculateDamage(notation) {
+    let damage = rpn(yard(notation));
+    return damage;
+}
