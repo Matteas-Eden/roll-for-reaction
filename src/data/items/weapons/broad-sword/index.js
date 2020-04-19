@@ -4,7 +4,7 @@ const BroadSword = {
     name: 'Broad Sword',
     type: 'weapon',
     range: 'melee',
-    damage: '2d4 + 2',
+    damage: '2d8',
     image: BroadSwordImg,
     value: 110,
 };
