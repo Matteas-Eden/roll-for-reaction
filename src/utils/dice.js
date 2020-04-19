@@ -88,6 +88,6 @@ const rpn = postfix => {
 
 // calculates damage to deal based on attacker's damage and enemy's defence
 export default function calculateDamage(notation) {
-    let damage = rpn(yard(notation));
+    const damage = rpn(yard(notation));
     return damage;
 }

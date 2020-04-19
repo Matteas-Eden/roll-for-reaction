@@ -25,7 +25,7 @@ export default function attackMonster() {
                 const currMonster = components[currentMap][monsterId];
                 const monsterPos = currMonster.position;
 
-                let damage = calculateDamage(weapon.damage);
+                const damage = calculateDamage(weapon.damage);
 
                 dispatch({
                     type: 'PLAYER_ATTACK',
