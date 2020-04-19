@@ -75,9 +75,25 @@ const ViewItem = ({
         case 'weapon':
             itemIsEquipped =
                 JSON.stringify(equipped.weapon) === JSON.stringify(data);
+            // Clone the dice, because otherwise the forEach will modify the dice in the object
+            let dice = data.dice.slice();
+            let die = new Map();
+            dice.forEach(dice => {
+                die.set(dice.type, (die.get(dice.type) || 0) + 1);
+            });
+
+            let value = '';
+            die.forEach((amount, type) => {
+                if (value.length > 0) {
+                    value += ' + ';
+                }
+                value += amount + '' + type;
+            });
+            value += ' + ' + data.modifier;
+
             itemStats.push(
                 <StatsItem
-                    stats={{ name: 'damage', value: data.damage }}
+                    stats={{ name: 'damage', value: value }}
                     key={uuidv4()}
                 />
             );
