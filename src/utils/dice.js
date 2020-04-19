@@ -86,7 +86,7 @@ const rpn = postfix => {
     return stack[0];
 };
 
-// calculates damage to deal based on attacker's damage and enemy's defence
+// Calculates damage to deal based on Dice Notation (https://en.wikipedia.org/wiki/Dice_notation)
 export default function calculateDamage(notation) {
     const damage = rpn(yard(notation));
     return damage;
