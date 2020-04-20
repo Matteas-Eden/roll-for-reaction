@@ -6,6 +6,7 @@ import GameSettings from './game-settings';
 import Inventory from '../inventory';
 import Snackbar from '../snackbar';
 import Stats from '../stats';
+import GameJournal from './game-journal';
 
 import './styles.scss';
 
@@ -45,6 +46,7 @@ const GameMenus = ({ appState, dialog }) => {
                 <div className="flex-column">
                     <GameMusic sideMenu={sideMenu} />
                     <GameSettings />
+                    <GameJournal />
                 </div>
             </div>
         </div>
