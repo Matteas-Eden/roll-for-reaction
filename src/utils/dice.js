@@ -90,28 +90,73 @@ const ops = {
     },
 };
 
+const peek = a => a[a.length - 1];
+
+const reorder = (stack, token, out) => {
+    while (
+        peek(stack) in ops &&
+        ops[token].precedence <= ops[peek(stack)].precedence
+    ) {
+        out.push(stack.pop());
+    }
+};
+
+const isNumber = str => {
+    for (let i = 0; i < str.length; i++) {
+        const ch = str.charAt(i);
+        if (ch < '0' || ch > '9') {
+            return false;
+        }
+    }
+
+    return true;
+};
+
 // Djikstra's shunting yard algorithm to convert infix notation to postfix notation
-let yard = infix => {
-    let peek = a => a[a.length - 1];
+const yard = infix => {
     let stack = [];
 
     return infix
-        .split('')
+        .split(' ')
         .reduce((output, token) => {
             if (token in ops) {
-                while (
-                    peek(stack) in ops &&
-                    ops[token].precedence <= ops[peek(stack)].precedence
-                )
-                    output.push(stack.pop());
+                reorder(stack, token, output);
                 stack.push(token);
-            } else if (parseInt(token)) {
-                output.push(token);
             } else if (token === '(') {
                 stack.push(token);
             } else if (token === ')') {
                 while (peek(stack) !== '(') output.push(stack.pop());
                 stack.pop();
+            } else if (isNumber(token)) {
+                // It's just a number, so put it to the output
+                output.push(token);
+            } else if (token.includes('d')) {
+                // We have a dice throw
+                let tokens = token.split('d');
+
+                // This is the multiplier, so push it to the output
+                output.push(tokens[0]);
+                reorder(stack, 'd', output);
+                stack.push('d');
+
+                const selector = tokens[1].includes('l')
+                    ? 'l' // Remove the lowest n throws
+                    : tokens[1].includes('h')
+                    ? 'h' // Take the highest n throws
+                    : null;
+
+                if (selector !== null) {
+                    let selected = tokens[1].split(selector);
+                    // Push the sides of the dice regardless
+                    output.push(selected[0]);
+
+                    reorder(stack, selector, output);
+                    stack.push(selector);
+                    output.push(selected[1]);
+                } else {
+                    // No selector, just the sides left
+                    output.push(tokens[1]);
+                }
             }
 
             return output;
@@ -137,7 +182,7 @@ const rpn = (postfix, die) => {
         }, [])
         .pop();
 
-    return Array.isArray(evaluated)
+    return Array.isArray(evaluated) // We can either get a value here, or an array (indicating the last item is a dice roll)
         ? evaluated.reduce((sum, value) => sum + value, 0)
         : evaluated;
 };
