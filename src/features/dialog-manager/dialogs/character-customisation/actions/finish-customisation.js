@@ -13,7 +13,7 @@ export default function finishCustomisation() {
             payload: {
                 appearance: {
                     hairColour: hairColour,
-                    eyeColour: skinColour,
+                    eyeColour: eyeColour,
                     skinColour: skinColour,
                     armourColour: armourColour,
                     clothesColour: clothesColour,
