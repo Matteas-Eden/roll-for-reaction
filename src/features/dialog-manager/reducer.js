@@ -66,14 +66,6 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
     } = abilities;
 
     const {
-        hairColour,
-        eyeColour,
-        skinColour,
-        armourColour,
-        clothesColour,
-    } = appearance;
-
-    const {
         min_constitution,
         min_intelligence,
         min_strength,
@@ -81,8 +73,6 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
         min_wisdom,
         min_charisma,
     } = abilities_minimum;
-
-    const { characterName, characterRace, characterClass } = character;
 
     switch (type) {
         case 'PAUSE':
@@ -187,6 +177,64 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
                     characterName: payload.characterName,
                     characterRace: payload.characterRace,
                     characterClass: payload.characterClass,
+                },
+            };
+
+        case 'SET_HAIR_COLOUR':
+            return {
+                ...state,
+                appearance: {
+                    ...appearance,
+                    hairColour: payload,
+                },
+            };
+
+        case 'SET_EYE_COLOUR':
+            return {
+                ...state,
+                appearance: {
+                    ...appearance,
+                    eyeColour: payload,
+                },
+            };
+
+        case 'SET_SKIN_COLOUR':
+            return {
+                ...state,
+                appearance: {
+                    ...appearance,
+                    skinColour: payload,
+                },
+            };
+
+        case 'SET_ARMOUR_COLOUR':
+            return {
+                ...state,
+                appearance: {
+                    ...appearance,
+                    armourColour: payload,
+                },
+            };
+
+        case 'SET_CLOTHES_COLOUR':
+            return {
+                ...state,
+                appearance: {
+                    ...appearance,
+                    clothesColour: payload,
+                },
+            };
+
+        case 'SET_PLAYER_APPEARANCE':
+            return {
+                ...state,
+                appearance: {
+                    ...appearance,
+                    hairColour: payload.hairColour,
+                    eyeColour: payload.eyeColour,
+                    skinColour: payload.skinColour,
+                    armourColour: payload.armourColour,
+                    clothesColour: payload.clothesColour,
                 },
             };
 
