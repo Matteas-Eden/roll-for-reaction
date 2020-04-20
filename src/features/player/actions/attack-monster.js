@@ -34,19 +34,21 @@ export default function attackMonster() {
                         ? calculateDamage(weapon.damage)
                         : 0;
 
-                dispatch({
-                    type: 'PLAYER_ATTACK',
-                    payload: null,
-                });
-                // deal damage to monster
-                dispatch({
-                    type: 'DAMAGE_TO_MONSTER',
-                    payload: {
-                        damage,
-                        id: currMonster.id,
-                        map: currentMap,
-                    },
-                });
+                if (damage > 0) {
+                    dispatch({
+                        type: 'PLAYER_ATTACK',
+                        payload: null,
+                    });
+                    // deal damage to monster
+                    dispatch({
+                        type: 'DAMAGE_TO_MONSTER',
+                        payload: {
+                            damage,
+                            id: currMonster.id,
+                            map: currentMap,
+                        },
+                    });
+                }
 
                 // check if monster died
                 if (currMonster.hp - damage <= 0) {
