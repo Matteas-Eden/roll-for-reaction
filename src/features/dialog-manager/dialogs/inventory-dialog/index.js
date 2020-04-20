@@ -1,18 +1,27 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 
 import Backpack from './backpack.png';
 import BackpackItems from '../../../../components/backpack-items';
 import Dialog from '../../../../components/dialog';
 import EquippedItems from '../../../../components/equipped-items';
 import ViewItem from '../../../../components/view-item';
+import toggleInventory from '../../actions/toggle-inventory';
+
+import { I_KEY } from '../../../../config/constants';
 
 import './styles.scss';
 
-const InventoryDialog = () => {
+const InventoryDialog = ({ toggleInventory }) => {
     const [viewItem, setViewItem] = useState(false);
 
     return (
-        <Dialog>
+        <Dialog
+            keys={[I_KEY]}
+            onKeyPress={() => {
+                toggleInventory();
+            }}
+        >
             <ViewItem
                 open={Boolean(viewItem)}
                 data={viewItem}
@@ -43,4 +52,5 @@ const InventoryDialog = () => {
     );
 };
 
-export default InventoryDialog;
+const actions = { toggleInventory };
+export default connect(null, actions)(InventoryDialog);

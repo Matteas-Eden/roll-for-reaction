@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 
+import { ENTER_KEY } from '../../config/constants';
+
 import './styles.scss';
 
-const Dialog = ({ children, goBack, onKeyPress }) => {
+const Dialog = ({ className, style, children, goBack, onKeyPress, keys }) => {
     useEffect(() => {
         if (onKeyPress) window.addEventListener('keydown', handleKeyPress);
         return () => {
@@ -12,14 +14,17 @@ const Dialog = ({ children, goBack, onKeyPress }) => {
     }, []);
 
     function handleKeyPress(event) {
-        // case for 'enter'
-        if (event.keyCode === 13) {
+        // check if a key is pressed and bound to an action
+        if (keys ? keys.includes(event.keyCode) : event.keyCode === ENTER_KEY) {
             onKeyPress();
         }
     }
 
     return (
-        <div className="dialog__container white-border">
+        <div
+            className={className || 'dialog__container white-border'}
+            style={style}
+        >
             {goBack && (
                 <button onClick={goBack} className="dialog__back-button">
                     <i className={`fa fa-arrow-left`} />

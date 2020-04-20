@@ -1,21 +1,32 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import SelectButton from '../../../../components/select-button';
+import SelectButtonGroup from '../../../../components/select-button-group';
 import Button from '../../../../components/button';
 import Dialog from '../../../../components/dialog';
-import createCharacter from '../../actions/create-character';
-import setClass from '../../actions/set-class';
-import setRace from '../../actions/set-race';
+import errorMessage from '../../actions/error-message';
+import createCharacter from './actions/create-character';
+import setClass from './actions/set-class';
+import setRace from './actions/set-race';
 
 import './styles.scss';
 
-const CharacterCreation = ({ dialog, createCharacter, setClass, setRace }) => {
+const CharacterCreation = ({
+    dialog,
+    createCharacter,
+    errorMessage,
+    setClass,
+    setRace,
+}) => {
     function handleContinue() {
-        dialog.character.characterName = document.getElementById(
-            'characterName'
-        ).value;
-        createCharacter();
+        const characterName = document
+            .getElementById('characterName')
+            .value.trim();
+        if (characterName) {
+            createCharacter(characterName);
+        } else {
+            errorMessage('Please enter a name');
+        }
     }
 
     return (
@@ -39,38 +50,22 @@ const CharacterCreation = ({ dialog, createCharacter, setClass, setRace }) => {
 
                 <span style={{ paddingTop: 12 }}>{`Your Race`}</span>
                 <div className="container space-around">
-                    <SelectButton
-                        title={'Human'}
-                        selectedValue={dialog.character.characterRace}
-                        onClick={setRace}
-                    />
-                    <SelectButton
-                        title={'Elf'}
-                        selectedValue={dialog.character.characterRace}
-                        onClick={setRace}
-                    />
-                    <SelectButton
-                        title={'Dwarf'}
-                        selectedValue={dialog.character.characterRace}
+                    <SelectButtonGroup
+                        values={['Human', 'Elf', 'Dwarf']}
+                        select={value =>
+                            value === dialog.character.characterRace
+                        }
                         onClick={setRace}
                     />
                 </div>
 
                 <span style={{ paddingTop: 12 }}>{`Your Class`}</span>
                 <div className="container space-around">
-                    <SelectButton
-                        title={'Fighter'}
-                        selectedValue={dialog.character.characterClass}
-                        onClick={setClass}
-                    />
-                    <SelectButton
-                        title={'Wizard'}
-                        selectedValue={dialog.character.characterClass}
-                        onClick={setClass}
-                    />
-                    <SelectButton
-                        title={'Ranger'}
-                        selectedValue={dialog.character.characterClass}
+                    <SelectButtonGroup
+                        values={['Fighter', 'Wizard', 'Ranger']}
+                        select={value =>
+                            value === dialog.character.characterClass
+                        }
                         onClick={setClass}
                     />
                 </div>
@@ -84,6 +79,6 @@ const CharacterCreation = ({ dialog, createCharacter, setClass, setRace }) => {
 };
 
 const mapStateToProps = ({ dialog }) => ({ dialog });
-const actions = { createCharacter, setClass, setRace };
+const actions = { createCharacter, errorMessage, setClass, setRace };
 
 export default connect(mapStateToProps, actions)(CharacterCreation);

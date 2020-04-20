@@ -5,10 +5,18 @@ const initialState = {
     itemUsed: '',
     itemReceived: '',
     item: null,
+    errorMessage: '',
+    itemSold: '',
 };
 
 const snackbarReducer = (state = initialState, { type, payload }) => {
     switch (type) {
+        case 'ERROR_MESSAGE':
+            return {
+                ...state,
+                errorMessage: `${payload}-${new Date().getTime()}`,
+            };
+
         case 'NOT_ENOUGH_GOLD':
             return {
                 ...state,
@@ -30,6 +38,13 @@ const snackbarReducer = (state = initialState, { type, payload }) => {
                 item: payload,
             };
 
+        case 'SELL_ITEM':
+            return {
+                ...state,
+                itemSold: `${payload.name}-${new Date().getTime()}`,
+                item: payload,
+            };
+
         case 'DROP_ITEM':
             return {
                 ...state,
@@ -44,8 +59,12 @@ const snackbarReducer = (state = initialState, { type, payload }) => {
                 item: payload,
             };
 
+        case 'CLEAR_NOTIFICATION':
         case 'RESET':
             return initialState;
+
+        case 'LOAD_DATA':
+            return { ...initialState, ...payload.snackbar };
 
         default:
             return state;

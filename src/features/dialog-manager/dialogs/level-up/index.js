@@ -15,7 +15,9 @@ const LevelUp = ({ stats, closeLevelUpDialog, abilityScoreDialog }) => {
     const { dmg, hp } = levelUp;
 
     const nextDialog = isAbilityAllocationLevel(level)
-        ? abilityScoreDialog
+        ? () => {
+              abilityScoreDialog(true);
+          }
         : closeLevelUpDialog;
 
     return (
@@ -25,9 +27,12 @@ const LevelUp = ({ stats, closeLevelUpDialog, abilityScoreDialog }) => {
             </span>
 
             <div className="flex-column level-up__contents">
-                <div className="level-up__value--spacing">
-                    Gained<span className="level-up__hp">{` +${hp} `}</span>Hp
-                </div>
+                {hp !== 0 && (
+                    <div className="level-up__value--spacing">
+                        Gained<span className="level-up__hp">{` +${hp} `}</span>
+                        Hp
+                    </div>
+                )}
 
                 <div className="level-up__value--spacing">
                     Gained<span className="level-up__dmg">{` +${dmg} `}</span>

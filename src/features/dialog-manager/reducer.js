@@ -3,18 +3,14 @@ import {
     STARTING_ABILITY_SCORE_VALUE,
     MAX_ABILITY_SCORE,
 } from '../../config/constants';
+import resetAbilityScoreValues from '../../utils/reset-starting-abilities';
+import setRaceBonus from '../../utils/set-race-bonus';
 
 const initialState = {
     gameText: false,
     gameOver: false,
     gameStart: true,
     gameInstructions: false,
-    characterCreation: false,
-    character: {
-        characterName: '',
-        characterRace: 'Human',
-        characterClass: 'Fighter',
-    },
     gameSelect: null,
     gameWin: false,
     paused: true,
@@ -27,6 +23,7 @@ const initialState = {
     fromLevelUp: false,
     abilityDialog: false,
     characterCustomisation: false,
+    playerOpenedAbilityDialog: false,
     abilities: {
         constitution: STARTING_ABILITY_SCORE_VALUE,
         dexterity: STARTING_ABILITY_SCORE_VALUE,
@@ -50,6 +47,12 @@ const initialState = {
         min_wisdom: 0,
         min_intelligence: 0,
         min_charisma: 0,
+    },
+    characterCreation: false,
+    character: {
+        characterName: '',
+        characterRace: 'Human',
+        characterClass: 'Fighter',
     },
 };
 
@@ -91,6 +94,7 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
                 fromLevelUp,
                 abilityDialog,
                 characterCustomisation,
+                playerOpenedAbilityDialog,
                 pause,
             } = payload;
 
@@ -108,6 +112,7 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
                 gameSelect: gameSelect || null,
                 gameInstructions: gameInstructions || false,
                 abilityDialog: abilityDialog || false,
+                playerOpenedAbilityDialog: playerOpenedAbilityDialog || false,
                 characterCustomisation: characterCustomisation || false,
                 characterCreation: characterCreation || false,
                 paused: pause,
@@ -170,10 +175,11 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
             };
 
         case 'CREATE_CHARACTER':
+            resetAbilityScoreValues(abilities, abilities_minimum);
+            setRaceBonus(character.characterRace, abilities, abilities_minimum);
             return {
                 ...state,
                 character: {
-                    ...character,
                     characterName: payload.characterName,
                     characterRace: payload.characterRace,
                     characterClass: payload.characterClass,
@@ -404,6 +410,9 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
 
         case 'RESET':
             return initialState;
+
+        case 'LOAD_DATA':
+            return { ...initialState, ...payload.dialog };
 
         default:
             return state;

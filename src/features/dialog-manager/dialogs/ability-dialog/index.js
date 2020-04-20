@@ -20,6 +20,8 @@ import incrementCharisma from './actions/increment-charisma';
 import confirmAbilityScoreDialog from '../../actions/confirm-ability-score-dialog';
 import Dialog from '../../../../components/dialog';
 
+import { U_KEY } from '../../../../config/constants';
+
 import './styles.scss';
 
 const AbilityDialog = ({
@@ -47,10 +49,21 @@ const AbilityDialog = ({
         charisma,
         points,
     } = dialog.abilities;
+    const {
+        min_constitution,
+        min_intelligence,
+        min_strength,
+        min_dexterity,
+        min_wisdom,
+        min_charisma,
+    } = dialog.abilities_minimum;
 
     return (
         <>
-            <Dialog onKeyPress={confirmAbilityScoreDialog}>
+            <Dialog
+                onKeyPress={confirmAbilityScoreDialog}
+                keys={dialog.playerOpenedAbilityDialog ? [U_KEY] : null}
+            >
                 <div className="flex-column ability-score-dialog__container">
                     <span className="game-text-dialog__text">
                         Modify your Abilities
@@ -58,41 +71,47 @@ const AbilityDialog = ({
                     <Ability
                         name="Strength"
                         value={strength}
+                        minValue={min_strength}
                         increment={incrementStrength}
                         decrement={decrementStrength}
                     />
                     <Ability
                         name="Constitution"
                         value={constitution}
+                        minValue={min_constitution}
                         increment={incrementConstitution}
                         decrement={decrementConstitution}
                     />
                     <Ability
                         name="Dexterity"
                         value={dexterity}
+                        minValue={min_dexterity}
                         increment={incrementDexterity}
                         decrement={decrementDexterity}
                     />
                     <Ability
                         name="Charisma"
                         value={charisma}
+                        minValue={min_charisma}
                         increment={incrementCharisma}
                         decrement={decrementCharisma}
                     />
                     <Ability
                         name="Intelligence"
                         value={intelligence}
+                        minValue={min_intelligence}
                         increment={incrementIntelligence}
                         decrement={decrementIntelligence}
                     />
                     <Ability
                         name="Wisdom"
                         value={wisdom}
+                        minValue={min_wisdom}
                         increment={incrementWisdom}
                         decrement={decrementWisdom}
                     />
                     <span className="ability-score-dialog__text">
-                        Ability Points remaining:{' '}
+                        Ability Points remaining:
                         <span className="ability-score-dialog__points">
                             {points}
                         </span>

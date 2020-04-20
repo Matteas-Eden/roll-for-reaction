@@ -14,6 +14,11 @@ import dropItem from '../../features/inventory/actions/drop-item';
 import equipItem from '../../features/inventory/actions/equip-item';
 import unequipItem from '../../features/inventory/actions/unequip-item';
 import sellItem from '../../features/inventory/actions/sell-item';
+import calculateModifier from '../../utils/calculate-modifier';
+import calculateWisdomPotionBonus from '../../utils/calculate-wisdom-potion-bonus';
+import calculateBuyPrice from '../../utils/calculate-buy-price';
+import calculateSellPrice from '../../utils/calculate-sell-price';
+import { calculateDamageRange } from '../../utils/dice';
 
 import './styles.scss';
 
@@ -54,9 +59,15 @@ const ViewItem = ({
             break;
 
         case 'potion':
+            data.hp = data.hpReset;
+            let potionRestore = calculateWisdomPotionBonus(
+                data.hp,
+                calculateModifier(stats.abilities.wisdom)
+            );
+            data.hp = potionRestore;
             itemStats.push(
                 <StatsItem
-                    stats={{ name: 'heal', value: data.hp }}
+                    stats={{ name: 'heal', value: potionRestore }}
                     key={uuidv4()}
                 />
             );
@@ -68,6 +79,17 @@ const ViewItem = ({
             itemStats.push(
                 <StatsItem
                     stats={{ name: 'damage', value: data.damage }}
+                    key={uuidv4()}
+                />
+            );
+
+            const damageRange = calculateDamageRange(data.damage);
+            itemStats.push(
+                <StatsItem
+                    stats={{
+                        name: 'range',
+                        value: damageRange[0] + ' - ' + damageRange[1],
+                    }}
                     key={uuidv4()}
                 />
             );
@@ -264,7 +286,10 @@ const ViewItem = ({
                 open={confirmSell}
                 text={`Are you sure you want to sell your ${
                     data.name
-                } for ${Math.ceil(data.value / 2)} gold ?`}
+                } for ${calculateSellPrice(
+                    data.value,
+                    calculateModifier(stats.abilities.charisma)
+                )} gold ?`}
                 cancelText={'Cancel'}
                 acceptText={'Sell'}
                 acceptIcon={'coins'}
@@ -278,7 +303,12 @@ const ViewItem = ({
 
             <ConfirmDialog
                 open={confirmBuy}
-                text={`Are you sure you want to buy ${data.name} for ${data.value} gold ?`}
+                text={`Are you sure you want to buy ${
+                    data.name
+                } for ${calculateBuyPrice(
+                    data.value,
+                    calculateModifier(stats.abilities.charisma)
+                )} gold ?`}
                 cancelText={'Cancel'}
                 acceptText={'Buy'}
                 acceptIcon={'coins'}
