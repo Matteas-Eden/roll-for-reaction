@@ -1,12 +1,9 @@
-import calculateDamage from '../../../utils/calculate-damage';
-
-export default function attackPlayer(monsterDamage) {
+export default function attackPlayer(attackValue) {
     return (dispatch, getState) => {
         const { stats } = getState();
-        const calculatedMonsterDamage = calculateDamage(
-            monsterDamage,
-            stats.defence
-        );
+
+        const calculatedMonsterDamage =
+            attackValue >= Math.max(stats.defence, 0) ? attackValue : 0;
 
         dispatch({
             type: 'DAMAGE_TO_PLAYER',

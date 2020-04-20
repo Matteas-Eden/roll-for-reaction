@@ -117,6 +117,7 @@ let yard = infix => {
         .join(' ');
 };
 
+// Evaluate a reverse polish notation (postfix) expression
 const rpn = (postfix, die) => {
     let stack = [];
 
@@ -145,3 +146,5 @@ export default function calculateDamage(notation) {
     const damage = rpn(yard(notation), unbiased());
     return damage;
 }
+
+export const d20 = () => Math.floor(Math.random() * 20) + 1;

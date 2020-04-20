@@ -3,7 +3,8 @@ import {
     getNewPosition,
     observeBoundaries,
 } from './move-player';
-import calculateDamage from '../../../utils/dice';
+import calculateDamage, { d20 } from '../../../utils/dice';
+import calculateModifier from '../../../utils/calculate-modifier';
 import getNextTile from '../../../utils/get-next-tile';
 import { SPRITE_SIZE } from '../../../config/constants';
 
@@ -25,7 +26,13 @@ export default function attackMonster() {
                 const currMonster = components[currentMap][monsterId];
                 const monsterPos = currMonster.position;
 
-                const damage = calculateDamage(weapon.damage);
+                const attack_value =
+                    d20() + calculateModifier(stats.abilities.strength);
+
+                const damage =
+                    attack_value >= currMonster.defence
+                        ? calculateDamage(weapon.damage)
+                        : 0;
 
                 dispatch({
                     type: 'PLAYER_ATTACK',
