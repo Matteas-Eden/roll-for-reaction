@@ -1,0 +1,45 @@
+$sprite-top-offset: 5.5rem;
+$sprite-left-offset: 2rem;
+
+.character-customisation__sprite-container {
+    position: relative;
+    flex: 0;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.character-customisation__player-sprite-hair {
+    position: absolute;
+    top: $sprite-top-offset;
+    left: $sprite-left-offset;
+}
+
+.character-customisation__player-sprite-eyes {
+    position: absolute;
+    top: $sprite-top-offset;
+    left: $sprite-left-offset;
+}
+
+.character-customisation__player-sprite-armour {
+    position: absolute;
+    top: $sprite-top-offset;
+    left: $sprite-left-offset;
+}
+
+.character-customisation__player-sprite-clothes {
+    position: absolute;
+    top: $sprite-top-offset;
+    left: $sprite-left-offset;
+}
+
+.character-customisation__player-sprite-skin {
+    position: absolute;
+    top: $sprite-top-offset;
+    left: $sprite-left-offset;
+}
+
+.character-customisation__player-sprite-outline {
+    position: absolute;
+    top: $sprite-top-offset;
+    left: $sprite-left-offset;
+}
