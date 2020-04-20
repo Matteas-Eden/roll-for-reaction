@@ -1,17 +1,22 @@
+import cloneDeep from 'lodash.clonedeep';
+
 const initialState = {
     entries: [],
     open: false,
 };
 
 const journalReducer = (state = initialState, { type, payload }) => {
+    let newState;
+
     switch (type) {
         case 'DAMAGE_TO_MONSTER':
-            state.entries.push(
+            newState = cloneDeep(state);
+            newState.entries.push(
                 payload.damage === 0
                     ? 'You missed the monster!'
                     : 'You dealt ' + payload.damage + ' damage!'
             );
-            return { ...state };
+            return newState;
 
         case 'TOGGLE_JOURNAL':
             return { ...state, open: payload.open };
