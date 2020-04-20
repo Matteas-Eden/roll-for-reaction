@@ -5,6 +5,7 @@ const Rat = {
     maxHp: 8,
     attack: 2,
     defence: 0,
+    dice: '1d4',
     exp: 8,
     type: 'rat',
     sprite: RatSprite,

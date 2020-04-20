@@ -5,6 +5,7 @@ const StoneGolem = {
     maxHp: 30,
     attack: 8,
     defence: 5,
+    dice: '1d8 + 2',
     exp: 60,
     type: 'stone-golem',
     sprite: GolemSprite,

@@ -5,6 +5,7 @@ const Imp = {
     maxHp: 40,
     attack: 10,
     defence: 2,
+    dice: '2d4 + 2',
     exp: 150,
     type: 'imp',
     sprite: ImpSprite,

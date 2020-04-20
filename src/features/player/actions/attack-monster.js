@@ -39,6 +39,7 @@ export default function attackMonster() {
                         type: 'PLAYER_ATTACK',
                         payload: null,
                     });
+
                     // deal damage to monster
                     dispatch({
                         type: 'DAMAGE_TO_MONSTER',
@@ -48,37 +49,47 @@ export default function attackMonster() {
                             map: currentMap,
                         },
                     });
-                }
 
-                // check if monster died
-                if (currMonster.hp - damage <= 0) {
-                    // and get some exp
                     dispatch({
-                        type: 'GET_EXP',
-                        payload: currMonster.exp,
+                        type: 'NOTIFY_PLAYER',
+                        payload: 'You dealt ' + damage + ' damage!',
                     });
-                    if (stats.exp + currMonster.exp >= stats.expToLevel) {
+
+                    // check if monster died
+                    if (currMonster.hp - damage <= 0) {
+                        // and get some exp
                         dispatch({
-                            type: 'PAUSE',
+                            type: 'GET_EXP',
+                            payload: currMonster.exp,
+                        });
+                        if (stats.exp + currMonster.exp >= stats.expToLevel) {
+                            dispatch({
+                                type: 'PAUSE',
+                                payload: {
+                                    pause: true,
+                                    levelUp: true,
+                                },
+                            });
+                        }
+                        // play death sound
+                        dispatch({
+                            type: 'MONSTER_DIED',
+                            payload: null,
+                        });
+                        // replace monster will blood spill
+                        // need to pass relative tile index
+                        dispatch({
+                            type: 'ADD_BLOOD_SPILL',
                             payload: {
-                                pause: true,
-                                levelUp: true,
+                                x: monsterPos[0] / SPRITE_SIZE,
+                                y: monsterPos[1] / SPRITE_SIZE,
                             },
                         });
                     }
-                    // play death sound
+                } else {
                     dispatch({
-                        type: 'MONSTER_DIED',
-                        payload: null,
-                    });
-                    // replace monster will blood spill
-                    // need to pass relative tile index
-                    dispatch({
-                        type: 'ADD_BLOOD_SPILL',
-                        payload: {
-                            x: monsterPos[0] / SPRITE_SIZE,
-                            y: monsterPos[1] / SPRITE_SIZE,
-                        },
+                        type: 'NOTIFY_PLAYER',
+                        payload: 'You missed!',
                     });
                 }
 

@@ -1,13 +1,16 @@
+// Create an 'unbiased' roll
 const unbiased = () => {
     return sides => Math.floor(Math.random() * sides) + 1;
 };
 
+// Create a 'biased' dice roll, either to the maximum or the minimum value, if not specified, return an unbiased roll
 const biased = to => {
     if (to === 'max') {
         return sides => sides;
     } else if (to === 'min') {
         return _ => 1;
     }
+    return unbiased();
 };
 
 const ops = {
@@ -119,19 +122,24 @@ let yard = infix => {
 
 // Evaluate a reverse polish notation (postfix) expression
 const rpn = (postfix, die) => {
-    let stack = [];
+    const evaluated = postfix
+        .split(' ')
+        .reduce((stack, token) => {
+            if (token in ops) {
+                let right = stack.pop();
+                let left = stack.pop();
+                stack.push(ops[token].op(left, right, die));
+            } else {
+                stack.push(token);
+            }
 
-    postfix.split(' ').forEach(token => {
-        if (token in ops) {
-            let right = stack.pop();
-            let left = stack.pop();
-            stack.push(ops[token].op(left, right, die));
-        } else {
-            stack.push(token);
-        }
-    });
+            return stack;
+        }, [])
+        .pop();
 
-    return stack[0];
+    return Array.isArray(evaluated)
+        ? evaluated.reduce((sum, value) => sum + value, 0)
+        : evaluated;
 };
 
 export const calculateDamageRange = notation => {

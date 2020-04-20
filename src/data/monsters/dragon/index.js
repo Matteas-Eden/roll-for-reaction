@@ -5,6 +5,7 @@ const Dragon = {
     maxHp: 60,
     attack: 15,
     defence: 8,
+    dice: '2d8 + 1',
     exp: 400,
     type: 'dragon',
     sprite: DragonSprite,
