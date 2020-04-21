@@ -12,10 +12,7 @@ const journalReducer = (state = initialState, { type, payload }) => {
         case 'ABILITY_CHECK':
             newState = cloneDeep(state);
             newState.entries.push(
-                'You rolled an ability check of ' +
-                    payload.notation +
-                    ', getting a ' +
-                    payload.roll
+                'You rolled an ability check and got ' + payload.roll
             );
 
             if (payload.roll >= payload.check) {
