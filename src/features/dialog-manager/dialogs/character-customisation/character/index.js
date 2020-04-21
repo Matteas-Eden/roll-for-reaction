@@ -7,8 +7,6 @@ import PlayerClothes from './assets/player-clothes-big.png';
 import PlayerSkin from './assets/player-skin-big.png';
 import PlayerOutline from './assets/player-outline-big.png';
 
-import createFilterFromHexCode from '../../../../../utils/create-filter-from-hex-code';
-
 import './styles.scss';
 
 const Character = ({
@@ -21,43 +19,43 @@ const Character = ({
     const SPRITE_HEIGHT = 200;
 
     return (
-        <div className="flex-column character-customisation__player-sprite">
+        <div className="flex-column character-customisation__sprite-container">
             <img
-                className="character-customisation__player-sprite-hair"
+                className="character-customisation__hair"
                 src={PlayerHair}
                 alt="hair"
                 height={SPRITE_HEIGHT}
                 style={{ filter: `hue-rotate(${hairColour - 10}deg)` }}
             />
             <img
-                className="character-customisation__player-sprite-eyes"
+                className="character-customisation__eyes"
                 src={PlayerEyes}
                 alt="eyes"
                 height={SPRITE_HEIGHT}
             />
             <img
-                className="character-customisation__player-sprite-skin"
+                className="character-customisation__skin"
                 src={PlayerSkin}
                 alt="skin"
                 height={SPRITE_HEIGHT}
                 style={{ filter: `hue-rotate(${skinColour - 10}deg)` }}
             />
             <img
-                className="character-customisation__player-sprite-armour"
+                className="character-customisation__armour"
                 src={PlayerArmour}
                 alt="armour"
                 height={SPRITE_HEIGHT}
                 style={{ filter: `hue-rotate(${armourColour - 10}deg)` }}
             />
             <img
-                className="character-customisation__player-sprite-clothes"
+                className="character-customisation__clothes"
                 src={PlayerClothes}
                 alt="clothes"
                 height={SPRITE_HEIGHT}
                 style={{ filter: `hue-rotate(${clothesColour - 10}deg)` }}
             />
             <img
-                className="character-customisation__player-sprite-outline"
+                className="character-customisation__outline"
                 src={PlayerOutline}
                 alt="outline"
                 height={SPRITE_HEIGHT}
