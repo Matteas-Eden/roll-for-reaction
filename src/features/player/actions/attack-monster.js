@@ -26,8 +26,17 @@ export default function attackMonster() {
                 const currMonster = components[currentMap][monsterId];
                 const monsterPos = currMonster.position;
 
-                const attack_value =
-                    d20() + calculateModifier(stats.abilities.strength);
+                const modifier = calculateModifier(stats.abilities.strength);
+                const attack_value = d20() + modifier;
+
+                dispatch({
+                    type: 'ABILITY_CHECK',
+                    payload: {
+                        notation: 'd20 + ' + modifier,
+                        roll: attack_value,
+                        check: currMonster.defence,
+                    },
+                });
 
                 const damage =
                     attack_value >= currMonster.defence

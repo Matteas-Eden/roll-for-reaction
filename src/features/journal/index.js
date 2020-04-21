@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import './styles.scss';
 
 const Journal = ({ journal }) => {
-    console.log('Hello');
     return (
         <div
             style={{

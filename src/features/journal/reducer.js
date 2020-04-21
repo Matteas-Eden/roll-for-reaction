@@ -9,6 +9,23 @@ const journalReducer = (state = initialState, { type, payload }) => {
     let newState;
 
     switch (type) {
+        case 'ABILITY_CHECK':
+            newState = cloneDeep(state);
+            newState.entries.push(
+                'You rolled an ability check of ' +
+                    payload.notation +
+                    ', getting a ' +
+                    payload.roll
+            );
+
+            if (payload.roll >= payload.check) {
+                newState.entries.push('The ability check succeeded!');
+            } else {
+                newState.push('The ability check failed');
+            }
+
+            return newState;
+
         case 'DAMAGE_TO_MONSTER':
             newState = cloneDeep(state);
             newState.entries.push(
