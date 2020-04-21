@@ -12,7 +12,5 @@ export default function createFilterFromHexCode(hex) {
 
     let filter = `hue-rotate(${hsv[0]}deg) saturate(${hsv[1]}) brightness(${hsv[2]})`;
 
-    console.log(filter);
-
     return filter;
 }
