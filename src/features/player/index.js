@@ -19,6 +19,7 @@ import PlayerClothes from './assets/player-clothes.png';
 import PlayerOutline from './assets/player-outline.png';
 
 import { ANIMATION_SPEED, SPRITE_SIZE } from '../../config/constants';
+import createFilterFromHexCode from '../../utils/create-filter-from-hex-code';
 
 import './styles.scss';
 
@@ -57,13 +58,20 @@ class Player extends Component {
             let currentTick = 0;
             const ticksPerFrame = 5;
 
+            const {
+                hairColour,
+                skinColour,
+                armourColour,
+                clothesColour,
+            } = this.props.dialog.appearance;
+
             const draw = frame => {
                 // don't allow invalid frames
                 if (frame > 7 || frame < 0) frame = 0;
 
                 ctx.clearRect(0, 0, SPRITE_SIZE, SPRITE_SIZE);
                 // Draw player hair
-                ctx.filter = 'none';
+                ctx.filter = createFilterFromHexCode(hairColour);
                 ctx.drawImage(
                     this.sprite.hair,
                     frame * SPRITE_SIZE,
@@ -89,7 +97,7 @@ class Player extends Component {
                     SPRITE_SIZE
                 );
                 // Draw player skin
-                ctx.filter = 'none';
+                ctx.filter = createFilterFromHexCode(skinColour);
                 ctx.drawImage(
                     this.sprite.skin,
                     frame * SPRITE_SIZE,
@@ -102,7 +110,7 @@ class Player extends Component {
                     SPRITE_SIZE
                 );
                 // Draw player armour
-                ctx.filter = 'none';
+                ctx.filter = createFilterFromHexCode(armourColour);
                 ctx.drawImage(
                     this.sprite.armour,
                     frame * SPRITE_SIZE,
@@ -115,7 +123,7 @@ class Player extends Component {
                     SPRITE_SIZE
                 );
                 // Draw player clothes
-                ctx.filter = 'none';
+                ctx.filter = createFilterFromHexCode(clothesColour);
                 ctx.drawImage(
                     this.sprite.clothes,
                     frame * SPRITE_SIZE,
