@@ -6,6 +6,12 @@ import Dialog from '../../../../components/dialog';
 import Character from './character';
 import finishCustomisation from './actions/finish-customisation';
 
+import setHairColour from './actions/set-hair-colour';
+import setEyeColour from './actions/set-eye-colour';
+import setSkinColour from './actions/set-skin-colour';
+import setArmourColour from './actions/set-armour-colour';
+import setClothesColour from './actions/set-clothes-colour';
+
 import './styles.scss';
 
 const CharacterCustomisation = ({
@@ -39,13 +45,52 @@ const CharacterCustomisation = ({
                         armourColour={armourColour}
                         clothesColour={clothesColour}
                     />
-                    {/*<div className="flex-column character-customisation__options-container">
-                        {/*<p>Hair</p>
-                      <p>Skin</p>
-                      <p>Armour</p>
-                      <p>Clothes</p>
-                      <p>Eye</p>
-                    </div>*/}
+                    <div className="flex-column character-customisation__options-container">
+                        <div className="flex-row character-customisation__option">
+                            <p className="flex-column character-customisation__label">
+                                Hair
+                            </p>
+                            <button
+                                className="character-customisation__button"
+                                onClick={() => setHairColour('#12cda8')}
+                            >
+                                <i className={`fa fa-cog`} />
+                            </button>
+                        </div>
+                        <div className="flex-row character-customisation__option">
+                            <p className="flex-column character-customisation__label">
+                                Skin
+                            </p>
+                            <button
+                                className="character-customisation__button"
+                                onClick={() => setSkinColour('#1dfd03')}
+                            >
+                                <i className={`fa fa-cog`} />
+                            </button>
+                        </div>
+                        <div className="flex-row character-customisation__option">
+                            <p className="flex-column character-customisation__label">
+                                Armour
+                            </p>
+                            <button
+                                className="character-customisation__button"
+                                onClick={() => setArmourColour('#9ac68e')}
+                            >
+                                <i className={`fa fa-cog`} />
+                            </button>
+                        </div>
+                        <div className="flex-row character-customisation__option">
+                            <p className="flex-column character-customisation__label">
+                                Clothes
+                            </p>
+                            <button
+                                className="character-customisation__button"
+                                onClick={() => setClothesColour('#3d45af')}
+                            >
+                                <i className={`fa fa-cog`} />
+                            </button>
+                        </div>
+                    </div>
                     <Button
                         title="Continue"
                         onClick={finishCustomisation}
@@ -60,6 +105,13 @@ const CharacterCustomisation = ({
 
 const mapStateToProps = ({ dialog }) => ({ dialog });
 
-const actions = { finishCustomisation };
+const actions = {
+    finishCustomisation,
+    setHairColour,
+    setEyeColour,
+    setSkinColour,
+    setArmourColour,
+    setClothesColour,
+};
 
 export default connect(mapStateToProps, actions)(CharacterCustomisation);

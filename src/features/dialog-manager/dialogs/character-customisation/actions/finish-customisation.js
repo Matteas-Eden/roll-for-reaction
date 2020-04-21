@@ -11,13 +11,11 @@ export default function finishCustomisation() {
         dispatch({
             type: 'SET_PLAYER_APPEARANCE',
             payload: {
-                appearance: {
-                    hairColour: hairColour,
-                    eyeColour: eyeColour,
-                    skinColour: skinColour,
-                    armourColour: armourColour,
-                    clothesColour: clothesColour,
-                },
+                hairColour: hairColour,
+                eyeColour: eyeColour,
+                skinColour: skinColour,
+                armourColour: armourColour,
+                clothesColour: clothesColour,
             },
         });
 

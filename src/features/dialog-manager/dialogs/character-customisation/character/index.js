@@ -7,6 +7,8 @@ import PlayerClothes from './assets/player-clothes-big.png';
 import PlayerSkin from './assets/player-skin-big.png';
 import PlayerOutline from './assets/player-outline-big.png';
 
+import createFilterFromHexCode from '../../../../../utils/create-filter-from-hex-code';
+
 import './styles.scss';
 
 const Character = ({
@@ -25,6 +27,7 @@ const Character = ({
                 src={PlayerHair}
                 alt="hair"
                 height={SPRITE_HEIGHT}
+                style={{ filter: createFilterFromHexCode(hairColour) }}
             />
             <img
                 className="character-customisation__player-sprite-eyes"
@@ -37,18 +40,21 @@ const Character = ({
                 src={PlayerSkin}
                 alt="skin"
                 height={SPRITE_HEIGHT}
+                style={{ filter: createFilterFromHexCode(skinColour) }}
             />
             <img
                 className="character-customisation__player-sprite-armour"
                 src={PlayerArmour}
                 alt="armour"
                 height={SPRITE_HEIGHT}
+                style={{ filter: createFilterFromHexCode(armourColour) }}
             />
             <img
                 className="character-customisation__player-sprite-clothes"
                 src={PlayerClothes}
                 alt="clothes"
                 height={SPRITE_HEIGHT}
+                style={{ filter: createFilterFromHexCode(clothesColour) }}
             />
             <img
                 className="character-customisation__player-sprite-outline"
