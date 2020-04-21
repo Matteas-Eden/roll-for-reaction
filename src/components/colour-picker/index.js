@@ -41,7 +41,7 @@ class ColourPicker extends React.Component {
                         .s * 100}%, ${this.state.color.l * 100}%)`,
                 },
                 swatch: {
-                    padding: '5px',
+                    padding: '3px',
                     background: '#000',
                     border: '1px solid gray',
                     borderRadius: '1px',
