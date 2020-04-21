@@ -71,7 +71,7 @@ class Player extends Component {
 
                 ctx.clearRect(0, 0, SPRITE_SIZE, SPRITE_SIZE);
                 // Draw player hair
-                ctx.filter = createFilterFromHexCode(hairColour);
+                ctx.filter = `hue-rotate(${hairColour - 10}deg)`; //createFilterFromHexCode(hairColour);
                 ctx.drawImage(
                     this.sprite.hair,
                     frame * SPRITE_SIZE,
@@ -97,7 +97,7 @@ class Player extends Component {
                     SPRITE_SIZE
                 );
                 // Draw player skin
-                ctx.filter = createFilterFromHexCode(skinColour);
+                ctx.filter = `hue-rotate(${skinColour - 10}deg)`; //createFilterFromHexCode(skinColour);
                 ctx.drawImage(
                     this.sprite.skin,
                     frame * SPRITE_SIZE,
@@ -110,7 +110,7 @@ class Player extends Component {
                     SPRITE_SIZE
                 );
                 // Draw player armour
-                ctx.filter = createFilterFromHexCode(armourColour);
+                ctx.filter = `hue-rotate(${armourColour - 10}deg)`; //createFilterFromHexCode(armourColour);
                 ctx.drawImage(
                     this.sprite.armour,
                     frame * SPRITE_SIZE,
@@ -123,7 +123,7 @@ class Player extends Component {
                     SPRITE_SIZE
                 );
                 // Draw player clothes
-                ctx.filter = createFilterFromHexCode(clothesColour);
+                ctx.filter = `hue-rotate(${clothesColour - 10}deg)`; //createFilterFromHexCode(clothesColour);
                 ctx.drawImage(
                     this.sprite.clothes,
                     frame * SPRITE_SIZE,

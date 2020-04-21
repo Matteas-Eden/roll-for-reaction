@@ -12,6 +12,8 @@ import setSkinColour from './actions/set-skin-colour';
 import setArmourColour from './actions/set-armour-colour';
 import setClothesColour from './actions/set-clothes-colour';
 
+import ColourPicker from '../../../../components/colour-picker';
+
 import './styles.scss';
 
 const CharacterCustomisation = ({
@@ -47,48 +49,28 @@ const CharacterCustomisation = ({
                     />
                     <div className="flex-column character-customisation__options-container">
                         <div className="flex-row character-customisation__option">
-                            <p className="flex-column character-customisation__label">
+                            <p className="character-customisation__label">
                                 Hair
                             </p>
-                            <button
-                                className="character-customisation__button"
-                                onClick={() => setHairColour('#12cda8')}
-                            >
-                                <i className={`fa fa-cog`} />
-                            </button>
+                            <ColourPicker onChange={setHairColour} />
                         </div>
                         <div className="flex-row character-customisation__option">
                             <p className="flex-column character-customisation__label">
                                 Skin
                             </p>
-                            <button
-                                className="character-customisation__button"
-                                onClick={() => setSkinColour('#1dfd03')}
-                            >
-                                <i className={`fa fa-cog`} />
-                            </button>
+                            <ColourPicker onChange={setSkinColour} />
                         </div>
                         <div className="flex-row character-customisation__option">
                             <p className="flex-column character-customisation__label">
                                 Armour
                             </p>
-                            <button
-                                className="character-customisation__button"
-                                onClick={() => setArmourColour('#9ac68e')}
-                            >
-                                <i className={`fa fa-cog`} />
-                            </button>
+                            <ColourPicker onChange={setArmourColour} />
                         </div>
                         <div className="flex-row character-customisation__option">
                             <p className="flex-column character-customisation__label">
                                 Clothes
                             </p>
-                            <button
-                                className="character-customisation__button"
-                                onClick={() => setClothesColour('#3d45af')}
-                            >
-                                <i className={`fa fa-cog`} />
-                            </button>
+                            <ColourPicker onChange={setClothesColour} />
                         </div>
                     </div>
                     <Button
