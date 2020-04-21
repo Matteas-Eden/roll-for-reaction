@@ -10,7 +10,9 @@ const Journal = ({ journal }) => {
             style={{
                 alignItems: 'center',
                 lineHeight: 'unset',
+                margin: 'auto',
             }}
+            className="flex-row"
         >
             {journal.open && (
                 <textarea

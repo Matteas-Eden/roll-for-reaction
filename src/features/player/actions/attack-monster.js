@@ -34,62 +34,50 @@ export default function attackMonster() {
                         ? calculateDamage(weapon.damage)
                         : 0;
 
-                if (damage > 0) {
-                    dispatch({
-                        type: 'PLAYER_ATTACK',
-                        payload: null,
-                    });
+                dispatch({
+                    type: 'PLAYER_ATTACK',
+                    payload: null,
+                });
 
-                    // deal damage to monster
-                    dispatch({
-                        type: 'DAMAGE_TO_MONSTER',
-                        payload: {
-                            damage,
-                            id: currMonster.id,
-                            map: currentMap,
-                        },
-                    });
+                // deal damage to monster
+                dispatch({
+                    type: 'DAMAGE_TO_MONSTER',
+                    payload: {
+                        damage,
+                        id: currMonster.id,
+                        map: currentMap,
+                    },
+                });
 
+                // check if monster died
+                if (currMonster.hp - damage <= 0) {
+                    // and get some exp
                     dispatch({
-                        type: 'NOTIFY_PLAYER',
-                        payload: 'You dealt ' + damage + ' damage!',
+                        type: 'GET_EXP',
+                        payload: currMonster.exp,
                     });
-
-                    // check if monster died
-                    if (currMonster.hp - damage <= 0) {
-                        // and get some exp
+                    if (stats.exp + currMonster.exp >= stats.expToLevel) {
                         dispatch({
-                            type: 'GET_EXP',
-                            payload: currMonster.exp,
-                        });
-                        if (stats.exp + currMonster.exp >= stats.expToLevel) {
-                            dispatch({
-                                type: 'PAUSE',
-                                payload: {
-                                    pause: true,
-                                    levelUp: true,
-                                },
-                            });
-                        }
-                        // play death sound
-                        dispatch({
-                            type: 'MONSTER_DIED',
-                            payload: null,
-                        });
-                        // replace monster will blood spill
-                        // need to pass relative tile index
-                        dispatch({
-                            type: 'ADD_BLOOD_SPILL',
+                            type: 'PAUSE',
                             payload: {
-                                x: monsterPos[0] / SPRITE_SIZE,
-                                y: monsterPos[1] / SPRITE_SIZE,
+                                pause: true,
+                                levelUp: true,
                             },
                         });
                     }
-                } else {
+                    // play death sound
                     dispatch({
-                        type: 'NOTIFY_PLAYER',
-                        payload: 'You missed!',
+                        type: 'MONSTER_DIED',
+                        payload: null,
+                    });
+                    // replace monster will blood spill
+                    // need to pass relative tile index
+                    dispatch({
+                        type: 'ADD_BLOOD_SPILL',
+                        payload: {
+                            x: monsterPos[0] / SPRITE_SIZE,
+                            y: monsterPos[1] / SPRITE_SIZE,
+                        },
                     });
                 }
 
