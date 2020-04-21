@@ -52,25 +52,33 @@ const CharacterCustomisation = ({
                             <p className="character-customisation__label">
                                 Hair
                             </p>
-                            <ColourPicker onChange={setHairColour} />
+                            <div className="character-customisation__picker">
+                                <ColourPicker onChange={setHairColour} />
+                            </div>
                         </div>
                         <div className="flex-row character-customisation__option">
                             <p className="flex-column character-customisation__label">
                                 Skin
                             </p>
-                            <ColourPicker onChange={setSkinColour} />
+                            <div className="character-customisation__picker">
+                                <ColourPicker onChange={setSkinColour} />
+                            </div>
                         </div>
                         <div className="flex-row character-customisation__option">
                             <p className="flex-column character-customisation__label">
                                 Armour
                             </p>
-                            <ColourPicker onChange={setArmourColour} />
+                            <div className="character-customisation__picker">
+                                <ColourPicker onChange={setArmourColour} />
+                            </div>
                         </div>
                         <div className="flex-row character-customisation__option">
                             <p className="flex-column character-customisation__label">
                                 Clothes
                             </p>
-                            <ColourPicker onChange={setClothesColour} />
+                            <div className="character-customisation__picker">
+                                <ColourPicker onChange={setClothesColour} />
+                            </div>
                         </div>
                     </div>
                     <Button
