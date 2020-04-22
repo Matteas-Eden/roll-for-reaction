@@ -1,13 +1,16 @@
+// Create an 'unbiased' roll
 const unbiased = () => {
     return sides => Math.floor(Math.random() * sides) + 1;
 };
 
+// Create a 'biased' dice roll, either to the maximum or the minimum value, if not specified, return an unbiased roll
 const biased = to => {
     if (to === 'max') {
         return sides => sides;
     } else if (to === 'min') {
         return _ => 1;
     }
+    return unbiased();
 };
 
 const ops = {
@@ -183,6 +186,7 @@ const yard = infix => {
         .join(' ');
 };
 
+// Evaluate a reverse polish notation (postfix) expression
 const rpn = (postfix, die) => {
     const evaluated = postfix
         .split(' ')
@@ -194,6 +198,7 @@ const rpn = (postfix, die) => {
             } else {
                 stack.push(token);
             }
+
             return stack;
         }, [])
         .pop();
@@ -219,3 +224,5 @@ export default function calculateDamage(notation) {
     const damage = parse(notation, unbiased());
     return damage;
 }
+
+export const d20 = () => Math.floor(Math.random() * 20) + 1;
