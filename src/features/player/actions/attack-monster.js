@@ -3,7 +3,7 @@ import {
     getNewPosition,
     observeBoundaries,
 } from './move-player';
-import calculateDamage, { d20 } from '../../../utils/dice';
+import { calculateDamage, d20 } from '../../../utils/dice';
 import calculateModifier from '../../../utils/calculate-modifier';
 import getNextTile from '../../../utils/get-next-tile';
 import { SPRITE_SIZE } from '../../../config/constants';
@@ -34,6 +34,7 @@ export default function attackMonster() {
                     payload: {
                         notation: 'd20 + ' + modifier,
                         roll: attack_value,
+                        ability: 'strength',
                         check: currMonster.defence,
                     },
                 });

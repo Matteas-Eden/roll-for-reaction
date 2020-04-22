@@ -1,7 +1,5 @@
 // Create an 'unbiased' roll
-const unbiased = () => {
-    return sides => Math.floor(Math.random() * sides) + 1;
-};
+const unbiased = sides => Math.floor(Math.random() * sides) + 1;
 
 // Create a 'biased' dice roll, either to the maximum or the minimum value, if not specified, return an unbiased roll
 const biased = to => {
@@ -150,9 +148,6 @@ export const calculateDamageRange = notation => {
 };
 
 // Calculates damage to deal based on Dice Notation (https://en.wikipedia.org/wiki/Dice_notation)
-export default function calculateDamage(notation) {
-    const damage = rpn(yard(notation), unbiased());
-    return damage;
-}
+export const calculateDamage = notation => rpn(yard(notation), unbiased);
 
 export const d20 = () => Math.floor(Math.random() * 20) + 1;
