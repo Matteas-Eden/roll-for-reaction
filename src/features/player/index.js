@@ -64,12 +64,14 @@ class Player extends Component {
                 clothesColour,
             } = this.props.dialog.appearance;
 
-            const colours = new Map([
-                ('hair', hairColour),
-                ('skin', skinColour),
-                ('armour', armourColour),
-                ('clothes', clothesColour),
-            ]);
+            const colours = [
+                ['hair', `hue-rotate(${hairColour - 10}deg)`],
+                ['skin', `hue-rotate(${skinColour - 10}deg)`],
+                ['armour', `hue-rotate(${armourColour - 10}deg)`],
+                ['clothes', `hue-rotate(${clothesColour - 10}deg)`],
+                ['outline', 'none'],
+                ['eyes', 'none'],
+            ];
 
             const draw = frame => {
                 // don't allow invalid frames
@@ -77,10 +79,10 @@ class Player extends Component {
 
                 ctx.clearRect(0, 0, SPRITE_SIZE, SPRITE_SIZE);
 
-                for (let key in colours) {
-                    ctx.filter = `hue-rotate(${colours[key] - 10}deg)`;
+                colours.forEach(colour => {
+                    ctx.filter = colour[1];
                     ctx.drawImage(
-                        this.sprite[key],
+                        this.sprite[colour[0]],
                         frame * SPRITE_SIZE,
                         spriteLine,
                         SPRITE_SIZE,
@@ -90,35 +92,7 @@ class Player extends Component {
                         SPRITE_SIZE,
                         SPRITE_SIZE
                     );
-                }
-
-                // Draw player eyes
-                ctx.filter = 'none';
-                ctx.drawImage(
-                    this.sprite.eyes,
-                    frame * SPRITE_SIZE,
-                    spriteLine,
-                    SPRITE_SIZE,
-                    SPRITE_SIZE,
-                    0,
-                    0,
-                    SPRITE_SIZE,
-                    SPRITE_SIZE
-                );
-
-                // Draw player outline
-                ctx.filter = 'none';
-                ctx.drawImage(
-                    this.sprite.outline,
-                    frame * SPRITE_SIZE,
-                    spriteLine,
-                    SPRITE_SIZE,
-                    SPRITE_SIZE,
-                    0,
-                    0,
-                    SPRITE_SIZE,
-                    SPRITE_SIZE
-                );
+                });
             };
 
             const update = () => {
