@@ -65,24 +65,34 @@ class Player extends Component {
                 clothesColour,
             } = this.props.dialog.appearance;
 
+            const colours = new Map([
+                ('hair', hairColour),
+                ('skin', skinColour),
+                ('armour', armourColour),
+                ('clothes', clothesColour),
+            ]);
+
             const draw = frame => {
                 // don't allow invalid frames
                 if (frame > 7 || frame < 0) frame = 0;
 
                 ctx.clearRect(0, 0, SPRITE_SIZE, SPRITE_SIZE);
-                // Draw player hair
-                ctx.filter = `hue-rotate(${hairColour - 10}deg)`; //createFilterFromHexCode(hairColour);
-                ctx.drawImage(
-                    this.sprite.hair,
-                    frame * SPRITE_SIZE,
-                    spriteLine,
-                    SPRITE_SIZE,
-                    SPRITE_SIZE,
-                    0,
-                    0,
-                    SPRITE_SIZE,
-                    SPRITE_SIZE
-                );
+
+                for (let key in colours) {
+                    ctx.filter = `hue-rotate(${colours[key] - 10}deg)`;
+                    ctx.drawImage(
+                        this.sprite[key],
+                        frame * SPRITE_SIZE,
+                        spriteLine,
+                        SPRITE_SIZE,
+                        SPRITE_SIZE,
+                        0,
+                        0,
+                        SPRITE_SIZE,
+                        SPRITE_SIZE
+                    );
+                }
+
                 // Draw player eyes
                 ctx.filter = 'none';
                 ctx.drawImage(
@@ -96,45 +106,7 @@ class Player extends Component {
                     SPRITE_SIZE,
                     SPRITE_SIZE
                 );
-                // Draw player skin
-                ctx.filter = `hue-rotate(${skinColour - 10}deg)`; //createFilterFromHexCode(skinColour);
-                ctx.drawImage(
-                    this.sprite.skin,
-                    frame * SPRITE_SIZE,
-                    spriteLine,
-                    SPRITE_SIZE,
-                    SPRITE_SIZE,
-                    0,
-                    0,
-                    SPRITE_SIZE,
-                    SPRITE_SIZE
-                );
-                // Draw player armour
-                ctx.filter = `hue-rotate(${armourColour - 10}deg)`; //createFilterFromHexCode(armourColour);
-                ctx.drawImage(
-                    this.sprite.armour,
-                    frame * SPRITE_SIZE,
-                    spriteLine,
-                    SPRITE_SIZE,
-                    SPRITE_SIZE,
-                    0,
-                    0,
-                    SPRITE_SIZE,
-                    SPRITE_SIZE
-                );
-                // Draw player clothes
-                ctx.filter = `hue-rotate(${clothesColour - 10}deg)`; //createFilterFromHexCode(clothesColour);
-                ctx.drawImage(
-                    this.sprite.clothes,
-                    frame * SPRITE_SIZE,
-                    spriteLine,
-                    SPRITE_SIZE,
-                    SPRITE_SIZE,
-                    0,
-                    0,
-                    SPRITE_SIZE,
-                    SPRITE_SIZE
-                );
+
                 // Draw player outline
                 ctx.filter = 'none';
                 ctx.drawImage(
