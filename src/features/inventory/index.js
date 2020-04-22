@@ -72,7 +72,7 @@ class Inventory extends Component {
                         }
                         title={open ? 'Close' : 'Inventory'}
                         style={{
-                            width: open ? 135 : 195,
+                            width: 180,
                             transition: 'width .25s ease-out',
                             whiteSpace: 'nowrap',
                             overflow: 'hidden',

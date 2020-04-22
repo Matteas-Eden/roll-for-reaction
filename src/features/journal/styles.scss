@@ -1,19 +1,10 @@
-.journal-dialog__container {
+.journal__container {
     flex: 1;
-}
 
-.journal-log {
-    background-color: var(--dark-gray);
-    width: 380px;
+    align-items: center;
+    justify-content: space-around;
 
-    justify-content: center;
+    z-index: 100;
 
-    color: var(--white);
-    font-size: 14px;
-    text-transform: none;
-    font-family: 'Roboto Mono';
-
-    padding: 12px 15px;
-
-    resize: none;
+    margin-top: 10px;
 }

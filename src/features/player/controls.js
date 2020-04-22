@@ -8,7 +8,7 @@ import movePlayer from './actions/move-player';
 import isGamePaused from '../dialog-manager/actions/is-game-paused';
 import toggleInventory from '../dialog-manager/actions/toggle-inventory';
 import abilityScoreDialog from '../dialog-manager/actions/ability-score-dialog';
-import toggleJournal from '../game-menus/actions/toggle-journal';
+import toggleJournal from '../dialog-manager/actions/toggle-journal';
 
 import {
     ANIMATION_SPEED,

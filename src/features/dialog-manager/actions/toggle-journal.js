@@ -1,6 +1,6 @@
 export default function toggleJournal() {
     return (dispatch, getState) => {
-        if (getState().dialog.journal) {
+        if (getState().dialog.journalDialog) {
             dispatch({
                 type: 'PAUSE',
                 payload: { pause: false },
@@ -10,7 +10,7 @@ export default function toggleJournal() {
                 type: 'PAUSE',
                 payload: {
                     pause: true,
-                    journal: true,
+                    journalDialog: true,
                 },
             });
         }

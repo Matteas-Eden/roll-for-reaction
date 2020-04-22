@@ -1,47 +1,42 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Dialog from '../../components/dialog';
-import toggleJournal from '../game-menus/actions/toggle-journal';
-import { J_KEY } from '../../config/constants';
+import Button from '../../components/button';
+import toggleJournal from '../dialog-manager/actions/toggle-journal';
 
 import './styles.scss';
 
-class Journal extends React.Component {
-    componentDidMount(prevProps, prevState) {
-        const journal = document.getElementById('journal');
-        if (journal !== null) {
-            journal.scrollTop = journal.scrollHeight;
-        }
-    }
+const Journal = ({ disabled, sideMenu, dialog, toggleJournal }) => {
+    const open = dialog.journalDialog;
 
-    render() {
-        return (
-            <Dialog
-                keys={[J_KEY]}
-                onKeyPress={() => this.props.toggleJournal()}
-            >
-                <div className="flex-row journal-dialog__container">
-                    <textarea
-                        id="journal"
-                        name="Journal"
-                        className="journal-log"
-                        readOnly={true}
-                        disabled={true}
-                        value={this.props.journal.entries.join('\n')}
-                    />
-                </div>
-            </Dialog>
-        );
-    }
-}
-
-const mapStateToProps = ({ journal }) => ({
-    journal,
-});
-
-const actions = {
-    toggleJournal,
+    return (
+        <div className="flex-row journal__container">
+            {!disabled && (
+                <Button
+                    small={sideMenu}
+                    onClick={toggleJournal}
+                    icon={open ? 'times' : 'book'}
+                    iconStyle={
+                        open
+                            ? { fontSize: 22 }
+                            : { fontSize: sideMenu ? 20 : 23 }
+                    }
+                    title={open ? 'Close' : 'Journal'}
+                    style={{
+                        width: 160,
+                        transition: 'width .25s ease-out',
+                        whiteSpace: 'nowrap',
+                        overflow: 'hidden',
+                        backgroundColor: 'var(--dark-gray)',
+                    }}
+                />
+            )}
+        </div>
+    );
 };
+
+const mapStateToProps = ({ dialog }) => ({ dialog });
+
+const actions = { toggleJournal };
 
 export default connect(mapStateToProps, actions)(Journal);
