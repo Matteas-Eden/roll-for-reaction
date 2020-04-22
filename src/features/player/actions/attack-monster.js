@@ -6,7 +6,7 @@ import {
 import { calculateDamage, d20 } from '../../../utils/dice';
 import calculateModifier from '../../../utils/calculate-modifier';
 import getNextTile from '../../../utils/get-next-tile';
-import { SPRITE_SIZE } from '../../../config/constants';
+import { SPRITE_SIZE, UNARMED_DAMAGE } from '../../../config/constants';
 
 export default function attackMonster() {
     return (dispatch, getState) => {
@@ -41,7 +41,9 @@ export default function attackMonster() {
 
                 const damage =
                     attack_value >= currMonster.defence
-                        ? calculateDamage(weapon.damage)
+                        ? calculateDamage(
+                              weapon ? weapon.damage : UNARMED_DAMAGE
+                          )
                         : 0;
 
                 dispatch({
