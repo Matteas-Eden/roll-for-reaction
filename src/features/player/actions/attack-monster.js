@@ -61,6 +61,7 @@ export default function attackMonster() {
                         damage,
                         id: currMonster.id,
                         map: currentMap,
+                        type: currMonster.type,
                     },
                 });
 

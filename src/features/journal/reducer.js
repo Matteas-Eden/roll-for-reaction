@@ -57,8 +57,12 @@ const journalReducer = (state = initialState, { type, payload }) => {
             newState = cloneDeep(state);
             newState.entries.push(
                 payload.damage === 0
-                    ? 'You missed the monster!'
-                    : 'You dealt ' + payload.damage + ' damage!'
+                    ? 'You missed the ' + payload.type + '!'
+                    : 'You dealt ' +
+                          payload.damage +
+                          ' damage to the ' +
+                          payload.type +
+                          '!'
             );
             return newState;
 
