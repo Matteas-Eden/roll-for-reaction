@@ -12,7 +12,7 @@ import setSkinColour from './actions/set-skin-colour';
 import setArmourColour from './actions/set-armour-colour';
 import setClothesColour from './actions/set-clothes-colour';
 
-import ColourPicker from '../../../../components/colour-picker';
+import SelectColour from '../../../../components/select-colour';
 
 import './styles.scss';
 
@@ -48,38 +48,16 @@ const CharacterCustomisation = ({
                         clothesColour={clothesColour}
                     />
                     <div className="flex-column character-customisation__options-container">
-                        <div className="flex-row character-customisation__option">
-                            <p className="character-customisation__label">
-                                Hair
-                            </p>
-                            <div className="character-customisation__picker">
-                                <ColourPicker onChange={setHairColour} />
-                            </div>
-                        </div>
-                        <div className="flex-row character-customisation__option">
-                            <p className="flex-column character-customisation__label">
-                                Skin
-                            </p>
-                            <div className="character-customisation__picker">
-                                <ColourPicker onChange={setSkinColour} />
-                            </div>
-                        </div>
-                        <div className="flex-row character-customisation__option">
-                            <p className="flex-column character-customisation__label">
-                                Armour
-                            </p>
-                            <div className="character-customisation__picker">
-                                <ColourPicker onChange={setArmourColour} />
-                            </div>
-                        </div>
-                        <div className="flex-row character-customisation__option">
-                            <p className="flex-column character-customisation__label">
-                                Clothes
-                            </p>
-                            <div className="character-customisation__picker">
-                                <ColourPicker onChange={setClothesColour} />
-                            </div>
-                        </div>
+                        <SelectColour name="Hair" onChange={setHairColour} />
+                        <SelectColour name="Skin" onChange={setSkinColour} />
+                        <SelectColour
+                            name="Armour"
+                            onChange={setArmourColour}
+                        />
+                        <SelectColour
+                            name="Clothes"
+                            onChange={setClothesColour}
+                        />
                     </div>
                     <Button
                         title="Continue"
