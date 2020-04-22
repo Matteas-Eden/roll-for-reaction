@@ -46,10 +46,13 @@ export default function attackMonster() {
                           )
                         : 0;
 
-                dispatch({
-                    type: 'PLAYER_ATTACK',
-                    payload: null,
-                });
+                if (damage > 0) {
+                    // Only show the attack animation if they hit the monster
+                    dispatch({
+                        type: 'PLAYER_ATTACK',
+                        payload: null,
+                    });
+                }
 
                 // deal damage to monster
                 dispatch({
