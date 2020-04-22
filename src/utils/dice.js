@@ -109,6 +109,27 @@ const isNumber = str => {
     return true;
 };
 
+const lex = expression => {
+    return expression
+        .split('')
+        .reduce((output, token) => {
+            if (token in ops) {
+                output.push(token);
+            } else if (token == '(' || token == ')') {
+                output.push(token);
+            } else if (token.trim().length > 0) {
+                if (output.length > 0 && isNumber(output[output.length - 1])) {
+                    output.push(output.pop() + token);
+                } else {
+                    output.push(token);
+                }
+            }
+
+            return output;
+        }, [])
+        .join(' ');
+};
+
 // Djikstra's shunting yard algorithm to convert infix notation to postfix notation
 const yard = infix => {
     let stack = [];
@@ -182,15 +203,19 @@ const rpn = (postfix, die) => {
         : evaluated;
 };
 
+const parse = (notation, dice) => {
+    const lexed = lex(notation);
+    return rpn(yard(lexed), dice);
+};
+
 export const calculateDamageRange = notation => {
-    const pf = yard(notation);
-    const min = rpn(pf, biased('min'));
-    const max = rpn(pf, biased('max'));
+    const min = parse(notation, biased('min'));
+    const max = parse(notation, biased('max'));
     return [min, max];
 };
 
 // Calculates damage to deal based on Dice Notation (https://en.wikipedia.org/wiki/Dice_notation)
 export default function calculateDamage(notation) {
-    const damage = rpn(yard(notation), unbiased());
+    const damage = parse(notation, unbiased());
     return damage;
 }
