@@ -10,7 +10,6 @@ import GameMenus from './features/game-menus';
 import World from './features/world';
 import Viewport from './components/viewport';
 import useGameViewportScaling from './features/app-state/actions/use-game-viewport-scaling';
-import Journal from './features/journal';
 
 const App = ({ appState, world }) => {
     useGameViewportScaling();
@@ -50,7 +49,6 @@ const App = ({ appState, world }) => {
                 </Viewport>
 
                 <GameMenus />
-                <Journal />
             </div>
 
             {showFooter && <Footer />}

@@ -1,3 +1,7 @@
+.journal-dialog__container {
+    flex: 1;
+}
+
 .journal-log {
     background-color: var(--dark-gray);
     width: 380px;
@@ -5,9 +9,11 @@
     justify-content: center;
 
     color: var(--white);
-    font-size: 16px;
+    font-size: 14px;
     text-transform: none;
-    font-family: 'Montserrat';
+    font-family: 'Roboto Mono';
 
     padding: 12px 15px;
+
+    resize: none;
 }

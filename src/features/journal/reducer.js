@@ -2,7 +2,6 @@ import cloneDeep from 'lodash.clonedeep';
 
 const initialState = {
     entries: [],
-    open: false,
 };
 
 const journalReducer = (state = initialState, { type, payload }) => {
@@ -14,15 +13,18 @@ const journalReducer = (state = initialState, { type, payload }) => {
             newState.entries.push(
                 'You rolled a ' +
                     payload.ability +
-                    ' check  and got ' +
+                    ' check and got ' +
                     payload.roll
             );
 
-            if (payload.roll >= payload.check) {
-                newState.entries.push('The ability check succeeded!');
-            } else {
-                newState.entries.push('The ability check failed');
-            }
+            newState.entries.push(
+                'The ' +
+                    payload.ability +
+                    ' check ' +
+                    (payload.roll >= payload.check ? 'succeeded' : 'failed') +
+                    ' against ' +
+                    payload.check
+            );
 
             return newState;
 
@@ -34,9 +36,6 @@ const journalReducer = (state = initialState, { type, payload }) => {
                     : 'You dealt ' + payload.damage + ' damage!'
             );
             return newState;
-
-        case 'TOGGLE_JOURNAL':
-            return { ...state, open: payload.open };
 
         case 'LOAD_DATA':
             return { ...initialState, ...payload.journal };

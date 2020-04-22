@@ -1,10 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import Dialog from '../../components/dialog';
+import toggleJournal from '../game-menus/actions/toggle-journal';
+import { J_KEY } from '../../config/constants';
+
 import './styles.scss';
 
 class Journal extends React.Component {
-    componentDidUpdate(prevProps, prevState) {
+    componentDidMount(prevProps, prevState) {
         const journal = document.getElementById('journal');
         if (journal !== null) {
             journal.scrollTop = journal.scrollHeight;
@@ -13,27 +17,21 @@ class Journal extends React.Component {
 
     render() {
         return (
-            <div
-                style={{
-                    alignItems: 'center',
-                    lineHeight: 'unset',
-                    margin: 'auto',
-                }}
-                className="flex-row"
+            <Dialog
+                keys={[J_KEY]}
+                onKeyPress={() => this.props.toggleJournal()}
             >
-                {this.props.journal.open && (
+                <div className="flex-row journal-dialog__container">
                     <textarea
                         id="journal"
                         name="Journal"
-                        className="journal-log white-border"
-                        rows="5"
-                        cols="33"
+                        className="journal-log"
                         readOnly={true}
                         disabled={true}
                         value={this.props.journal.entries.join('\n')}
                     />
-                )}
-            </div>
+                </div>
+            </Dialog>
         );
     }
 }
@@ -42,4 +40,8 @@ const mapStateToProps = ({ journal }) => ({
     journal,
 });
 
-export default connect(mapStateToProps)(Journal);
+const actions = {
+    toggleJournal,
+};
+
+export default connect(mapStateToProps, actions)(Journal);
