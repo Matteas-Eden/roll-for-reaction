@@ -26,7 +26,6 @@ class ColourPicker extends React.Component {
 
     handleChange = color => {
         this.setState({ color: color.hsl });
-        console.log(color.hsl.h);
         typeof this.props.onChange === 'function' &&
             this.props.onChange(color.hsl.h);
     };

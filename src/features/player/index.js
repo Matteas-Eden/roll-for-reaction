@@ -19,7 +19,6 @@ import PlayerClothes from './assets/player-clothes.png';
 import PlayerOutline from './assets/player-outline.png';
 
 import { ANIMATION_SPEED, SPRITE_SIZE } from '../../config/constants';
-import createFilterFromHexCode from '../../utils/create-filter-from-hex-code';
 
 import './styles.scss';
 
