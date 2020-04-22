@@ -21,7 +21,7 @@ const journalReducer = (state = initialState, { type, payload }) => {
             if (payload.roll >= payload.check) {
                 newState.entries.push('The ability check succeeded!');
             } else {
-                newState.push('The ability check failed');
+                newState.entries.push('The ability check failed');
             }
 
             return newState;
