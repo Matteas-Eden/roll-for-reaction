@@ -8,6 +8,18 @@ const journalReducer = (state = initialState, { type, payload }) => {
     let newState;
 
     switch (type) {
+        case 'MONSTER_ABILITY_CHECK':
+            newState = cloneDeep(state);
+            newState.entries.push(
+                'The ' +
+                    payload.type +
+                    ' attacked you with an attack value of ' +
+                    payload.attack_value +
+                    ' against your defense value of ' +
+                    payload.check
+            );
+            return newState;
+
         case 'ABILITY_CHECK':
             newState = cloneDeep(state);
             newState.entries.push(
@@ -26,6 +38,19 @@ const journalReducer = (state = initialState, { type, payload }) => {
                     payload.check
             );
 
+            return newState;
+
+        case 'DAMAGE_TO_PLAYER':
+            newState = cloneDeep(state);
+            newState.entries.push(
+                payload.damage === 0
+                    ? 'The ' + payload.type + ' missed you!'
+                    : 'The ' +
+                          payload.type +
+                          ' dealt ' +
+                          payload.damage +
+                          ' damage to you!'
+            );
             return newState;
 
         case 'DAMAGE_TO_MONSTER':
