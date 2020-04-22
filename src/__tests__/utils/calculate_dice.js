@@ -11,7 +11,7 @@ describe('when you roll a dice', () => {
     });
 
     test('that has the notation (2d10 + 3) * 3', () => {
-        const notation = '( 2d10 + 3 ) * 3';
+        const notation = '(2d10 + 3) * 3';
 
         const range = calculateDamageRange(notation);
 
