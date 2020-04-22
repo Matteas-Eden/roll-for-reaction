@@ -65,11 +65,6 @@ class Inventory extends Component {
                         indicator={newItemIndicator}
                         onClick={this._toggleInventory.bind(this)}
                         icon={open ? 'times' : 'briefcase'}
-                        iconStyle={
-                            open
-                                ? { fontSize: 22 }
-                                : { fontSize: sideMenu ? 20 : 23 }
-                        }
                         title={open ? 'Close' : 'Inventory'}
                         style={{
                             width: 180,

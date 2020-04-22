@@ -16,11 +16,6 @@ const Journal = ({ disabled, sideMenu, dialog, toggleJournal }) => {
                     small={sideMenu}
                     onClick={toggleJournal}
                     icon={open ? 'times' : 'book'}
-                    iconStyle={
-                        open
-                            ? { fontSize: 22 }
-                            : { fontSize: sideMenu ? 20 : 23 }
-                    }
                     title={open ? 'Close' : 'Journal'}
                     style={{
                         width: 160,
