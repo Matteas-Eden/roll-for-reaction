@@ -3,9 +3,10 @@ import {
     getNewPosition,
     observeBoundaries,
 } from './move-player';
-import calculateDamage from '../../../utils/dice';
+import { calculateDamage, d20 } from '../../../utils/dice';
+import calculateModifier from '../../../utils/calculate-modifier';
 import getNextTile from '../../../utils/get-next-tile';
-import { SPRITE_SIZE } from '../../../config/constants';
+import { SPRITE_SIZE, UNARMED_DAMAGE } from '../../../config/constants';
 
 export default function attackMonster() {
     return (dispatch, getState) => {
@@ -25,12 +26,34 @@ export default function attackMonster() {
                 const currMonster = components[currentMap][monsterId];
                 const monsterPos = currMonster.position;
 
-                const damage = calculateDamage(weapon.damage);
+                const modifier = calculateModifier(stats.abilities.strength);
+                const attack_value = d20() + modifier;
 
                 dispatch({
-                    type: 'PLAYER_ATTACK',
-                    payload: null,
+                    type: 'ABILITY_CHECK',
+                    payload: {
+                        notation: 'd20 + ' + modifier,
+                        roll: attack_value,
+                        ability: 'strength',
+                        check: currMonster.defence,
+                    },
                 });
+
+                const damage =
+                    attack_value >= currMonster.defence
+                        ? calculateDamage(
+                              weapon ? weapon.damage : UNARMED_DAMAGE
+                          )
+                        : 0;
+
+                if (damage > 0) {
+                    // Only show the attack animation if they hit the monster
+                    dispatch({
+                        type: 'PLAYER_ATTACK',
+                        payload: null,
+                    });
+                }
+
                 // deal damage to monster
                 dispatch({
                     type: 'DAMAGE_TO_MONSTER',
@@ -38,6 +61,7 @@ export default function attackMonster() {
                         damage,
                         id: currMonster.id,
                         map: currentMap,
+                        type: currMonster.type,
                     },
                 });
 

@@ -11,10 +11,19 @@ const initialState = {
 
 const snackbarReducer = (state = initialState, { type, payload }) => {
     switch (type) {
-        case 'ERROR_MESSAGE':
+        case 'DAMAGE_TO_MONSTER':
             return {
                 ...state,
-                errorMessage: `${payload}-${new Date().getTime()}`,
+                message:
+                    payload.damage === 0
+                        ? 'You missed the monster!'
+                        : 'You dealt ' + payload.damage + ' damage!',
+            };
+
+        case 'NOTIFY_PLAYER':
+            return {
+                ...state,
+                message: `${payload}-${new Date().getTime()}`,
             };
 
         case 'NOT_ENOUGH_GOLD':

@@ -69,6 +69,16 @@ const statsReducer = (state = initialState, { type, payload }) => {
                 calculateModifier(payload.abilities.constitution)
             );
             const hpDifference = newAbilityModifierHp - state.abilityModifierHp;
+
+            const previous_dex = calculateModifier(state.abilities.dexterity);
+            const current_dex = calculateModifier(payload.abilities.dexterity);
+
+            if (previous_dex <= 0) {
+                state.defence += current_dex;
+            } else {
+                state.defence = state.defence - previous_dex + current_dex;
+            }
+
             state.hp += hpDifference;
             state.maxHp += hpDifference;
             state.abilityModifierHp = newAbilityModifierHp;
@@ -310,7 +320,7 @@ const statsReducer = (state = initialState, { type, payload }) => {
             return { ...state, hp: _hp };
 
         case 'DAMAGE_TO_PLAYER':
-            return { ...state, hp: state.hp - payload };
+            return { ...state, hp: state.hp - payload.damage };
 
         case 'GET_EXP':
             newState = _cloneDeep(state);

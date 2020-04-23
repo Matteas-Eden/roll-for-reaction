@@ -19,6 +19,7 @@ const initialState = {
     shop: false,
     settings: false,
     inventory: false,
+    journalDialog: false,
     levelUp: false,
     fromLevelUp: false,
     abilityDialog: false,
@@ -96,6 +97,7 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
                 characterCustomisation,
                 playerOpenedAbilityDialog,
                 pause,
+                journalDialog,
             } = payload;
 
             return {
@@ -115,6 +117,7 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
                 playerOpenedAbilityDialog: playerOpenedAbilityDialog || false,
                 characterCustomisation: characterCustomisation || false,
                 characterCreation: characterCreation || false,
+                journalDialog: journalDialog || false,
                 paused: pause,
             };
 
