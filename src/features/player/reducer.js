@@ -1,11 +1,16 @@
+import Fireball from '../../data/spells/fireball';
+
 const initialState = {
     direction: 'SOUTH',
     position: [0, 0],
     playerMoved: false,
     playerAttacked: false,
+    spellCast: false,
     monsterAttacked: false,
     playerDied: false,
     monsterDied: false,
+    targetPosition: [],
+    spell: Fireball,
 };
 
 const playerReducer = (state = initialState, { type, payload }) => {
@@ -21,6 +26,13 @@ const playerReducer = (state = initialState, { type, payload }) => {
         case 'MONSTER_ATTACK':
             // trigger monster's attack animation on player
             return { ...state, monsterAttacked: !state.monsterAttacked };
+
+        case 'CAST_SPELL':
+            return {
+                ...state,
+                spellCast: !state.spellCast,
+                targetPosition: payload ? payload.position : [],
+            };
 
         case 'PLAYER_ATTACK':
             // trigger attack animation
