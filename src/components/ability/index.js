@@ -22,7 +22,6 @@ const Ability = ({
                     className="ability-score__button"
                     style={{
                         visibility:
-                            // userOpen && (value === MAX_ABILITY_SCORE || points === 0)
                             (points === 0 && !userOpen) ||
                             value === MAX_ABILITY_SCORE
                                 ? 'hidden'
@@ -42,7 +41,6 @@ const Ability = ({
                     className="ability-score__button"
                     style={{
                         visibility:
-                            // userOpen && (value === minValue || points === 0)
                             (points === 0 && !userOpen) || value === minValue
                                 ? 'hidden'
                                 : 'visible',
