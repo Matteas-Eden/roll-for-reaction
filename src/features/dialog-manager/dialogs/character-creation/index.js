@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
 import SelectButtonGroup from '../../../../components/select-button-group';
@@ -11,6 +11,7 @@ import setRace from './actions/set-race';
 import mainGameDialog from '../../actions/main-game-dialog';
 
 import './styles.scss';
+import { ESC_KEY, ENTER_KEY } from '../../../../config/constants';
 
 const CharacterCreation = ({
     dialog,
@@ -20,10 +21,11 @@ const CharacterCreation = ({
     setRace,
     mainGameDialog,
 }) => {
+    const [characterName, setCharacterName] = useState(
+        dialog.character.characterName
+    );
+
     function handleContinue() {
-        const characterName = document
-            .getElementById('characterName')
-            .value.trim();
         if (characterName) {
             createCharacter(characterName);
         } else {
@@ -32,7 +34,17 @@ const CharacterCreation = ({
     }
 
     return (
-        <Dialog onKeyPress={handleContinue} goBack={mainGameDialog}>
+        <Dialog
+            keys={[ENTER_KEY, ESC_KEY]}
+            onKeyPress={key => {
+                if (key === ENTER_KEY) {
+                    handleContinue();
+                } else {
+                    mainGameDialog();
+                }
+            }}
+            goBack={mainGameDialog}
+        >
             <div className="character-creation__title">
                 {'Character Creation'}
             </div>
@@ -48,6 +60,8 @@ const CharacterCreation = ({
                     maxLength="512"
                     id="characterName"
                     className="white-border character-creation__input"
+                    value={characterName}
+                    onChange={event => setCharacterName(event.target.value)}
                 />
 
                 <span style={{ paddingTop: 12 }}>{`Your Race`}</span>

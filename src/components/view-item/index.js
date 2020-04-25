@@ -244,7 +244,7 @@ const ViewItem = ({
         );
 
     return (
-        <MicroDialog onClose={onClose}>
+        <MicroDialog onClose={onClose} onKeyPress={onClose}>
             <div className="view-item__title">
                 <EmptySlot className="white-border view-item__image">
                     <div

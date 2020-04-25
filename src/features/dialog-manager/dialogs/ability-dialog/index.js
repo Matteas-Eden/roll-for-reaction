@@ -140,7 +140,14 @@ const AbilityDialog = ({
     } else {
         return (
             <Dialog
-                onKeyPress={confirmAbilityScoreDialog}
+                keys={[ENTER_KEY, ESC_KEY]}
+                onKeyPress={key => {
+                    if (key === ENTER_KEY) {
+                        confirmAbilityScoreDialog();
+                    } else {
+                        backToCharacterCustomisation();
+                    }
+                }}
                 goBack={backToCharacterCustomisation}
             >
                 <span className="ability-score__title">

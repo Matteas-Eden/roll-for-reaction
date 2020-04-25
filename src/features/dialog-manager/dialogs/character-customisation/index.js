@@ -16,6 +16,7 @@ import backToCharacterCreation from '../../actions/back-to-character-creation';
 import SelectColour from '../../../../components/select-colour';
 
 import './styles.scss';
+import { ENTER_KEY, ESC_KEY } from '../../../../config/constants';
 
 const CharacterCustomisation = ({
     dialog,
@@ -38,7 +39,14 @@ const CharacterCustomisation = ({
     return (
         <>
             <Dialog
-                onKeyPress={finishCustomisation}
+                keys={[ENTER_KEY, ESC_KEY]}
+                onKeyPress={key => {
+                    if (key === ENTER_KEY) {
+                        finishCustomisation();
+                    } else {
+                        backToCharacterCreation();
+                    }
+                }}
                 goBack={backToCharacterCreation}
             >
                 <div className="flex-column character-customisation__container">
