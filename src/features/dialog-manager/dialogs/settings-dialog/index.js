@@ -71,6 +71,7 @@ const SettingsDialog = ({ state, resetGameState, closeSettings }) => {
                 open={confirmQuit}
                 text="Are you sure you want to quit? You will lose all progress..."
                 onClose={() => setConfirmQuit(false)}
+                acceptKeys
                 confirm={resetGameState}
             />
         </Dialog>

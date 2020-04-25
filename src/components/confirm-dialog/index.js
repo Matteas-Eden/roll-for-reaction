@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Button from '../button';
+import { ENTER_KEY, ESC_KEY } from '../../config/constants';
 
 import './styles.scss';
 
@@ -14,8 +15,26 @@ const ConfirmDialog = ({
     acceptIcon,
     acceptText,
     className,
+    acceptKeys,
 }) => {
     if (!open) return null;
+
+    function handleKeyPress(event) {
+        // check if a key is pressed and bound to an action
+        if (event.keyCode === ENTER_KEY) {
+            confirm();
+        } else if (event.keyCode === ESC_KEY) {
+            onClose();
+        }
+    }
+
+    useEffect(() => {
+        if (acceptKeys) window.addEventListener('keydown', handleKeyPress);
+        return () => {
+            if (acceptKeys)
+                window.removeEventListener('keydown', handleKeyPress);
+        };
+    }, []);
 
     return (
         <div

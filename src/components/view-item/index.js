@@ -279,6 +279,7 @@ const ViewItem = ({
                     setConfirmDrop(false);
                     onClose();
                 }}
+                acceptKeys
                 onClose={() => setConfirmDrop(false)}
             />
 
@@ -298,6 +299,7 @@ const ViewItem = ({
                     setConfirmSell(false);
                     onClose();
                 }}
+                acceptKeys
                 onClose={() => setConfirmSell(false)}
             />
 
@@ -317,6 +319,7 @@ const ViewItem = ({
                     setConfirmBuy(false);
                     onClose();
                 }}
+                acceptKeys
                 onClose={() => setConfirmBuy(false)}
             />
 
@@ -331,6 +334,7 @@ const ViewItem = ({
                     setConfirmPotion(false);
                     onClose();
                 }}
+                acceptKeys
                 onClose={() => setConfirmPotion(false)}
             />
         </MicroDialog>
