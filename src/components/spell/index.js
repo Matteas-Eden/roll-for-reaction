@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
 const Div = styled.div`
+    position: absolute;
     top: ${props => props.startPosition[1]}px;
     left: ${props => props.startPosition[0]}px;
     width: ${props => props.spell.size.width};

@@ -48,20 +48,3 @@
 
     background-position-x: 0px;
 }
-
-@keyframes spell-cast {
-    100% {
-        transform: translate(0, 128px);
-    }
-}
-
-.spellcast {
-    position: absolute;
-    width: 64px;
-    height: 32px;
-
-    z-index: 1000;
-    transform: rotate(90deg);
-    animation: spell-cast 0.5s infinite;
-    background-position-x: 0px;
-}
