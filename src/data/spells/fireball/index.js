@@ -6,7 +6,7 @@ const Fireball = {
     type: 'spell',
     range: 'melee',
     damage: '2d8',
-    size: ['64px', '32px'],
+    size: { width: '64px', height: '32px', total: '320px' },
     image: FireballSprite,
     value: 110,
 };
