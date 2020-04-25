@@ -16,7 +16,7 @@ const Dialog = ({ className, style, children, goBack, onKeyPress, keys }) => {
     function handleKeyPress(event) {
         // check if a key is pressed and bound to an action
         if (keys ? keys.includes(event.keyCode) : event.keyCode === ENTER_KEY) {
-            onKeyPress();
+            onKeyPress(event.keyCode);
         }
     }
 

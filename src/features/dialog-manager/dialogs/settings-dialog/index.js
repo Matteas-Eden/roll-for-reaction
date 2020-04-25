@@ -8,6 +8,7 @@ import closeSettings from '../../actions/close-settings';
 import resetGameState from '../../../world/actions/reset-game-state';
 
 import './settings-dialog.scss';
+import { ENTER_KEY } from '../../../../config/constants';
 
 const SettingsDialog = ({ state, resetGameState, closeSettings }) => {
     const [confirmQuit, setConfirmQuit] = useState(false);
@@ -37,7 +38,7 @@ const SettingsDialog = ({ state, resetGameState, closeSettings }) => {
         state.dialog.character.characterName.length > 0;
 
     return (
-        <Dialog>
+        <Dialog keys={[ENTER_KEY]} onKeyPress={resetGameState}>
             <div className="flex-column settings-dialog__container">
                 <span className="settings-dialog__title">{'Settings'}</span>
 

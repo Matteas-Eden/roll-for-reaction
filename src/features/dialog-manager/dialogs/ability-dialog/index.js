@@ -19,6 +19,7 @@ import incrementCharisma from './actions/increment-charisma';
 
 import backToCharacterCustomisation from '../../actions/back-to-character-customisation';
 import confirmAbilityScoreDialog from '../../actions/confirm-ability-score-dialog';
+import closeDialog from '../../actions/close-dialog';
 import Dialog from '../../../../components/dialog';
 
 import { U_KEY, ENTER_KEY, ESC_KEY } from '../../../../config/constants';
@@ -41,6 +42,7 @@ const AbilityDialog = ({
     decrementCharisma,
     incrementCharisma,
     backToCharacterCustomisation,
+    closeDialog,
 }) => {
     const {
         constitution,
@@ -63,8 +65,14 @@ const AbilityDialog = ({
     if (dialog.playerOpenedAbilityDialog) {
         return (
             <Dialog
-                onKeyPress={confirmAbilityScoreDialog}
-                keys={[U_KEY, ESC_KEY]}
+                onKeyPress={key => {
+                    if (key === ENTER_KEY) {
+                        confirmAbilityScoreDialog();
+                    } else {
+                        closeDialog();
+                    }
+                }}
+                keys={[U_KEY, ENTER_KEY, ESC_KEY]}
             >
                 <span
                     className="ability-score__title"
@@ -214,5 +222,6 @@ const actions = {
     decrementCharisma,
     incrementCharisma,
     backToCharacterCustomisation,
+    closeDialog,
 };
 export default connect(mapStateToProps, actions)(AbilityDialog);
