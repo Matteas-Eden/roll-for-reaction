@@ -33,8 +33,6 @@ export const CastSpell = ({ spell, startPosition, endPosition, direction }) => {
             break;
     }
 
-    console.log(startPosition, endPosition);
-
     const animation = keyframes`
     0% {
         transform: rotate(${rotation}deg);
@@ -47,8 +45,6 @@ export const CastSpell = ({ spell, startPosition, endPosition, direction }) => {
         background-position-x: ${spell.size.total};
     }
 `;
-
-    console.log(animation);
 
     return (
         <Div

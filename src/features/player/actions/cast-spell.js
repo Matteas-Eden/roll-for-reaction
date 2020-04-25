@@ -83,7 +83,6 @@ export default function castSpell() {
             observeBoundaries(spellPosition) &&
             observeImpassable(spellPosition, getState().world)
         ) {
-            console.log('IT FOUND SOMETHING', spellPosition);
             const { stats, world, monsters } = getState();
             const { currentMap } = world;
             const { components } = monsters;
