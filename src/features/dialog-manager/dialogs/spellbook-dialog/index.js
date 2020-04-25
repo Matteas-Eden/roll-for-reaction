@@ -14,7 +14,12 @@ const SpellbookDialog = ({ player, setActiveSpell, toggleSpellbookDialog }) => {
     return (
         <Dialog keys={[B_KEY]} onKeyPress={toggleSpellbookDialog}>
             {spells.map(spell => (
-                <div key={spell.name} className="spellbook-spell">
+                <div
+                    key={spell.name}
+                    className={`spellbook-spell ${
+                        player.spell.name === spell.name ? 'selected-spell' : ''
+                    }`}
+                >
                     <Button
                         title={spell.name}
                         onClick={() => setActiveSpell(spell)}
