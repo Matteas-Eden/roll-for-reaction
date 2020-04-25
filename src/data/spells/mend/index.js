@@ -1,16 +1,16 @@
 // Credit: https://kvsr.itch.io/pixelarteffectfx017
-import FireballSprite from './Fireball.png';
+import MendSprite from './Mend.png';
 
 const Fireball = {
-    name: 'Fireball',
+    name: 'Mend',
     type: 'spell',
-    target: 'enemy',
+    target: 'self::heal',
     range: 4,
-    damage: '2d8',
-    manaCost: 5,
+    damage: '1d6',
+    manaCost: 3,
     size: { width: '64px', height: '32px', total: '320px' },
-    image: FireballSprite,
-    value: 10,
+    image: MendSprite,
+    value: 5,
 };
 
 export default Fireball;

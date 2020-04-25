@@ -86,6 +86,11 @@ const journalReducer = (state = initialState, { type, payload }) => {
             );
             return newState;
 
+        case 'CAST_SPELL':
+            newState = cloneDeep(state);
+            newState.entries.push('You cast ' + payload.spell.name);
+            return newState;
+
         case 'LOAD_DATA':
             return { ...initialState, ...payload.journal };
 

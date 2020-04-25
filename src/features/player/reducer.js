@@ -1,4 +1,4 @@
-import Fireball from '../../data/spells/fireball';
+import Mend from '../../data/spells/mend';
 
 const initialState = {
     direction: 'SOUTH',
@@ -10,7 +10,7 @@ const initialState = {
     playerDied: false,
     monsterDied: false,
     targetPosition: [],
-    spell: Fireball,
+    spell: Mend,
 };
 
 const playerReducer = (state = initialState, { type, payload }) => {
