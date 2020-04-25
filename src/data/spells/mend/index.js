@@ -1,4 +1,4 @@
-// Credit: https://kvsr.itch.io/pixelarteffectfx017
+// Credit: https://ppeldo.itch.io/2d-pixel-art-game-spellmagic-fx
 import MendSprite from './Mend.png';
 
 const Mend = {
@@ -7,8 +7,8 @@ const Mend = {
     target: 'self::heal',
     range: 4,
     damage: '1d6',
-    manaCost: 3,
-    size: { width: '64px', height: '32px', total: '320px' },
+    manaCost: 5,
+    size: { width: 96, height: 96, total: 8544 },
     image: MendSprite,
     value: 5,
 };
