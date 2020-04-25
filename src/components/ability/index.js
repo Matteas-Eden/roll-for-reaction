@@ -5,7 +5,15 @@ import { MAX_ABILITY_SCORE } from '../../config/constants';
 
 import './styles.scss';
 
-const Ability = ({ name, value, minValue, increment, decrement, points }) => {
+const Ability = ({
+    name,
+    value,
+    minValue,
+    increment,
+    decrement,
+    points,
+    userOpen,
+}) => {
     return (
         <>
             <div className="ability-score__container">
@@ -14,7 +22,9 @@ const Ability = ({ name, value, minValue, increment, decrement, points }) => {
                     className="ability-score__button"
                     style={{
                         visibility:
-                            value === MAX_ABILITY_SCORE || points === 0
+                            // userOpen && (value === MAX_ABILITY_SCORE || points === 0)
+                            (points === 0 && !userOpen) ||
+                            value === MAX_ABILITY_SCORE
                                 ? 'hidden'
                                 : 'visible',
                     }}
@@ -32,7 +42,8 @@ const Ability = ({ name, value, minValue, increment, decrement, points }) => {
                     className="ability-score__button"
                     style={{
                         visibility:
-                            value === minValue || points === 0
+                            // userOpen && (value === minValue || points === 0)
+                            (points === 0 && !userOpen) || value === minValue
                                 ? 'hidden'
                                 : 'visible',
                     }}
