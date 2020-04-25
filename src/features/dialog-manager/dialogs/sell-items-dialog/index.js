@@ -11,12 +11,7 @@ const SellItemsDialog = ({ onClose }) => {
     const [sellItem, setSellItem] = useState(false);
 
     return (
-        <MicroDialog
-            onClose={onClose}
-            onKeyPress={onClose}
-            fullsize
-            className="centered"
-        >
+        <MicroDialog onClose={onClose} fullsize className="centered">
             <ViewItem
                 open={Boolean(sellItem)}
                 data={sellItem}

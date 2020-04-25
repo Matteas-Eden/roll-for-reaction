@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import { ENTER_KEY, ESC_KEY } from '../../config/constants';
+import { ENTER_KEY } from '../../config/constants';
 
 import './styles.scss';
 
