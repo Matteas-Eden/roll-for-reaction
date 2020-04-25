@@ -6,9 +6,9 @@ const Fireball = {
     type: 'spell',
     range: 'melee',
     damage: '2d8',
+    manaCost: 10,
     size: { width: '64px', height: '32px', total: '320px' },
     image: FireballSprite,
-    value: 110,
 };
 
 export default Fireball;
