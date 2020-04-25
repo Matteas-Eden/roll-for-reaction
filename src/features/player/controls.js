@@ -10,6 +10,7 @@ import isGamePaused from '../dialog-manager/actions/is-game-paused';
 import toggleInventory from '../dialog-manager/actions/toggle-inventory';
 import abilityScoreDialog from '../dialog-manager/actions/ability-score-dialog';
 import toggleJournal from '../dialog-manager/actions/toggle-journal';
+import toggleSpellbookDialog from '../dialog-manager/actions/toggle-spellbook-dialog';
 
 import {
     ANIMATION_SPEED,
@@ -21,6 +22,7 @@ import {
     I_KEY,
     J_KEY,
     C_KEY,
+    B_KEY,
     UP_KEY,
     DOWN_KEY,
     LEFT_KEY,
@@ -40,6 +42,7 @@ const Controls = ({
     toggleInventory,
     toggleJournal,
     abilityScoreDialog,
+    toggleSpellbookDialog,
 }) => {
     const _handleKeyDown = _debounce(
         event => {
@@ -172,6 +175,8 @@ const Controls = ({
                 return toggleJournal();
             case U_KEY:
                 return abilityScoreDialog(false);
+            case B_KEY:
+                return toggleSpellbookDialog();
             default:
         }
     }
@@ -187,6 +192,7 @@ const actions = {
     toggleInventory,
     toggleJournal,
     abilityScoreDialog,
+    toggleSpellbookDialog,
 };
 
 export default connect(null, actions)(Controls);

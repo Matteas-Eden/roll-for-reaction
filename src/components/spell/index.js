@@ -38,6 +38,8 @@ export const CastSpell = ({ spell, startPosition, endPosition, direction }) => {
         case 'WEST':
             rotation = '180';
             break;
+
+        default:
     }
 
     startPosition = [startPosition[0] + offset_x, startPosition[1] + offset_y];

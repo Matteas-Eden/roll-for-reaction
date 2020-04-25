@@ -61,6 +61,7 @@ export const U_KEY = 85;
 export const I_KEY = 73;
 export const J_KEY = 74;
 export const C_KEY = 67;
+export const B_KEY = 66;
 export const SPACE_KEY = 32;
 export const ENTER_KEY = 13;
 
