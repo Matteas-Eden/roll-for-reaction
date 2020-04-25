@@ -8,6 +8,7 @@ import errorMessage from '../../actions/error-message';
 import createCharacter from './actions/create-character';
 import setClass from './actions/set-class';
 import setRace from './actions/set-race';
+import mainGameDialog from '../../actions/main-game-dialog';
 
 import './styles.scss';
 
@@ -17,6 +18,7 @@ const CharacterCreation = ({
     errorMessage,
     setClass,
     setRace,
+    mainGameDialog,
 }) => {
     function handleContinue() {
         const characterName = document
@@ -30,7 +32,7 @@ const CharacterCreation = ({
     }
 
     return (
-        <Dialog onKeyPress={handleContinue}>
+        <Dialog onKeyPress={handleContinue} goBack={mainGameDialog}>
             <div className="character-creation__title">
                 {'Character Creation'}
             </div>
@@ -79,6 +81,12 @@ const CharacterCreation = ({
 };
 
 const mapStateToProps = ({ dialog }) => ({ dialog });
-const actions = { createCharacter, errorMessage, setClass, setRace };
+const actions = {
+    createCharacter,
+    errorMessage,
+    setClass,
+    setRace,
+    mainGameDialog,
+};
 
 export default connect(mapStateToProps, actions)(CharacterCreation);

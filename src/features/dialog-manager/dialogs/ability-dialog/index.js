@@ -17,6 +17,7 @@ import incrementDexterity from './actions/increment-dexterity';
 import decrementCharisma from './actions/decrement-charisma';
 import incrementCharisma from './actions/increment-charisma';
 
+import backToCharacterCustomisation from '../../actions/back-to-character-customisation';
 import confirmAbilityScoreDialog from '../../actions/confirm-ability-score-dialog';
 import Dialog from '../../../../components/dialog';
 
@@ -39,6 +40,7 @@ const AbilityDialog = ({
     incrementDexterity,
     decrementCharisma,
     incrementCharisma,
+    backToCharacterCustomisation,
 }) => {
     const {
         constitution,
@@ -58,18 +60,19 @@ const AbilityDialog = ({
         min_charisma,
     } = dialog.abilities_minimum;
 
-    return (
-        <>
+    if (dialog.playerOpenedAbilityDialog) {
+        return (
             <Dialog
                 onKeyPress={confirmAbilityScoreDialog}
-                keys={
-                    dialog.playerOpenedAbilityDialog ? [U_KEY, ESC_KEY] : null
-                }
+                keys={[U_KEY, ESC_KEY]}
             >
+                <span
+                    className="ability-score__title"
+                    style={{ marginLeft: '0px' }}
+                >
+                    Modify your Abilities
+                </span>
                 <div className="flex-column ability-score-dialog__container">
-                    <span className="game-text-dialog__text">
-                        Modify your Abilities
-                    </span>
                     <Ability
                         name="Strength"
                         value={strength}
@@ -125,8 +128,74 @@ const AbilityDialog = ({
                     />
                 </div>
             </Dialog>
-        </>
-    );
+        );
+    } else {
+        return (
+            <Dialog
+                onKeyPress={confirmAbilityScoreDialog}
+                goBack={backToCharacterCustomisation}
+            >
+                <span className="ability-score__title">
+                    Modify your Abilities
+                </span>
+                <div className="flex-column ability-score-dialog__container">
+                    <Ability
+                        name="Strength"
+                        value={strength}
+                        minValue={min_strength}
+                        increment={incrementStrength}
+                        decrement={decrementStrength}
+                    />
+                    <Ability
+                        name="Constitution"
+                        value={constitution}
+                        minValue={min_constitution}
+                        increment={incrementConstitution}
+                        decrement={decrementConstitution}
+                    />
+                    <Ability
+                        name="Dexterity"
+                        value={dexterity}
+                        minValue={min_dexterity}
+                        increment={incrementDexterity}
+                        decrement={decrementDexterity}
+                    />
+                    <Ability
+                        name="Charisma"
+                        value={charisma}
+                        minValue={min_charisma}
+                        increment={incrementCharisma}
+                        decrement={decrementCharisma}
+                    />
+                    <Ability
+                        name="Intelligence"
+                        value={intelligence}
+                        minValue={min_intelligence}
+                        increment={incrementIntelligence}
+                        decrement={decrementIntelligence}
+                    />
+                    <Ability
+                        name="Wisdom"
+                        value={wisdom}
+                        minValue={min_wisdom}
+                        increment={incrementWisdom}
+                        decrement={decrementWisdom}
+                    />
+                    <span className="ability-score-dialog__text">
+                        Ability Points remaining:
+                        <span className="ability-score-dialog__points">
+                            {points}
+                        </span>
+                    </span>
+                    <Button
+                        title="Confirm"
+                        onClick={confirmAbilityScoreDialog}
+                        small={true}
+                    />
+                </div>
+            </Dialog>
+        );
+    }
 };
 
 const mapStateToProps = ({ dialog }) => ({ dialog });
@@ -144,5 +213,6 @@ const actions = {
     incrementDexterity,
     decrementCharisma,
     incrementCharisma,
+    backToCharacterCustomisation,
 };
 export default connect(mapStateToProps, actions)(AbilityDialog);

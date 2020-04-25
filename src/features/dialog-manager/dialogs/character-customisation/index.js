@@ -11,6 +11,7 @@ import setEyeColour from './actions/set-eye-colour';
 import setSkinColour from './actions/set-skin-colour';
 import setArmourColour from './actions/set-armour-colour';
 import setClothesColour from './actions/set-clothes-colour';
+import backToCharacterCreation from '../../actions/back-to-character-creation';
 
 import SelectColour from '../../../../components/select-colour';
 
@@ -24,6 +25,7 @@ const CharacterCustomisation = ({
     setSkinColour,
     setArmourColour,
     setClothesColour,
+    backToCharacterCreation,
 }) => {
     const {
         hairColour,
@@ -35,7 +37,10 @@ const CharacterCustomisation = ({
 
     return (
         <>
-            <Dialog onKeyPress={finishCustomisation}>
+            <Dialog
+                onKeyPress={finishCustomisation}
+                goBack={backToCharacterCreation}
+            >
                 <div className="flex-column character-customisation__container">
                     <div className="flex-column character-customisation__title">
                         Customise Character
@@ -80,6 +85,7 @@ const actions = {
     setSkinColour,
     setArmourColour,
     setClothesColour,
+    backToCharacterCreation,
 };
 
 export default connect(mapStateToProps, actions)(CharacterCustomisation);
