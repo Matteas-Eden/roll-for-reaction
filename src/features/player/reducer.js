@@ -1,4 +1,3 @@
-import Mend from '../../data/spells/mend';
 import cloneDeep from 'lodash.clonedeep';
 
 const initialState = {

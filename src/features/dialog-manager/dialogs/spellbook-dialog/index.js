@@ -8,15 +8,18 @@ import setActiveSpell from '../../actions/set-active-spell';
 import { B_KEY } from '../../../../config/constants';
 import toggleSpellbookDialog from '../../actions/toggle-spellbook-dialog';
 
+import './styles.scss';
+
 const SpellbookDialog = ({ player, setActiveSpell, toggleSpellbookDialog }) => {
     return (
         <Dialog keys={[B_KEY]} onKeyPress={toggleSpellbookDialog}>
             {spells.map(spell => (
-                <Button
-                    title={spell.name}
-                    key={spell.name}
-                    onClick={() => setActiveSpell(spell)}
-                />
+                <div key={spell.name} className="spellbook-spell">
+                    <Button
+                        title={spell.name}
+                        onClick={() => setActiveSpell(spell)}
+                    />
+                </div>
             ))}
         </Dialog>
     );
