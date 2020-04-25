@@ -1,7 +1,7 @@
 // Credit: https://kvsr.itch.io/pixelarteffectfx017
 import MendSprite from './Mend.png';
 
-const Fireball = {
+const Mend = {
     name: 'Mend',
     type: 'spell',
     target: 'self::heal',
@@ -13,4 +13,4 @@ const Fireball = {
     value: 5,
 };
 
-export default Fireball;
+export default Mend;
