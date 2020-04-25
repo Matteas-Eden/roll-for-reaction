@@ -14,17 +14,24 @@ const Div = styled.div`
 `;
 
 export const CastSpell = ({ spell, startPosition, endPosition, direction }) => {
+    let offset_x = 0;
+    let offset_y = 0;
     let rotation;
     switch (direction) {
         case 'NORTH':
+            offset_x = -10;
+            offset_y = 10;
             rotation = '270';
             break;
 
         case 'SOUTH':
+            offset_x = -15;
             rotation = '90';
             break;
 
         case 'EAST':
+            offset_y = 5;
+            offset_x = -10;
             rotation = '0';
             break;
 
@@ -32,6 +39,9 @@ export const CastSpell = ({ spell, startPosition, endPosition, direction }) => {
             rotation = '180';
             break;
     }
+
+    startPosition = [startPosition[0] + offset_x, startPosition[1] + offset_y];
+    endPosition = [endPosition[0] + offset_x, endPosition[1] + offset_y];
 
     const animation = keyframes`
     0% {
