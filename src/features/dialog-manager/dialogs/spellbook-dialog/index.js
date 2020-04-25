@@ -17,7 +17,10 @@ const SpellbookDialog = ({ player, setActiveSpell, toggleSpellbookDialog }) => {
                 <div
                     key={spell.name}
                     className={`spellbook-spell ${
-                        player.spell.name === spell.name ? 'selected-spell' : ''
+                        player.spell !== null &&
+                        player.spell.name === spell.name
+                            ? 'selected-spell'
+                            : ''
                     }`}
                 >
                     <Button
