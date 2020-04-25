@@ -22,8 +22,10 @@ const MicroDialog = ({
 
     function handleKeyPress(event) {
         // case for 'enter'
-        if (event.keyCode === ENTER_KEY || event.keyCode === ESC_KEY) {
+        if (event.keyCode === ENTER_KEY) {
             onKeyPress();
+        } else {
+            onClose();
         }
     }
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { connect } from 'react-redux';
 
 import SelectButtonGroup from '../../../../components/select-button-group';
@@ -33,12 +33,15 @@ const CharacterCreation = ({
         }
     }
 
+    const continueRef = useRef(null);
+
     return (
         <Dialog
             keys={[ENTER_KEY, ESC_KEY]}
             onKeyPress={key => {
                 if (key === ENTER_KEY) {
-                    handleContinue();
+                    // For whatever reason, we have to use a ref othwerwise the component isn't updated correctly
+                    continueRef.current.click();
                 } else {
                     mainGameDialog();
                 }
@@ -61,7 +64,9 @@ const CharacterCreation = ({
                     id="characterName"
                     className="white-border character-creation__input"
                     value={characterName}
-                    onChange={event => setCharacterName(event.target.value)}
+                    onChange={event =>
+                        setCharacterName(event.target.value.trim())
+                    }
                 />
 
                 <span style={{ paddingTop: 12 }}>{`Your Race`}</span>
@@ -89,6 +94,11 @@ const CharacterCreation = ({
 
             <div className="flex-column character-creation__button">
                 <Button onClick={handleContinue} title={'Continue'} />
+                <button
+                    ref={continueRef}
+                    style={{ display: 'none' }}
+                    onClick={handleContinue}
+                />
             </div>
         </Dialog>
     );
