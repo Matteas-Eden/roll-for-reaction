@@ -65,3 +65,6 @@ export const ENTER_KEY = 13;
 
 // If the player is unarmed, we need them to still be able to attack
 export const UNARMED_DAMAGE = '1d4';
+
+// For cases where a player's charisma is extremely low
+export const MIN_SELL_PRICE_RATIO = 0.05;
