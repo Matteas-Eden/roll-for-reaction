@@ -7,11 +7,25 @@ import './styles.scss';
 
 class ConfirmDialog extends Component {
     componentDidMount() {
-        window.addEventListener('keydown', this.handleKeyPress);
+        if (this.props.open) {
+            window.addEventListener('keydown', this.handleKeyPress);
+        }
     }
 
     componentWillUnmount() {
-        window.removeEventListener('keydown', this.handleKeyPress);
+        if (this.props.open) {
+            window.removeEventListener('keydown', this.handleKeyPress);
+        }
+    }
+
+    componentDidUpdate(prevProps, _prevState) {
+        if (prevProps.open !== this.props.open) {
+            if (this.props.open) {
+                window.addEventListener('keydown', this.handleKeyPress);
+            } else {
+                window.removeEventListener('keydown', this.handleKeyPress);
+            }
+        }
     }
 
     handleKeyPress = event => {

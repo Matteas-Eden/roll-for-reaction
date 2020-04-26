@@ -6,7 +6,6 @@ import './styles.scss';
 
 class Dialog extends Component {
     componentDidMount() {
-        console.log(goBack);
         const { goBack, onKeyPress } = this.props;
         if (
             (onKeyPress && typeof onKeyPress === 'function') ||

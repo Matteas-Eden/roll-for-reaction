@@ -260,6 +260,7 @@ const ViewItem = ({
                             title={'Heal'}
                         />
                         <button
+                            id="#heal"
                             ref={itemRef}
                             style={{ display: 'none' }}
                             onClick={() => setConfirmPotion(true)}
@@ -276,6 +277,7 @@ const ViewItem = ({
                             title={'Equip'}
                         />
                         <button
+                            id="equip"
                             ref={itemRef}
                             style={{ display: 'none' }}
                             onClick={() => {
@@ -292,7 +294,11 @@ const ViewItem = ({
         <MicroDialog
             onClose={onClose}
             onKeyPress={() => {
-                itemRef.current.click();
+                if (!confirmDrop) {
+                    // Removing this check means that if we're on the drop/equip item, then if we selected the
+                    // drop option, on the next screen if we hit 'enter', we'll equip the item.
+                    itemRef.current.click();
+                }
             }}
         >
             <div className="view-item__title">
@@ -325,11 +331,9 @@ const ViewItem = ({
                 acceptText={'Drop'}
                 acceptIcon={'trash'}
                 confirm={() => {
-                    if (confirmDrop) {
-                        dropItem(data);
-                        setConfirmDrop(false);
-                        onClose();
-                    }
+                    dropItem(data);
+                    setConfirmDrop(false);
+                    onClose();
                 }}
                 acceptKeys
                 onClose={() => setConfirmDrop(false)}
@@ -347,11 +351,9 @@ const ViewItem = ({
                 acceptText={'Sell'}
                 acceptIcon={'coins'}
                 confirm={() => {
-                    if (confirmSell) {
-                        sellItem(data);
-                        setConfirmSell(false);
-                        onClose();
-                    }
+                    sellItem(data);
+                    setConfirmSell(false);
+                    onClose();
                 }}
                 acceptKeys
                 onClose={() => setConfirmSell(false)}
@@ -369,11 +371,9 @@ const ViewItem = ({
                 acceptText={'Buy'}
                 acceptIcon={'coins'}
                 confirm={() => {
-                    if (confirmBuy) {
-                        buyItem(data);
-                        setConfirmBuy(false);
-                        onClose();
-                    }
+                    buyItem(data);
+                    setConfirmBuy(false);
+                    onClose();
                 }}
                 acceptKeys
                 onClose={() => setConfirmBuy(false)}
@@ -386,11 +386,9 @@ const ViewItem = ({
                 acceptText={'Heal'}
                 acceptIcon={'medkit'}
                 confirm={() => {
-                    if (confirmPotion) {
-                        consumePotion(data);
-                        setConfirmPotion(false);
-                        onClose();
-                    }
+                    consumePotion(data);
+                    setConfirmPotion(false);
+                    onClose();
                 }}
                 acceptKeys
                 onClose={() => setConfirmPotion(false)}
