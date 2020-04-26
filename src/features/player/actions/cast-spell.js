@@ -116,6 +116,11 @@ export default function castSpell() {
                 const attack_value = d20() + modifier;
 
                 dispatch({
+                    type: 'CAST_SPELL',
+                    payload: { position: spellPosition, spell: spell },
+                });
+
+                dispatch({
                     type: 'ABILITY_CHECK',
                     payload: {
                         notation: 'd20 + ' + modifier,
@@ -129,11 +134,6 @@ export default function castSpell() {
                     attack_value >= currMonster.defence
                         ? calculateDamage(spell.damage)
                         : 0;
-
-                dispatch({
-                    type: 'CAST_SPELL',
-                    payload: { position: spellPosition, spell: spell },
-                });
 
                 // deal damage to monster
                 dispatch({
