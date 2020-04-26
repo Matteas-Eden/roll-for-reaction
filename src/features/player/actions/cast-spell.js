@@ -2,6 +2,7 @@ import { checkForMonster, getNewPosition } from './move-player';
 import { calculateDamage, d20 } from '../../../utils/dice';
 import calculateModifier from '../../../utils/calculate-modifier';
 import { SPRITE_SIZE } from '../../../config/constants';
+import errorMessage from '../../dialog-manager/actions/error-message';
 
 export default function castSpell() {
     return (dispatch, getState) => {
@@ -10,12 +11,10 @@ export default function castSpell() {
 
         if (spell === null) {
             // TODO: perhaps notify the player that they need to 'equip' a spell?
+            dispatch(errorMessage('No active spell'));
             return;
         } else if (spell.manaCost > stats.mana) {
-            dispatch({
-                type: 'NOTIFY_PLAYER',
-                payload: 'Error: Not enough mana',
-            });
+            dispatch(errorMessage('Not enough mana'));
             return;
         }
 
