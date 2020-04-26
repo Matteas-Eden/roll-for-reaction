@@ -41,6 +41,7 @@ export default function attackMonster() {
                         roll: attack_value,
                         ability: 'strength',
                         check: currMonster.defence,
+                        type: currMonster.type,
                     },
                 });
 

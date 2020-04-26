@@ -21,15 +21,18 @@ class JournalDialog extends Component {
                 keys={[J_KEY]}
                 onKeyPress={() => this.props.toggleJournal()}
             >
-                <div className="flex-row journal-dialog__container">
-                    <textarea
-                        id="journal"
-                        name="Journal"
-                        className="journal-log"
-                        readOnly={true}
-                        disabled={true}
-                        value={this.props.entries.join('\n')}
-                    />
+                <div
+                    className="flex-column journal-dialog__container"
+                    id="journal"
+                >
+                    {this.props.entries.map(entry => (
+                        <span
+                            key={entry.key}
+                            className="journal-entry flex-row"
+                        >
+                            {entry.entry}
+                        </span>
+                    ))}
                 </div>
             </Dialog>
         );

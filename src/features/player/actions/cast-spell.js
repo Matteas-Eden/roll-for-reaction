@@ -123,6 +123,7 @@ export default function castSpell() {
                         roll: attack_value,
                         ability: 'intelligence',
                         check: currMonster.defence,
+                        type: currMonster.type,
                     },
                 });
 
