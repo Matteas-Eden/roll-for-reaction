@@ -1,38 +1,68 @@
-import React, { useEffect } from 'react';
+import React, { Component } from 'react';
 
-import { ENTER_KEY } from '../../config/constants';
+import { ENTER_KEY, ESC_KEY } from '../../config/constants';
 
 import './styles.scss';
 
-const Dialog = ({ className, style, children, goBack, onKeyPress, keys }) => {
-    useEffect(() => {
-        if (onKeyPress) window.addEventListener('keydown', handleKeyPress);
-        return () => {
-            if (onKeyPress)
-                window.removeEventListener('keydown', handleKeyPress);
-        };
-    }, []);
-
-    function handleKeyPress(event) {
-        // check if a key is pressed and bound to an action
-        if (keys ? keys.includes(event.keyCode) : event.keyCode === ENTER_KEY) {
-            onKeyPress(event.keyCode);
+class Dialog extends Component {
+    componentDidMount() {
+        console.log(goBack);
+        const { goBack, onKeyPress } = this.props;
+        if (
+            (onKeyPress && typeof onKeyPress === 'function') ||
+            (goBack && typeof onKeyPress === 'function')
+        ) {
+            window.addEventListener('keydown', this.handleKeyPress);
         }
     }
 
-    return (
-        <div
-            className={className || 'dialog__container white-border'}
-            style={style}
-        >
-            {goBack && (
-                <button onClick={goBack} className="dialog__back-button">
-                    <i className={`fa fa-arrow-left`} />
-                </button>
-            )}
-            {children}
-        </div>
-    );
-};
+    componentWillUnmount() {
+        const { goBack, onKeyPress } = this.props;
+        if (
+            (onKeyPress && typeof onKeyPress === 'function') ||
+            (goBack && typeof onKeyPress === 'function')
+        ) {
+            window.removeEventListener('keydown', this.handleKeyPress);
+        }
+    }
+
+    handleKeyPress = event => {
+        const { keys, goBack, onKeyPress } = this.props;
+
+        if (onKeyPress && typeof onKeyPress === 'function') {
+            if (
+                keys
+                    ? keys.includes(event.keyCode)
+                    : event.keyCode === ENTER_KEY
+            ) {
+                this.props.onKeyPress(event.keyCode);
+            }
+        }
+
+        if (goBack && typeof onKeyPress === 'function') {
+            if (event.keyCode === ESC_KEY) {
+                goBack();
+            }
+        }
+    };
+
+    render() {
+        const { className, style, goBack, children } = this.props;
+
+        return (
+            <div
+                className={className || 'dialog__container white-border'}
+                style={style}
+            >
+                {goBack && (
+                    <button onClick={goBack} className="dialog__back-button">
+                        <i className={`fa fa-arrow-left`} />
+                    </button>
+                )}
+                {children}
+            </div>
+        );
+    }
+}
 
 export default Dialog;

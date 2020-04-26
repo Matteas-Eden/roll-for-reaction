@@ -216,7 +216,9 @@ const ViewItem = ({
                 <button
                     ref={itemRef}
                     style={{ display: 'none' }}
-                    onClick={() => setConfirmSell(true)}
+                    onClick={() => {
+                        setConfirmSell(true);
+                    }}
                 />
             </>
         );
@@ -323,9 +325,11 @@ const ViewItem = ({
                 acceptText={'Drop'}
                 acceptIcon={'trash'}
                 confirm={() => {
-                    dropItem(data);
-                    setConfirmDrop(false);
-                    onClose();
+                    if (confirmDrop) {
+                        dropItem(data);
+                        setConfirmDrop(false);
+                        onClose();
+                    }
                 }}
                 acceptKeys
                 onClose={() => setConfirmDrop(false)}
@@ -343,9 +347,11 @@ const ViewItem = ({
                 acceptText={'Sell'}
                 acceptIcon={'coins'}
                 confirm={() => {
-                    sellItem(data);
-                    setConfirmSell(false);
-                    onClose();
+                    if (confirmSell) {
+                        sellItem(data);
+                        setConfirmSell(false);
+                        onClose();
+                    }
                 }}
                 acceptKeys
                 onClose={() => setConfirmSell(false)}
@@ -363,9 +369,11 @@ const ViewItem = ({
                 acceptText={'Buy'}
                 acceptIcon={'coins'}
                 confirm={() => {
-                    buyItem(data);
-                    setConfirmBuy(false);
-                    onClose();
+                    if (confirmBuy) {
+                        buyItem(data);
+                        setConfirmBuy(false);
+                        onClose();
+                    }
                 }}
                 acceptKeys
                 onClose={() => setConfirmBuy(false)}
@@ -378,9 +386,11 @@ const ViewItem = ({
                 acceptText={'Heal'}
                 acceptIcon={'medkit'}
                 confirm={() => {
-                    consumePotion(data);
-                    setConfirmPotion(false);
-                    onClose();
+                    if (confirmPotion) {
+                        consumePotion(data);
+                        setConfirmPotion(false);
+                        onClose();
+                    }
                 }}
                 acceptKeys
                 onClose={() => setConfirmPotion(false)}
