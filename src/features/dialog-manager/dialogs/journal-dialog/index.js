@@ -8,7 +8,7 @@ import { J_KEY } from '../../../../config/constants';
 import './styles.scss';
 
 class JournalDialog extends Component {
-    componentDidMount(prevProps, prevState) {
+    componentDidMount(_prevProps, _prevState) {
         const journal = document.getElementById('journal');
         if (journal !== null) {
             journal.scrollTop = journal.scrollHeight;
@@ -26,12 +26,9 @@ class JournalDialog extends Component {
                     id="journal"
                 >
                     {this.props.entries.map(entry => (
-                        <span
-                            key={entry.key}
-                            className="journal-entry flex-row"
-                        >
+                        <div key={entry.key} className="journal-entry flex-row">
                             {entry.entry}
-                        </span>
+                        </div>
                     ))}
                 </div>
             </Dialog>

@@ -42,6 +42,7 @@ export default function attackMonster() {
                         ability: 'strength',
                         check: currMonster.defence,
                         type: currMonster.type,
+                        against: 'defense',
                     },
                 });
 

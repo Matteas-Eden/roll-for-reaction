@@ -114,21 +114,22 @@ export default function castSpell() {
                 const modifier = calculateModifier(
                     stats.abilities.intelligence
                 );
-                const attack_value = d20() + modifier;
+                const attackValue = d20() + modifier;
 
                 dispatch({
                     type: 'ABILITY_CHECK',
                     payload: {
                         notation: 'd20 + ' + modifier,
-                        roll: attack_value,
+                        roll: attackValue,
                         ability: 'intelligence',
                         check: currMonster.defence,
                         type: currMonster.type,
+                        against: 'defense',
                     },
                 });
 
                 const damage =
-                    attack_value >= currMonster.defence
+                    attackValue >= currMonster.defence
                         ? calculateDamage(spell.damage)
                         : 0;
 
