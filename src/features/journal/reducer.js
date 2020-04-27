@@ -2,6 +2,8 @@ import React from 'react';
 import cloneDeep from 'lodash.clonedeep';
 
 import uuidv4 from '../../utils/uuid-v4';
+import isAbilityAllocationLevel from '../../utils/is-ability-allocation-level';
+import { LEVEL_UP_ABILITY_POINTS } from '../../config/constants';
 
 const initialState = {
     entries: [],
@@ -142,6 +144,37 @@ const journalReducer = (state = initialState, { type, payload }) => {
                     </p>
                 ),
             });
+            return newState;
+        }
+
+        case 'LEVEL_UP': {
+            const { level, hp, mana } = payload;
+
+            newState = cloneDeep(state);
+            newState.entries.push({
+                key: uuidv4(),
+                entry: (
+                    <p key={uuidv4()}>
+                        You reached level {colourise(level, 'level')}, and
+                        gained {colourise(hp, 'restore')} hp and{' '}
+                        {colourise(mana, 'restore')} mana!
+                    </p>
+                ),
+            });
+
+            if (isAbilityAllocationLevel(level)) {
+                newState.entries.push({
+                    key: uuidv4(),
+                    entry: (
+                        <p key={uuidv4()}>
+                            You gained{' '}
+                            {colourise(LEVEL_UP_ABILITY_POINTS, 'level')}{' '}
+                            ability points!
+                        </p>
+                    ),
+                });
+            }
+
             return newState;
         }
 

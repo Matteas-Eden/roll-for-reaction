@@ -29,7 +29,7 @@ export default function attackPlayer(attackValue, dice, type) {
 
         dispatch({
             type: 'DAMAGE_TO_PLAYER',
-            payload: { damage: calculatedMonsterDamage, type: type },
+            payload: { damage: calculatedMonsterDamage, entity: type },
         });
 
         // check if player died
