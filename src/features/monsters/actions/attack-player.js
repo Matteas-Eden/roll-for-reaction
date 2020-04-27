@@ -14,7 +14,7 @@ export default function attackPlayer(attackValue, dice, type) {
             payload: {
                 attackValue: attackValue,
                 check: Math.max(stats.defence, 0),
-                against: 'defense',
+                against: 'defence',
                 type: type,
             },
         });

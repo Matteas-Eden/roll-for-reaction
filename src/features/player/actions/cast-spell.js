@@ -124,7 +124,7 @@ export default function castSpell() {
                         ability: 'intelligence',
                         check: currMonster.defence,
                         type: currMonster.type,
-                        against: 'defense',
+                        against: 'defence',
                     },
                 });
 
