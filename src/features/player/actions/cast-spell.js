@@ -11,7 +11,7 @@ export default function castSpell() {
 
         if (spell === null) {
             // TODO: perhaps notify the player that they need to 'equip' a spell?
-            dispatch(errorMessage('No active spell'));
+            dispatch(errorMessage('Select a spell first ("b")'));
             return;
         } else if (spell.manaCost > stats.mana) {
             dispatch(errorMessage('Not enough mana'));

@@ -13,6 +13,7 @@ import './styles.scss';
 const SpellbookDialog = ({ player, setActiveSpell, toggleSpellbookDialog }) => {
     return (
         <Dialog keys={[B_KEY]} onKeyPress={toggleSpellbookDialog}>
+            <span className="spellbook-dialog__title">{'Spellbook'}</span>
             {spells.map(spell => (
                 <div
                     key={spell.name}
