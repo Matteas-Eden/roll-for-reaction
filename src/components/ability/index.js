@@ -5,15 +5,7 @@ import { MAX_ABILITY_SCORE } from '../../config/constants';
 
 import './styles.scss';
 
-const Ability = ({
-    name,
-    value,
-    minValue,
-    increment,
-    decrement,
-    points,
-    userOpen,
-}) => {
+const Ability = ({ name, value, minValue, increment, decrement, points }) => {
     return (
         <>
             <div className="ability-score__container">

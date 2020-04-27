@@ -75,7 +75,6 @@ const AbilityDialog = ({
                         increment={incrementStrength}
                         decrement={decrementStrength}
                         points={points}
-                        userOpen={dialog.playerOpenedAbilityDialog}
                     />
                     <Ability
                         name="Constitution"
@@ -84,7 +83,6 @@ const AbilityDialog = ({
                         increment={incrementConstitution}
                         decrement={decrementConstitution}
                         points={points}
-                        userOpen={dialog.playerOpenedAbilityDialog}
                     />
                     <Ability
                         name="Dexterity"
@@ -93,7 +91,6 @@ const AbilityDialog = ({
                         increment={incrementDexterity}
                         decrement={decrementDexterity}
                         points={points}
-                        userOpen={dialog.playerOpenedAbilityDialog}
                     />
                     <Ability
                         name="Charisma"
@@ -102,7 +99,6 @@ const AbilityDialog = ({
                         increment={incrementCharisma}
                         decrement={decrementCharisma}
                         points={points}
-                        userOpen={dialog.playerOpenedAbilityDialog}
                     />
                     <Ability
                         name="Intelligence"
@@ -111,7 +107,6 @@ const AbilityDialog = ({
                         increment={incrementIntelligence}
                         decrement={decrementIntelligence}
                         points={points}
-                        userOpen={dialog.playerOpenedAbilityDialog}
                     />
                     <Ability
                         name="Wisdom"
@@ -120,7 +115,6 @@ const AbilityDialog = ({
                         increment={incrementWisdom}
                         decrement={decrementWisdom}
                         points={points}
-                        userOpen={dialog.playerOpenedAbilityDialog}
                     />
                     <span className="ability-score-dialog__text">
                         Ability Points remaining:
