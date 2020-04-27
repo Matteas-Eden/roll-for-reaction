@@ -12,7 +12,7 @@ import './styles.scss';
 
 const LevelUp = ({ stats, closeLevelUpDialog, abilityScoreDialog }) => {
     const { level, levelUp } = stats;
-    const { dmg, hp } = levelUp;
+    const { hp, mana } = levelUp;
 
     const nextDialog = isAbilityAllocationLevel(level)
         ? () => {
@@ -33,11 +33,16 @@ const LevelUp = ({ stats, closeLevelUpDialog, abilityScoreDialog }) => {
                         Hp
                     </div>
                 )}
+            </div>
 
-                <div className="level-up__value--spacing">
-                    Gained<span className="level-up__dmg">{` +${dmg} `}</span>
-                    Attack
-                </div>
+            <div className="flex-column level-up__contents">
+                {mana !== 0 && (
+                    <div className="level-up__value--spacing">
+                        Gained
+                        <span className="level-up__mana">{` +${mana} `}</span>
+                        Mana
+                    </div>
+                )}
             </div>
 
             <div className="flex-column level-up__buttons">
