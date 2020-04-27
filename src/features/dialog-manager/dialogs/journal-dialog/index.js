@@ -8,10 +8,6 @@ import { J_KEY } from '../../../../config/constants';
 
 import './styles.scss';
 
-const Entry = ({ entry }) => {
-    return;
-};
-
 class JournalDialog extends Component {
     componentDidMount(_prevProps, _prevState) {
         const journal = document.getElementById('journal');
