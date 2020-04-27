@@ -5,6 +5,7 @@ import uuidv4 from '../../utils/uuid-v4';
 
 const initialState = {
     entries: [],
+    scroll: true,
 };
 
 const aOrAn = nextWord =>
@@ -137,6 +138,11 @@ const journalReducer = (state = initialState, { type, payload }) => {
             });
             return newState;
         }
+
+        case 'SET_JOURNAL_SCROLLING':
+            newState = cloneDeep(state);
+            newState.scroll = payload;
+            return newState;
 
         case 'LOAD_DATA':
             return { ...initialState, ...payload.journal };

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import Dialog from '../../../../components/dialog';
 import toggleJournal from '../../actions/toggle-journal';
+import setJournalScrolling from '../../actions/set-journal-scrolling';
 import { J_KEY } from '../../../../config/constants';
 
 import './styles.scss';
@@ -11,11 +12,15 @@ class JournalDialog extends Component {
     componentDidMount(_prevProps, _prevState) {
         const journal = document.getElementById('journal');
         if (journal !== null) {
+            if (this.props.journal.scroll && journal.scrollHeight > 390) {
+                this.props.setJournalScrolling(false);
+            }
             journal.scrollTop = journal.scrollHeight;
         }
     }
 
     render() {
+        console.log(this.props);
         return (
             <Dialog
                 keys={[J_KEY]}
@@ -24,8 +29,13 @@ class JournalDialog extends Component {
                 <div
                     className="flex-column journal-dialog__container"
                     id="journal"
+                    style={{
+                        scrollBehavior: this.props.journal.scroll
+                            ? 'smooth'
+                            : 'auto',
+                    }}
                 >
-                    {this.props.entries.map(entry => (
+                    {this.props.journal.entries.map(entry => (
                         <div key={entry.key} className="journal-entry flex-row">
                             {entry.entry}
                         </div>
@@ -42,6 +52,7 @@ const mapStateToProps = ({ journal }) => ({
 
 const actions = {
     toggleJournal,
+    setJournalScrolling,
 };
 
 export default connect(mapStateToProps, actions)(JournalDialog);
