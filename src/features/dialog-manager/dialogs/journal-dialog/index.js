@@ -8,6 +8,10 @@ import { J_KEY } from '../../../../config/constants';
 
 import './styles.scss';
 
+const Entry = ({ entry }) => {
+    return;
+};
+
 class JournalDialog extends Component {
     componentDidMount(_prevProps, _prevState) {
         const journal = document.getElementById('journal');
@@ -34,11 +38,16 @@ class JournalDialog extends Component {
                             : 'auto',
                     }}
                 >
-                    {this.props.journal.entries.map(entry => (
-                        <div key={entry.key} className="journal-entry flex-row">
-                            {entry.entry}
-                        </div>
-                    ))}
+                    {this.props.journal.entries.map(entry => {
+                        return (
+                            <div
+                                key={entry.key}
+                                className="journal-entry flex-row"
+                            >
+                                {entry.entry}
+                            </div>
+                        );
+                    })}
                 </div>
             </Dialog>
         );

@@ -41,7 +41,7 @@ export default function attackMonster() {
                         roll: attack_value,
                         ability: 'strength',
                         check: currMonster.defence,
-                        type: currMonster.type,
+                        entity: currMonster.type,
                         against: 'defence',
                     },
                 });
@@ -68,7 +68,7 @@ export default function attackMonster() {
                         damage,
                         id: currMonster.id,
                         map: currentMap,
-                        type: currMonster.type,
+                        entity: currMonster.type,
                     },
                 });
 

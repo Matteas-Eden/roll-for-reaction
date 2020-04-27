@@ -11,22 +11,28 @@ const initialState = {
 const aOrAn = nextWord =>
     'aeiou'.includes(nextWord.toLowerCase().charAt(0)) ? 'an' : 'a';
 
+const colourise = (value, type) => (
+    <span key={uuidv4()} className={type}>
+        {value}
+    </span>
+);
+
 const journalReducer = (state = initialState, { type, payload }) => {
     let newState;
 
     switch (type) {
         case 'MONSTER_ABILITY_CHECK': {
-            const { type, attackValue, check, against } = payload;
+            const { entity, attackValue, check, against } = payload;
+
             newState = cloneDeep(state);
             newState.entries.push({
                 key: uuidv4(),
                 entry: (
-                    <p>
-                        The <span className="type">{type}</span> attacked you
-                        with an attack value of{' '}
-                        <span className="score">{attackValue}</span> against
-                        your <span className="ability">{against}</span> value of{' '}
-                        <span className="score">{check}</span>
+                    <p key={uuidv4()}>
+                        The {colourise(entity, 'type')} attacked you with an
+                        attack value of {colourise(attackValue, 'score')}{' '}
+                        against your {colourise(against, 'ability')} value of{' '}
+                        {colourise(check, 'score')}
                     </p>
                 ),
             });
@@ -34,19 +40,20 @@ const journalReducer = (state = initialState, { type, payload }) => {
         }
 
         case 'ABILITY_CHECK': {
-            const { ability, roll, check, type, against } = payload;
+            const { ability, entity, roll, check, against } = payload;
+
             newState = cloneDeep(state);
             newState.entries.push({
                 key: uuidv4(),
                 entry: (
-                    <p>
+                    <p key={uuidv4()}>
                         You performed {aOrAn(ability)}{' '}
-                        <span className="ability">{ability}</span> check and
-                        rolled a <span className="score">{roll}</span>, which{' '}
+                        {colourise(ability, 'ability')} check and rolled a{' '}
+                        {colourise(roll, 'score')}, which{' '}
                         {roll >= check ? 'succeeded' : 'failed'} against the{' '}
-                        <span className="type">{type}'s</span>{' '}
-                        <span className="ability">{against}</span> value of{' '}
-                        <span className="score">{check}</span>
+                        {colourise(against, 'ability')} value of{' '}
+                        {colourise(check, 'score')} for the{' '}
+                        {colourise(entity, 'type')}
                     </p>
                 ),
             });
@@ -54,35 +61,35 @@ const journalReducer = (state = initialState, { type, payload }) => {
             return newState;
         }
 
-        case 'HEAL_HP':
+        case 'HEAL_HP': {
             newState = cloneDeep(state);
             newState.entries.push({
                 key: uuidv4(),
                 entry: (
-                    <p>
-                        You restored <span className="restore">{payload}</span>{' '}
-                        health!
+                    <p key={uuidv4()}>
+                        You restored {colourise(payload, 'restore')} health!
                     </p>
                 ),
             });
             return newState;
+        }
 
         case 'DAMAGE_TO_PLAYER': {
-            const { type, damage } = payload;
+            const { entity, damage } = payload;
 
             newState = cloneDeep(state);
             newState.entries.push({
                 key: uuidv4(),
                 entry:
                     payload.damage === 0 ? (
-                        <p>
-                            The <span className="type">{type}</span> missed you!
+                        <p key={uuidv4()}>
+                            The {colourise(entity, 'type')} missed you!
                         </p>
                     ) : (
-                        <p>
-                            The <span className="type">{type}</span> dealt{' '}
-                            <span className="damage-to-player">{damage}</span>{' '}
-                            damage to you!
+                        <p key={uuidv4()}>
+                            The {colourise(entity, 'type')} dealt{' '}
+                            {colourise(damage, 'damage-to-player')} damage to
+                            you!
                         </p>
                     ),
             });
@@ -90,20 +97,20 @@ const journalReducer = (state = initialState, { type, payload }) => {
         }
 
         case 'DAMAGE_TO_MONSTER': {
-            const { type, damage } = payload;
+            const { entity, damage } = payload;
+
             newState = cloneDeep(state);
             newState.entries.push({
                 key: uuidv4(),
                 entry:
                     damage === 0 ? (
-                        <p>
-                            You missed the <span className="type">{type}</span>!
+                        <p key={uuidv4()}>
+                            You missed the {colourise(entity, 'type')}!
                         </p>
                     ) : (
-                        <p>
-                            You dealt{' '}
-                            <span className="damage-to-monster">{damage}</span>{' '}
-                            damage to the <span className="type">{type}</span>!
+                        <p key={uuidv4()}>
+                            You dealt {colourise(damage, 'damage-to-monster')}{' '}
+                            damage to the {colourise(entity, 'type')}!
                         </p>
                     ),
             });
@@ -112,13 +119,12 @@ const journalReducer = (state = initialState, { type, payload }) => {
 
         case 'CAST_SPELL': {
             const { name } = payload.spell;
+
             newState = cloneDeep(state);
             newState.entries.push({
                 key: uuidv4(),
                 entry: (
-                    <p>
-                        You cast <span className="spell">{name}</span>
-                    </p>
+                    <p key={uuidv4()}>You cast {colourise(name, 'spell')}</p>
                 ),
             });
             return newState;
@@ -126,13 +132,13 @@ const journalReducer = (state = initialState, { type, payload }) => {
 
         case 'GET_ITEM': {
             const { name } = payload;
+
             newState = cloneDeep(state);
             newState.entries.push({
                 key: uuidv4(),
                 entry: (
-                    <p>
-                        You gained an item:{' '}
-                        <span className="get-item">{name}</span>
+                    <p key={uuidv4()}>
+                        You gained an item: {colourise(name, 'get-item')}
                     </p>
                 ),
             });

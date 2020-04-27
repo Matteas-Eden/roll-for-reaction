@@ -123,7 +123,7 @@ export default function castSpell() {
                         roll: attackValue,
                         ability: 'intelligence',
                         check: currMonster.defence,
-                        type: currMonster.type,
+                        entity: currMonster.type,
                         against: 'defence',
                     },
                 });
@@ -145,7 +145,7 @@ export default function castSpell() {
                         damage,
                         id: currMonster.id,
                         map: currentMap,
-                        type: currMonster.type,
+                        entity: currMonster.type,
                     },
                 });
 
