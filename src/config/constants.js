@@ -45,8 +45,12 @@ export const RACE_ABILITY_BONUS = 2;
 export const STARTING_ABILITY_POINTS = 12;
 // The number of ability points the player gets to allocate on levelling up
 export const LEVEL_UP_ABILITY_POINTS = 2;
-// Starting player health
+// Base player health/mana values
 export const BASE_HEALTH = 10;
+export const BASE_MANA = 5;
+// Base health/mana level up values
+export const MIN_HEALTH_BONUS = 1;
+export const MIN_MANA_BONUS = 5;
 // Set macros for key codes
 export const UP_KEY = 38;
 export const DOWN_KEY = 40;
@@ -60,6 +64,8 @@ export const E_KEY = 69;
 export const U_KEY = 85;
 export const I_KEY = 73;
 export const J_KEY = 74;
+export const C_KEY = 67;
+export const B_KEY = 66;
 export const SPACE_KEY = 32;
 export const ENTER_KEY = 13;
 export const ESC_KEY = 27;
