@@ -1,3 +1,4 @@
+// Credit: https://tfonez.itch.io/pixel-assets
 import GreatMpPotionImg from './great-mp-potion.png';
 
 const GreatMpPotion = {

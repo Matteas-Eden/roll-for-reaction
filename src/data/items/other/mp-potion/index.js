@@ -1,3 +1,4 @@
+// Credit: https://tfonez.itch.io/pixel-assets
 import MpPotionImg from './mp-potion.png';
 
 const MpPotion = {
