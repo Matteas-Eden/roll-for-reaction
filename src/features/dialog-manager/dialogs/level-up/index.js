@@ -12,7 +12,7 @@ import './styles.scss';
 
 const LevelUp = ({ stats, closeLevelUpDialog, abilityScoreDialog }) => {
     const { level, levelUp } = stats;
-    const { dmg, hp } = levelUp;
+    const { hp } = levelUp;
 
     const nextDialog = isAbilityAllocationLevel(level)
         ? () => {
