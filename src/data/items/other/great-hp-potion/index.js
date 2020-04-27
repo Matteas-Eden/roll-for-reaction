@@ -3,6 +3,7 @@ import GreatHpPotionImg from './great-hp-potion.png';
 const GreatHpPotion = {
     name: 'Great HP Potion',
     type: 'potion',
+    kind: 'health',
     hp: 40,
     hpReset: 40,
     image: GreatHpPotionImg,

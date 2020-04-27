@@ -2,7 +2,13 @@ import exploreTiles from './explore-tiles';
 import exploreChest from './explore-chest';
 import walkStairs from './walk-stairs';
 import getNextTile from '../../../utils/get-next-tile';
-import { SPRITE_SIZE, MAP_WIDTH, MAP_HEIGHT } from '../../../config/constants';
+import {
+    SPRITE_SIZE,
+    MAP_WIDTH,
+    MAP_HEIGHT,
+    PASSIVE_MANA_REGEN_TURNS,
+    PASSIVE_MANA_REGEN_AMOUNT,
+} from '../../../config/constants';
 
 export default function movePlayer(direction) {
     return (dispatch, getState) => {
@@ -32,6 +38,20 @@ export default function movePlayer(direction) {
                     type: 'TAKE_TURN',
                     payload: null,
                 });
+
+                const { turnsOutOfCombat } = getState().player;
+                if (
+                    turnsOutOfCombat > 0 &&
+                    turnsOutOfCombat % PASSIVE_MANA_REGEN_TURNS === 0
+                ) {
+                    dispatch({
+                        type: 'REGENERATE_MANA',
+                        payload: {
+                            kind: 'passive',
+                            amount: PASSIVE_MANA_REGEN_AMOUNT,
+                        },
+                    });
+                }
             }
         } // dont move the player
         else {

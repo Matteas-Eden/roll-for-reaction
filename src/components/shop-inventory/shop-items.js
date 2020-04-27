@@ -6,6 +6,7 @@ export default function shopItems(level) {
         return [
             items.other.BackpackUpgrade,
             items.other.HpPotion,
+            items.other.MpPotion,
             items.rings.OldRing,
             items.armor.LeatherBoots,
             items.armor.LeatherGloves,
@@ -19,6 +20,8 @@ export default function shopItems(level) {
             items.other.BackpackUpgrade,
             items.other.GreatHpPotion,
             items.other.HpPotion,
+            items.other.GreatMpPotion,
+            items.other.MpPotion,
             items.rings.AmethystRing,
             items.rings.DiamondRing,
             items.armor.SteelBoots,

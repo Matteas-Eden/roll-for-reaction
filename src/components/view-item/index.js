@@ -59,15 +59,16 @@ const ViewItem = ({
             break;
 
         case 'potion':
-            data.hp = data.hpReset;
-            let potionRestore = calculateWisdomPotionBonus(
-                data.hp,
+            data.amount = data.kind === 'health' ? data.hpReset : data.mpReset;
+            const potionRestore = calculateWisdomPotionBonus(
+                data.amount,
                 calculateModifier(stats.abilities.wisdom)
             );
-            data.hp = potionRestore;
+            data.amount = potionRestore;
+
             itemStats.push(
                 <StatsItem
-                    stats={{ name: 'heal', value: potionRestore }}
+                    stats={{ name: data.kind, value: potionRestore }}
                     key={uuidv4()}
                 />
             );
