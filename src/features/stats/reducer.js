@@ -24,14 +24,13 @@ const initialState = {
     mana: 0,
     abilityModifierMana: 0,
     maxMana: 0,
-    damage: 3,
     defence: 0,
     level: 1,
     exp: 0,
     expToLevel: 20,
     gold: 0,
     equippedItems: {},
-    levelUp: { level: 0, hp: 0, dmg: 0 },
+    levelUp: { level: 0, hp: 0 },
 };
 
 const statsReducer = (state = initialState, { type, payload }) => {
@@ -96,7 +95,6 @@ const statsReducer = (state = initialState, { type, payload }) => {
             // check the type
             switch (payload.type) {
                 case 'weapon':
-                    newState.damage -= payload.damage;
                     delete newState.equippedItems.weapon;
                     break;
 
@@ -133,10 +131,6 @@ const statsReducer = (state = initialState, { type, payload }) => {
                                 newState.defence -= payload.effect[effectName];
                                 break;
 
-                            case 'damage':
-                                newState.damage -= payload.effect[effectName];
-                                break;
-
                             case 'hp':
                                 newState.hp -= payload.effect[effectName];
                                 if (newState.hp < 1) newState.hp = 1;
@@ -161,12 +155,6 @@ const statsReducer = (state = initialState, { type, payload }) => {
             // see what type of item it is
             switch (item.type) {
                 case 'weapon':
-                    // if there's already a weapon
-                    if (newState.equippedItems.weapon) {
-                        // subtract it's benefits
-                        newState.damage -= newState.equippedItems.weapon.damage;
-                    }
-                    newState.damage += item.damage;
                     newState.equippedItems.weapon = item;
                     break;
 
@@ -272,11 +260,6 @@ const statsReducer = (state = initialState, { type, payload }) => {
                                         equippedRing.effect[effectName];
                                     break;
 
-                                case 'damage':
-                                    newState.damage -=
-                                        equippedRing.effect[effectName];
-                                    break;
-
                                 case 'hp':
                                     newState.hp -=
                                         equippedRing.effect[effectName];
@@ -295,10 +278,6 @@ const statsReducer = (state = initialState, { type, payload }) => {
                         switch (effectName) {
                             case 'defence':
                                 newState.defence += item.effect[effectName];
-                                break;
-
-                            case 'damage':
-                                newState.damage += item.effect[effectName];
                                 break;
 
                             case 'hp':
