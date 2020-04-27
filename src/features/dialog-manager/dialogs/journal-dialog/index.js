@@ -20,7 +20,6 @@ class JournalDialog extends Component {
     }
 
     render() {
-        console.log(this.props);
         return (
             <Dialog
                 keys={[J_KEY]}
