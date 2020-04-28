@@ -229,7 +229,7 @@ const ViewItem = ({
                     <Button
                         onClick={() => setConfirmPotion(true)}
                         icon="medkit"
-                        title={'Heal'}
+                        title={data.kind === 'health' ? 'Heal' : 'Regenerate'}
                     />
                 ) : (
                     <Button
