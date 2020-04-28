@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 import { ENTER_KEY, ESC_KEY } from '../../config/constants';
 
