@@ -16,8 +16,6 @@ const ConfirmDialog = ({
     acceptIcon,
     acceptText,
 }) => {
-    if (!open) return null;
-
     const handleKeyPress = event => {
         // check if a key is pressed and bound to an action
         if (event.keyCode === ENTER_KEY) {
@@ -25,21 +23,21 @@ const ConfirmDialog = ({
         } else if (event.keyCode === ESC_KEY) {
             onClose();
         }
-        // This needs to be here for some reason...
-        window.removeEventListener('keydown', handleKeyPress);
     };
 
     useEffect(() => {
         if (open) {
             window.addEventListener('keydown', handleKeyPress);
-        } else {
-            window.removeEventListener('keydown', handleKeyPress);
         }
 
         return () => {
-            window.removeEventListener('keydown', handleKeyPress);
+            if (open) {
+                window.removeEventListener('keydown', handleKeyPress);
+            }
         };
-    }, []);
+    }, [open]);
+
+    if (!open) return null;
 
     return (
         <div
