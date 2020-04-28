@@ -216,9 +216,7 @@ const ViewItem = ({
                 <button
                     ref={itemRef}
                     style={{ display: 'none' }}
-                    onClick={() => {
-                        setConfirmSell(true);
-                    }}
+                    onClick={() => setConfirmSell(true)}
                 />
             </>
         );

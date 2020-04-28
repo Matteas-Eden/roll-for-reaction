@@ -1,80 +1,68 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 
 import Button from '../button';
 import { ENTER_KEY, ESC_KEY } from '../../config/constants';
 
 import './styles.scss';
 
-class ConfirmDialog extends Component {
-    componentDidMount() {
-        if (this.props.open) {
-            window.addEventListener('keydown', this.handleKeyPress);
-        }
-    }
+const ConfirmDialog = ({
+    open,
+    text,
+    className,
+    onClose,
+    cancelIcon,
+    cancelText,
+    confirm,
+    acceptIcon,
+    acceptText,
+}) => {
+    if (!open) return null;
 
-    componentWillUnmount() {
-        if (this.props.open) {
-            window.removeEventListener('keydown', this.handleKeyPress);
-        }
-    }
-
-    componentDidUpdate(prevProps, _prevState) {
-        if (prevProps.open !== this.props.open) {
-            if (this.props.open) {
-                window.addEventListener('keydown', this.handleKeyPress);
-            } else {
-                window.removeEventListener('keydown', this.handleKeyPress);
-            }
-        }
-    }
-
-    handleKeyPress = event => {
+    const handleKeyPress = event => {
         // check if a key is pressed and bound to an action
         if (event.keyCode === ENTER_KEY) {
-            this.props.confirm();
+            confirm();
         } else if (event.keyCode === ESC_KEY) {
-            this.props.onClose();
+            onClose();
         }
+        // This needs to be here for some reason...
+        window.removeEventListener('keydown', handleKeyPress);
     };
 
-    render() {
-        const {
-            open,
-            text,
-            className,
-            onClose,
-            cancelIcon,
-            cancelText,
-            confirm,
-            acceptIcon,
-            acceptText,
-        } = this.props;
+    useEffect(() => {
+        if (open) {
+            window.addEventListener('keydown', handleKeyPress);
+        } else {
+            window.removeEventListener('keydown', handleKeyPress);
+        }
 
-        if (!open) return null;
+        return () => {
+            window.removeEventListener('keydown', handleKeyPress);
+        };
+    }, []);
 
-        return (
-            <div
-                className={`confirm-dialog__container white-border ${className ||
-                    ''}`}
-            >
-                <span className="confirm-dialog__text">{text}</span>
+    return (
+        <div
+            className={`confirm-dialog__container white-border ${className ||
+                ''}`}
+        >
+            <span className="confirm-dialog__text">{text}</span>
 
-                <div className="flex-row confirm-dialog__buttons">
-                    <Button
-                        onClick={onClose}
-                        icon={cancelIcon || 'times'}
-                        title={cancelText || 'No'}
-                    />
+            <div className="flex-row confirm-dialog__buttons">
+                <Button
+                    onClick={onClose}
+                    icon={cancelIcon || 'times'}
+                    title={cancelText || 'No'}
+                />
 
-                    <Button
-                        onClick={confirm}
-                        icon={acceptIcon || 'check'}
-                        title={acceptText || 'Yes'}
-                    />
-                </div>
+                <Button
+                    onClick={confirm}
+                    icon={acceptIcon || 'check'}
+                    title={acceptText || 'Yes'}
+                />
             </div>
-        );
-    }
-}
+        </div>
+    );
+};
 
 export default ConfirmDialog;

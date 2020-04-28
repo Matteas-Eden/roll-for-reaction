@@ -1,51 +1,54 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 
 import { ENTER_KEY, ESC_KEY } from '../../config/constants';
 
 import './styles.scss';
 
-class MicroDialog extends Component {
-    componentDidMount() {
-        if (this.props.onKeyPress) {
-            window.addEventListener('keydown', this.handleKeyPress);
-        }
-    }
-
-    componentWillUnmount() {
-        if (this.props.onKeyPress) {
-            window.removeEventListener('keydown', this.handleKeyPress);
-        }
-    }
-
-    handleKeyPress = event => {
+const MicroDialog = ({
+    onKeyPress,
+    fullsize,
+    className,
+    noButton,
+    onClose,
+    children,
+}) => {
+    const handleKeyPress = event => {
         if (event.keyCode === ENTER_KEY) {
-            this.props.onKeyPress();
+            onKeyPress();
         } else if (event.keyCode === ESC_KEY) {
-            this.props.onClose();
+            onClose();
         }
     };
 
-    render() {
-        const { fullsize, className, noButton, onClose, children } = this.props;
+    useEffect(() => {
+        if (onKeyPress && typeof onKeyPress === 'function') {
+            window.addEventListener('keydown', handleKeyPress);
+        }
 
-        const noSpacing = { top: 0, bottom: 0, left: 0, right: 0 };
+        return () => {
+            if (onKeyPress && typeof onKeyPress === 'function') {
+                window.removeEventListener('keydown', handleKeyPress);
+            }
+        };
+    });
 
-        return (
-            <div
-                style={fullsize ? noSpacing : {}}
-                className={`micro-dialog__container white-border ${className ||
-                    ''}`}
-            >
-                {!noButton && (
-                    <button className="micro-dialog__close" onClick={onClose}>
-                        <i className={`fa fa-times`} />
-                    </button>
-                )}
+    const noSpacing = { top: 0, bottom: 0, left: 0, right: 0 };
 
-                {children}
-            </div>
-        );
-    }
-}
+    return (
+        <div
+            style={fullsize ? noSpacing : {}}
+            className={`micro-dialog__container white-border ${className ||
+                ''}`}
+        >
+            {!noButton && (
+                <button className="micro-dialog__close" onClick={onClose}>
+                    <i className={`fa fa-times`} />
+                </button>
+            )}
+
+            {children}
+        </div>
+    );
+};
 
 export default MicroDialog;

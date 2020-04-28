@@ -62,7 +62,7 @@ const AbilityDialog = ({
         min_charisma,
     } = dialog.abilities_minimum;
 
-    if (dialog.playerOpenedAbilityDialog) {
+    if (dialog.playerOpenedAbilityDialog || dialog.fromLevelUp) {
         return (
             <Dialog
                 onKeyPress={key => {
