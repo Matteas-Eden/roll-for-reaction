@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
 import Button from '../button';
@@ -40,8 +40,6 @@ const ViewItem = ({
     const [confirmDrop, setConfirmDrop] = useState(false);
     const [confirmSell, setConfirmSell] = useState(false);
     const [confirmBuy, setConfirmBuy] = useState(false);
-
-    const itemRef = useRef();
 
     if (!open) return null;
 
@@ -189,59 +187,51 @@ const ViewItem = ({
     }
 
     let ViewItemButtons = null;
+    let onKeyPress = null;
 
-    if (buy)
+    if (buy) {
+        onKeyPress = () => setConfirmBuy(true);
         ViewItemButtons = (
-            <>
-                <Button
-                    onClick={() => setConfirmBuy(true)}
-                    icon="coins"
-                    title={'Buy Item'}
-                />
-                <button
-                    ref={itemRef}
-                    style={{ display: 'none' }}
-                    onClick={() => setConfirmBuy(true)}
-                />
-            </>
+            <Button
+                onClick={() => setConfirmBuy(true)}
+                icon="coins"
+                title={'Buy Item'}
+            />
         );
-    else if (sell)
+    } else if (sell) {
+        onKeyPress = () => setConfirmSell(true);
         ViewItemButtons = (
-            <>
-                <Button
-                    onClick={() => setConfirmSell(true)}
-                    icon="coins"
-                    title={'Sell Item'}
-                />
-                <button
-                    ref={itemRef}
-                    style={{ display: 'none' }}
-                    onClick={() => setConfirmSell(true)}
-                />
-            </>
+            <Button
+                onClick={() => setConfirmSell(true)}
+                icon="coins"
+                title={'Sell Item'}
+            />
         );
-    else if (itemIsEquipped)
+    } else if (itemIsEquipped) {
+        onKeyPress = () => {
+            unequipItem(data);
+            onClose();
+        };
         ViewItemButtons = (
-            <>
-                <Button
-                    onClick={() => {
-                        unequipItem(data);
-                        onClose();
-                    }}
-                    icon="archive"
-                    title={'Un-equip'}
-                />
-                <button
-                    ref={itemRef}
-                    style={{ display: 'none' }}
-                    onClick={() => {
-                        unequipItem(data);
-                        onClose();
-                    }}
-                />
-            </>
+            <Button
+                onClick={() => {
+                    unequipItem(data);
+                    onClose();
+                }}
+                icon="archive"
+                title={'Un-equip'}
+            />
         );
-    else
+    } else {
+        onKeyPress = () => {
+            if (data.type === 'potion') {
+                setConfirmPotion(true);
+            } else {
+                equipItem(data);
+                onClose();
+            }
+        };
+
         ViewItemButtons = (
             <>
                 <Button
@@ -251,42 +241,24 @@ const ViewItem = ({
                 />
 
                 {data.type === 'potion' ? (
-                    <>
-                        <Button
-                            onClick={() => setConfirmPotion(true)}
-                            icon="medkit"
-                            title={'Heal'}
-                        />
-                        <button
-                            id="#heal"
-                            ref={itemRef}
-                            style={{ display: 'none' }}
-                            onClick={() => setConfirmPotion(true)}
-                        />
-                    </>
+                    <Button
+                        onClick={() => setConfirmPotion(true)}
+                        icon="medkit"
+                        title={'Heal'}
+                    />
                 ) : (
-                    <>
-                        <Button
-                            onClick={() => {
-                                equipItem(data);
-                                onClose();
-                            }}
-                            icon="hand-paper"
-                            title={'Equip'}
-                        />
-                        <button
-                            id="equip"
-                            ref={itemRef}
-                            style={{ display: 'none' }}
-                            onClick={() => {
-                                equipItem(data);
-                                onClose();
-                            }}
-                        />
-                    </>
+                    <Button
+                        onClick={() => {
+                            equipItem(data);
+                            onClose();
+                        }}
+                        icon="hand-paper"
+                        title={'Equip'}
+                    />
                 )}
             </>
         );
+    }
 
     return (
         <MicroDialog
@@ -295,7 +267,7 @@ const ViewItem = ({
                 if (!confirmDrop) {
                     // Removing this check means that if we're on the drop/equip item, then if we selected the
                     // drop option, on the next screen if we hit 'enter', we'll equip the item.
-                    itemRef.current.click();
+                    onKeyPress();
                 }
             }}
         >
