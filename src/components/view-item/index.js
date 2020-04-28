@@ -262,12 +262,12 @@ const ViewItem = ({
                 {player.spell && player.spell.name === data.name ? (
                     <Button
                         onClick={() => setActiveSpell(null)}
-                        title={'Deactivate Spell'}
+                        title={'Remove Active Spell'}
                     />
                 ) : (
                     <Button
                         onClick={() => setActiveSpell(data)}
-                        title={'Activate Spell'}
+                        title={'Set Active Spell'}
                     />
                 )}
             </>
