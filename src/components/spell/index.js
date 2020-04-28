@@ -11,13 +11,11 @@ const Div = styled.div`
     animation: ${props => props.animation} .5s steps(${props =>
     props.spell.size.total / props.spell.size.width}) ${props =>
     props.reverse ? 'reverse' : ''};
-    background-image: url('${props => props.spell.image}');
+    background-image: url('${props => props.spell.sprite}');
     background-position-x: 0px;
 `;
 
 export const CastSpell = ({ spell, startPosition, endPosition, direction }) => {
-    let offset_x = 0;
-    let offset_y = 0;
     let rotation = '0';
     let reverse = false;
 
@@ -43,9 +41,6 @@ export const CastSpell = ({ spell, startPosition, endPosition, direction }) => {
     } else {
         startPosition = endPosition;
     }
-
-    startPosition = [startPosition[0] + offset_x, startPosition[1] + offset_y];
-    endPosition = [endPosition[0] + offset_x, endPosition[1] + offset_y];
 
     const animation = keyframes`
     0% {

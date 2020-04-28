@@ -1,5 +1,7 @@
-// Credit: https://ppeldo.itch.io/2d-pixel-art-game-spellmagic-fx
+// Credit: https://untiedgames.itch.io/five-free-pixel-explosions
 import MendSprite from './Mend.png';
+// Crefit: https://adwitr.itch.io/pixel-health-bar-asset-pack-2
+import MendImage from './Mend-image.png';
 
 const Mend = {
     name: 'Mend',
@@ -9,7 +11,8 @@ const Mend = {
     damage: '1d6',
     manaCost: 3,
     size: { width: 40, height: 40, total: 2480 },
-    image: MendSprite,
+    image: MendImage,
+    sprite: MendSprite,
     value: 5,
 };
 

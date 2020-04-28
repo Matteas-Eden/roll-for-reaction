@@ -18,6 +18,7 @@ import calculateModifier from '../../utils/calculate-modifier';
 import calculateWisdomPotionBonus from '../../utils/calculate-wisdom-potion-bonus';
 import calculateBuyPrice from '../../utils/calculate-buy-price';
 import calculateSellPrice from '../../utils/calculate-sell-price';
+import setActiveSpell from '../../features/dialog-manager/actions/set-active-spell';
 import { calculateDamageRange } from '../../utils/dice';
 
 import './styles.scss';
@@ -28,6 +29,7 @@ const ViewItem = ({
     onClose,
     data,
     stats,
+    player,
     unequipItem,
     buyItem,
     equipItem,
@@ -35,6 +37,7 @@ const ViewItem = ({
     consumePotion,
     sellItem,
     open,
+    setActiveSpell,
 }) => {
     const [confirmPotion, setConfirmPotion] = useState(false);
     const [confirmDrop, setConfirmDrop] = useState(false);
@@ -183,12 +186,50 @@ const ViewItem = ({
             );
             break;
 
+        case 'spell':
+            if (data.target.includes('self')) {
+                const healRange = calculateDamageRange(data.damage);
+                itemStats.push(
+                    <StatsItem
+                        stats={{ name: 'heal', value: data.damage }}
+                        key={uuidv4()}
+                    />
+                );
+                itemStats.push(
+                    <StatsItem
+                        stats={{
+                            name: 'range',
+                            value: healRange[0] + ' - ' + healRange[1],
+                        }}
+                        key={uuidv4()}
+                    />
+                );
+            } else {
+                const damageRange = calculateDamageRange(data.damage);
+                itemStats.push(
+                    <StatsItem
+                        stats={{ name: 'damage', value: data.damage }}
+                        key={uuidv4()}
+                    />
+                );
+                itemStats.push(
+                    <StatsItem
+                        stats={{
+                            name: 'range',
+                            value: damageRange[0] + ' - ' + damageRange[1],
+                        }}
+                        key={uuidv4()}
+                    />
+                );
+            }
+            break;
+
         default:
     }
 
     let ViewItemButtons = null;
 
-    if (buy)
+    if (buy) {
         ViewItemButtons = (
             <Button
                 onClick={() => setConfirmBuy(true)}
@@ -196,7 +237,7 @@ const ViewItem = ({
                 title={'Buy Item'}
             />
         );
-    else if (sell)
+    } else if (sell) {
         ViewItemButtons = (
             <Button
                 onClick={() => setConfirmSell(true)}
@@ -204,7 +245,7 @@ const ViewItem = ({
                 title={'Sell Item'}
             />
         );
-    else if (itemIsEquipped)
+    } else if (itemIsEquipped) {
         ViewItemButtons = (
             <Button
                 onClick={() => {
@@ -215,7 +256,23 @@ const ViewItem = ({
                 title={'Un-equip'}
             />
         );
-    else
+    } else if (data.type === 'spell') {
+        ViewItemButtons = (
+            <>
+                {player.spell && player.spell.name === data.name ? (
+                    <Button
+                        onClick={() => setActiveSpell(null)}
+                        title={'Deactivate Spell'}
+                    />
+                ) : (
+                    <Button
+                        onClick={() => setActiveSpell(data)}
+                        title={'Activate Spell'}
+                    />
+                )}
+            </>
+        );
+    } else {
         ViewItemButtons = (
             <>
                 <Button
@@ -242,6 +299,7 @@ const ViewItem = ({
                 )}
             </>
         );
+    }
 
     return (
         <MicroDialog onClose={onClose}>
@@ -337,7 +395,7 @@ const ViewItem = ({
     );
 };
 
-const mapStateToProps = ({ stats }) => ({ stats });
+const mapStateToProps = ({ stats, player }) => ({ stats, player });
 
 const actions = {
     buyItem,
@@ -346,6 +404,7 @@ const actions = {
     equipItem,
     unequipItem,
     sellItem,
+    setActiveSpell,
 };
 
 export default connect(mapStateToProps, actions)(ViewItem);

@@ -1,18 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
 import Dialog from '../../../../components/dialog';
 import Button from '../../../../components/button';
 import spells from '../../../../data/spells';
-import setActiveSpell from '../../actions/set-active-spell';
 import { B_KEY } from '../../../../config/constants';
 import toggleSpellbookDialog from '../../actions/toggle-spellbook-dialog';
+import ViewItem from '../../../../components/view-item';
 
 import './styles.scss';
 
-const SpellbookDialog = ({ player, setActiveSpell, toggleSpellbookDialog }) => {
+const SpellbookDialog = ({ player, toggleSpellbookDialog }) => {
+    const [viewSpell, setViewSpell] = useState(false);
+
     return (
         <Dialog keys={[B_KEY]} onKeyPress={toggleSpellbookDialog}>
+            <ViewItem
+                open={Boolean(viewSpell)}
+                data={viewSpell}
+                onClose={() => setViewSpell(false)}
+            />
+
             <span className="spellbook-dialog__title">{'Spellbook'}</span>
             {spells.map(spell => (
                 <div
@@ -26,7 +34,8 @@ const SpellbookDialog = ({ player, setActiveSpell, toggleSpellbookDialog }) => {
                 >
                     <Button
                         title={spell.name}
-                        onClick={() => setActiveSpell(spell)}
+                        onClick={() => setViewSpell(spell)}
+                        image={spell.image}
                     />
                 </div>
             ))}
@@ -35,6 +44,6 @@ const SpellbookDialog = ({ player, setActiveSpell, toggleSpellbookDialog }) => {
 };
 
 const mapStateToProps = ({ player }) => ({ player });
-const actions = { setActiveSpell, toggleSpellbookDialog };
+const actions = { toggleSpellbookDialog };
 
 export default connect(mapStateToProps, actions)(SpellbookDialog);
