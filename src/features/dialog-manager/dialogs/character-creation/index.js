@@ -9,6 +9,7 @@ import createCharacter from './actions/create-character';
 import setClass from './actions/set-class';
 import setRace from './actions/set-race';
 import mainGameDialog from '../../actions/main-game-dialog';
+import endlessGameDialog from '../../actions/endless-game-dialog';
 
 import './styles.scss';
 import { ESC_KEY, ENTER_KEY } from '../../../../config/constants';
@@ -20,6 +21,7 @@ const CharacterCreation = ({
     setClass,
     setRace,
     mainGameDialog,
+    endlessGameDialog,
 }) => {
     const [characterName, setCharacterName] = useState(
         dialog.character.characterName
@@ -42,11 +44,21 @@ const CharacterCreation = ({
                 if (key === ENTER_KEY) {
                     // For whatever reason, we have to use a ref othwerwise the component isn't updated correctly
                     continueRef.current.click();
+                } else if (key === ESC_KEY) {
+                    if (dialog.gameType === 'endless') {
+                        endlessGameDialog();
+                    } else {
+                        mainGameDialog();
+                    }
+                }
+            }}
+            goBack={() => {
+                if (dialog.gameType === 'endless') {
+                    endlessGameDialog();
                 } else {
                     mainGameDialog();
                 }
             }}
-            goBack={mainGameDialog}
         >
             <div className="character-creation__title">
                 {'Character Creation'}
@@ -111,6 +123,7 @@ const actions = {
     setClass,
     setRace,
     mainGameDialog,
+    endlessGameDialog,
 };
 
 export default connect(mapStateToProps, actions)(CharacterCreation);
