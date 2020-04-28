@@ -8,7 +8,7 @@ const Mend = {
     range: 0,
     damage: '1d6',
     manaCost: 3,
-    size: { width: 96, height: 96, total: 8544 },
+    size: { width: 40, height: 40, total: 2480 },
     image: MendSprite,
     value: 5,
 };

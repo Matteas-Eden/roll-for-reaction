@@ -24,19 +24,14 @@ export const CastSpell = ({ spell, startPosition, endPosition, direction }) => {
     if (!spell.target.includes('self')) {
         switch (direction) {
             case 'NORTH':
-                offset_x = -10;
-                offset_y = 10;
                 rotation = '270';
                 break;
 
             case 'SOUTH':
-                offset_x = -15;
                 rotation = '90';
                 break;
 
             case 'EAST':
-                offset_y = 5;
-                offset_x = -10;
                 break;
 
             case 'WEST':
@@ -46,12 +41,7 @@ export const CastSpell = ({ spell, startPosition, endPosition, direction }) => {
             default:
         }
     } else {
-        offset_x = -(spell.size.width / 3.5);
-        offset_y = -(spell.size.height / 2);
-
         startPosition = endPosition;
-
-        reverse = true;
     }
 
     startPosition = [startPosition[0] + offset_x, startPosition[1] + offset_y];
