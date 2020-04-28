@@ -5,12 +5,12 @@ import { ENTER_KEY, ESC_KEY } from '../../config/constants';
 import './styles.scss';
 
 const MicroDialog = ({
-    onKeyPress,
-    fullsize,
-    className,
     noButton,
     onClose,
     children,
+    fullsize,
+    className,
+    onKeyPress,
 }) => {
     const handleKeyPress = event => {
         if (event.keyCode === ENTER_KEY) {

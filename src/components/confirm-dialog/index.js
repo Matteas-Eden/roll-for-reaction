@@ -8,13 +8,13 @@ import './styles.scss';
 const ConfirmDialog = ({
     open,
     text,
-    className,
     onClose,
     cancelIcon,
     cancelText,
     confirm,
     acceptIcon,
     acceptText,
+    className,
 }) => {
     const handleKeyPress = event => {
         // check if a key is pressed and bound to an action

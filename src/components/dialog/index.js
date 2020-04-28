@@ -4,7 +4,7 @@ import { ENTER_KEY, ESC_KEY } from '../../config/constants';
 
 import './styles.scss';
 
-const Dialog = ({ className, style, goBack, onKeyPress, keys, children }) => {
+const Dialog = ({ className, style, children, goBack, onKeyPress, keys }) => {
     const handleKeyPress = event => {
         if (onKeyPress && typeof onKeyPress === 'function') {
             if (
