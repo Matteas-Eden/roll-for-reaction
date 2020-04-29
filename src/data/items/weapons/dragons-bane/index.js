@@ -3,6 +3,7 @@ import DragonsBaneImg from './dragons-bane.png';
 const DragonsBane = {
     name: 'Dragons Bane',
     type: 'weapon',
+    effect: {},
     range: 'melee',
     damage: '2d10 + 2',
     bonus: 'dragon::2.5',
