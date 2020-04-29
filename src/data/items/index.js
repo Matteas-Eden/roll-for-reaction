@@ -19,6 +19,11 @@ import DragonsBane from './weapons/dragons-bane';
 import LichBane from './weapons/lich-bane';
 import HpPotion from './other/hp-potion';
 import GreatHpPotion from './other/great-hp-potion';
+import BlackRobes from './robes/black-robes';
+import BrownRobes from './robes/brown-robes';
+import RedRobes from './robes/red-robes';
+import TealRobes from './robes/teal-robes';
+import SkullRobes from './robes/skull-robes';
 
 const items = {
     weapons: {
@@ -40,6 +45,13 @@ const items = {
         SteelGloves,
         SteelPants,
     },
+    robes: {
+        BlackRobes,
+        BrownRobes,
+        RedRobes,
+        TealRobes,
+        SkullRobes,
+    },
     rings: {
         AmethystRing,
         DiamondRing,
@@ -60,6 +72,8 @@ export const randomItemsT1 = [
     LeatherGloves,
     LeatherPants,
     OldRing,
+    BlackRobes,
+    BrownRobes,
 ];
 
 export const randomItemsT2 = [
@@ -72,6 +86,9 @@ export const randomItemsT2 = [
     SteelPants,
     AmethystRing,
     DiamondRing,
+    RedRobes,
+    TealRobes,
+    SkullRobes,
 ];
 
 export default items;

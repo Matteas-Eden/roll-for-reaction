@@ -13,6 +13,8 @@ export default function shopItems(level) {
             items.armor.LeatherPants,
             items.armor.LeatherArmor,
             items.weapons.SteelSword,
+            items.robes.BlackRobes,
+            items.robes.BrownRobes,
         ];
     } else {
         return [
@@ -29,6 +31,9 @@ export default function shopItems(level) {
             items.weapons.BroadSword,
             items.weapons.DragonsBane,
             items.weapons.LichBane,
+            items.robes.RedRobes,
+            items.robes.TealRobes,
+            items.robes.SkullRobes,
         ];
     }
 }
