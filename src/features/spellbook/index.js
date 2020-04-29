@@ -19,8 +19,10 @@ const Spellbook = ({ player, toggleSpellbookDialog, castSpell }) => {
 
             {player.spell && (
                 <button
-                    className={'white-border'}
-                    style={{ backgroundImage: `url('${player.spell.image}')` }}
+                    className={'white-border spell'}
+                    style={{
+                        backgroundImage: `url('${player.spell.image}')`,
+                    }}
                     onClick={castSpell}
                 ></button>
             )}
