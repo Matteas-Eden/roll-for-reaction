@@ -147,7 +147,7 @@ const ViewItem = ({
         default:
     }
 
-    data.effect &&
+    if (data.effect) {
         // find each effect
         Object.keys(data.effect).forEach(name => {
             itemStats.push(
@@ -157,6 +157,7 @@ const ViewItem = ({
                 />
             );
         });
+    }
 
     let ViewItemButtons = null;
 
