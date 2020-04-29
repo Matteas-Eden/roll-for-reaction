@@ -9,6 +9,7 @@ const StatsItem = ({ stats }) => {
         switch (name) {
             case 'damage':
                 return 'light-red';
+            case 'range':
             case 'defence':
                 return 'purple';
             case 'hp':
@@ -21,8 +22,6 @@ const StatsItem = ({ stats }) => {
             default:
         }
     }
-
-    if (name === 'damage') name = 'attack';
 
     return (
         <div className="flex-row stats-item__container">
