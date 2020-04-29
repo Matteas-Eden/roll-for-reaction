@@ -18,6 +18,8 @@ const StatsItem = ({ stats }) => {
             case 'VS. dragon':
             case 'VS. lich':
                 return 'orange';
+            case 'value':
+                return 'orange';
             default:
         }
     }
