@@ -24,6 +24,11 @@ import BrownRobes from './robes/brown-robes';
 import RedRobes from './robes/red-robes';
 import TealRobes from './robes/teal-robes';
 import SkullRobes from './robes/skull-robes';
+import BlackStave from './staves/black-stave';
+import BrownStave from './staves/brown-stave';
+import RedStave from './staves/red-stave';
+import TealStave from './staves/teal-stave';
+import SkullStave from './staves/skull-stave';
 
 const items = {
     weapons: {
@@ -32,6 +37,13 @@ const items = {
         SteelSword,
         DragonsBane,
         LichBane,
+    },
+    staves: {
+        BlackStave,
+        BrownStave,
+        RedStave,
+        TealStave,
+        SkullStave,
     },
     armor: {
         LeatherArmor,
@@ -74,6 +86,8 @@ export const randomItemsT1 = [
     OldRing,
     BlackRobes,
     BrownRobes,
+    BlackStave,
+    BrownStave,
 ];
 
 export const randomItemsT2 = [
@@ -89,6 +103,9 @@ export const randomItemsT2 = [
     RedRobes,
     TealRobes,
     SkullRobes,
+    RedStave,
+    TealStave,
+    SkullStave,
 ];
 
 export default items;

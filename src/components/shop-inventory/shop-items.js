@@ -15,6 +15,8 @@ export default function shopItems(level) {
             items.weapons.SteelSword,
             items.robes.BlackRobes,
             items.robes.BrownRobes,
+            items.staves.BlackStave,
+            items.staves.BrownStave,
         ];
     } else {
         return [
@@ -34,6 +36,9 @@ export default function shopItems(level) {
             items.robes.RedRobes,
             items.robes.TealRobes,
             items.robes.SkullRobes,
+            items.staves.RedStave,
+            items.staves.TealStave,
+            items.staves.SkullStave,
         ];
     }
 }
