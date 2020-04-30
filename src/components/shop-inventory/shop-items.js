@@ -16,8 +16,8 @@ export default function shopItems(level) {
             items.clothes.robes.BlackRobes,
             items.clothes.robes.BrownRobes,
             items.weapons.swords.SteelSword,
-            items.weapons.staffs.BlackStave,
-            items.weapons.staffs.BrownStave,
+            items.weapons.staffs.BlackStaff,
+            items.weapons.staffs.BrownStaff,
             // items.weapons.ranged.Boomerang,
             // items.weapons.ranged.Slingshot,
         ];
@@ -43,9 +43,9 @@ export default function shopItems(level) {
             items.weapons.swords.BroadSword,
             items.weapons.swords.DragonsBane,
             items.weapons.swords.LichBane,
-            items.weapons.staffs.RedStave,
-            items.weapons.staffs.TealStave,
-            items.weapons.staffs.SkullStave,
+            items.weapons.staffs.RedStaff,
+            items.weapons.staffs.TealStaff,
+            items.weapons.staffs.SkullStaff,
             // items.weapons.ranged.Bow,
             // items.weapons.ranged.Crossbow,
         ];

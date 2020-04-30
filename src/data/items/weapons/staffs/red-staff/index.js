@@ -1,15 +1,15 @@
-import RedStaveImg from './red-staff.png';
+import RedStaffImg from './red-staff.png';
 
-const RedStave = {
-    name: 'Red Stave',
+const RedStaff = {
+    name: 'Red Staff',
     type: 'weapon',
     effect: {
         mana: 5,
     },
     range: 'melee',
     damage: '1d4 + 2',
-    image: RedStaveImg,
+    image: RedStaffImg,
     value: 45,
 };
 
-export default RedStave;
+export default RedStaff;

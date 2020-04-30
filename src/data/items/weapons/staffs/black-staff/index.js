@@ -1,6 +1,6 @@
-import BlackStaveImg from './black-staff.png';
+import BlackStaffImg from './black-staff.png';
 
-const BlackStave = {
+const BlackStaff = {
     name: 'Broom',
     type: 'weapon',
     effect: {
@@ -8,8 +8,8 @@ const BlackStave = {
     },
     range: 'melee',
     damage: '1d4',
-    image: BlackStaveImg,
+    image: BlackStaffImg,
     value: 25,
 };
 
-export default BlackStave;
+export default BlackStaff;

@@ -1,15 +1,15 @@
-import SkullStaveImg from './skull-staff.png';
+import SkullStaffImg from './skull-staff.png';
 
-const SkullStave = {
-    name: 'Steel Stave',
+const SkullStaff = {
+    name: 'Steel Staff',
     type: 'weapon',
     effect: {
         mana: 9,
     },
     range: 'melee',
     damage: '1d4 + 4',
-    image: SkullStaveImg,
+    image: SkullStaffImg,
     value: 55,
 };
 
-export default SkullStave;
+export default SkullStaff;

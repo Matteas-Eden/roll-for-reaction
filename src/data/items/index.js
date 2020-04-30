@@ -22,11 +22,11 @@ import RustySword from './weapons/swords/rusty-sword';
 import SteelSword from './weapons/swords/steel-sword';
 import DragonsBane from './weapons/swords/dragons-bane';
 import LichBane from './weapons/swords/lich-bane';
-import BlackStave from './weapons/staffs/black-staff';
-import BrownStave from './weapons/staffs/brown-staff';
-import RedStave from './weapons/staffs/red-staff';
-import TealStave from './weapons/staffs/teal-staff';
-import SkullStave from './weapons/staffs/skull-staff';
+import BlackStaff from './weapons/staffs/black-staff';
+import BrownStaff from './weapons/staffs/brown-staff';
+import RedStaff from './weapons/staffs/red-staff';
+import TealStaff from './weapons/staffs/teal-staff';
+import SkullStaff from './weapons/staffs/skull-staff';
 import Boomerang from './weapons/ranged/boomerang';
 import Slingshot from './weapons/ranged/slingshot';
 import Bow from './weapons/ranged/bow';
@@ -54,11 +54,11 @@ const items = {
             Crossbow,
         },
         staffs: {
-            BlackStave,
-            BrownStave,
-            RedStave,
-            TealStave,
-            SkullStave,
+            BlackStaff,
+            BrownStaff,
+            RedStaff,
+            TealStaff,
+            SkullStaff,
         },
     },
     clothes: {
@@ -110,8 +110,8 @@ export const randomItemsT1 = [
     OldRing,
     BlackRobes,
     BrownRobes,
-    BlackStave,
-    BrownStave,
+    BlackStaff,
+    BrownStaff,
     // Boomerang,
     // Slingshot,
 ];
@@ -129,9 +129,9 @@ export const randomItemsT2 = [
     RedRobes,
     TealRobes,
     SkullRobes,
-    RedStave,
-    TealStave,
-    SkullStave,
+    RedStaff,
+    TealStaff,
+    SkullStaff,
     // Bow,
     // Crossbow,
 ];
