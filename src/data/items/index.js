@@ -112,8 +112,8 @@ export const randomItemsT1 = [
     BrownRobes,
     BlackStave,
     BrownStave,
-    Boomerang,
-    Slingshot,
+    // Boomerang,
+    // Slingshot,
 ];
 
 export const randomItemsT2 = [
@@ -132,8 +132,8 @@ export const randomItemsT2 = [
     RedStave,
     TealStave,
     SkullStave,
-    Bow,
-    Crossbow,
+    // Bow,
+    // Crossbow,
 ];
 
 export default items;

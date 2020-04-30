@@ -18,8 +18,8 @@ export default function shopItems(level) {
             items.weapons.swords.SteelSword,
             items.weapons.staffs.BlackStave,
             items.weapons.staffs.BrownStave,
-            items.weapons.ranged.Boomerang,
-            items.weapons.ranged.Slingshot,
+            // items.weapons.ranged.Boomerang,
+            // items.weapons.ranged.Slingshot,
         ];
     } else {
         return [
@@ -46,8 +46,8 @@ export default function shopItems(level) {
             items.weapons.staffs.RedStave,
             items.weapons.staffs.TealStave,
             items.weapons.staffs.SkullStave,
-            items.weapons.ranged.Bow,
-            items.weapons.ranged.Crossbow,
+            // items.weapons.ranged.Bow,
+            // items.weapons.ranged.Crossbow,
         ];
     }
 }
