@@ -5,7 +5,8 @@ export default function shopItems(level) {
     if (level < TIER_2) {
         return [
             items.other.BackpackUpgrade,
-            items.other.HpPotion,
+            items.potions.HpPotion,
+            items.potions.ManaPotion,
             items.rings.OldRing,
             items.armor.LeatherBoots,
             items.armor.LeatherGloves,
@@ -21,8 +22,10 @@ export default function shopItems(level) {
     } else {
         return [
             items.other.BackpackUpgrade,
-            items.other.GreatHpPotion,
-            items.other.HpPotion,
+            items.potions.GreatHpPotion,
+            items.potions.HpPotion,
+            items.potions.ManaPotion,
+            items.potions.GreatManaPotion,
             items.rings.AmethystRing,
             items.rings.DiamondRing,
             items.armor.SteelBoots,

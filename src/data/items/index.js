@@ -17,8 +17,10 @@ import RustySword from './weapons/rusty-sword';
 import SteelSword from './weapons/steel-sword';
 import DragonsBane from './weapons/dragons-bane';
 import LichBane from './weapons/lich-bane';
-import HpPotion from './other/hp-potion';
-import GreatHpPotion from './other/great-hp-potion';
+import HpPotion from './potions/hp-potion';
+import GreatHpPotion from './potions/great-hp-potion';
+import ManaPotion from './potions/mana-potion';
+import GreatManaPotion from './potions/great-mana-potion';
 import BlackRobes from './robes/black-robes';
 import BrownRobes from './robes/brown-robes';
 import RedRobes from './robes/red-robes';
@@ -69,9 +71,13 @@ const items = {
         DiamondRing,
         OldRing,
     },
-    other: {
+    potions: {
         HpPotion,
         GreatHpPotion,
+        ManaPotion,
+        GreatManaPotion,
+    },
+    other: {
         BackpackUpgrade,
     },
 };
