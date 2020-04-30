@@ -5,6 +5,7 @@ const Mend = {
     name: 'Mend',
     type: 'spell',
     target: 'self::heal',
+    kind: 'assist',
     range: 0,
     damage: '1d6',
     manaCost: 3,

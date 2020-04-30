@@ -5,6 +5,7 @@ const Fireball = {
     name: 'Fireball',
     type: 'spell',
     target: 'enemy',
+    kind: 'combat',
     range: 4,
     damage: '2d8',
     manaCost: 5,

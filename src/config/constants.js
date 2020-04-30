@@ -72,5 +72,5 @@ export const ENTER_KEY = 13;
 // If the player is unarmed, we need them to still be able to attack
 export const UNARMED_DAMAGE = '1d4';
 
-export const PASSIVE_MANA_RESTORE_TURNS = 10;
-export const PASSIVE_MANA_RESTORE_AMOUNT = 1;
+export const PASSIVE_MANA_RESTORE_TURNS = 5;
+export const OUT_OF_COMBAT_RANGE = 4;

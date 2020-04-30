@@ -40,7 +40,10 @@ const playerReducer = (state = initialState, { type, payload }) => {
                 ...state,
                 spellCast: !state.spellCast,
                 targetPosition: payload ? payload.position : [],
-                turnsOutOfCombat: 0,
+                turnsOutOfCombat:
+                    payload.spell.kind === 'combat'
+                        ? 0
+                        : state.turnsOutOfCombat,
             };
 
         case 'PLAYER_ATTACK':
