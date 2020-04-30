@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Dialog from '../../../../components/dialog';
 import toggleJournal from '../../actions/toggle-journal';
 import setJournalScrolling from '../../actions/set-journal-scrolling';
-import { J_KEY } from '../../../../config/constants';
+import { J_KEY, ESC_KEY } from '../../../../config/constants';
 
 import './styles.scss';
 
@@ -22,7 +22,7 @@ class JournalDialog extends Component {
     render() {
         return (
             <Dialog
-                keys={[J_KEY]}
+                keys={[J_KEY, ESC_KEY]}
                 onKeyPress={() => this.props.toggleJournal()}
             >
                 <div

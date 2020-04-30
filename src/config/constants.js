@@ -68,6 +68,12 @@ export const C_KEY = 67;
 export const B_KEY = 66;
 export const SPACE_KEY = 32;
 export const ENTER_KEY = 13;
+export const ESC_KEY = 27;
 
 // If the player is unarmed, we need them to still be able to attack
 export const UNARMED_DAMAGE = '1d4';
+
+// For calculating buy/sell prices
+export const MIN_PRICE_PERCENT = 0.1;
+export const MID_PRICE_PERCENT = 0.6;
+export const MAX_PRICE_PERCENT = 1.2;
