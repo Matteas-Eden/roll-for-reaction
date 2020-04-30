@@ -316,7 +316,7 @@ class Stats extends Component {
                                     sideMenu ? '' : 'stats__row--spacing'
                                 }`}
                                 style={{
-                                    paddingBottom: sideMenu ? 0 : 15,
+                                    paddingBottom: sideMenu ? 10 : 15,
                                     paddingTop: sideMenu ? 0 : 15,
                                 }}
                             >
