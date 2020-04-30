@@ -243,6 +243,7 @@ const ViewItem = ({
                     calculateModifier(stats.abilities.charisma)
                 ),
             }}
+            key={uuidv4()}
         />
     );
 

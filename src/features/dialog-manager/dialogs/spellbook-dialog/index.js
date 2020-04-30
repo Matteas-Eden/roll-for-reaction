@@ -16,6 +16,11 @@ const SpellbookDialog = ({ player, toggleSpellbookDialog }) => {
 
     return (
         <Dialog keys={[B_KEY, ESC_KEY]} onKeyPress={toggleSpellbookDialog}>
+            <ViewItem
+                open={Boolean(viewSpell)}
+                data={viewSpell}
+                onClose={() => setViewSpell(false)}
+            />
             <span className="spellbook-dialog__title">{'Spellbook'}</span>
             <div className="spellbook_dialog__container">
                 {spells.map(spell => (
