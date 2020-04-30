@@ -234,9 +234,23 @@ const ViewItem = ({
         default:
     }
 
+    itemStats.push(
+        <StatsItem
+            stats={{
+                name: 'value',
+                value: calculateSellPrice(
+                    data.value,
+                    calculateModifier(stats.abilities.charisma)
+                ),
+            }}
+        />
+    );
+
     let ViewItemButtons = null;
+    let onKeyPress = null;
 
     if (buy) {
+        onKeyPress = () => setConfirmBuy(true);
         ViewItemButtons = (
             <Button
                 onClick={() => setConfirmBuy(true)}
@@ -245,6 +259,7 @@ const ViewItem = ({
             />
         );
     } else if (sell) {
+        onKeyPress = () => setConfirmSell(true);
         ViewItemButtons = (
             <Button
                 onClick={() => setConfirmSell(true)}
@@ -253,6 +268,10 @@ const ViewItem = ({
             />
         );
     } else if (itemIsEquipped) {
+        onKeyPress = () => {
+            unequipItem(data);
+            onClose();
+        };
         ViewItemButtons = (
             <Button
                 onClick={() => {
@@ -264,6 +283,7 @@ const ViewItem = ({
             />
         );
     } else if (data.type === 'spell') {
+        onKeyPress = () => setActiveSpell(data);
         ViewItemButtons = (
             <>
                 {player.spell && player.spell.name === data.name ? (
@@ -280,6 +300,15 @@ const ViewItem = ({
             </>
         );
     } else {
+        onKeyPress = () => {
+            if (data.type === 'potion') {
+                setConfirmPotion(true);
+            } else {
+                equipItem(data);
+                onClose();
+            }
+        };
+
         ViewItemButtons = (
             <>
                 <Button
@@ -309,7 +338,16 @@ const ViewItem = ({
     }
 
     return (
-        <MicroDialog onClose={onClose}>
+        <MicroDialog
+            onClose={onClose}
+            onKeyPress={() => {
+                if (!confirmDrop) {
+                    // Removing this check means that if we're on the drop/equip item, then if we selected the
+                    // drop option, on the next screen if we hit 'enter', we'll equip the item.
+                    onKeyPress();
+                }
+            }}
+        >
             <div className="view-item__title">
                 <EmptySlot className="white-border view-item__image">
                     <div
@@ -344,6 +382,7 @@ const ViewItem = ({
                     setConfirmDrop(false);
                     onClose();
                 }}
+                acceptKeys
                 onClose={() => setConfirmDrop(false)}
             />
 
@@ -363,6 +402,7 @@ const ViewItem = ({
                     setConfirmSell(false);
                     onClose();
                 }}
+                acceptKeys
                 onClose={() => setConfirmSell(false)}
             />
 
@@ -382,6 +422,7 @@ const ViewItem = ({
                     setConfirmBuy(false);
                     onClose();
                 }}
+                acceptKeys
                 onClose={() => setConfirmBuy(false)}
             />
 
@@ -396,6 +437,7 @@ const ViewItem = ({
                     setConfirmPotion(false);
                     onClose();
                 }}
+                acceptKeys
                 onClose={() => setConfirmPotion(false)}
             />
         </MicroDialog>

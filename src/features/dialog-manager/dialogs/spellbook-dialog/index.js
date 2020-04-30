@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import Dialog from '../../../../components/dialog';
 import SpellButtom from './spell-button';
 import spells from '../../../../data/spells';
-import { B_KEY } from '../../../../config/constants';
+import setActiveSpell from '../../actions/set-active-spell';
+import { B_KEY, ESC_KEY } from '../../../../config/constants';
 import toggleSpellbookDialog from '../../actions/toggle-spellbook-dialog';
 import ViewItem from '../../../../components/view-item';
 
@@ -14,13 +15,7 @@ const SpellbookDialog = ({ player, toggleSpellbookDialog }) => {
     const [viewSpell, setViewSpell] = useState(false);
 
     return (
-        <Dialog keys={[B_KEY]} onKeyPress={toggleSpellbookDialog}>
-            <ViewItem
-                open={Boolean(viewSpell)}
-                data={viewSpell}
-                onClose={() => setViewSpell(false)}
-            />
-
+        <Dialog keys={[B_KEY, ESC_KEY]} onKeyPress={toggleSpellbookDialog}>
             <span className="spellbook-dialog__title">{'Spellbook'}</span>
             <div className="spellbook_dialog__container">
                 {spells.map(spell => (
