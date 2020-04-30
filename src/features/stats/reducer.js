@@ -20,18 +20,17 @@ const initialState = {
     },
     hp: 0,
     abilityModifierHp: 0,
-    extraHp: 0,
     maxHp: 0,
     mana: 0,
+    abilityModifierMana: 0,
     maxMana: 0,
-    damage: 3,
     defence: 0,
     level: 1,
     exp: 0,
     expToLevel: 20,
     gold: 0,
     equippedItems: {},
-    levelUp: { level: 0, hp: 0, dmg: 0 },
+    levelUp: { level: 0, hp: 0 },
 };
 
 const statsReducer = (state = initialState, { type, payload }) => {
@@ -57,11 +56,17 @@ const statsReducer = (state = initialState, { type, payload }) => {
             return { ...state, gold: state.gold - payload };
 
         case 'SET_ABILITY_SCORES':
-            const newMaxMana = calculateMaxManaPool(
+            // calculate new mana
+            const newAbilityModifierMana = calculateMaxManaPool(
+                state.level,
                 calculateModifier(payload.abilities.intelligence)
             );
-            state.mana += newMaxMana - state.maxMana;
-            state.maxMana = newMaxMana;
+            const manaDifference =
+                newAbilityModifierMana - state.abilityModifierMana;
+
+            state.mana += manaDifference;
+            state.maxMana += manaDifference;
+            state.abilityModifierMana = newAbilityModifierMana;
 
             // calculate new hp
             const newAbilityModifierHp = calculateMaxHpPool(
@@ -69,6 +74,10 @@ const statsReducer = (state = initialState, { type, payload }) => {
                 calculateModifier(payload.abilities.constitution)
             );
             const hpDifference = newAbilityModifierHp - state.abilityModifierHp;
+
+            state.hp += hpDifference;
+            state.maxHp += hpDifference;
+            state.abilityModifierHp = newAbilityModifierHp;
 
             const previous_dex = calculateModifier(state.abilities.dexterity);
             const current_dex = calculateModifier(payload.abilities.dexterity);
@@ -79,10 +88,6 @@ const statsReducer = (state = initialState, { type, payload }) => {
                 state.defence = state.defence - previous_dex + current_dex;
             }
 
-            state.hp += hpDifference;
-            state.maxHp += hpDifference;
-            state.abilityModifierHp = newAbilityModifierHp;
-
             return { ...state, abilities: payload.abilities };
 
         case 'UNEQUIP_ITEM':
@@ -90,7 +95,6 @@ const statsReducer = (state = initialState, { type, payload }) => {
             // check the type
             switch (payload.type) {
                 case 'weapon':
-                    newState.damage -= payload.damage;
                     delete newState.equippedItems.weapon;
                     break;
 
@@ -127,10 +131,6 @@ const statsReducer = (state = initialState, { type, payload }) => {
                                 newState.defence -= payload.effect[effectName];
                                 break;
 
-                            case 'damage':
-                                newState.damage -= payload.effect[effectName];
-                                break;
-
                             case 'hp':
                                 newState.hp -= payload.effect[effectName];
                                 if (newState.hp < 1) newState.hp = 1;
@@ -155,12 +155,6 @@ const statsReducer = (state = initialState, { type, payload }) => {
             // see what type of item it is
             switch (item.type) {
                 case 'weapon':
-                    // if there's already a weapon
-                    if (newState.equippedItems.weapon) {
-                        // subtract it's benefits
-                        newState.damage -= newState.equippedItems.weapon.damage;
-                    }
-                    newState.damage += item.damage;
                     newState.equippedItems.weapon = item;
                     break;
 
@@ -266,11 +260,6 @@ const statsReducer = (state = initialState, { type, payload }) => {
                                         equippedRing.effect[effectName];
                                     break;
 
-                                case 'damage':
-                                    newState.damage -=
-                                        equippedRing.effect[effectName];
-                                    break;
-
                                 case 'hp':
                                     newState.hp -=
                                         equippedRing.effect[effectName];
@@ -289,10 +278,6 @@ const statsReducer = (state = initialState, { type, payload }) => {
                         switch (effectName) {
                             case 'defence':
                                 newState.defence += item.effect[effectName];
-                                break;
-
-                            case 'damage':
-                                newState.damage += item.effect[effectName];
                                 break;
 
                             case 'hp':
@@ -318,6 +303,9 @@ const statsReducer = (state = initialState, { type, payload }) => {
             if (_hp > state.maxHp) _hp = state.maxHp;
 
             return { ...state, hp: _hp };
+
+        case 'CAST_SPELL':
+            return { ...state, mana: state.mana - payload.spell.manaCost };
 
         case 'DAMAGE_TO_PLAYER':
             return { ...state, hp: state.hp - payload.damage };
@@ -357,6 +345,17 @@ const statsReducer = (state = initialState, { type, payload }) => {
                 newState.hp += newState.levelUp.hp;
                 newState.maxHp += newState.levelUp.hp;
                 newState.abilityModifierHp = newAbilityModifierHp;
+
+                // calculate new mana
+                const newAbilityModifierMana = calculateMaxManaPool(
+                    newState.level,
+                    calculateModifier(state.abilities.intelligence)
+                );
+                newState.levelUp.mana =
+                    newAbilityModifierMana - state.abilityModifierMana;
+                newState.mana += newState.levelUp.mana;
+                newState.maxMana += newState.levelUp.mana;
+                newState.abilityModifierMana = newAbilityModifierMana;
 
                 // get more damage (+1)
                 let moreDmg = 1;
