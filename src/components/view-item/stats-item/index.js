@@ -9,6 +9,7 @@ const StatsItem = ({ stats }) => {
         switch (name) {
             case 'damage':
                 return 'light-red';
+            case 'range':
             case 'defence':
                 return 'purple';
             case 'hp':
@@ -19,15 +20,31 @@ const StatsItem = ({ stats }) => {
             case 'slots':
             case 'VS. dragon':
             case 'VS. lich':
+            case 'value':
                 return 'orange';
             default:
         }
     }
 
-    if (name === 'damage') name = 'attack';
+    if (name === 'description') {
+        return (
+            <>
+                <div
+                    className="flex-row stats-item__container"
+                    style={{ paddingTop: '20px' }}
+                >
+                    <span>{name}:</span>
+                </div>
+
+                <span className="flex-row stats-item__description">
+                    {stats.value}
+                </span>
+            </>
+        );
+    }
 
     return (
-        <div className="flex-row stats-item__container">
+        <div className="flex-row stats-item__container stats-item__container">
             <span>{name}</span>
 
             <span style={{ color: `var(--${getColor(stats.name)})` }}>
