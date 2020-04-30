@@ -194,10 +194,7 @@ const ViewItem = ({
         <StatsItem
             stats={{
                 name: 'value',
-                value: calculateSellPrice(
-                    data.value,
-                    calculateModifier(stats.abilities.charisma)
-                ),
+                value: sellPrice,
             }}
         />
     );
