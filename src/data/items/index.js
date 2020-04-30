@@ -22,11 +22,11 @@ import RustySword from './weapons/swords/rusty-sword';
 import SteelSword from './weapons/swords/steel-sword';
 import DragonsBane from './weapons/swords/dragons-bane';
 import LichBane from './weapons/swords/lich-bane';
-import BlackStave from './weapons/staves/black-stave';
-import BrownStave from './weapons/staves/brown-stave';
-import RedStave from './weapons/staves/red-stave';
-import TealStave from './weapons/staves/teal-stave';
-import SkullStave from './weapons/staves/skull-stave';
+import BlackStave from './weapons/staffs/black-staff';
+import BrownStave from './weapons/staffs/brown-staff';
+import RedStave from './weapons/staffs/red-staff';
+import TealStave from './weapons/staffs/teal-staff';
+import SkullStave from './weapons/staffs/skull-staff';
 import Boomerang from './weapons/ranged/boomerang';
 import Slingshot from './weapons/ranged/slingshot';
 import Bow from './weapons/ranged/bow';
@@ -53,7 +53,7 @@ const items = {
             Bow,
             Crossbow,
         },
-        staves: {
+        staffs: {
             BlackStave,
             BrownStave,
             RedStave,

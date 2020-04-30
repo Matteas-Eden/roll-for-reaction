@@ -1,4 +1,4 @@
-import TealStaveImg from './teal-stave.png';
+import TealStaveImg from './teal-staff.png';
 
 const TealStave = {
     name: 'Teal Stave',

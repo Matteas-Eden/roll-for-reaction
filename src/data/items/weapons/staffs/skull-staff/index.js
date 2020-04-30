@@ -1,4 +1,4 @@
-import SkullStaveImg from './skull-stave.png';
+import SkullStaveImg from './skull-staff.png';
 
 const SkullStave = {
     name: 'Steel Stave',

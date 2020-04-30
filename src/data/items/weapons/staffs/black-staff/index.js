@@ -1,4 +1,4 @@
-import BlackStaveImg from './black-stave.png';
+import BlackStaveImg from './black-staff.png';
 
 const BlackStave = {
     name: 'Broom',

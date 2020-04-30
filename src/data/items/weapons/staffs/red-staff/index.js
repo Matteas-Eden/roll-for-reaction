@@ -1,4 +1,4 @@
-import RedStaveImg from './red-stave.png';
+import RedStaveImg from './red-staff.png';
 
 const RedStave = {
     name: 'Red Stave',
