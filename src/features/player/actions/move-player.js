@@ -6,8 +6,8 @@ import {
     SPRITE_SIZE,
     MAP_WIDTH,
     MAP_HEIGHT,
-    PASSIVE_MANA_REGEN_TURNS,
-    PASSIVE_MANA_REGEN_AMOUNT,
+    PASSIVE_MANA_RESTORE_TURNS,
+    PASSIVE_MANA_RESTORE_AMOUNT,
 } from '../../../config/constants';
 
 export default function movePlayer(direction) {
@@ -42,13 +42,13 @@ export default function movePlayer(direction) {
                 const { turnsOutOfCombat } = getState().player;
                 if (
                     turnsOutOfCombat > 0 &&
-                    turnsOutOfCombat % PASSIVE_MANA_REGEN_TURNS === 0
+                    turnsOutOfCombat % PASSIVE_MANA_RESTORE_TURNS === 0
                 ) {
                     dispatch({
-                        type: 'REGENERATE_MANA',
+                        type: 'RESTORE_MANA',
                         payload: {
                             kind: 'passive',
-                            amount: PASSIVE_MANA_REGEN_AMOUNT,
+                            amount: PASSIVE_MANA_RESTORE_AMOUNT,
                         },
                     });
                 }

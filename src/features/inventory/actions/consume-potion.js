@@ -7,7 +7,7 @@ export default function consumePotion(item) {
             });
         } else if (item.kind === 'mana') {
             dispatch({
-                type: 'REGENERATE_MANA',
+                type: 'RESTORE_MANA',
                 payload: { kind: 'potion', amount: item.amount },
             });
         }
