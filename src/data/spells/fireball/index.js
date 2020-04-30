@@ -13,6 +13,7 @@ const Fireball = {
     image: FireballImage,
     sprite: FireballSprite,
     value: 10,
+    description: 'Throw a ball of fire at the enemy (or a wall, your choice)',
 };
 
 export default Fireball;

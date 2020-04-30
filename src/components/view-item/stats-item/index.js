@@ -23,8 +23,25 @@ const StatsItem = ({ stats }) => {
         }
     }
 
+    if (name === 'description') {
+        return (
+            <>
+                <div
+                    className="flex-row stats-item__container"
+                    style={{ paddingTop: '20px' }}
+                >
+                    <span>{name}:</span>
+                </div>
+
+                <span className="flex-row stats-item__description">
+                    {stats.value}
+                </span>
+            </>
+        );
+    }
+
     return (
-        <div className="flex-row stats-item__container">
+        <div className="flex-row stats-item__container stats-item__container">
             <span>{name}</span>
 
             <span style={{ color: `var(--${getColor(stats.name)})` }}>

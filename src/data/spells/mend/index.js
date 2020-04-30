@@ -14,6 +14,7 @@ const Mend = {
     image: MendImage,
     sprite: MendSprite,
     value: 5,
+    description: 'Mend the wounds you got fighting those big bad enemies',
 };
 
 export default Mend;

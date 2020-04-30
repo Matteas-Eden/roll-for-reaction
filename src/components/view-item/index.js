@@ -222,6 +222,13 @@ const ViewItem = ({
                     />
                 );
             }
+
+            itemStats.push(
+                <StatsItem
+                    stats={{ name: 'description', value: data.description }}
+                    key={uuidv4()}
+                />
+            );
             break;
 
         default:
