@@ -6,7 +6,7 @@ export default function shopItems(level) {
         return [
             items.other.BackpackUpgrade,
             items.potions.HpPotion,
-            items.potions.ManaPotion,
+            items.potions.GreatHpPotion,
             items.rings.OldRing,
             items.clothes.armor.LeatherBoots,
             items.clothes.armor.LeatherGloves,
@@ -24,10 +24,12 @@ export default function shopItems(level) {
     } else {
         return [
             items.other.BackpackUpgrade,
-            items.potions.GreatHpPotion,
             items.potions.HpPotion,
-            items.potions.ManaPotion,
-            items.potions.GreatManaPotion,
+            items.potions.GreatHpPotion,
+            items.potions.MightyHpPotion,
+            items.potions.DivineHpPotion,
+            items.potions.MightyManaPotion,
+            items.potions.DivineManaPotion,
             items.rings.AmethystRing,
             items.rings.DiamondRing,
             items.clothes.armor.SteelBoots,

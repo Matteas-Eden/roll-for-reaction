@@ -33,8 +33,10 @@ import Bow from './weapons/ranged/bow';
 import Crossbow from './weapons/ranged/crossbow';
 import HpPotion from './potions/hp-potion';
 import GreatHpPotion from './potions/great-hp-potion';
-import ManaPotion from './potions/mana-potion';
-import GreatManaPotion from './potions/great-mana-potion';
+import MightyHpPotion from './potions/mighty-hp-potion';
+import DivineHpPotion from './potions/divine-hp-potion';
+import MightyManaPotion from './potions/mighty-mana-potion';
+import DivineManaPotion from './potions/divine-mana-potion';
 
 const items = {
     weapons: {
@@ -88,8 +90,10 @@ const items = {
     potions: {
         HpPotion,
         GreatHpPotion,
-        ManaPotion,
-        GreatManaPotion,
+        MightyHpPotion,
+        DivineHpPotion,
+        MightyManaPotion,
+        DivineManaPotion,
     },
     other: {
         BackpackUpgrade,
