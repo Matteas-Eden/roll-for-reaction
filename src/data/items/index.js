@@ -92,8 +92,8 @@ const items = {
         GreatHpPotion,
         MightyHpPotion,
         DivineHpPotion,
-        // MightyManaPotion,
-        // DivineManaPotion,
+        MightyManaPotion,
+        DivineManaPotion,
     },
     other: {
         BackpackUpgrade,
