@@ -1,7 +1,7 @@
 import MightyManaPotionImg from './mighty-mana-potion.png';
 
 const MightyManaPotion = {
-    name: 'Mana Potion',
+    name: 'Mighty Mana Potion',
     type: 'potion',
     mana: 60,
     manaReset: 60,
