@@ -119,6 +119,20 @@ const journalReducer = (state = initialState, { type, payload }) => {
             return newState;
         }
 
+        case 'MONSTER_DIED': {
+            newState = cloneDeep(state);
+            newState.entries.push({
+                key: uuidv4(),
+                entry: (
+                    <p key={uuidv4()}>
+                        You vanquish the {colourise(payload, 'type')}!
+                    </p>
+                ),
+            });
+
+            return newState;
+        }
+
         case 'CAST_SPELL': {
             const { name } = payload.spell;
 
@@ -144,6 +158,35 @@ const journalReducer = (state = initialState, { type, payload }) => {
                     </p>
                 ),
             });
+            return newState;
+        }
+
+        case 'GET_EXP': {
+            newState = cloneDeep(state);
+            newState.entries.push({
+                key: uuidv4(),
+                entry: (
+                    <p key={uuidv4()}>
+                        You have gained {colourise(payload, 'experience')}{' '}
+                        experience!
+                    </p>
+                ),
+            });
+
+            return newState;
+        }
+
+        case 'GET_GOLD': {
+            newState = cloneDeep(state);
+            newState.entries.push({
+                key: uuidv4(),
+                entry: (
+                    <p key={uuidv4()}>
+                        You have gained {colourise(payload, 'gold')} gold!
+                    </p>
+                ),
+            });
+
             return newState;
         }
 
