@@ -2,6 +2,7 @@ import _cloneDeep from 'lodash.clonedeep';
 import calculateModifier from '../../utils/calculate-modifier';
 import calculateMaxManaPool from '../../utils/calculate-max-mana-pool';
 import calculateMaxHpPool from '../../utils/calculate-max-hp-pool';
+import calculateDefenceBonus from '../../utils/calculate-defence-bonus';
 
 const initialState = {
     abilities: {
@@ -82,11 +83,11 @@ const statsReducer = (state = initialState, { type, payload }) => {
             const previous_dex = calculateModifier(state.abilities.dexterity);
             const current_dex = calculateModifier(payload.abilities.dexterity);
 
-            if (previous_dex <= 0) {
-                state.defence += current_dex;
-            } else {
-                state.defence = state.defence - previous_dex + current_dex;
-            }
+            let defence_bonus_curr = calculateDefenceBonus(current_dex);
+            let defence_bonus_prev = calculateDefenceBonus(previous_dex);
+
+            state.defence =
+                state.defence - defence_bonus_prev + defence_bonus_curr;
 
             return { ...state, abilities: payload.abilities };
 
