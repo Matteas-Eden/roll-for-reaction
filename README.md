@@ -14,13 +14,13 @@ _Roll For Reaction_ is an open-source fork of [react-rpg](https://github.com/ASt
 
 | Definitely                                        | Hopefully                                             | Maybe                               |
 | ------------------------------------------------- | ----------------------------------------------------- | ----------------------------------- |
-| ![cross][checkmark] DnD Ability Scores for Player | ![cross][cross] UI/UX Improvements                    | ![cross][cross] Particle Effects    |
+| ![check][checkmark] DnD Ability Scores for Player | ![cross][cross] UI/UX Improvements                    | ![cross][cross] Particle Effects    |
 | ![cross][cross] DnD Classes and Races             | ![cross][cross] Final Fantasy-esque Turn Based Combat | ![cross][cross] Character Dialogue  |
-| ![cross][checkmark] Dice-based Combat             | ![check][checkmark] Save/Load System                  | ![cross][cross] Cinematic Cutscenes |
+| ![check][checkmark] Dice-based Combat             | ![check][checkmark] Save/Load System                  | ![cross][cross] Cinematic Cutscenes |
 | ![cross][cross] New Maps/Levels                   | ![cross][cross] New Enemy Types                       | ![cross][cross] Online Multiplayer  |
-| ![check][checkmark] Character Creation            | ![cross][checkmark] Customisable Outfit Colour        | ![cross][cross] Party System        |
-| ![cross][checkmark] Additional Items in Shop      | ![cross][cross] Split Screen Local Multiplayer        |                                     |
-| ![cross][checkmark] Spellcasting System           |                                                       |                                     |
+| ![check][checkmark] Character Creation            | ![check][checkmark] Customisable Outfit Colour        | ![cross][cross] Party System        |
+| ![check][checkmark] Additional Items in Shop      | ![cross][cross] Split Screen Local Multiplayer        |                                     |
+| ![check][checkmark] Spellcasting System           |                                                       |                                     |
 
 > Classes include Fighter, Ranger and Wizard
 
