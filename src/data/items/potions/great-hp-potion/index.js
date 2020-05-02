@@ -3,7 +3,7 @@ import GreatHpPotionImg from './great-hp-potion.png';
 const GreatHpPotion = {
     name: 'Great Health Potion',
     type: 'potion',
-    kind: 'mana',
+    kind: 'health',
     hp: 30,
     hpReset: 30,
     image: GreatHpPotionImg,
