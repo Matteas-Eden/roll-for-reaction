@@ -1,3 +1,4 @@
+// Credit: https://craftpix.net/freebies/free-game-icons-of-fantasy-potions-pack-1/
 import DivineHpPotionImg from './divine-hp-potion.png';
 
 const DivineHpPotion = {

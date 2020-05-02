@@ -1,3 +1,4 @@
+// Credit: https://craftpix.net/freebies/free-game-icons-of-fantasy-potions-pack-1/
 import MightyMpPotionImg from './mighty-mp-potion.png';
 
 const MightyMpPotion = {
