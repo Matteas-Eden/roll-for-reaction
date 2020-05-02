@@ -396,7 +396,7 @@ const ViewItem = ({
                 open={confirmPotion}
                 text={`Are you sure you want to use your ${data.name}?`}
                 cancelText={'Cancel'}
-                acceptText={'Heal'}
+                acceptText={data.kind == 'health' ? 'Heal' : 'Restore'}
                 acceptIcon={'medkit'}
                 confirm={() => {
                     consumePotion(data);

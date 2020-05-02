@@ -2,7 +2,7 @@
 import MpPotionImg from './mp-potion.png';
 
 const MpPotion = {
-    name: 'MP Potion',
+    name: 'Mana Potion',
     type: 'potion',
     kind: 'mana',
     mp: 15,
