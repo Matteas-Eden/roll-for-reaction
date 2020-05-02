@@ -80,14 +80,13 @@ const statsReducer = (state = initialState, { type, payload }) => {
             state.maxHp += hpDifference;
             state.abilityModifierHp = newAbilityModifierHp;
 
-            const previous_dex = calculateModifier(state.abilities.dexterity);
-            const current_dex = calculateModifier(payload.abilities.dexterity);
+            const previousDex = calculateModifier(state.abilities.dexterity);
+            const currentDex = calculateModifier(payload.abilities.dexterity);
 
-            let defence_bonus_curr = calculateDefenceBonus(current_dex);
-            let defence_bonus_prev = calculateDefenceBonus(previous_dex);
+            const prevDefenceBonus = calculateDefenceBonus(previousDex);
+            const currDefenceBonus = calculateDefenceBonus(currentDex);
 
-            state.defence =
-                state.defence - defence_bonus_prev + defence_bonus_curr;
+            state.defence = state.defence - prevDefenceBonus + currDefenceBonus;
 
             return { ...state, abilities: payload.abilities };
 
