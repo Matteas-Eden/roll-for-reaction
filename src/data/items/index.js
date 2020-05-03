@@ -135,6 +135,7 @@ export const randomItemsT1 = [
 
 export const randomItemsT2 = [
     ...randomItemsT1,
+    BroadSword,
     IronArmor,
     IronBoots,
     IronHelm,
@@ -149,6 +150,7 @@ export const randomItemsT2 = [
 
 export const randomItemsT3 = [
     ...randomItemsT2,
+    DragonsBane,
     SteelArmor,
     SteelBoots,
     SteelHelm,
@@ -164,6 +166,7 @@ export const randomItemsT3 = [
 
 export const randomItemsT4 = [
     ...randomItemsT3,
+    LichBane,
     MithrilArmor,
     MithrilBoots,
     MithrilHelm,
