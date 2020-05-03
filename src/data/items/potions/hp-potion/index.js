@@ -1,7 +1,7 @@
 import HpPotionImg from './hp-potion.png';
 
 const HpPotion = {
-    name: 'HP Potion',
+    name: 'Health Potion',
     type: 'potion',
     kind: 'health',
     hp: 15,

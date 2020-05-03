@@ -2,7 +2,7 @@
 import GreatMpPotionImg from './great-mp-potion.png';
 
 const GreatMpPotion = {
-    name: 'Great MP Potion',
+    name: 'Great Mana Potion',
     type: 'potion',
     kind: 'mana',
     mp: 40,
