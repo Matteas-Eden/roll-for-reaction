@@ -1,8 +1,8 @@
 import OrcArmorSprite from './orc-armor.png';
 
 const OrcArmor = {
-    hp: 40,
-    maxHp: 40,
+    hp: 50,
+    maxHp: 50,
     attackValue: 12,
     defence: 5,
     dice: '2d6',
