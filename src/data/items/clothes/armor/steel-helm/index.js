@@ -4,10 +4,10 @@ const SteelHelm = {
     name: 'Steel Helm',
     type: 'armor::helmet',
     effect: {
-        defence: 10,
+        defence: 14,
     },
     image: SteelHelmImg,
-    value: 100,
+    value: 140,
 };
 
 export default SteelHelm;
