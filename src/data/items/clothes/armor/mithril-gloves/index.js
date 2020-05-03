@@ -1,3 +1,4 @@
+// Credit: https://craftpix.net/freebies/free-game-icons-of-fantasy-knight-armor-pack-11/
 import MithrilGlovesImg from './mithril-gloves.png';
 
 const MithrilGloves = {
