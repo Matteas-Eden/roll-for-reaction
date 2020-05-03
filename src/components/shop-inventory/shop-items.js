@@ -7,6 +7,8 @@ export default function shopItems(level) {
             items.other.BackpackUpgrade,
             items.potions.HpPotion,
             items.potions.GreatHpPotion,
+            items.potions.MpPotion,
+            items.potions.GreatMpPotion,
             items.rings.OldRing,
             items.clothes.armor.LeatherBoots,
             items.clothes.armor.LeatherGloves,

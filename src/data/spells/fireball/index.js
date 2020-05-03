@@ -13,7 +13,6 @@ const Fireball = {
     size: { width: 40, height: 40, total: 200 },
     image: FireballImage,
     sprite: FireballSprite,
-    value: 10,
     description: 'Throw a ball of fire at the enemy (or a wall, your choice)',
 };
 

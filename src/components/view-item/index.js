@@ -212,15 +212,17 @@ const ViewItem = ({
         });
     }
 
-    itemStats.push(
-        <StatsItem
-            stats={{
-                name: 'value',
-                value: sellPrice,
-            }}
-            key={uuidv4()}
-        />
-    );
+    if (data.value) {
+        itemStats.push(
+            <StatsItem
+                stats={{
+                    name: 'value',
+                    value: sellPrice,
+                }}
+                key={uuidv4()}
+            />
+        );
+    }
 
     let ViewItemButtons = null;
     let onKeyPress = null;
