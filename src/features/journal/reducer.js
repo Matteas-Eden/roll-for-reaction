@@ -76,6 +76,22 @@ const journalReducer = (state = initialState, { type, payload }) => {
             return newState;
         }
 
+        case 'RESTORE_MANA': {
+            newState = cloneDeep(state);
+            // payload: { kind: 'potion', amount: item.amount },
+
+            newState.entries.push({
+                key: uuidv4(),
+                entry: (
+                    <p key={uuidv4()}>
+                        You {payload.kind === 'passive' ? 'passively ' : ''}{' '}
+                        restored {colourise(payload.amount, 'restore')} mana!
+                    </p>
+                ),
+            });
+            return newState;
+        }
+
         case 'DAMAGE_TO_PLAYER': {
             const { entity, damage } = payload;
 
