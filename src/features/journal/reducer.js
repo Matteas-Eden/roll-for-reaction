@@ -69,7 +69,8 @@ const journalReducer = (state = initialState, { type, payload }) => {
                 key: uuidv4(),
                 entry: (
                     <p key={uuidv4()}>
-                        You restored {colourise(payload, 'restore')} health!
+                        You restored {colourise(payload, 'restore-health')}{' '}
+                        health!
                     </p>
                 ),
             });
@@ -77,14 +78,15 @@ const journalReducer = (state = initialState, { type, payload }) => {
         }
 
         case 'RESTORE_MANA': {
-            newState = cloneDeep(state);
+            if (payload.kind === 'passive') return state;
 
+            newState = cloneDeep(state);
             newState.entries.push({
                 key: uuidv4(),
                 entry: (
                     <p key={uuidv4()}>
-                        You {payload.kind === 'passive' ? 'passively ' : ''}
-                        restored {colourise(payload.amount, 'restore')} mana!
+                        You restored {colourise(payload.amount, 'restore-mana')}{' '}
+                        mana!
                     </p>
                 ),
             });
@@ -140,7 +142,7 @@ const journalReducer = (state = initialState, { type, payload }) => {
                 key: uuidv4(),
                 entry: (
                     <p key={uuidv4()}>
-                        You vanquish the {colourise(payload, 'type')}!
+                        You vanquished the {colourise(payload, 'type')}!
                     </p>
                 ),
             });
@@ -214,8 +216,8 @@ const journalReducer = (state = initialState, { type, payload }) => {
                 entry: (
                     <p key={uuidv4()}>
                         You reached level {colourise(level, 'level')}, and
-                        gained {colourise(hp, 'restore')} hp and{' '}
-                        {colourise(mana, 'restore')} mana!
+                        gained {colourise(hp, 'health-gain')} hp and{' '}
+                        {colourise(mana, 'mana-gain')} mana!
                     </p>
                 ),
             });

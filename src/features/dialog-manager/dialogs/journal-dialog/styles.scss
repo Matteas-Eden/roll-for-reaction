@@ -43,15 +43,18 @@
 
 .experience,
 .level,
-.ability,
-.restore {
+.ability {
     color: var(--purple);
 }
 
+.mana-gain,
+.restore-mana,
 .score {
     color: var(--blue);
 }
 
+.restore-health,
+.health-gain,
 .spell,
 .get-item {
     color: var(--green);

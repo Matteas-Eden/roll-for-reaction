@@ -167,7 +167,7 @@ export default function castSpell() {
                     // play death sound
                     dispatch({
                         type: 'MONSTER_DIED',
-                        payload: null,
+                        payload: currMonster.type,
                     });
                     // replace monster will blood spill
                     // need to pass relative tile index
