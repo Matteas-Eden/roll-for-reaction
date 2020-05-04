@@ -78,7 +78,6 @@ const journalReducer = (state = initialState, { type, payload }) => {
 
         case 'RESTORE_MANA': {
             newState = cloneDeep(state);
-            // payload: { kind: 'potion', amount: item.amount },
 
             newState.entries.push({
                 key: uuidv4(),
