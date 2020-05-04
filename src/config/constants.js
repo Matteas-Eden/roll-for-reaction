@@ -24,8 +24,10 @@ export const SNACK_DURATION = 2500;
 // set the size for the game viewport (in pixels)
 export const GAME_VIEWPORT_SIZE = 350;
 export const GAME_VIEWPORT_SIZE_LG = 400;
-// set the minimum level for tier 2 items
+// set the minimum level for tier X items
 export const TIER_2 = 10;
+export const TIER_3 = 20;
+export const TIER_4 = 30;
 // set the pixel values for the different screen sizes
 export const SCREEN_SMALL_WIDTH = 410;
 export const SCREEN_SMALL_HEIGHT = 410;
@@ -72,6 +74,9 @@ export const ESC_KEY = 27;
 
 // If the player is unarmed, we need them to still be able to attack
 export const UNARMED_DAMAGE = '1d4';
+
+export const PASSIVE_MANA_RESTORE_TURNS = 5;
+export const OUT_OF_COMBAT_RANGE = 4;
 
 // For calculating buy/sell prices
 export const MIN_PRICE_PERCENT = 0.1;

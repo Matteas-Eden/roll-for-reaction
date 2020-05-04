@@ -66,15 +66,16 @@ const ViewItem = ({
             break;
 
         case 'potion':
-            data.hp = data.hpReset;
-            let potionRestore = calculateWisdomPotionBonus(
-                data.hp,
+            data.amount = data.kind === 'health' ? data.hpReset : data.mpReset;
+            const potionRestore = calculateWisdomPotionBonus(
+                data.amount,
                 calculateModifier(stats.abilities.wisdom)
             );
-            data.hp = potionRestore;
+            data.amount = potionRestore;
+
             itemStats.push(
                 <StatsItem
-                    stats={{ name: 'heal', value: potionRestore }}
+                    stats={{ name: data.kind, value: potionRestore }}
                     key={uuidv4()}
                 />
             );
@@ -119,75 +120,36 @@ const ViewItem = ({
         case 'ring':
             itemIsEquipped =
                 JSON.stringify(equipped.ring) === JSON.stringify(data);
-            // find each effect
-            Object.keys(data.effect).forEach(name => {
-                itemStats.push(
-                    <StatsItem
-                        stats={{ name, value: data.effect[name] }}
-                        key={uuidv4()}
-                    />
-                );
-            });
             break;
 
         case 'armor::helmet':
             itemIsEquipped =
                 equipped.armor &&
                 JSON.stringify(equipped.armor.helmet) === JSON.stringify(data);
-            itemStats.push(
-                <StatsItem
-                    stats={{ name: 'defence', value: data.defence }}
-                    key={uuidv4()}
-                />
-            );
             break;
 
         case 'armor::body':
             itemIsEquipped =
                 equipped.armor &&
                 JSON.stringify(equipped.armor.body) === JSON.stringify(data);
-            itemStats.push(
-                <StatsItem
-                    stats={{ name: 'defence', value: data.defence }}
-                    key={uuidv4()}
-                />
-            );
             break;
 
         case 'armor::gloves':
             itemIsEquipped =
                 equipped.armor &&
                 JSON.stringify(equipped.armor.gloves) === JSON.stringify(data);
-            itemStats.push(
-                <StatsItem
-                    stats={{ name: 'defence', value: data.defence }}
-                    key={uuidv4()}
-                />
-            );
             break;
 
         case 'armor::boots':
             itemIsEquipped =
                 equipped.armor &&
                 JSON.stringify(equipped.armor.boots) === JSON.stringify(data);
-            itemStats.push(
-                <StatsItem
-                    stats={{ name: 'defence', value: data.defence }}
-                    key={uuidv4()}
-                />
-            );
             break;
 
         case 'armor::pants':
             itemIsEquipped =
                 equipped.armor &&
                 JSON.stringify(equipped.armor.pants) === JSON.stringify(data);
-            itemStats.push(
-                <StatsItem
-                    stats={{ name: 'defence', value: data.defence }}
-                    key={uuidv4()}
-                />
-            );
             break;
 
         case 'spell':
@@ -238,15 +200,29 @@ const ViewItem = ({
         default:
     }
 
-    itemStats.push(
-        <StatsItem
-            stats={{
-                name: 'value',
-                value: sellPrice,
-            }}
-            key={uuidv4()}
-        />
-    );
+    if (data.effect) {
+        // find each effect
+        Object.keys(data.effect).forEach(name => {
+            itemStats.push(
+                <StatsItem
+                    stats={{ name, value: data.effect[name] }}
+                    key={uuidv4()}
+                />
+            );
+        });
+    }
+
+    if (data.value) {
+        itemStats.push(
+            <StatsItem
+                stats={{
+                    name: 'value',
+                    value: sellPrice,
+                }}
+                key={uuidv4()}
+            />
+        );
+    }
 
     let ViewItemButtons = null;
     let onKeyPress = null;
@@ -323,7 +299,7 @@ const ViewItem = ({
                     <Button
                         onClick={() => setConfirmPotion(true)}
                         icon="medkit"
-                        title={'Heal'}
+                        title={data.kind === 'health' ? 'Heal' : 'Restore'}
                     />
                 ) : (
                     <Button
@@ -422,7 +398,7 @@ const ViewItem = ({
                 open={confirmPotion}
                 text={`Are you sure you want to use your ${data.name}?`}
                 cancelText={'Cancel'}
-                acceptText={'Heal'}
+                acceptText={data.kind === 'health' ? 'Heal' : 'Restore'}
                 acceptIcon={'medkit'}
                 confirm={() => {
                     consumePotion(data);
