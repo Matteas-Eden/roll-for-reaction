@@ -83,7 +83,7 @@ const journalReducer = (state = initialState, { type, payload }) => {
                 key: uuidv4(),
                 entry: (
                     <p key={uuidv4()}>
-                        You {payload.kind === 'passive' ? 'passively ' : ''}{' '}
+                        You {payload.kind === 'passive' ? 'passively ' : ''}
                         restored {colourise(payload.amount, 'restore')} mana!
                     </p>
                 ),
