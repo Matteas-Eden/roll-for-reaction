@@ -9,7 +9,7 @@ const Fireball = {
     kind: 'combat',
     range: 4,
     damage: '2d8',
-    manaCost: 5,
+    manaCost: 0,
     size: { width: 40, height: 40, total: 200 },
     image: FireballImage,
     sprite: FireballSprite,

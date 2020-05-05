@@ -7,6 +7,8 @@ export default function loadStartingItems() {
             payload: items.weapons.swords.RustySword,
         });
 
+        dispatch({ type: 'GET_ITEM', payload: items.weapons.ranged.Boomerang });
+
         dispatch({
             type: 'EQUIP_ITEM',
             payload: getState().inventory.items[0],

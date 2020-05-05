@@ -10,7 +10,7 @@ import PlayerDeath from './assets/player-death.mp3';
 import SwordSlash from './assets/sword-slash.png';
 import PlayerStep from './assets/player-step.wav';
 import SwordSwish from './assets/player-sword-swish.wav';
-import { CastSpell } from '../../components/spell';
+import Animation from '../../components/animation';
 
 import PlayerHair from './assets/player-hair.png';
 import PlayerEyes from './assets/player-eyes.png';
@@ -340,9 +340,13 @@ class Player extends Component {
                     />
                 );
             }
+
+            const weapon = this.props.stats.equippedItems.weapon;
+            const attackType = weapon ? weapon.range : undefined;
+
             // animate the sword slash
             this.setState({
-                attackAnimationPlay: 'running',
+                attackAnimationPlay: attackType || 'running',
                 attackAnimationLoc,
                 animationAttackSound,
             });
@@ -375,6 +379,8 @@ class Player extends Component {
         // game start menu open, hide the player
         if (gameStart) return null;
 
+        const weapon = this.props.stats.equippedItems.weapon;
+
         return (
             <div
                 className="player__animation"
@@ -398,7 +404,7 @@ class Player extends Component {
                     />
                 )}
 
-                {attackAnimationPlay === 'running' && (
+                {attackAnimationPlay !== 'paused' && (
                     <div
                         className="sword__slash"
                         style={{
@@ -409,9 +415,21 @@ class Player extends Component {
                     />
                 )}
 
+                {attackAnimationPlay === 'ranged' && (
+                    <Animation
+                        projectile={weapon && weapon.projectile}
+                        startPosition={attackAnimationLoc}
+                        endPosition={[
+                            player.targetPosition[0] - player.position[0],
+                            player.targetPosition[1] - player.position[1],
+                        ]}
+                        direction={player.direction}
+                    />
+                )}
+
                 {attackAnimationPlay === 'spell' && (
-                    <CastSpell
-                        spell={player.spell}
+                    <Animation
+                        projectile={player.spell}
                         startPosition={attackAnimationLoc}
                         endPosition={[
                             player.targetPosition[0] - player.position[0],
@@ -425,10 +443,11 @@ class Player extends Component {
     }
 }
 
-const mapStateToProps = ({ gameMenu, player, dialog }) => ({
+const mapStateToProps = ({ gameMenu, player, dialog, stats }) => ({
     gameMenu,
     player,
     dialog,
+    stats,
 });
 
 export default connect(mapStateToProps)(ReactTimeout(Player));
