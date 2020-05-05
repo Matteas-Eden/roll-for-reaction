@@ -47,8 +47,6 @@ export default function loadStartingItems() {
             payload: startingItem,
         });
 
-        dispatch({ type: 'GET_ITEM', payload: items.weapons.ranged.Boomerang });
-
         dispatch({
             type: 'EQUIP_ITEM',
             payload: getState().inventory.items[0],
