@@ -24,11 +24,11 @@ export default function loadStartingItems(characterRace, characterClass) {
     let dispatchType = null;
     switch (characterRace) {
         case 'Human':
-            dispatchType = 'GET_ITEM';
+            dispatchType = 'STARTING_ITEM';
             startingItem = items.clothes.armor.LeatherBoots;
             break;
         case 'Elf':
-            dispatchType = 'GET_ITEM';
+            dispatchType = 'STARTING_ITEM';
             startingItem = items.clothes.armor.LeatherGloves;
             break;
         case 'Dwarf':
@@ -41,7 +41,7 @@ export default function loadStartingItems(characterRace, characterClass) {
     return (dispatch, getState) => {
         // TODO: give starting items based on race and class
         dispatch({
-            type: 'GET_ITEM',
+            type: 'STARTING_ITEM',
             payload: weapon,
         });
 
@@ -55,7 +55,7 @@ export default function loadStartingItems(characterRace, characterClass) {
             payload: getState().inventory.items[0],
         });
 
-        dispatchType === 'GET_ITEM' &&
+        dispatchType === 'STARTING_ITEM' &&
             dispatch({
                 type: 'EQUIP_ITEM',
                 payload: getState().inventory.items[1],
