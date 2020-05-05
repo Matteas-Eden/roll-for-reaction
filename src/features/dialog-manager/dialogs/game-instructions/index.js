@@ -28,14 +28,11 @@ const GameInstructions = ({
         mobileVersion = true;
     }
 
-    function handleContinue(character) {
+    function handleContinue() {
         if (dialog.gameType === 'endless') {
             showEndlessMessage();
         } else {
-            loadStartingItems(
-                character.characterRace,
-                character.characterClass
-            );
+            loadStartingItems();
             showFirstStoryMessage();
         }
     }
@@ -93,7 +90,7 @@ const GameInstructions = ({
 
             <div className="flex-column game-instructions__button">
                 <Button
-                    onClick={handleContinue(dialog.character)}
+                    onClick={() => handleContinue(dialog.character)}
                     title={'Continue'}
                 />
             </div>
