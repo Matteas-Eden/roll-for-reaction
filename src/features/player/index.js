@@ -342,11 +342,10 @@ class Player extends Component {
             }
 
             const weapon = this.props.stats.equippedItems.weapon;
-            const attackType = weapon ? weapon.range : undefined;
 
             // animate the sword slash
             this.setState({
-                attackAnimationPlay: attackType || 'running',
+                attackAnimationPlay: weapon.kind || 'running',
                 attackAnimationLoc,
                 animationAttackSound,
             });
@@ -373,13 +372,20 @@ class Player extends Component {
             monsterDeath,
             playerDeath,
         } = this.state;
-        const { player, dialog } = this.props;
+        const { player, dialog, stats } = this.props;
 
         const { gameStart } = dialog;
         // game start menu open, hide the player
         if (gameStart) return null;
 
-        const weapon = this.props.stats.equippedItems.weapon;
+        const projectile =
+            attackAnimationPlay === 'spell'
+                ? player.spell
+                : attackAnimationPlay === 'ranged'
+                ? stats.equippedItems.weapon.projectile
+                : null;
+
+        console.log(attackAnimationPlay);
 
         return (
             <div
@@ -415,21 +421,9 @@ class Player extends Component {
                     />
                 )}
 
-                {attackAnimationPlay === 'ranged' && (
+                {projectile && (
                     <Animation
-                        projectile={weapon && weapon.projectile}
-                        startPosition={attackAnimationLoc}
-                        endPosition={[
-                            player.targetPosition[0] - player.position[0],
-                            player.targetPosition[1] - player.position[1],
-                        ]}
-                        direction={player.direction}
-                    />
-                )}
-
-                {attackAnimationPlay === 'spell' && (
-                    <Animation
-                        projectile={player.spell}
+                        projectile={projectile}
                         startPosition={attackAnimationLoc}
                         endPosition={[
                             player.targetPosition[0] - player.position[0],

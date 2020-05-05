@@ -49,7 +49,7 @@ const playerReducer = (state = initialState, { type, payload }) => {
                 spellCast: !state.spellCast,
                 targetPosition: payload ? payload.position : [],
                 turnsOutOfCombat:
-                    payload.spell.kind === 'combat'
+                    payload.projectile.kind === 'combat'
                         ? 0
                         : state.turnsOutOfCombat,
             };

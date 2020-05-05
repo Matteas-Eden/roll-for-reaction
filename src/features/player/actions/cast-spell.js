@@ -63,7 +63,7 @@ export default function castSpell() {
 
                 dispatch({
                     type: 'CAST_SPELL',
-                    payload: { position: spellPosition, spell: spell },
+                    payload: { position: spellPosition, projectile: spell },
                 });
 
                 dispatch({

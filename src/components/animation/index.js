@@ -9,8 +9,7 @@ const Div = styled.div`
     height: ${props => props.projectile.size.height}px;
     z-index: 1000;
     animation: ${props => props.animation} .5s steps(${props =>
-    props.projectile.size.total / props.projectile.size.width}) ${props =>
-    props.reverse ? 'reverse' : ''};
+    props.projectile.size.total / props.projectile.size.width});
     background-image: url('${props => props.projectile.sprite}');
     background-position-x: 0px;
 `;
@@ -22,7 +21,6 @@ export const Animation = ({
     direction,
 }) => {
     let rotation = '0';
-    let reverse = false;
 
     if (!projectile.target.includes('self')) {
         switch (direction) {
@@ -65,7 +63,6 @@ export const Animation = ({
             projectile={projectile}
             animation={animation}
             startPosition={startPosition}
-            reverse={reverse}
         />
     );
 };
