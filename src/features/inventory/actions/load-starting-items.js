@@ -37,7 +37,6 @@ export default function loadStartingItems() {
                 break;
         }
 
-        // TODO: give starting items based on race and class
         dispatch({
             type: 'STARTING_ITEM',
             payload: weapon,
