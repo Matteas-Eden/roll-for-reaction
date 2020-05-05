@@ -32,9 +32,6 @@ export const Animation = ({
                 rotation = '90';
                 break;
 
-            case 'EAST':
-                break;
-
             case 'WEST':
                 rotation = '180';
                 break;
