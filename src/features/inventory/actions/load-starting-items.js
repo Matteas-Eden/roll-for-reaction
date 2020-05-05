@@ -34,7 +34,7 @@ export default function loadStartingItems(characterRace, characterClass) {
         case 'Dwarf':
         default:
             dispatchType = 'GET_GOLD';
-            startingItem = 25;
+            startingItem = 30;
             break;
     }
 
