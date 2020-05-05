@@ -2,8 +2,9 @@ import items from '../../../data/items';
 
 export default function loadStartingItems() {
     return (dispatch, getState) => {
+        const { characterRace, characterClass } = getState().dialog.character;
         let weapon = null;
-        switch (getState().dialog.character.characterClass) {
+        switch (characterClass) {
             case 'Fighter':
                 weapon = items.weapons.swords.RustySword;
                 break;
@@ -22,7 +23,7 @@ export default function loadStartingItems() {
 
         let startingItem = null;
         let dispatchType = null;
-        switch (getState().dialog.character.characterRace) {
+        switch (characterRace) {
             case 'Human':
                 dispatchType = 'STARTING_ITEM';
                 startingItem = items.clothes.armor.LeatherBoots;

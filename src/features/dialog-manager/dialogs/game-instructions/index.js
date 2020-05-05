@@ -89,10 +89,7 @@ const GameInstructions = ({
             </div>
 
             <div className="flex-column game-instructions__button">
-                <Button
-                    onClick={() => handleContinue(dialog.character)}
-                    title={'Continue'}
-                />
+                <Button onClick={handleContinue()} title={'Continue'} />
             </div>
         </Dialog>
     );
