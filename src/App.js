@@ -14,7 +14,7 @@ import Spellbook from './features/spellbook';
 
 import JournalDialog from './features/dialog-manager/dialogs/journal-dialog';
 
-const App = ({ appState, world }) => {
+const App = ({ appState, world, dialog }) => {
     useGameViewportScaling();
 
     // disable scrolling of the page
@@ -24,20 +24,18 @@ const App = ({ appState, world }) => {
         return clearAllBodyScrollLocks;
     }, []);
 
-    const { sideMenu, JournalMenu } = appState;
+    const { sideMenu, JournalSideMenu } = appState;
     const { gameMode, floorNum } = world;
+    const { journalDialog } = dialog;
 
     let showFooter = true;
-    let showJournal = JournalMenu;
-
-    // TODO: if window with too small, hide
+    let showJournal = JournalSideMenu && journalDialog;
 
     const nativeApp = window.location.search === '?nativeApp=true';
     // don't show the footer if on a mobile device
     // or using the native app query param
     if (nativeApp || isMobile) {
         showFooter = false;
-        showJournal = false;
     }
 
     return (
@@ -76,6 +74,10 @@ const App = ({ appState, world }) => {
     );
 };
 
-const mapStateToProps = ({ appState, world }) => ({ appState, world });
+const mapStateToProps = ({ appState, world, dialog }) => ({
+    appState,
+    world,
+    dialog,
+});
 
 export default connect(mapStateToProps)(App);

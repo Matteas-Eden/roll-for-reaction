@@ -3,6 +3,7 @@ import _debounce from 'lodash.debounce';
 
 import store from '../../../config/store';
 import useWindowSize from '../../../utils/use-window-size';
+import { isMobile } from 'react-device-detect';
 import {
     SCREEN_SMALL_WIDTH,
     SCREEN_SMALL_HEIGHT,
@@ -18,6 +19,7 @@ const VIEWPORT_RESIZE_RATE = 250;
 const useGameViewportScaling = () => {
     const { height, width } = useWindowSize();
 
+    const nativeApp = window.location.search === '?nativeApp=true';
     const _updateViewportScale = _debounce(
         updateViewportScale,
         VIEWPORT_RESIZE_RATE
@@ -26,7 +28,7 @@ const useGameViewportScaling = () => {
     useEffect(() => {
         let largeView = false;
         let sideMenu = false;
-        let JournalMenu = false;
+        let JournalSideMenu = false;
         // if we have a wide screen size
         if (width > SCREEN_SMALL_WIDTH) {
             largeView = true;
@@ -38,16 +40,19 @@ const useGameViewportScaling = () => {
         if (width < SCREEN_MEDIUM_WIDTH) {
             sideMenu = false;
         }
-        if (sideMenu) {
-            if (width > MIN_SIDESCREEN_WIDTH_FOR_JOURNAL) JournalMenu = true;
-        } else {
-            if (width > MIN_WIDTH_FOR_JOURNAL) JournalMenu = true;
+        if (!(isMobile || nativeApp)) {
+            if (sideMenu) {
+                if (width > MIN_SIDESCREEN_WIDTH_FOR_JOURNAL)
+                    JournalSideMenu = true;
+            } else {
+                if (width > MIN_WIDTH_FOR_JOURNAL) JournalSideMenu = true;
+            }
         }
 
-        _updateViewportScale({ largeView, sideMenu, JournalMenu });
+        _updateViewportScale({ largeView, sideMenu, JournalSideMenu });
     }, [height, width]);
 
-    function updateViewportScale({ largeView, sideMenu, JournalMenu }) {
+    function updateViewportScale({ largeView, sideMenu, JournalSideMenu }) {
         store.dispatch({
             type: 'SET_SIDE_MENU',
             payload: sideMenu,
@@ -58,7 +63,7 @@ const useGameViewportScaling = () => {
         });
         store.dispatch({
             type: 'SET_SHOW_JOURNAL',
-            payload: JournalMenu,
+            payload: JournalSideMenu,
         });
     }
 };
