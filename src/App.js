@@ -12,6 +12,8 @@ import Viewport from './components/viewport';
 import useGameViewportScaling from './features/app-state/actions/use-game-viewport-scaling';
 import Spellbook from './features/spellbook';
 
+import JournalDialog from './features/dialog-manager/dialogs/journal-dialog';
+
 const App = ({ appState, world }) => {
     useGameViewportScaling();
 
@@ -22,35 +24,51 @@ const App = ({ appState, world }) => {
         return clearAllBodyScrollLocks;
     }, []);
 
-    const { sideMenu } = appState;
+    const { sideMenu, JournalMenu } = appState;
     const { gameMode, floorNum } = world;
 
     let showFooter = true;
+    let showJournal = JournalMenu;
+
+    // TODO: if window with too small, hide
 
     const nativeApp = window.location.search === '?nativeApp=true';
     // don't show the footer if on a mobile device
     // or using the native app query param
     if (nativeApp || isMobile) {
         showFooter = false;
+        showJournal = false;
     }
 
     return (
         <>
-            <div
-                className={`centered ${sideMenu ? 'flex-row' : 'flex-column'}`}
-            >
-                <Viewport>
-                    <World />
-                    <DialogManager />
-                    <Spellbook />
+            <div className={`centered flex-row`}>
+                {showJournal && <JournalDialog />}
+                <div
+                    className={`centered ${
+                        sideMenu ? 'flex-row' : 'flex-column'
+                    }`}
+                >
+                    <div className={'centered flex-row'}>
+                        {/* <JournalDialog /> */}
+                        <Viewport>
+                            <World />
+                            <DialogManager />
+                            <Spellbook />
 
-                    {/* Show the floor counter when playing endless mode */}
-                    {gameMode === 'endless' && (
-                        <EndlessFloorCounter floor={floorNum} />
-                    )}
-                </Viewport>
+                            {/* Show the floor counter when playing endless mode */}
+                            {gameMode === 'endless' && (
+                                <EndlessFloorCounter floor={floorNum} />
+                            )}
+                        </Viewport>
+                    </div>
+                    {/* <div className={'flex-column'}> */}
 
-                <GameMenus />
+                    {/* <JournalDialog /> */}
+
+                    <GameMenus />
+                </div>
+                {/* </div> */}
             </div>
 
             {showFooter && <Footer />}
