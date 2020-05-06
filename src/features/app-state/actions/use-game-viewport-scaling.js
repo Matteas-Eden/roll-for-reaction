@@ -8,6 +8,8 @@ import {
     SCREEN_SMALL_HEIGHT,
     SCREEN_MEDIUM_WIDTH,
     SCREEN_MEDIUM_HEIGHT,
+    MIN_WIDTH_FOR_JOURNAL,
+    MIN_SIDESCREEN_WIDTH_FOR_JOURNAL,
 } from '../../../config/constants';
 
 const VIEWPORT_RESIZE_RATE = 250;
@@ -24,6 +26,7 @@ const useGameViewportScaling = () => {
     useEffect(() => {
         let largeView = false;
         let sideMenu = false;
+        let JournalMenu = false;
         // if we have a wide screen size
         if (width > SCREEN_SMALL_WIDTH) {
             largeView = true;
@@ -35,11 +38,16 @@ const useGameViewportScaling = () => {
         if (width < SCREEN_MEDIUM_WIDTH) {
             sideMenu = false;
         }
+        if (sideMenu) {
+            if (width > MIN_SIDESCREEN_WIDTH_FOR_JOURNAL) JournalMenu = true;
+        } else {
+            if (width > MIN_WIDTH_FOR_JOURNAL) JournalMenu = true;
+        }
 
-        _updateViewportScale({ largeView, sideMenu });
+        _updateViewportScale({ largeView, sideMenu, JournalMenu });
     }, [height, width]);
 
-    function updateViewportScale({ largeView, sideMenu }) {
+    function updateViewportScale({ largeView, sideMenu, JournalMenu }) {
         store.dispatch({
             type: 'SET_SIDE_MENU',
             payload: sideMenu,
@@ -47,6 +55,10 @@ const useGameViewportScaling = () => {
         store.dispatch({
             type: 'SET_LARGE_VIEW',
             payload: largeView,
+        });
+        store.dispatch({
+            type: 'SET_SHOW_JOURNAL',
+            payload: JournalMenu,
         });
     }
 };
