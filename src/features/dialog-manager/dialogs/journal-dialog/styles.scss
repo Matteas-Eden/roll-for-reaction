@@ -1,7 +1,18 @@
 .journal-dialog__container {
     flex: 1;
+    width: 20em;
+    height: 20em;
 
     overflow-y: scroll;
+}
+
+.dialog__container {
+    position: relative;
+    margin: 0.2em;
+    margin-right: 0.5em;
+    width: 20em;
+    height: 20em;
+    float: right;
 }
 
 .journal-log {
