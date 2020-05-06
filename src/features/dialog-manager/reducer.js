@@ -27,6 +27,8 @@ const initialState = {
     abilityDialog: false,
     characterCustomisation: false,
     playerOpenedAbilityDialog: false,
+    tutorialDialog: false,
+    tutorialPage: 'movement',
     abilities: {
         constitution: STARTING_ABILITY_SCORE_VALUE,
         dexterity: STARTING_ABILITY_SCORE_VALUE,
@@ -101,6 +103,7 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
                 pause,
                 journalDialog,
                 spellbookDialog,
+                tutorialDialog,
             } = payload;
 
             return {
@@ -123,6 +126,7 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
                 characterCreation: characterCreation || false,
                 journalDialog: journalDialog || false,
                 spellbookDialog: spellbookDialog || false,
+                tutorialDialog: tutorialDialog || false,
                 paused: pause,
             };
 
@@ -414,6 +418,12 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
                     intelligence: intelligence - 1,
                     points: points + 1,
                 },
+            };
+
+        case 'CHANGE_TUTORIAL_PAGE':
+            return {
+                ...state,
+                tutorialPage: payload.tutorialPage,
             };
 
         case 'RESET':
