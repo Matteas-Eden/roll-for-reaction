@@ -51,11 +51,8 @@ const Dialog = ({
 
     return (
         <div
-            className={
-                (extraClass && extraClass) +
-                ' ' +
-                (className || 'dialog__container white-border')
-            }
+            className={`${extraClass && extraClass}
+                ${className || 'dialog__container white-border'}`}
             style={style}
         >
             {goBack && (
