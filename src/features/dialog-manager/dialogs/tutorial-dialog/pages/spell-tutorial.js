@@ -9,3 +9,5 @@ const SpellTutorial = () => {
         </div>
     );
 };
+
+export default SpellTutorial;

@@ -9,3 +9,5 @@ const ShopTutorial = () => {
         </div>
     );
 };
+
+export default ShopTutorial;

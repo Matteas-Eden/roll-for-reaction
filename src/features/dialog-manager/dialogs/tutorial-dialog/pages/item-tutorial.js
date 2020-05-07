@@ -9,3 +9,5 @@ const ItemTutorial = () => {
         </div>
     );
 };
+
+export default ItemTutorial;

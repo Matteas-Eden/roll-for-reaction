@@ -9,3 +9,5 @@ const CombatTutorial = () => {
         </div>
     );
 };
+
+export default CombatTutorial;

@@ -9,3 +9,5 @@ const MovementTutorial = () => {
         </div>
     );
 };
+
+export default MovementTutorial;

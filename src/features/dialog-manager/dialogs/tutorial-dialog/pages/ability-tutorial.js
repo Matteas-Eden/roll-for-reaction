@@ -9,3 +9,5 @@ const AbilityTutorial = () => {
         </div>
     );
 };
+
+export default AbilityTutorial;
