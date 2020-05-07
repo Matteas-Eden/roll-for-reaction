@@ -14,7 +14,7 @@ import WASDKeys from './assets/wasd-keys.png';
 import AbilityTutorial from './pages/ability-tutorial';
 import ShopTutorial from './pages/shop-tutorial';
 import MovementTutorial from './pages/movement-tutorial';
-import AttackTutorial from './pages/attack-tutorial';
+import CombatTutorial from './pages/combat-tutorial';
 import SpellTutorial from './pages/spell-tutorial';
 import ItemTutorial from './pages/item-tutorial';
 
@@ -29,8 +29,8 @@ const TutorialDialog = ({ dialog }) => {
         switch (page) {
             case 'movement':
                 return <MovementTutorial />;
-            case 'attack':
-                return <AttackTutorial />;
+            case 'combat':
+                return <CombatTutorial />;
             case 'spell':
                 return <SpellTutorial />;
             case 'ability':
