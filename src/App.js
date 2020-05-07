@@ -12,7 +12,7 @@ import Viewport from './components/viewport';
 import useGameViewportScaling from './features/app-state/actions/use-game-viewport-scaling';
 import Spellbook from './features/spellbook';
 
-import JournalDialog from './features/dialog-manager/dialogs/journal-dialog';
+import JournalSide from './components/journal-side';
 
 const App = ({ appState, world, dialog }) => {
     useGameViewportScaling();
@@ -24,12 +24,13 @@ const App = ({ appState, world, dialog }) => {
         return clearAllBodyScrollLocks;
     }, []);
 
-    const { sideMenu, JournalSideMenu } = appState;
+    const { sideMenu, journalSideMenu } = appState;
     const { gameMode, floorNum } = world;
-    const { journalDialog } = dialog;
+    const { gameStart, gameOver } = dialog;
+
+    const disableJournal = gameStart || gameOver || !journalSideMenu;
 
     let showFooter = true;
-    let showJournal = JournalSideMenu && journalDialog;
 
     const nativeApp = window.location.search === '?nativeApp=true';
     // don't show the footer if on a mobile device
@@ -41,14 +42,13 @@ const App = ({ appState, world, dialog }) => {
     return (
         <>
             <div className={`centered flex-row`}>
-                {showJournal && <JournalDialog />}
+                <JournalSide disabled={disableJournal} />
                 <div
                     className={`centered ${
                         sideMenu ? 'flex-row' : 'flex-column'
                     }`}
                 >
                     <div className={'centered flex-row'}>
-                        {/* <JournalDialog /> */}
                         <Viewport>
                             <World />
                             <DialogManager />
@@ -60,13 +60,9 @@ const App = ({ appState, world, dialog }) => {
                             )}
                         </Viewport>
                     </div>
-                    {/* <div className={'flex-column'}> */}
-
-                    {/* <JournalDialog /> */}
 
                     <GameMenus />
                 </div>
-                {/* </div> */}
             </div>
 
             {showFooter && <Footer />}

@@ -28,7 +28,7 @@ const useGameViewportScaling = () => {
     useEffect(() => {
         let largeView = false;
         let sideMenu = false;
-        let JournalSideMenu = false;
+        let journalSideMenu = false;
         // if we have a wide screen size
         if (width > SCREEN_SMALL_WIDTH) {
             largeView = true;
@@ -43,16 +43,16 @@ const useGameViewportScaling = () => {
         if (!(isMobile || nativeApp)) {
             if (sideMenu) {
                 if (width > MIN_SIDESCREEN_WIDTH_FOR_JOURNAL)
-                    JournalSideMenu = true;
+                    journalSideMenu = true;
             } else {
-                if (width > MIN_WIDTH_FOR_JOURNAL) JournalSideMenu = true;
+                if (width > MIN_WIDTH_FOR_JOURNAL) journalSideMenu = true;
             }
         }
 
-        _updateViewportScale({ largeView, sideMenu, JournalSideMenu });
+        _updateViewportScale({ largeView, sideMenu, journalSideMenu });
     }, [height, width]);
 
-    function updateViewportScale({ largeView, sideMenu, JournalSideMenu }) {
+    function updateViewportScale({ largeView, sideMenu, journalSideMenu }) {
         store.dispatch({
             type: 'SET_SIDE_MENU',
             payload: sideMenu,
@@ -63,8 +63,16 @@ const useGameViewportScaling = () => {
         });
         store.dispatch({
             type: 'SET_SHOW_JOURNAL',
-            payload: JournalSideMenu,
+            payload: journalSideMenu,
         });
+
+        const { paused, journalDialog } = store.getState().dialog;
+        if (journalSideMenu && paused && journalDialog) {
+            store.dispatch({
+                type: 'PAUSE',
+                payload: { pause: false, journal: false },
+            });
+        }
     }
 };
 

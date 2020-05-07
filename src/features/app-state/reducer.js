@@ -2,7 +2,7 @@ const initialState = {
     optOutDownload: false,
     largeView: false,
     sideMenu: false,
-    JournalSideMenu: false,
+    journalSideMenu: false,
 };
 
 const appStateReducer = (state = initialState, { payload, type }) => {
@@ -17,7 +17,7 @@ const appStateReducer = (state = initialState, { payload, type }) => {
             return { ...state, sideMenu: payload };
 
         case 'SET_SHOW_JOURNAL':
-            return { ...state, JournalSideMenu: payload };
+            return { ...state, journalSideMenu: payload };
 
         case 'LOAD_DATA':
             return { ...initialState, ...payload.appState };

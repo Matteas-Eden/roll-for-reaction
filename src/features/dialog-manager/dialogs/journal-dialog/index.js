@@ -24,7 +24,6 @@ class JournalDialog extends Component {
             <Dialog
                 keys={[J_KEY, ESC_KEY]}
                 onKeyPress={() => this.props.toggleJournal()}
-                extraClass="journal-container"
             >
                 <div
                     className="flex-column journal-dialog__container"
