@@ -10,5 +10,7 @@ export default function getPreviousPage(page) {
             return 'spell';
         case 'ability':
             return 'item';
+        default:
+            return null;
     }
 }

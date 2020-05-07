@@ -10,5 +10,7 @@ export default function getNextPage(page) {
             return 'ability';
         case 'ability':
             return null;
+        default:
+            return null;
     }
 }
