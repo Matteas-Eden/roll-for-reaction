@@ -385,8 +385,6 @@ class Player extends Component {
                 ? stats.equippedItems.weapon.projectile
                 : null;
 
-        console.log(attackAnimationPlay);
-
         return (
             <div
                 className="player__animation"

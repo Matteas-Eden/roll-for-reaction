@@ -23,7 +23,7 @@ export default function castSpell() {
         if (target[0] === 'self') {
             dispatch({
                 type: 'CAST_SPELL',
-                payload: { position: position, spell: spell },
+                payload: { position: position, projectile: spell },
             });
 
             const healAmount =
@@ -135,7 +135,7 @@ export default function castSpell() {
                 // Hit a wall or something else
                 dispatch({
                     type: 'CAST_SPELL',
-                    payload: { position: spellPosition, spell: spell },
+                    payload: { position: spellPosition, projectile: spell },
                 });
             }
         }

@@ -151,14 +151,14 @@ const journalReducer = (state = initialState, { type, payload }) => {
         }
 
         case 'USE_PROJECTILE': {
-            const { name } = payload.projectile;
+            const { name, information } = payload.projectile;
 
             newState = cloneDeep(state);
             newState.entries.push({
                 key: uuidv4(),
                 entry: (
                     <p key={uuidv4()}>
-                        You threw a {colourise(name, 'projectile')}
+                        You {information} {colourise(name, 'projectile')}
                     </p>
                 ),
             });

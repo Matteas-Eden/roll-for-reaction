@@ -15,7 +15,7 @@ export const findTarget = (position, direction, range) => {
             case 'NORTH':
                 for (
                     let y = position[1];
-                    y > position[1] - range;
+                    y >= position[1] - range;
                     y -= SPRITE_SIZE
                 ) {
                     const pos = getNewPosition([position[0], y], direction);
@@ -28,7 +28,7 @@ export const findTarget = (position, direction, range) => {
             case 'SOUTH':
                 for (
                     let y = position[1];
-                    y < position[1] + range;
+                    y <= position[1] + range;
                     y += SPRITE_SIZE
                 ) {
                     const pos = getNewPosition([position[0], y], direction);
@@ -41,7 +41,7 @@ export const findTarget = (position, direction, range) => {
             case 'EAST':
                 for (
                     let x = position[0];
-                    x < position[0] + range;
+                    x <= position[0] + range;
                     x += SPRITE_SIZE
                 ) {
                     const pos = getNewPosition([x, position[1]], direction);
@@ -54,7 +54,7 @@ export const findTarget = (position, direction, range) => {
             case 'WEST':
                 for (
                     let x = position[0];
-                    x > position[0] - range;
+                    x >= position[0] - range;
                     x -= SPRITE_SIZE
                 ) {
                     const pos = getNewPosition([x, position[1]], direction);
@@ -112,6 +112,16 @@ export default function attackMonster() {
                 const modifier = calculateModifier(stats.abilities[ability]);
                 const attackValue = d20() + modifier;
 
+                if (weapon.projectile) {
+                    dispatch({
+                        type: 'USE_PROJECTILE',
+                        payload: {
+                            position: targetPosition,
+                            projectile: weapon.projectile,
+                        },
+                    });
+                }
+
                 dispatch({
                     type: 'ABILITY_CHECK',
                     payload: {
@@ -123,16 +133,6 @@ export default function attackMonster() {
                         against: 'defence',
                     },
                 });
-
-                if (weapon.projectile) {
-                    dispatch({
-                        type: 'USE_PROJECTILE',
-                        payload: {
-                            position: targetPosition,
-                            projectile: weapon.projectile,
-                        },
-                    });
-                }
 
                 const damage =
                     attackValue >= currMonster.defence

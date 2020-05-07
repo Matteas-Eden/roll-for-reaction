@@ -16,6 +16,7 @@ const Boomerang = {
         target: 'enemy',
         size: { width: 40, height: 40, total: 560 },
         sprite: BoomerangAnimated,
+        information: 'threw a',
     },
     value: 35,
 };

@@ -1,5 +1,6 @@
 // Credit: https://shikashiassets.itch.io/shikashis-fantasy-icons-pack
 import CrossbowImg from './crossbow.png';
+import BoltImg from './bolt.png';
 import { SIGHT_RADIUS } from '../../../../../config/constants';
 
 const Crossbow = {
@@ -14,7 +15,8 @@ const Crossbow = {
         name: 'bolt',
         target: 'enemy',
         size: { width: 40, height: 40, total: 560 },
-        sprite: undefined,
+        sprite: BoltImg,
+        information: 'discharged a',
     },
     value: 666,
 };
