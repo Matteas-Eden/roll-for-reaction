@@ -4,7 +4,7 @@ export default function toggleTutorial() {
             type: 'PAUSE',
             payload: {
                 pause: true,
-                tutorial: true,
+                tutorialDialog: true,
                 tutorialPage: getState().dialog.tutorialPage,
             },
         });
