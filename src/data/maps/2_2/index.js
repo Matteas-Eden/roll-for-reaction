@@ -18,7 +18,7 @@ const tiles = [
 
 const monsters = [
     {
-        type: 'imp',
+        type: 'orc-armor',
         position: [5, 5],
     },
     {
@@ -26,7 +26,7 @@ const monsters = [
         position: [8, 5],
     },
     {
-        type: 'imp',
+        type: 'orc',
         position: [7, 7],
     },
     {
