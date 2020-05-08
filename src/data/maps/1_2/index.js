@@ -22,11 +22,11 @@ const monsters = [
         position: [5, 2],
     },
     {
-        type: 'slime',
+        type: 'rat',
         position: [5, 9],
     },
     {
-        type: 'slime',
+        type: 'bat',
         position: [4, 7],
     },
     {
@@ -34,7 +34,7 @@ const monsters = [
         position: [12, 10],
     },
     {
-        type: 'bat',
+        type: 'wolf',
         position: [14, 12],
     },
 ];
