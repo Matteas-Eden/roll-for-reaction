@@ -2,19 +2,28 @@ import exploreTiles from './explore-tiles';
 import exploreChest from './explore-chest';
 import walkStairs from './walk-stairs';
 import getNextTile from '../../../utils/get-next-tile';
-import { SPRITE_SIZE, MAP_WIDTH, MAP_HEIGHT } from '../../../config/constants';
+import {
+    SPRITE_SIZE,
+    MAP_WIDTH,
+    MAP_HEIGHT,
+    PASSIVE_MANA_RESTORE_TURNS,
+    OUT_OF_COMBAT_RANGE,
+} from '../../../config/constants';
 
 export default function movePlayer(direction) {
     return (dispatch, getState) => {
         const oldPos = getState().player.position;
         const newPos = getNewPosition(oldPos, direction);
+        const facing = getState().player.direction;
 
         const nextTile = observeImpassable(newPos);
 
         if (
             observeBoundaries(newPos) &&
             nextTile < 5 &&
-            !dispatch(checkForMonster(newPos, direction))
+            !dispatch(checkForMonster(newPos, direction)) &&
+            (facing === direction ||
+                !dispatch(monstersWithinRange(newPos, OUT_OF_COMBAT_RANGE)))
         ) {
             // explore new tiles
             dispatch(exploreTiles(newPos));
@@ -32,6 +41,20 @@ export default function movePlayer(direction) {
                     type: 'TAKE_TURN',
                     payload: null,
                 });
+
+                if (
+                    getState().player.turnsOutOfCombat >=
+                        PASSIVE_MANA_RESTORE_TURNS &&
+                    !dispatch(monstersWithinRange(newPos, OUT_OF_COMBAT_RANGE))
+                ) {
+                    dispatch({
+                        type: 'RESTORE_MANA',
+                        payload: {
+                            kind: 'passive',
+                            amount: Math.ceil(getState().stats.maxMana / 10),
+                        },
+                    });
+                }
             }
         } // dont move the player
         else {
@@ -95,6 +118,29 @@ export default function movePlayer(direction) {
         }
     };
 }
+
+const monstersWithinRange = (position, within) => {
+    return dispatch => {
+        for (
+            let i = -within * SPRITE_SIZE;
+            i < within * SPRITE_SIZE;
+            i += SPRITE_SIZE
+        ) {
+            for (
+                let j = -within * SPRITE_SIZE;
+                j < within * SPRITE_SIZE;
+                j += SPRITE_SIZE
+            ) {
+                const pos = [position[0] + i, position[1] + j];
+                if (dispatch(checkForMonster(pos))) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    };
+};
 
 // returns `false` or the monster's id
 export function checkForMonster(newPos) {
