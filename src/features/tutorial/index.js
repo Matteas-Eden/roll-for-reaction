@@ -6,7 +6,7 @@ import toggleTutorial from '../dialog-manager/actions/toggle-tutorial';
 
 import './styles.scss';
 
-const Tutorial = ({ dialog, toggleTutorial }) => {
+const Tutorial = ({ toggleTutorial }) => {
     return (
         <div className={'tutorial__container'}>
             <Button
@@ -19,7 +19,6 @@ const Tutorial = ({ dialog, toggleTutorial }) => {
     );
 };
 
-const mapStateToProps = ({ dialog }) => ({ dialog });
 const actions = { toggleTutorial };
 
-export default connect(mapStateToProps, actions)(Tutorial);
+export default connect(null, actions)(Tutorial);
