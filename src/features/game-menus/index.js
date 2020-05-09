@@ -27,7 +27,7 @@ const GameMenus = ({ appState, dialog }) => {
     // disable the stats view when in game start or game over or settings
     const disableStats = gameStart || gameOver || settings;
 
-    const disableJournal = disableInventory || journalSideMenu;
+    const disableJournal = disableInventory;
 
     return (
         <div className="flex-row centered">
