@@ -17,7 +17,12 @@ import changeTutorialPage from './actions/change-tutorial-page';
 
 import './styles.scss';
 
-const TutorialDialog = ({ dialog }) => {
+const TutorialDialog = ({
+    dialog,
+    getNextPage,
+    getPreviousPage,
+    changeTutorialPage,
+}) => {
     function getTutorialPage(page) {
         switch (page) {
             case 'movement':
@@ -66,6 +71,6 @@ const TutorialDialog = ({ dialog }) => {
 };
 
 const mapStateToProps = ({ dialog }) => ({ dialog });
-const actions = { changeTutorialPage };
+const actions = { getNextPage, getPreviousPage, changeTutorialPage };
 
 export default connect(mapStateToProps, actions)(TutorialDialog);
