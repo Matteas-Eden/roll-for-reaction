@@ -1,5 +1,5 @@
 export default function changeTutorialPage(page) {
-    return (dispatch, getState) => {
+    return dispatch => {
         dispatch({
             type: 'PAUSE',
             payload: {
