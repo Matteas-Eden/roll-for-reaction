@@ -22,12 +22,14 @@ const GameMap = ({ map, world }) => {
         map = { ...map, ...randomMaps[floorNum - 1] };
     }
 
-    const wallType = getWallType(map.tiles);
+    const tileType = getWallType(map.tiles);
+    // console.log(map.wallType);
 
     return (
         <div style={mapStyle}>
             <MapPadding
-                tileType={wallType}
+                tileType={tileType}
+                wallType={map.wallType}
                 tiles={map.paddingTiles}
                 sightBox={map.paddingSightBox}
             />
@@ -36,6 +38,7 @@ const GameMap = ({ map, world }) => {
                 return (
                     <MapRow
                         tiles={row}
+                        wallType={map.wallType}
                         index={index}
                         sightBox={map.sightBox}
                         key={JSON.stringify(row) + index}
@@ -53,6 +56,7 @@ const MapRow = props => {
                 return (
                     <MapTile
                         tile={tile}
+                        wallType={props.wallType}
                         index={[index, props.index]}
                         sightBox={props.sightBox}
                         key={JSON.stringify(tile) + index}
