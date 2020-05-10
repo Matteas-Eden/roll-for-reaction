@@ -269,6 +269,7 @@ const ViewItem = ({
         );
     } else if (data.type === 'spell') {
         onKeyPress = () => setActiveSpell(data);
+        const unlocked = data.unlockLevel <= stats.level;
         ViewItemButtons = (
             <>
                 {player.spell && player.spell.name === data.name ? (
@@ -278,8 +279,17 @@ const ViewItem = ({
                     />
                 ) : (
                     <Button
-                        onClick={() => setActiveSpell(data)}
-                        title={'Set Active Spell'}
+                        extraClass={unlocked ? '' : 'selected'}
+                        onClick={() => {
+                            if (unlocked) {
+                                setActiveSpell(data);
+                            }
+                        }}
+                        title={
+                            unlocked
+                                ? 'Set Active Spell'
+                                : `Unlocks at level ${data.unlockLevel}`
+                        }
                     />
                 )}
             </>
