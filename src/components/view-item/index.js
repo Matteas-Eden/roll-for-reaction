@@ -246,11 +246,7 @@ const ViewItem = ({
     } else if (sell) {
         onKeyPress = () => setConfirmSell(true);
         ViewItemButtons = (
-            <Button
-                onClick={() => setConfirmSell(true)}
-                icon="coins"
-                title={'Sell Item'}
-            />
+            <Button onClick={onKeyPress} icon="coins" title={'Sell Item'} />
         );
     } else if (itemIsEquipped) {
         onKeyPress = () => {
@@ -258,33 +254,28 @@ const ViewItem = ({
             onClose();
         };
         ViewItemButtons = (
-            <Button
-                onClick={() => {
-                    unequipItem(data);
-                    onClose();
-                }}
-                icon="archive"
-                title={'Un-equip'}
-            />
+            <Button onClick={onKeyPress} icon="archive" title={'Un-equip'} />
         );
     } else if (data.type === 'spell') {
-        onKeyPress = () => setActiveSpell(data);
         const unlocked = data.unlockLevel <= stats.level;
+        onKeyPress = () => {
+            if (player.spell && player.spell.name === data.name) {
+                setActiveSpell(null);
+            } else if (unlocked) {
+                setActiveSpell(data);
+            }
+        };
         ViewItemButtons = (
             <>
                 {player.spell && player.spell.name === data.name ? (
                     <Button
-                        onClick={() => setActiveSpell(null)}
+                        onClick={onKeyPress}
                         title={'Remove Active Spell'}
                     />
                 ) : (
                     <Button
                         extraClass={unlocked ? '' : 'selected'}
-                        onClick={() => {
-                            if (unlocked) {
-                                setActiveSpell(data);
-                            }
-                        }}
+                        onClick={onKeyPress}
                         title={
                             unlocked
                                 ? 'Set Active Spell'

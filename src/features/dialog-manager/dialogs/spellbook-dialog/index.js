@@ -32,7 +32,7 @@ const SpellbookDialog = ({ player, stats, toggleSpellbookDialog }) => {
                                 player.spell !== null &&
                                 player.spell.name === spell.name
                             }
-                            unlocked={stats.level >= spell.unlockLevel}
+                            locked={stats.level < spell.unlockLevel}
                             unlockLevel={spell.unlockLevel}
                         />
                     </div>

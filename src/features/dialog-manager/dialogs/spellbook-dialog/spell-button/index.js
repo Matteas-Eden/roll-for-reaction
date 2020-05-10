@@ -9,7 +9,7 @@ const SpellButton = ({
     onClick,
     image,
     active,
-    unlocked,
+    locked,
     unlockLevel,
 }) => {
     return (
@@ -38,8 +38,8 @@ const SpellButton = ({
                     <span>Active</span>
                 </div>
             )}
-            {!unlocked && (
-                <div className="unlockable">
+            {locked && (
+                <div className="locked">
                     <span>Unlocked at level {unlockLevel}</span>
                 </div>
             )}

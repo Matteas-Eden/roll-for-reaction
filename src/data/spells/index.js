@@ -1,6 +1,6 @@
 import Fireball from './fireball';
 import Mend from './mend';
 
-const spells = [Fireball, Mend];
+const spells = [Mend, Fireball];
 
 export default spells;
