@@ -215,7 +215,7 @@ const ViewItem = ({
                     itemStats.push(
                         <StatsItem
                             stats={{
-                                name: 'extra damage',
+                                name: 'DMG over time',
                                 value: damageRange[0] + ' - ' + damageRange[1],
                             }}
                             key={uuidv4()}

@@ -7,7 +7,7 @@ const StatsItem = ({ stats }) => {
 
     function getColor(name) {
         switch (name) {
-            case 'extra damage':
+            case 'DMG over time':
             case 'damage':
                 return 'light-red';
             case 'effect':
