@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Button from '../../../../components/button';
-import Dialog from '../../../../components/dialog';
+import MicroDialog from '../../../../components/micro-dialog';
 
 import AbilityTutorial from './pages/ability-tutorial';
 import ShopTutorial from './pages/shop-tutorial';
@@ -14,10 +14,11 @@ import ItemTutorial from './pages/item-tutorial';
 import getNextPage from './actions/get-next-page';
 import getPreviousPage from './actions/get-previous-page';
 import changeTutorialPage from './actions/change-tutorial-page';
+import toggleTutorial from '../../actions/toggle-tutorial';
 
 import './styles.scss';
 
-const TutorialDialog = ({ dialog, changeTutorialPage }) => {
+const TutorialDialog = ({ dialog, toggleTutorial, changeTutorialPage }) => {
     function getTutorialPage(page) {
         switch (page) {
             case 'movement':
@@ -41,7 +42,11 @@ const TutorialDialog = ({ dialog, changeTutorialPage }) => {
     const nextPage = getNextPage(dialog.tutorialPage);
 
     return (
-        <Dialog>
+        <MicroDialog
+            onClose={() => toggleTutorial()}
+            fullsize
+            className="centered"
+        >
             {getTutorialPage(dialog.tutorialPage)}
             <div className="flex-row">
                 {prevPage && (
@@ -62,11 +67,11 @@ const TutorialDialog = ({ dialog, changeTutorialPage }) => {
                     </div>
                 )}
             </div>
-        </Dialog>
+        </MicroDialog>
     );
 };
 
 const mapStateToProps = ({ dialog }) => ({ dialog });
-const actions = { changeTutorialPage };
+const actions = { toggleTutorial, changeTutorialPage };
 
 export default connect(mapStateToProps, actions)(TutorialDialog);
