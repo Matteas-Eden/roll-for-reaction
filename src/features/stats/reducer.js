@@ -165,7 +165,8 @@ const statsReducer = (state = initialState, { type, payload }) => {
                     // if there's already armor
                     if (
                         newState.equippedItems.armor &&
-                        newState.equippedItems.armor.body
+                        newState.equippedItems.armor.body &&
+                        newState.equippedItems.armor.body.defence
                     ) {
                         // subtract it's benefits
                         newState.defence -=
@@ -182,7 +183,8 @@ const statsReducer = (state = initialState, { type, payload }) => {
                     // if there's already armor
                     if (
                         newState.equippedItems.armor &&
-                        newState.equippedItems.armor.helmet
+                        newState.equippedItems.armor.helmet &&
+                        newState.equippedItems.armor.helmet.defence
                     ) {
                         // subtract it's benefits
                         newState.defence -=
@@ -199,7 +201,8 @@ const statsReducer = (state = initialState, { type, payload }) => {
                     // if there's already armor
                     if (
                         newState.equippedItems.armor &&
-                        newState.equippedItems.armor.pants
+                        newState.equippedItems.armor.pants &&
+                        newState.equippedItems.armor.pants.defence
                     ) {
                         // subtract it's benefits
                         newState.defence -=
@@ -216,7 +219,8 @@ const statsReducer = (state = initialState, { type, payload }) => {
                     // if there's already armor
                     if (
                         newState.equippedItems.armor &&
-                        newState.equippedItems.armor.gloves
+                        newState.equippedItems.armor.gloves &&
+                        newState.equippedItems.armor.gloves.defence
                     ) {
                         // subtract it's benefits
                         newState.defence -=
@@ -233,7 +237,8 @@ const statsReducer = (state = initialState, { type, payload }) => {
                     // if there's already armor
                     if (
                         newState.equippedItems.armor &&
-                        newState.equippedItems.armor.boots
+                        newState.equippedItems.armor.boots &&
+                        newState.equippedItems.armor.boots.defence
                     ) {
                         // subtract it's benefits
                         newState.defence -=
