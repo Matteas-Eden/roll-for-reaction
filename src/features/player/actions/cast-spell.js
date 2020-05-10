@@ -1,7 +1,7 @@
 import { checkForMonster } from './move-player';
 import { calculateDamage, d20 } from '../../../utils/dice';
 import calculateModifier from '../../../utils/calculate-modifier';
-import { SPRITE_SIZE, AI_CHANGE_TURNS } from '../../../config/constants';
+import { SPRITE_SIZE } from '../../../config/constants';
 import errorMessage from '../../dialog-manager/actions/error-message';
 import { findTarget } from './attack-monster';
 
@@ -91,6 +91,7 @@ export default function castSpell() {
                         id: currMonster.id,
                         map: currentMap,
                         entity: currMonster.type,
+                        from: 'player',
                     },
                 });
 
@@ -130,8 +131,8 @@ export default function castSpell() {
                             type: 'CHANGE_AI',
                             payload: {
                                 from: currMonster.ai,
-                                ai: spell.effects.changeAI,
-                                turns: AI_CHANGE_TURNS,
+                                ai: spell.effects.changeAI.to,
+                                turns: spell.effects.changeAI.turns,
                                 id: currMonster.id,
                                 map: currentMap,
                                 entity: currMonster.type,

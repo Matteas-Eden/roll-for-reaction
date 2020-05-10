@@ -151,6 +151,7 @@ export default function attackMonster() {
                         id: currMonster.id,
                         map: currentMap,
                         entity: currMonster.type,
+                        from: 'player',
                     },
                 });
 
@@ -193,7 +194,7 @@ export default function attackMonster() {
                 });
             } else {
                 // Hit a wall or something else
-                if (weapon.kind !== 'melee') {
+                if (weapon.kind === 'ranged') {
                     dispatch({
                         type: 'USE_PROJECTILE',
                         payload: {

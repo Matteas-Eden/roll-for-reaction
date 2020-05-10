@@ -294,8 +294,8 @@ export default function moveNormally(sightBox, currentMap, monster) {
                     }
                 }
             }
-        } // monster is too far away from the player
-        else {
+        } else {
+            // monster is too far away from the player
             dispatch({
                 type: 'HIDE_MONSTER',
                 payload: { id, map: currentMap },

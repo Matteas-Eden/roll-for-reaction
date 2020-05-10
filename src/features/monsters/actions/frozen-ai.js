@@ -1,6 +1,6 @@
 import { SPRITE_SIZE } from '../../../config/constants';
 
-export default function moveNormally(sightBox, currentMap, monster) {
+export default function frozen(sightBox, currentMap, monster) {
     return dispatch => {
         const { id, position } = monster;
 

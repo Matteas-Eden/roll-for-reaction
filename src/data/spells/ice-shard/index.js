@@ -1,7 +1,7 @@
 // Credit: https://kvsr.itch.io/pixelarteffectfx017
 import IceShardSprite from './Fireball.png';
 import IceShardImage from './Fireball-image.png';
-import { SIGHT_RADIUS } from '../../../config/constants';
+import { SIGHT_RADIUS, AI_CHANGE_TURNS } from '../../../config/constants';
 
 const IceShard = {
     name: 'Ice Shard',
@@ -14,10 +14,10 @@ const IceShard = {
     size: { width: 40, height: 40, total: 200 },
     image: IceShardImage,
     sprite: IceShardSprite,
-    description: 'Tired of enemies attacking you? Tell them to chill out!',
+    description: 'Just chill out while I try to figure out what to do!',
     unlockLevel: 0,
     effects: {
-        changeAI: 'frozen',
+        changeAI: { to: 'frozen', turns: AI_CHANGE_TURNS },
     },
 };
 

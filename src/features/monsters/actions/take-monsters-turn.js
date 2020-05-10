@@ -1,5 +1,6 @@
 import moveNormally from './normal-ai';
 import frozen from './frozen-ai';
+import poisoned from './poisoned-ai';
 
 export default function takeMonstersTurn() {
     return (dispatch, getState) => {
@@ -17,6 +18,9 @@ export default function takeMonstersTurn() {
                     break;
                 case 'frozen':
                     dispatch(frozen(sightBox, currentMap, monster));
+                    break;
+                case 'poisoned':
+                    dispatch(poisoned(sightBox, currentMap, monster));
                     break;
                 default:
                     break;

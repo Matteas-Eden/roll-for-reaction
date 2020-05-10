@@ -116,23 +116,38 @@ const journalReducer = (state = initialState, { type, payload }) => {
         }
 
         case 'DAMAGE_TO_MONSTER': {
-            const { entity, damage } = payload;
+            const { entity, damage, from } = payload;
 
             newState = cloneDeep(state);
-            newState.entries.push({
-                key: uuidv4(),
-                entry:
-                    damage === 0 ? (
+
+            if (from === 'player') {
+                newState.entries.push({
+                    key: uuidv4(),
+                    entry:
+                        damage === 0 ? (
+                            <p key={uuidv4()}>
+                                You missed the {colourise(entity, 'type')}!
+                            </p>
+                        ) : (
+                            <p key={uuidv4()}>
+                                You dealt{' '}
+                                {colourise(damage, 'damage-to-monster')} damage
+                                to the {colourise(entity, 'type')}!
+                            </p>
+                        ),
+                });
+            } else {
+                newState.entries.push({
+                    key: uuidv4(),
+                    entry: (
                         <p key={uuidv4()}>
-                            You missed the {colourise(entity, 'type')}!
-                        </p>
-                    ) : (
-                        <p key={uuidv4()}>
-                            You dealt {colourise(damage, 'damage-to-monster')}{' '}
-                            damage to the {colourise(entity, 'type')}!
+                            The {colourise(entity, 'type')} took{' '}
+                            {colourise(damage, 'damage-to-monster')} damage from{' '}
+                            {colourise(from, 'damage-type')}!
                         </p>
                     ),
-            });
+                });
+            }
             return newState;
         }
 
