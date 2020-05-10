@@ -1,6 +1,6 @@
 // Credit: https://kvsr.itch.io/pixelarteffectfx017
-import IceShardSprite from './Fireball.png';
-import IceShardImage from './Fireball-image.png';
+import IceShardSprite from './IceShard.png';
+import IceShardImage from './IceShard-image.png';
 import { SIGHT_RADIUS, AI_CHANGE_TURNS } from '../../../config/constants';
 
 const IceShard = {
@@ -15,7 +15,7 @@ const IceShard = {
     image: IceShardImage,
     sprite: IceShardSprite,
     description: 'Just chill out while I try to figure out what to do!',
-    unlockLevel: 0,
+    unlockLevel: 5,
     effects: {
         changeAI: { to: 'frozen', turns: AI_CHANGE_TURNS, effect: 'freeze' },
     },

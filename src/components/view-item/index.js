@@ -92,15 +92,15 @@ const ViewItem = ({
             );
 
             const damageRange = calculateDamageRange(data.damage);
-            itemStats.push(
-                <StatsItem
-                    stats={{
-                        name: 'range',
-                        value: damageRange[0] + ' - ' + damageRange[1],
-                    }}
-                    key={uuidv4()}
-                />
-            );
+            // itemStats.push(
+            //     <StatsItem
+            //         stats={{
+            //             name: 'damage range',
+            //             value: damageRange[0] + ' - ' + damageRange[1],
+            //         }}
+            //         key={uuidv4()}
+            //     />
+            // );
             // if there's a bonus
             if (data.bonus) {
                 const [bonusType] = data.bonus.split('::');
@@ -161,15 +161,15 @@ const ViewItem = ({
                         key={uuidv4()}
                     />
                 );
-                itemStats.push(
-                    <StatsItem
-                        stats={{
-                            name: 'range',
-                            value: healRange[0] + ' - ' + healRange[1],
-                        }}
-                        key={uuidv4()}
-                    />
-                );
+                // itemStats.push(
+                //     <StatsItem
+                //         stats={{
+                //             name: 'heal range',
+                //             value: healRange[0] + ' - ' + healRange[1],
+                //         }}
+                //         key={uuidv4()}
+                //     />
+                // );
             } else {
                 const damageRange = calculateDamageRange(data.damage);
                 itemStats.push(
@@ -178,15 +178,15 @@ const ViewItem = ({
                         key={uuidv4()}
                     />
                 );
-                itemStats.push(
-                    <StatsItem
-                        stats={{
-                            name: 'range',
-                            value: damageRange[0] + ' - ' + damageRange[1],
-                        }}
-                        key={uuidv4()}
-                    />
-                );
+                // itemStats.push(
+                //     <StatsItem
+                //         stats={{
+                //             name: 'damage range',
+                //             value: damageRange[0] + ' - ' + damageRange[1],
+                //         }}
+                //         key={uuidv4()}
+                //     />
+                // );
             }
 
             itemStats.push(
@@ -209,14 +209,11 @@ const ViewItem = ({
 
                 if (data.effects.changeAI.extraDamage) {
                     const { damage, times } = data.effects.changeAI.extraDamage;
-                    const damageRange = calculateDamageRange(damage).map(
-                        damage => damage * times
-                    );
                     itemStats.push(
                         <StatsItem
                             stats={{
                                 name: 'DMG over time',
-                                value: damageRange[0] + ' - ' + damageRange[1],
+                                value: times + ' * ' + damage,
                             }}
                             key={uuidv4()}
                         />
@@ -307,7 +304,7 @@ const ViewItem = ({
                         title={
                             unlocked
                                 ? 'Set Active Spell'
-                                : `Unlocks at level ${data.unlockLevel}`
+                                : `Unlocked at level ${data.unlockLevel}`
                         }
                     />
                 )}

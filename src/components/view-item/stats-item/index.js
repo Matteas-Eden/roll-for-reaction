@@ -11,7 +11,7 @@ const StatsItem = ({ stats }) => {
             case 'damage':
                 return 'light-red';
             case 'effect':
-            case 'range':
+            case 'damage range':
             case 'defence':
                 return 'purple';
             case 'hp':
@@ -31,15 +31,9 @@ const StatsItem = ({ stats }) => {
 
     if (name === 'description') {
         return (
-            <>
-                <div className="flex-row stats-item__container">
-                    <span>{name}:</span>
-                </div>
-
-                <span className="flex-row stats-item__description">
-                    {stats.value}
-                </span>
-            </>
+            <span className="flex-row stats-item__description">
+                "{stats.value}"
+            </span>
         );
     }
 

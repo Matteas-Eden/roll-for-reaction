@@ -1,6 +1,6 @@
 // Credit: https://kvsr.itch.io/pixelarteffectfx017
-import PoisonDartSprite from './Fireball.png';
-import PoisonDartImage from './Fireball-image.png';
+import PoisonDartSprite from './PoisonDart.png';
+import PoisonDartImage from './PoisonDart-image.png';
 import {
     SIGHT_RADIUS,
     AI_CHANGE_TURNS,
@@ -19,13 +19,13 @@ const PoisonDart = {
     size: { width: 40, height: 40, total: 200 },
     image: PoisonDartImage,
     sprite: PoisonDartSprite,
-    description: 'Life is easier when noone else is around.',
-    unlockLevel: 0,
+    description: 'Life is easier when no-one else is around.',
+    unlockLevel: 8,
     effects: {
         changeAI: {
             to: 'poisoned',
             turns: AI_CHANGE_TURNS * TURNS_FOR_POISON,
-            effect: POISON_DAMAGE + ' poison',
+            effect: 'poison',
             extraDamage: { damage: POISON_DAMAGE, times: TURNS_FOR_POISON },
         },
     },
