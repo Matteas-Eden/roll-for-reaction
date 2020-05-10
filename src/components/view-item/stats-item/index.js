@@ -7,8 +7,10 @@ const StatsItem = ({ stats }) => {
 
     function getColor(name) {
         switch (name) {
+            case 'extra damage':
             case 'damage':
                 return 'light-red';
+            case 'effect':
             case 'range':
             case 'defence':
                 return 'purple';
@@ -30,10 +32,7 @@ const StatsItem = ({ stats }) => {
     if (name === 'description') {
         return (
             <>
-                <div
-                    className="flex-row stats-item__container"
-                    style={{ paddingTop: '20px' }}
-                >
+                <div className="flex-row stats-item__container">
                     <span>{name}:</span>
                 </div>
 

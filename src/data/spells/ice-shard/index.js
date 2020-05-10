@@ -17,7 +17,7 @@ const IceShard = {
     description: 'Just chill out while I try to figure out what to do!',
     unlockLevel: 0,
     effects: {
-        changeAI: { to: 'frozen', turns: AI_CHANGE_TURNS },
+        changeAI: { to: 'frozen', turns: AI_CHANGE_TURNS, effect: 'freeze' },
     },
 };
 

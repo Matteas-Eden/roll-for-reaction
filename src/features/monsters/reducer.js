@@ -73,8 +73,6 @@ const monstersReducer = (state = initialState, { type, payload }) => {
         case 'CHANGE_AI':
             newState = _cloneDeep(state);
 
-            console.log(payload);
-
             newState.components[payload.map][payload.id].ai = payload.ai;
             newState.components[payload.map][payload.id].aiTurns =
                 payload.turns;

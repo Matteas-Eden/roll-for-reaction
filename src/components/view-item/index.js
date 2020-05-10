@@ -196,6 +196,34 @@ const ViewItem = ({
                 />
             );
 
+            if (data.effects && data.effects.changeAI) {
+                itemStats.push(
+                    <StatsItem
+                        stats={{
+                            name: 'effect',
+                            value: data.effects.changeAI.effect,
+                        }}
+                        key={uuidv4()}
+                    />
+                );
+
+                if (data.effects.changeAI.extraDamage) {
+                    const { damage, times } = data.effects.changeAI.extraDamage;
+                    const damageRange = calculateDamageRange(damage).map(
+                        damage => damage * times
+                    );
+                    itemStats.push(
+                        <StatsItem
+                            stats={{
+                                name: 'extra damage',
+                                value: damageRange[0] + ' - ' + damageRange[1],
+                            }}
+                            key={uuidv4()}
+                        />
+                    );
+                }
+            }
+
             itemStats.push(
                 <StatsItem
                     stats={{ name: 'description', value: data.description }}

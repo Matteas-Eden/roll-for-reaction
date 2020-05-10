@@ -5,6 +5,7 @@ import {
     SIGHT_RADIUS,
     AI_CHANGE_TURNS,
     TURNS_FOR_POISON,
+    POISON_DAMAGE,
 } from '../../../config/constants';
 
 const PoisonDart = {
@@ -18,10 +19,15 @@ const PoisonDart = {
     size: { width: 40, height: 40, total: 200 },
     image: PoisonDartImage,
     sprite: PoisonDartSprite,
-    description: 'Life is easier when you have friends. Or poison.',
+    description: 'Life is easier when noone else is around.',
     unlockLevel: 0,
     effects: {
-        changeAI: { to: 'poisoned', turns: AI_CHANGE_TURNS * TURNS_FOR_POISON },
+        changeAI: {
+            to: 'poisoned',
+            turns: AI_CHANGE_TURNS * TURNS_FOR_POISON,
+            effect: POISON_DAMAGE + ' poison',
+            extraDamage: { damage: POISON_DAMAGE, times: TURNS_FOR_POISON },
+        },
     },
 };
 
