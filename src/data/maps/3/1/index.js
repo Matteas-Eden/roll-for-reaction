@@ -16,6 +16,8 @@ const tiles = [
     [5, 5, 5, 5, 5, 5, 0, 0, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
 ];
 
+const wallType = 'blue-pattern';
+
 const monsters = [
     {
         type: 'rat',
@@ -44,12 +46,14 @@ const stairs = {
 };
 
 const message = {
-    title: `As <> enters the dungeon, they start coughing from the putrid scent...`,
-    body: `<> tries to ignore the smell as they recall their quest: Speak with the Old Spirit at his resting place.`,
+    title:
+        'As <> delves deeper into the dungeon, the walls change tone yet again.',
+    body: `It is almost as if magic itself is imbued into the very stones`,
 };
 
 export default {
     tiles,
+    wallType,
     monsters,
     stairs,
     message,

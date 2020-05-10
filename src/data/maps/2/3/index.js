@@ -16,7 +16,7 @@ const tiles = [
     [7, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 7],
 ];
 
-const wallType = 'blue';
+const wallType = 'blue-pattern';
 
 const monsters = [
     {
