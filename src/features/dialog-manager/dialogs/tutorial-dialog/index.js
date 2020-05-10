@@ -43,24 +43,25 @@ const TutorialDialog = ({ dialog, changeTutorialPage }) => {
     return (
         <Dialog>
             {getTutorialPage(dialog.tutorialPage)}
+            <div className="flex-row">
+                {prevPage && (
+                    <div className="flex-column tutorial__button">
+                        <Button
+                            onClick={() => changeTutorialPage(prevPage)}
+                            title={'Previous'}
+                        />
+                    </div>
+                )}
 
-            {prevPage && (
-                <div className="flex-column tutorial__button">
-                    <Button
-                        onClick={changeTutorialPage(prevPage)}
-                        title={'Previous'}
-                    />
-                </div>
-            )}
-
-            {nextPage && (
-                <div className="flex-column tutorial__button">
-                    <Button
-                        onClick={changeTutorialPage(nextPage)}
-                        title={'Next'}
-                    />
-                </div>
-            )}
+                {nextPage && (
+                    <div className="flex-column tutorial__button">
+                        <Button
+                            onClick={() => changeTutorialPage(nextPage)}
+                            title={'Next'}
+                        />
+                    </div>
+                )}
+            </div>
         </Dialog>
     );
 };

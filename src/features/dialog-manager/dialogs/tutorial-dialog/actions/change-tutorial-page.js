@@ -1,10 +1,8 @@
 export default function changeTutorialPage(page) {
     return dispatch => {
         dispatch({
-            type: 'PAUSE',
+            type: 'CHANGE_TUTORIAL_PAGE',
             payload: {
-                pause: true,
-                tutorial: true,
                 tutorialPage: page,
             },
         });
