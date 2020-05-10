@@ -36,7 +36,14 @@ export default function moveNormally(sightBox, currentMap, monster) {
         if (monster.aiTurns === 0) {
             dispatch({
                 type: 'CHANGE_AI',
-                payload: { map: currentMap, ai: 'normal', id },
+                payload: {
+                    map: currentMap,
+                    ai: 'normal',
+                    id,
+                    from: 'frozen',
+                    turns: 0,
+                    entity: monster.type,
+                },
             });
         }
     };

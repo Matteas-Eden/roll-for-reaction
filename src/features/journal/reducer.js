@@ -179,6 +179,36 @@ const journalReducer = (state = initialState, { type, payload }) => {
             return newState;
         }
 
+        case 'CHANGE_AI': {
+            const { from, ai, entity } = payload;
+
+            newState = cloneDeep(state);
+
+            if (from !== 'normal') {
+                newState.entries.push({
+                    key: uuidv4(),
+                    entry: (
+                        <p key={uuidv4()}>
+                            The {colourise(entity, 'type')} stopped being{' '}
+                            {colourise(from, 'ai')}!
+                        </p>
+                    ),
+                });
+            } else {
+                newState.entries.push({
+                    key: uuidv4(),
+                    entry: (
+                        <p key={uuidv4()}>
+                            The {colourise(entity, 'type')} was{' '}
+                            {colourise(ai, 'ai')}!
+                        </p>
+                    ),
+                });
+            }
+
+            return newState;
+        }
+
         case 'GET_ITEM': {
             const { name } = payload;
 
@@ -200,7 +230,7 @@ const journalReducer = (state = initialState, { type, payload }) => {
                 key: uuidv4(),
                 entry: (
                     <p key={uuidv4()}>
-                        You have gained {colourise(payload, 'experience')}{' '}
+                        You gained {colourise(payload, 'experience')}{' '}
                         experience!
                     </p>
                 ),
@@ -215,7 +245,7 @@ const journalReducer = (state = initialState, { type, payload }) => {
                 key: uuidv4(),
                 entry: (
                     <p key={uuidv4()}>
-                        You have gained {colourise(payload, 'gold')} gold!
+                        You gained {colourise(payload, 'gold')} gold!
                     </p>
                 ),
             });

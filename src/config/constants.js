@@ -91,3 +91,6 @@ export const OUT_OF_COMBAT_RANGE = 4;
 export const MIN_PRICE_PERCENT = 0.1;
 export const MID_PRICE_PERCENT = 0.6;
 export const MAX_PRICE_PERCENT = 1.2;
+
+// The number of turns an AI change stays in effect
+export const AI_CHANGE_TURNS = 3;
