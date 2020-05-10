@@ -6,7 +6,7 @@ import {
 import { calculateDamage, d20 } from '../../../utils/dice';
 import calculateModifier from '../../../utils/calculate-modifier';
 import getNextTile from '../../../utils/get-next-tile';
-import { SPRITE_SIZE, UNARMED_DAMAGE } from '../../../config/constants';
+import { SPRITE_SIZE, FISTS } from '../../../config/constants';
 
 export const findTarget = (position, direction, range) => {
     return dispatch => {
@@ -86,11 +86,7 @@ export default function attackMonster() {
             const { currentMap } = world;
             const { components } = monsters;
 
-            const { weapon } = stats.equippedItems || {
-                kind: 'melee',
-                range: 1,
-                damage: UNARMED_DAMAGE,
-            };
+            const weapon = stats.equippedItems.weapon || FISTS;
 
             const targetPosition = dispatch(
                 findTarget(position, direction, weapon.range * SPRITE_SIZE)

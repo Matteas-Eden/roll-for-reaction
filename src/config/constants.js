@@ -76,6 +76,13 @@ export const ESC_KEY = 27;
 
 // If the player is unarmed, we need them to still be able to attack
 export const UNARMED_DAMAGE = '1d4';
+export const FISTS = {
+    name: 'fists',
+    kind: 'melee',
+    range: 1,
+    damage: UNARMED_DAMAGE,
+    type: 'weapon',
+};
 
 export const PASSIVE_MANA_RESTORE_TURNS = 5;
 export const OUT_OF_COMBAT_RANGE = 4;
