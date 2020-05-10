@@ -49,7 +49,6 @@ const MapTile = ({ tile, wallType, index, sightBox }) => {
 };
 
 export function getTileSprite(type, variation, wallType) {
-    console.log(wallType);
     switch (type) {
         case -2:
             return 'chest-open';
@@ -57,6 +56,8 @@ export function getTileSprite(type, variation, wallType) {
             return 'blood-splatter';
         case 0:
             return `ground-${variation}`;
+        // case 1:
+        // fire
         case 2:
             return 'stairs-down';
         case 3:

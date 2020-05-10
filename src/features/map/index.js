@@ -23,7 +23,6 @@ const GameMap = ({ map, world }) => {
     }
 
     const tileType = getWallType(map.tiles);
-    // console.log(map.wallType);
 
     return (
         <div style={mapStyle}>
