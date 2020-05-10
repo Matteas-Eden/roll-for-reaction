@@ -18,7 +18,6 @@ import calculateModifier from '../../utils/calculate-modifier';
 import calculateWisdomPotionBonus from '../../utils/calculate-wisdom-potion-bonus';
 import calculatePrices from '../../utils/calculate-prices';
 import setActiveSpell from '../../features/dialog-manager/actions/set-active-spell';
-import { calculateDamageRange } from '../../utils/dice';
 
 import './styles.scss';
 
@@ -90,18 +89,6 @@ const ViewItem = ({
                     key={uuidv4()}
                 />
             );
-
-            const damageRange = calculateDamageRange(data.damage);
-            // itemStats.push(
-            //     <StatsItem
-            //         stats={{
-            //             name: 'damage range',
-            //             value: damageRange[0] + ' - ' + damageRange[1],
-            //         }}
-            //         key={uuidv4()}
-            //     />
-            // );
-            // if there's a bonus
             if (data.bonus) {
                 const [bonusType] = data.bonus.split('::');
                 const bonusMult = parseFloat(data.bonus.split('::')[1], 10);
@@ -154,39 +141,19 @@ const ViewItem = ({
 
         case 'spell':
             if (data.target.includes('self')) {
-                const healRange = calculateDamageRange(data.damage);
                 itemStats.push(
                     <StatsItem
                         stats={{ name: 'heal', value: data.damage }}
                         key={uuidv4()}
                     />
                 );
-                // itemStats.push(
-                //     <StatsItem
-                //         stats={{
-                //             name: 'heal range',
-                //             value: healRange[0] + ' - ' + healRange[1],
-                //         }}
-                //         key={uuidv4()}
-                //     />
-                // );
             } else {
-                const damageRange = calculateDamageRange(data.damage);
                 itemStats.push(
                     <StatsItem
                         stats={{ name: 'damage', value: data.damage }}
                         key={uuidv4()}
                     />
                 );
-                // itemStats.push(
-                //     <StatsItem
-                //         stats={{
-                //             name: 'damage range',
-                //             value: damageRange[0] + ' - ' + damageRange[1],
-                //         }}
-                //         key={uuidv4()}
-                //     />
-                // );
             }
 
             itemStats.push(
