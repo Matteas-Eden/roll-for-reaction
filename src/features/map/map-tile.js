@@ -23,7 +23,7 @@ const MapTile = ({ tile, wallType, index, sightBox }) => {
         });
     }
     // case for rendering animated flame tile
-    if (tile.value === 1) {
+    if (tile.value === 6) {
         return (
             <GroundTile variation={tile.variation}>
                 <Flame position={index}>
@@ -56,8 +56,6 @@ export function getTileSprite(type, variation, wallType) {
             return 'blood-splatter';
         case 0:
             return `ground-${variation}`;
-        // case 1:
-        // fire
         case 2:
             return 'stairs-down';
         case 3:
@@ -66,6 +64,8 @@ export function getTileSprite(type, variation, wallType) {
             return 'chest';
         case 5:
             return `walls/${wallType}/${wallType}-${variation}`;
+        // case 6:
+        // fire
         case 9:
             return 'shop';
         case 10:
