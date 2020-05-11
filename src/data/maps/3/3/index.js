@@ -5,7 +5,7 @@ const tiles = [
     [5, 5, 0, 5, 5, 5, 5, 5, 5, 0, 5, 5, 5, 5, 5, 5, 5, 0, 5, 5],
     [5, 6, 0, 6, 5, 5, 5, 0, 6, 0, 6, 0, 5, 5, 5, 5, 6, 0, 6, 5],
     [5, 0, 0, 0, 5, 5, 5, 0, 0, 0, 0, 0, 5, 5, 5, 5, 0, 0, 0, 5],
-    [4, 0, 0, 0, 5, 5, 5, 0, 0, 4, 0, 0, 5, 5, 5, 5, 0, 0, 0, 4],
+    [5, 0, 4, 0, 5, 5, 5, 0, 0, 4, 0, 0, 5, 5, 5, 5, 0, 4, 0, 5],
     [5, 0, 0, 0, 5, 5, 5, 0, 0, 0, 0, 0, 5, 5, 5, 5, 0, 0, 0, 5],
     [5, 6, 0, 6, 5, 5, 5, 0, 6, 0, 6, 0, 5, 5, 5, 5, 6, 0, 6, 5],
     [5, 5, 0, 5, 5, 5, 5, 5, 5, 0, 5, 5, 5, 5, 5, 5, 5, 0, 5, 5],
@@ -16,7 +16,7 @@ const tiles = [
     [5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
 ]; //0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
 
-const wallType = 'purple-pattern';
+const wallType = 'purple-brick';
 const monsters = [
     {
         type: 'goblin',
@@ -44,7 +44,7 @@ const stairs = {
 const message = {
     title: '<> stares down the crossroads wondering which way to go.',
     body:
-        'The warm air touches their skin and <> smiles.  Adventture and treasure will face them no matter which direction they trek.',
+        'The warm air touches their skin and <> smiles.  Adventure and treasure will face them no matter which direction they trek.',
 };
 
 export default {
