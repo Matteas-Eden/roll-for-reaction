@@ -1,8 +1,8 @@
 const tiles = [
-    [5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
-    [5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
-    [5, 5, 5, 5, 5, 5, 0, 0, 0, 0, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
-    [5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
+    [0, 0, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
+    [5, 0, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
+    [5, 0, 5, 5, 5, 5, 0, 0, 0, 0, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
+    [5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
     [5, 5, 0, 5, 5, 5, 0, 0, 0, 0, 0, 0, 5, 5, 5, 4, 0, 0, 0, 5],
     [5, 5, 0, 5, 5, 5, 0, 5, 5, 5, 5, 0, 5, 5, 5, 0, 0, 0, 0, 5],
     [5, 6, 0, 6, 5, 5, 0, 5, 5, 5, 5, 0, 5, 5, 5, 0, 0, 0, 0, 5],
@@ -44,8 +44,8 @@ const stairs = {
 
 const message = {
     title:
-        '<> has defeated the Lich, but more adventure lies ahead with more monsters to be slain.',
-    body: `As <> delves deeper into the dungeon, the walls change tone yet again.It is almost as if magic itself is imbued into the very stones`,
+        '<> prevailed over the Lich, but more adventure lies ahead with many monsters to be slain.',
+    body: `As <> delves deeper into the dungeon, the walls change tone yet again. It is almost as if magic itself is imbued into the very stones`,
 };
 
 export default {
