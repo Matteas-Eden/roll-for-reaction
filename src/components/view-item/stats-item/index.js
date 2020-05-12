@@ -20,6 +20,7 @@ const StatsItem = ({ stats }) => {
             case 'mana cost':
             case 'mana':
                 return 'blue';
+            case 'chance':
             case 'slots':
             case 'VS. dragon':
             case 'VS. lich':

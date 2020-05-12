@@ -12,7 +12,7 @@ export default function poisoned(sightBox, currentMap, monster) {
 
         dispatch(moveNormally(sightBox, currentMap, monster));
 
-        let died = false;
+        let dead = false;
 
         if (monster.aiTurns % TURNS_FOR_POISON === TURNS_FOR_POISON - 1) {
             const damage = calculateDamage(POISON_DAMAGE);
@@ -29,7 +29,7 @@ export default function poisoned(sightBox, currentMap, monster) {
             });
 
             if (monster.hp - damage <= 0) {
-                died = true;
+                dead = true;
                 // and get some exp
                 dispatch({
                     type: 'GET_EXP',
@@ -63,7 +63,7 @@ export default function poisoned(sightBox, currentMap, monster) {
             }
         }
 
-        if (!died && monster.aiTurns === 0) {
+        if (!dead && monster.aiTurns === 0) {
             dispatch({
                 type: 'CHANGE_AI',
                 payload: {

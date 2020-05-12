@@ -127,17 +127,37 @@ export default function castSpell() {
                     });
                 } else {
                     if (spell.effects && spell.effects.changeAI) {
-                        dispatch({
-                            type: 'CHANGE_AI',
-                            payload: {
-                                from: currMonster.ai,
-                                ai: spell.effects.changeAI.to,
-                                turns: spell.effects.changeAI.turns,
-                                id: currMonster.id,
-                                map: currentMap,
-                                entity: currMonster.type,
-                            },
-                        });
+                        const { to, turns, proc } = spell.effects.changeAI;
+
+                        // If we have a probabilty to hit, then use that to check if we do
+                        if (proc) {
+                            if (proc()) {
+                                dispatch({
+                                    type: 'CHANGE_AI',
+                                    payload: {
+                                        from: currMonster.ai,
+                                        ai: to,
+                                        turns,
+                                        id: currMonster.id,
+                                        map: currentMap,
+                                        entity: currMonster.type,
+                                    },
+                                });
+                            }
+                        } else {
+                            // Otherwise, just set the AI to whatever it is
+                            dispatch({
+                                type: 'CHANGE_AI',
+                                payload: {
+                                    from: currMonster.ai,
+                                    ai: to,
+                                    turns,
+                                    id: currMonster.id,
+                                    map: currentMap,
+                                    entity: currMonster.type,
+                                },
+                            });
+                        }
                     }
                 }
 

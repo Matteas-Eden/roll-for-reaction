@@ -174,6 +174,18 @@ const ViewItem = ({
                     />
                 );
 
+                if (data.effects.changeAI.proc) {
+                    itemStats.push(
+                        <StatsItem
+                            stats={{
+                                name: 'chance',
+                                value: data.effects.changeAI.chance,
+                            }}
+                            key={uuidv4()}
+                        />
+                    );
+                }
+
                 if (data.effects.changeAI.extraDamage) {
                     const { damage, times } = data.effects.changeAI.extraDamage;
                     itemStats.push(

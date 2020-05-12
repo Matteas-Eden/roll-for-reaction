@@ -97,3 +97,4 @@ export const AI_CHANGE_TURNS = 3;
 // Damage inflicted by poison every time it hits
 export const POISON_DAMAGE = '1d4';
 export const TURNS_FOR_POISON = 3;
+export const SHOCK_DAMAGE = '1d4';
