@@ -23,6 +23,10 @@ const monsters = [
         type: 'stone-golem',
         position: [6, 10],
     },
+    {
+        type: 'lich',
+        position: [8, 8],
+    },
 ];
 
 const stairs = {
