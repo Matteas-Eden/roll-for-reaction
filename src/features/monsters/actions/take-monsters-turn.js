@@ -2,6 +2,7 @@ import moveNormally from './normal-ai';
 import frozen from './frozen-ai';
 import poisoned from './poisoned-ai';
 import shocked from './shocked-ai';
+import scared from './scared-ai';
 
 export default function takeMonstersTurn() {
     return (dispatch, getState) => {
@@ -25,6 +26,9 @@ export default function takeMonstersTurn() {
                     break;
                 case 'shocked':
                     dispatch(shocked(sightBox, currentMap, monster));
+                    break;
+                case 'scared':
+                    dispatch(scared(sightBox, currentMap, monster));
                     break;
                 default:
                     break;

@@ -27,7 +27,7 @@ const LightningBolt = {
             turns: AI_CHANGE_TURNS,
             effect: 'shock',
             // 25% Chance of it proc'ing
-            proc: () => Math.random() * 99 + 1 < 25,
+            proc: () => Math.floor(Math.random() * 99) + 1 < 25,
             chance: '25%',
             extraDamage: {
                 damage: SHOCK_DAMAGE,

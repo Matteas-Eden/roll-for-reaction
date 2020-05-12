@@ -1,4 +1,3 @@
-import moveNormally from './normal-ai';
 import { calculateDamage } from '../../../utils/dice';
 import { SHOCK_DAMAGE, SPRITE_SIZE } from '../../../config/constants';
 

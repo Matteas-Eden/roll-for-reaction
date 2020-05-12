@@ -40,7 +40,6 @@ export function checkForOtherMonster(id, position, currentMap) {
     return (_, getState) => {
         // get current monsters
         const monsterList = getState().monsters.components[currentMap];
-        let foundMonster = false;
         // check list of monsters
         Object.keys(monsterList).forEach(monsterId => {
             // see if there's another monster in the next position
@@ -49,11 +48,11 @@ export function checkForOtherMonster(id, position, currentMap) {
                 JSON.stringify(position)
             ) {
                 if (monsterId !== id) {
-                    foundMonster = true;
+                    return monsterId;
                 }
             }
         });
 
-        return foundMonster;
+        return undefined;
     };
 }

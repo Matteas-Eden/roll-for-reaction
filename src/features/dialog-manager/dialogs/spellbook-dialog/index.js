@@ -21,7 +21,7 @@ const SpellbookDialog = ({ player, stats, toggleSpellbookDialog }) => {
                 onClose={() => setViewSpell(false)}
             />
             <span className="spellbook-dialog__title">{'Spellbook'}</span>
-            <div className="spellbook_dialog__container">
+            <div className="spellbook-dialog__container">
                 {spells.map(spell => (
                     <div key={spell.name} className="spellbook-spell">
                         <SpellButtom
