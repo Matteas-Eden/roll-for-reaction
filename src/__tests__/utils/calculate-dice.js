@@ -24,4 +24,28 @@ describe('when you roll a dice', () => {
         const range = calculateDamageRange(notation);
         expect(range).toEqual([4, 13]);
     });
+
+    test('that has the notation 2d1 + 5', () => {
+        const notation = '2d1 + 5';
+        const range = calculateDamageRange(notation);
+        expect(range).toEqual([7, 7]);
+    });
+
+    test('that has the notation 5', () => {
+        const notation = '5';
+        const range = calculateDamageRange(notation);
+        expect(range).toEqual([5, 5]);
+    });
+
+    test('that has the notation 2d', () => {
+        const notation = '2d';
+        const range = calculateDamageRange(notation);
+        expect(range).toEqual([0, 0]);
+    });
+
+    test('that has no notation', () => {
+        const notation = '';
+        const range = calculateDamageRange(notation);
+        expect(range).toEqual([0, 0]);
+    });
 });

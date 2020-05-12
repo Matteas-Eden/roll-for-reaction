@@ -203,7 +203,7 @@ const rpn = (postfix, die) => {
 
     return Array.isArray(evaluated) // We can either get a value here, or an array (indicating the last item is a dice roll)
         ? evaluated.reduce((sum, value) => sum + value, 0)
-        : evaluated;
+        : parseInt(evaluated || '0', 10); // In case of evaluated being an empty string
 };
 
 const parse = (notation, dice) => rpn(yard(lex(notation)), dice);
