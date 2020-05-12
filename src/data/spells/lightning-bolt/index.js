@@ -13,7 +13,7 @@ const LightningBolt = {
     target: 'enemy',
     kind: 'combat',
     range: SIGHT_RADIUS,
-    damage: '1d4',
+    damage: '1d6',
     manaCost: 23,
     size: { width: 40, height: 40, total: 200 },
     image: LightningBoltImage,

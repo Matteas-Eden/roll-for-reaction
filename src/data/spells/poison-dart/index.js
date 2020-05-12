@@ -14,7 +14,7 @@ const PoisonDart = {
     target: 'enemy',
     kind: 'combat',
     range: SIGHT_RADIUS,
-    damage: '1d4',
+    damage: '2d4',
     manaCost: 18,
     size: { width: 40, height: 40, total: 200 },
     image: PoisonDartImage,
