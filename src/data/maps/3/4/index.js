@@ -20,19 +20,19 @@ const wallType = 'purple-brick';
 
 const monsters = [
     {
-        type: 'goblin',
+        type: 'warlock',
         position: [5, 7],
     },
     {
-        type: 'orc',
+        type: 'warlock',
         position: [9, 11],
     },
     {
-        type: 'orc',
+        type: 'medusa',
         position: [15, 5],
     },
     {
-        type: 'stone-golem',
+        type: 'medusa',
         position: [6, 12],
     },
 ];

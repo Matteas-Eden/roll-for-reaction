@@ -21,7 +21,11 @@ const wallType = 'skull';
 const monsters = [
     {
         type: 'lich',
-        position: [12, 12],
+        position: [12, 11],
+    },
+    {
+        type: 'cerebus',
+        position: [12, 13],
     },
 ];
 

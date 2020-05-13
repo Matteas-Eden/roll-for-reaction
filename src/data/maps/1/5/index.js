@@ -20,7 +20,7 @@ const wallType = 'ornate';
 
 const monsters = [
     {
-        type: 'stone-golem',
+        type: 'goblin',
         position: [1, 9],
     },
     {
@@ -28,7 +28,7 @@ const monsters = [
         position: [10, 9],
     },
     {
-        type: 'stone-golem',
+        type: 'orc',
         position: [18, 9],
     },
 ];

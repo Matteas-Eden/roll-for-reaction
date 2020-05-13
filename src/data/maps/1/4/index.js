@@ -24,15 +24,15 @@ const monsters = [
         position: [15, 10],
     },
     {
-        type: 'orc',
+        type: 'wolf',
         position: [12, 11],
     },
     {
-        type: 'orc',
+        type: 'wolf',
         position: [14, 12],
     },
     {
-        type: 'stone-golem',
+        type: 'orc',
         position: [2, 2],
     },
 ];
@@ -44,7 +44,7 @@ const stairs = {
 
 const message = {
     title: `<> thinks back to all the monsters they've slain.`,
-    body: `I hope someone else is cleaning up the blood, cause I'm not getting paid enough to do that...`,
+    body: `'I hope someone else is cleaning up the blood, cause I'm not getting paid enough to do that...' <> thinks`,
 };
 
 export default {

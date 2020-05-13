@@ -20,7 +20,7 @@ const wallType = 'blue';
 
 const monsters = [
     {
-        type: 'imp',
+        type: 'goblin',
         position: [4, 5],
     },
     {
@@ -32,7 +32,7 @@ const monsters = [
         position: [5, 11],
     },
     {
-        type: 'imp',
+        type: 'ghost',
         position: [3, 8],
     },
 ];

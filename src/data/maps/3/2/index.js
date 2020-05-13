@@ -20,23 +20,23 @@ const wallType = 'purple';
 
 const monsters = [
     {
-        type: 'rat',
+        type: 'imp',
         position: [2, 2],
     },
     {
-        type: 'rat',
+        type: 'imp',
         position: [8, 1],
     },
     {
-        type: 'bat',
+        type: 'warlock',
         position: [11, 4],
     },
     {
-        type: 'bat',
+        type: 'imp',
         position: [13, 7],
     },
     {
-        type: 'wolf',
+        type: 'stone-golem',
         position: [19, 7],
     },
 ];

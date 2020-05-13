@@ -20,15 +20,15 @@ const wallType = 'blue-pattern';
 
 const monsters = [
     {
-        type: 'dragon',
+        type: 'stone-golem',
         position: [12, 12],
     },
     {
-        type: 'dragon',
+        type: 'imp',
         position: [11, 9],
     },
     {
-        type: 'dragon',
+        type: 'imp',
         position: [10, 11],
     },
 ];

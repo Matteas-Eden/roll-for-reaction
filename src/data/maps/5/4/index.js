@@ -20,19 +20,19 @@ const wallType = 'inca-light';
 
 const monsters = [
     {
-        type: 'goblin',
+        type: 'dragon',
         position: [8, 10],
     },
     {
-        type: 'orc',
+        type: 'dragon',
         position: [18, 7],
     },
     {
-        type: 'orc',
+        type: 'dragon',
         position: [13, 4],
     },
     {
-        type: 'stone-golem',
+        type: 'dragon',
         position: [4, 7],
     },
 ];
@@ -44,7 +44,7 @@ const stairs = {
 
 const message = {
     title: 'Choices faced <> every which way.',
-    body: `Left or right?  To be or not to be?`,
+    body: `Left or right?  Up or Down? To be or not to be?`,
 };
 
 export default {

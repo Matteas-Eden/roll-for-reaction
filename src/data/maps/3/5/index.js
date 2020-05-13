@@ -20,11 +20,7 @@ const wallType = 'skull';
 
 const monsters = [
     {
-        type: 'stone-golem',
-        position: [6, 10],
-    },
-    {
-        type: 'lich',
+        type: 'cerebus',
         position: [8, 8],
     },
 ];

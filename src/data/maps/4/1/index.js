@@ -20,27 +20,27 @@ const wallType = 'green-cracks';
 
 const monsters = [
     {
-        type: 'imp',
+        type: 'medusa',
         position: [14, 5],
     },
     {
-        type: 'orc',
+        type: 'black-orc',
         position: [14, 13],
     },
     {
-        type: 'orc',
+        type: 'black-orc',
         position: [4, 2],
     },
     {
-        type: 'imp',
+        type: 'warlock',
         position: [4, 7],
     },
     {
-        type: 'imp',
+        type: 'medusa',
         position: [6, 5],
     },
     {
-        type: 'imp',
+        type: 'medusa',
         position: [9, 12],
     },
 ];

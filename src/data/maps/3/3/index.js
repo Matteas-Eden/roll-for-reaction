@@ -19,19 +19,19 @@ const tiles = [
 const wallType = 'purple-brick';
 const monsters = [
     {
-        type: 'goblin',
+        type: 'medusa',
         position: [2, 6],
     },
     {
-        type: 'wolf',
+        type: 'imp',
         position: [8, 6],
     },
     {
-        type: 'goblin',
+        type: 'warlock',
         position: [10, 6],
     },
     {
-        type: 'wolf',
+        type: 'warlock',
         position: [17, 6],
     },
 ];

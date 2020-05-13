@@ -20,19 +20,19 @@ const wallType = 'blue-pattern';
 
 const monsters = [
     {
-        type: 'black-orc',
+        type: 'ghost',
         position: [5, 5],
     },
     {
-        type: 'imp',
+        type: 'orc',
         position: [8, 5],
     },
     {
-        type: 'black-orc',
+        type: 'ghost',
         position: [7, 7],
     },
     {
-        type: 'imp',
+        type: 'stone-golem',
         position: [6, 9],
     },
 ];

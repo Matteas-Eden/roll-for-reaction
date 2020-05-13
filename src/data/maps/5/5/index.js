@@ -20,8 +20,60 @@ const wallType = 'skull';
 
 const monsters = [
     {
+        type: 'rat',
+        position: [8, 4],
+    },
+    {
+        type: 'bat',
+        position: [8, 11],
+    },
+    {
+        type: 'wolf',
+        position: [10, 3],
+    },
+    {
+        type: 'goblin',
+        position: [10, 9],
+    },
+    {
+        type: 'orc',
+        position: [12, 4],
+    },
+    {
+        type: 'ghost',
+        position: [12, 11],
+    },
+    {
+        type: 'stone-golem',
+        position: [14, 3],
+    },
+    {
+        type: 'warlock',
+        position: [14, 9],
+    },
+    {
+        type: 'imp',
+        position: [16, 4],
+    },
+    {
+        type: 'medusa',
+        position: [16, 11],
+    },
+    {
+        type: 'black-orc',
+        position: [9, 6],
+    },
+    {
+        type: 'dragon',
+        position: [11, 6],
+    },
+    {
         type: 'lich',
-        position: [12, 6],
+        position: [13, 6],
+    },
+    {
+        type: 'cerebus',
+        position: [15, 6],
     },
 ];
 
@@ -31,8 +83,8 @@ const stairs = {
 
 const message = {
     title:
-        'The final batlle.  <> could see the sword resting just beyond the final monsters.',
-    body: `<> hadn't long to go now, one more battle and they would be triumphant.`,
+        'The final batlle.  <> could feel the sword resonating where it rested just beyond the final swarm of monsters.',
+    body: `Every monster he had faced was here.  <> hadn't long to go now, one more battle and they would be triumphant.`,
 };
 
 export default {

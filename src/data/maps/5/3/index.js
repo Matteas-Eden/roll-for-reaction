@@ -20,7 +20,7 @@ const wallType = 'inca-light';
 
 const monsters = [
     {
-        type: 'stone-golem',
+        type: 'black-orc',
         position: [0, 12],
     },
     {
@@ -28,27 +28,27 @@ const monsters = [
         position: [4, 12],
     },
     {
-        type: 'orc',
+        type: 'dragon',
         position: [0, 7],
     },
     {
-        type: 'stone-golem',
+        type: 'imp',
         position: [4, 7],
     },
     {
-        type: 'stone-golem',
+        type: 'warlock',
         position: [18, 1],
     },
     {
-        type: 'stone-golem',
+        type: 'medusa',
         position: [14, 1],
     },
     {
-        type: 'orc',
+        type: 'dragon',
         position: [18, 6],
     },
     {
-        type: 'stone-golem',
+        type: 'ghost',
         position: [14, 6],
     },
 ];
