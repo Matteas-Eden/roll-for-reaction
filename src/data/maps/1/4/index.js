@@ -42,9 +42,15 @@ const stairs = {
     up: '1_5',
 };
 
+const message = {
+    title: `<> thinks back to all the monsters they've slain.`,
+    body: `I hope someone else is cleaning up the blood, cause I'm not getting paid enough to do that...`,
+};
+
 export default {
     tiles,
     wallType,
     monsters,
     stairs,
+    message,
 };

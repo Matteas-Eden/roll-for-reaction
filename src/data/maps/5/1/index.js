@@ -16,7 +16,7 @@ const tiles = [
     [5, 5, 5, 5, 5, 5, 5, 5, 5, 3, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
 ]; //0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
 
-const wallType = 'purple-brick';
+const wallType = 'inca-dark';
 
 const monsters = [
     {
@@ -44,8 +44,8 @@ const stairs = {
 
 const message = {
     title:
-        '<> has defeated the Lich, but more adventure lies ahead with more monsters to be slain.',
-    body: `As <> delves deeper into the dungeon, the walls change tone yet again.It is almost as if magic itself is imbued into the very stones`,
+        '<> stumbles out the forest and looks around in awe at their new surroundings.',
+    body: `It seems as if <> has stumbled accross a lost world, with inca designs etched into the stonework.`,
 };
 
 export default {
