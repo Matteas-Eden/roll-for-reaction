@@ -19,6 +19,11 @@ import map4_2 from './4/2';
 import map4_3 from './4/3';
 import map4_4 from './4/4';
 import map4_5 from './4/5';
+import map5_1 from './5/1';
+import map5_2 from './5/2';
+import map5_3 from './5/3';
+import map5_4 from './5/4';
+import map5_5 from './5/5';
 
 const maps = {
     '1_1': map1_1,
@@ -41,6 +46,11 @@ const maps = {
     '4_3': map4_3,
     '4_4': map4_4,
     '4_5': map4_5,
+    '5_1': map5_1,
+    '5_2': map5_2,
+    '5_3': map5_3,
+    '5_4': map5_4,
+    '5_5': map5_5,
 };
 /*eslint-enable camelcase*/
 

@@ -20,42 +20,13 @@ const wallType = 'skull';
 
 const monsters = [
     {
-        type: 'stone-golem',
-        position: [0, 12],
-    },
-    {
-        type: 'stone-golem',
-        position: [4, 12],
-    },
-    {
-        type: 'orc',
-        position: [0, 10],
-    },
-    {
-        type: 'stone-golem',
-        position: [4, 10],
-    },
-    {
-        type: 'stone-golem',
-        position: [18, 1],
-    },
-    {
-        type: 'stone-golem',
-        position: [14, 1],
-    },
-    {
-        type: 'orc',
-        position: [18, 8],
-    },
-    {
-        type: 'stone-golem',
-        position: [14, 8],
+        type: 'lich',
+        position: [12, 6],
     },
 ];
 
 const stairs = {
-    down: '3_4',
-    up: '4_1',
+    down: '5_4',
 };
 
 const message = {

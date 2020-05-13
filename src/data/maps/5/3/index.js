@@ -20,26 +20,42 @@ const wallType = 'inca-light';
 
 const monsters = [
     {
-        type: 'medusa',
-        position: [12, 4],
+        type: 'stone-golem',
+        position: [0, 12],
     },
     {
-        type: 'medusa',
-        position: [13, 2],
+        type: 'stone-golem',
+        position: [4, 12],
     },
     {
-        type: 'warlock',
+        type: 'orc',
+        position: [0, 7],
+    },
+    {
+        type: 'stone-golem',
         position: [4, 7],
     },
     {
-        type: 'warlock',
-        position: [4, 11],
+        type: 'stone-golem',
+        position: [18, 1],
+    },
+    {
+        type: 'stone-golem',
+        position: [14, 1],
+    },
+    {
+        type: 'orc',
+        position: [18, 6],
+    },
+    {
+        type: 'stone-golem',
+        position: [14, 6],
     },
 ];
 
 const stairs = {
-    down: '3_2',
-    up: '3_4',
+    down: '5_2',
+    up: '5_4',
 };
 
 const message = {

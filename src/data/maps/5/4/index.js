@@ -21,29 +21,29 @@ const wallType = 'inca-light';
 const monsters = [
     {
         type: 'goblin',
-        position: [5, 6],
+        position: [8, 10],
     },
     {
         type: 'orc',
-        position: [9, 11],
+        position: [18, 7],
     },
     {
         type: 'orc',
-        position: [15, 5],
+        position: [13, 4],
     },
     {
         type: 'stone-golem',
-        position: [6, 12],
+        position: [4, 7],
     },
 ];
 
 const stairs = {
-    down: '3_3',
-    up: '3_5',
+    down: '5_3',
+    up: '5_5',
 };
 
 const message = {
-    title: 'Choices faced <> everywhich way.',
+    title: 'Choices faced <> every which way.',
     body: `Left or right?  To be or not to be?`,
 };
 
