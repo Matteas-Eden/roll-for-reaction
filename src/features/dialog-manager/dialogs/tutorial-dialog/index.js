@@ -48,21 +48,23 @@ const TutorialDialog = ({ dialog, toggleTutorial, changeTutorialPage }) => {
             className="centered"
         >
             {getTutorialPage(dialog.tutorialPage)}
-            <div className="flex-row">
+            <div className="flex-row tutorial__navigation">
                 {prevPage && (
-                    <div className="flex-column tutorial__button">
+                    <div className="centered tutorial__button__prev">
                         <Button
                             onClick={() => changeTutorialPage(prevPage)}
                             title={'Previous'}
+                            icon={'arrow-left'}
                         />
                     </div>
                 )}
 
                 {nextPage && (
-                    <div className="flex-column tutorial__button">
+                    <div className="centered tutorial__button__next">
                         <Button
                             onClick={() => changeTutorialPage(nextPage)}
                             title={'Next'}
+                            icon={'arrow-right'}
                         />
                     </div>
                 )}
