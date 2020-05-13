@@ -52,8 +52,8 @@ const stairs = {
 
 const message = {
     title:
-        'The walls change colour again, this time becoming overgrown and mossy.',
-    body: `<> looks around at the room looking more and more like a jungle.  'Let's just hope I don't get lost in here,' <> thinks.`,
+        'The walls become cracked and <> frowned at the green light pouring out from between the cracks.',
+    body: `'What was the dungeon changing into', <> wonders.`,
 };
 
 export default {
