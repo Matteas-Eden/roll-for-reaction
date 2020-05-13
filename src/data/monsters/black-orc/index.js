@@ -5,7 +5,7 @@ const BlackOrc = {
     maxHp: 55,
     attackValue: 10,
     defence: 5,
-    dice: '2d6',
+    dice: '3d8',
     exp: 280,
     type: 'blackOrc',
     sprite: BlackOrcSprite,

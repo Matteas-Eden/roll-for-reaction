@@ -5,7 +5,7 @@ const Warlock = {
     maxHp: 30,
     attackValue: 14,
     defence: 2,
-    dice: '3d4',
+    dice: '3d6+4',
     exp: 320,
     type: 'warlock',
     sprite: WarlockSprite,

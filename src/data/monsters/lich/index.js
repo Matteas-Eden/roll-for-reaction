@@ -1,8 +1,8 @@
 import LichSprite from './lich.png';
 
 const Lich = {
-    hp: 100,
-    maxHp: 100,
+    hp: 80,
+    maxHp: 80,
     attackValue: 22,
     defence: 12,
     dice: '2d20',
