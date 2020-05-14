@@ -158,20 +158,21 @@ const statsReducer = (state = initialState, { type, payload }) => {
             // see what type of item it is
             switch (item.type) {
                 case 'weapon':
+                    removeEffects(newState.equippedItems.weapon, newState);
                     newState.equippedItems.weapon = item;
                     break;
 
                 case 'armor::body':
-                    // if there's already armor
                     if (
                         newState.equippedItems.armor &&
-                        newState.equippedItems.armor.body &&
-                        newState.equippedItems.armor.body.defence
+                        newState.equippedItems.armor.body
                     ) {
-                        // subtract it's benefits
-                        newState.defence -=
-                            newState.equippedItems.armor.body.defence;
+                        removeEffects(
+                            newState.equippedItems.armor.body,
+                            newState
+                        );
                     }
+                    // if there's already armor
                     // safely add new armor peice to object
                     newState.equippedItems.armor = {
                         ...newState.equippedItems.armor,
@@ -183,12 +184,12 @@ const statsReducer = (state = initialState, { type, payload }) => {
                     // if there's already armor
                     if (
                         newState.equippedItems.armor &&
-                        newState.equippedItems.armor.helmet &&
-                        newState.equippedItems.armor.helmet.defence
+                        newState.equippedItems.armor.helmet
                     ) {
-                        // subtract it's benefits
-                        newState.defence -=
-                            newState.equippedItems.armor.helmet.defence;
+                        removeEffects(
+                            newState.equippedItems.armor.helmet,
+                            newState
+                        );
                     }
                     // safely add new armor peice to object
                     newState.equippedItems.armor = {
@@ -201,12 +202,12 @@ const statsReducer = (state = initialState, { type, payload }) => {
                     // if there's already armor
                     if (
                         newState.equippedItems.armor &&
-                        newState.equippedItems.armor.pants &&
-                        newState.equippedItems.armor.pants.defence
+                        newState.equippedItems.armor.pants
                     ) {
-                        // subtract it's benefits
-                        newState.defence -=
-                            newState.equippedItems.armor.pants.defence;
+                        removeEffects(
+                            newState.equippedItems.armor.pants,
+                            newState
+                        );
                     }
                     // safely add new armor peice to object
                     newState.equippedItems.armor = {
@@ -219,12 +220,12 @@ const statsReducer = (state = initialState, { type, payload }) => {
                     // if there's already armor
                     if (
                         newState.equippedItems.armor &&
-                        newState.equippedItems.armor.gloves &&
-                        newState.equippedItems.armor.gloves.defence
+                        newState.equippedItems.armor.gloves
                     ) {
-                        // subtract it's benefits
-                        newState.defence -=
-                            newState.equippedItems.armor.gloves.defence;
+                        removeEffects(
+                            newState.equippedItems.armor.gloves,
+                            newState
+                        );
                     }
                     // safely add new armor peice to object
                     newState.equippedItems.armor = {
@@ -237,12 +238,12 @@ const statsReducer = (state = initialState, { type, payload }) => {
                     // if there's already armor
                     if (
                         newState.equippedItems.armor &&
-                        newState.equippedItems.armor.boots &&
-                        newState.equippedItems.armor.boots.defence
+                        newState.equippedItems.armor.boots
                     ) {
-                        // subtract it's benefits
-                        newState.defence -=
-                            newState.equippedItems.armor.boots.defence;
+                        removeEffects(
+                            newState.equippedItems.armor.boots,
+                            newState
+                        );
                     }
                     // safely add new armor peice to object
                     newState.equippedItems.armor = {
@@ -390,6 +391,30 @@ const statsReducer = (state = initialState, { type, payload }) => {
         default:
             return state;
     }
+};
+
+const removeEffects = (item, newState) => {
+    Object.keys(item.effect).forEach(effectName => {
+        switch (effectName) {
+            case 'defence':
+                newState.defence -= item.effect[effectName];
+                break;
+
+            case 'hp':
+                newState.hp -= item.effect[effectName];
+                if (newState.hp < 1) newState.hp = 1;
+                newState.maxHp -= item.effect[effectName];
+                break;
+
+            case 'mana':
+                newState.mana -= item.effect[effectName];
+                if (newState.mana < 1) newState.mana = 1;
+                newState.maxMana -= item.effect[effectName];
+                break;
+
+            default:
+        }
+    });
 };
 
 export default statsReducer;
