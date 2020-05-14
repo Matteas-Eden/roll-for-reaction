@@ -60,8 +60,8 @@ const stairs = {
 
 const message = {
     title:
-        '<> stumbles out the forest and looks around in awe at their new surroundings.',
-    body: `It seems as if <> has stumbled accross a lost world, with inca designs etched into the stonework. Faces seem to pop out at <> from all around.`,
+        '<> stumbled out the forest and looked around in awe at their new surroundings.',
+    body: `It seemed as if <> had stumbled across a lost world, with inca designs etched into the stonework. Faces seemed to pop out at <> from all around.`,
 };
 
 export default {

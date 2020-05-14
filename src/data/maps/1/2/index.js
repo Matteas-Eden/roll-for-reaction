@@ -46,15 +46,15 @@ const stairs = {
     down: '1_1',
 };
 
-const message = {
-    title: '<> frowns and looks around the dull room.',
-    body: `This was not the room <> was looking for...`,
-};
+// const message = {
+//     title: '<> frowns and looks around the dull room.',
+//     body: `This was not the room <> was looking for...`,
+// };
 
 export default {
     tiles,
     wallType,
     monsters,
     stairs,
-    message,
+    // message,
 };

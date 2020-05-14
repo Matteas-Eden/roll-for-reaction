@@ -16,7 +16,7 @@ const tiles = [
     [5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
 ];
 
-const wallType = 'blue-pattern';
+const wallType = 'blue';
 
 const monsters = [
     {
@@ -42,9 +42,16 @@ const stairs = {
     up: '2_3',
 };
 
+const message = {
+    title:
+        'Entering this part of the dungeon, <> notices stray gold coins accompanied by large burn markings. The voice speaks.',
+    body: `"EQUAL PARTS BEAUTIFUL AND DANGEROUS... THESE CREATURES ARE THE ESSENCE OF GREED."`,
+};
+
 export default {
     tiles,
     wallType,
     monsters,
     stairs,
+    message,
 };

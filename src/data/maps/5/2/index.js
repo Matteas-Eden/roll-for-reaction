@@ -44,7 +44,7 @@ const stairs = {
 
 const message = {
     title:
-        '<> walks into a temple so far and wide, the other end cannot be seen.',
+        '<> walked into a temple so far and wide, the sides could not be seen.',
     body: `Strange noises echoed from the dark.  What monsters lay beyond?`,
 };
 

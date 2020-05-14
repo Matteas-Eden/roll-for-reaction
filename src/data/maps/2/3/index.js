@@ -44,8 +44,8 @@ const stairs = {
 
 const message = {
     title:
-        'Entering this part of the dungeon, <> notices stray gold coins accompanied by large burn markings. The voice speaks.',
-    body: `"EQUAL PARTS BEAUTIFUL AND DANGEROUS... THESE CREATURES ARE THE ESSENCE OF GREED."`,
+        '<> struggled up the stairs, overencumbered with all the loot and gold they had accumulated',
+    body: `<> struggled on with grim determination, wishing they'd gotten more exercise...`,
 };
 
 export default {

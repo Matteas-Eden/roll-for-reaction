@@ -24,7 +24,7 @@ const monsters = [
         position: [17, 11],
     },
     {
-        type: 'wolf',
+        type: 'rat',
         position: [16, 10],
     },
     {
@@ -47,9 +47,8 @@ const stairs = {
 };
 
 const message = {
-    title:
-        'As <> inspects the walls, they notice a faint purple glow. Something definitely seemed off about those rats...',
-    body: 'Up ahead, <> notices a group of small humanoid creatures...',
+    title: 'As <> inspects the walls, they notice a faint purple glow.',
+    body: 'Something definitely seemed off about those rats...',
 };
 
 export default {

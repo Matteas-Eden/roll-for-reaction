@@ -72,7 +72,7 @@ const monsters = [
         position: [13, 6],
     },
     {
-        type: 'cerebus',
+        type: 'cerberus',
         position: [15, 6],
     },
 ];
@@ -83,8 +83,8 @@ const stairs = {
 
 const message = {
     title:
-        'The final batlle.  <> could feel the sword resonating where it rested just beyond the final swarm of monsters.',
-    body: `Every monster he had faced was here.  <> hadn't long to go now, one more battle and they would be triumphant.`,
+        'The final batlle.  <> felt the magic sword resonating where it rested just beyond the final swarm of monsters.',
+    body: `Every monster they had faced was here.  <> hadn't long to go now, one more battle and they would be triumphant.`,
 };
 
 export default {

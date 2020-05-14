@@ -24,19 +24,19 @@ const monsters = [
         position: [12, 11],
     },
     {
-        type: 'cerebus',
+        type: 'cerberus',
         position: [12, 13],
     },
 ];
 
 const stairs = {
     down: '4_4',
+    up: '5_1',
 };
 
 const message = {
-    title:
-        '<> feels a strong force in this area as they notice the skull covered walls. The voice speaks once more...',
-    body: `"THIS IS IT! COME BOW BEFORE ME MORTAL....."`,
+    title: '<> heard a booming voice rattle the skulls on the wall',
+    body: `"YOU THOUGHT IT WAS OVER? I HAVE TWO LIVES LEFT MORTAL!"`,
 };
 
 export default {

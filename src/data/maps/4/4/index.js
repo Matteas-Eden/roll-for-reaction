@@ -7,7 +7,7 @@ const tiles = [
     [5, 0, 5, 5, 5, 4, 5, 5, 5, 0, 5, 5, 0, 0, 0, 0, 5, 5, 5, 5],
     [5, 0, 3, 5, 5, 5, 5, 5, 5, 0, 2, 5, 5, 5, 5, 5, 5, 5, 5, 5],
     [5, 5, 5, 5, 2, 5, 5, 4, 2, 5, 5, 0, 0, 0, 0, 0, 0, 5, 5, 5],
-    [0, 0, 0, 5, 0, 5, 5, 5, 5, 5, 5, 5, 5, 0, 5, 5, 0, 5, 5, 5],
+    [0, 0, 0, 5, 0, 5, 5, 4, 4, 5, 5, 5, 5, 0, 5, 5, 0, 5, 5, 5],
     [5, 5, 0, 0, 0, 0, 5, 5, 5, 5, 0, 0, 0, 0, 0, 5, 0, 0, 0, 5],
     [5, 5, 0, 5, 5, 0, 0, 0, 2, 5, 5, 0, 5, 5, 0, 5, 5, 0, 5, 5],
     [0, 0, 0, 5, 5, 0, 5, 5, 5, 5, 5, 0, 5, 5, 0, 5, 0, 0, 0, 5],
@@ -21,15 +21,19 @@ const wallType = 'green-brick';
 const monsters = [
     {
         type: 'black-orc',
-        position: [12, 12],
+        position: [1, 4],
     },
     {
         type: 'black-orc',
-        position: [11, 9],
+        position: [11, 7],
+    },
+    {
+        type: 'medusa',
+        position: [0, 8],
     },
     {
         type: 'black-orc',
-        position: [10, 11],
+        position: [7, 4],
     },
 ];
 
@@ -41,7 +45,7 @@ const stairs = {
 const message = {
     title:
         '<> looked down a path that looked strangely familiar. Many people had gotten lost in the jungle before.',
-    body: `'Let's just hope I don't get lost in here,' <> thinks, wishing they'd brought some breadcrumbs.`,
+    body: `'Let's just hope I don't get lost in here,' <> thought, wishing they'd brought some breadcrumbs.`,
 };
 
 export default {
