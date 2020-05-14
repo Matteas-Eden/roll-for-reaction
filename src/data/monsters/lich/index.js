@@ -9,7 +9,8 @@ const Lich = {
     exp: 1000,
     type: 'lich',
     sprite: LichSprite,
-    ai: 'normal',
+    ai: 'boss',
+    originalAI: 'boss',
     aiTurns: 0,
 };
 

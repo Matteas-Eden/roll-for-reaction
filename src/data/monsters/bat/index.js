@@ -10,6 +10,7 @@ const Bat = {
     type: 'bat',
     sprite: BatSprite,
     ai: 'normal',
+    originalAI: 'normal',
     aiTurns: 0,
 };
 

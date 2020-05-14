@@ -10,6 +10,7 @@ const Wolf = {
     type: 'wolf',
     sprite: WolfSprite,
     ai: 'normal',
+    originalAI: 'normal',
     aiTurns: 0,
 };
 

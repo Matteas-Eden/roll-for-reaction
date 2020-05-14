@@ -10,6 +10,7 @@ const Orc = {
     type: 'orc',
     sprite: OrcSprite,
     ai: 'normal',
+    originalAI: 'normal',
     aiTurns: 0,
 };
 

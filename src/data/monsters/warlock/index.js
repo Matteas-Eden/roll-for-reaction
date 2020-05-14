@@ -10,6 +10,7 @@ const Warlock = {
     type: 'warlock',
     sprite: WarlockSprite,
     ai: 'normal',
+    originalAI: 'normal',
     aiTurns: 0,
 };
 

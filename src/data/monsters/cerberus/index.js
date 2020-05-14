@@ -9,7 +9,8 @@ const Cerberus = {
     exp: 1000,
     type: 'cerberus',
     sprite: CerberusSprite,
-    ai: 'normal',
+    ai: 'boss',
+    originalAI: 'boss',
     aiTurns: 0,
 };
 

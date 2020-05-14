@@ -94,24 +94,37 @@ const journalReducer = (state = initialState, { type, payload }) => {
         }
 
         case 'DAMAGE_TO_PLAYER': {
-            const { entity, damage } = payload;
-
+            const { entity, damage, kind } = payload;
             newState = cloneDeep(state);
-            newState.entries.push({
-                key: uuidv4(),
-                entry:
-                    payload.damage === 0 ? (
+
+            if (kind === 'suicide') {
+                newState.entries.push({
+                    key: uuidv4(),
+                    entry: (
                         <p key={uuidv4()}>
-                            The {colourise(entity, 'type')} missed you!
-                        </p>
-                    ) : (
-                        <p key={uuidv4()}>
-                            The {colourise(entity, 'type')} dealt{' '}
-                            {colourise(damage, 'damage-to-player')} damage to
-                            you!
+                            The {colourise(entity, 'type')} committed suicide,
+                            dealing {colourise(damage, 'damage-to-player')}{' '}
+                            damage to you!
                         </p>
                     ),
-            });
+                });
+            } else {
+                newState.entries.push({
+                    key: uuidv4(),
+                    entry:
+                        payload.damage === 0 ? (
+                            <p key={uuidv4()}>
+                                The {colourise(entity, 'type')} missed you!
+                            </p>
+                        ) : (
+                            <p key={uuidv4()}>
+                                The {colourise(entity, 'type')} dealt{' '}
+                                {colourise(damage, 'damage-to-player')} damage
+                                to you!
+                            </p>
+                        ),
+                });
+            }
             return newState;
         }
 
@@ -135,6 +148,15 @@ const journalReducer = (state = initialState, { type, payload }) => {
                                 to the {colourise(entity, 'type')}!
                             </p>
                         ),
+                });
+            } else if (from === 'suicide') {
+                newState.entries.push({
+                    key: uuidv4(),
+                    entry: (
+                        <p key={uuidv4()}>
+                            The {colourise(entity, 'type')} killed itself!
+                        </p>
+                    ),
                 });
             } else {
                 newState.entries.push({

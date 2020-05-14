@@ -9,7 +9,8 @@ const Rat = {
     exp: 8,
     type: 'rat',
     sprite: RatSprite,
-    ai: 'normal',
+    ai: 'suicidal',
+    originalAI: 'suicidal',
     aiTurns: 0,
 };
 

@@ -3,6 +3,7 @@ import frozen from './frozen-ai';
 import poisoned from './poisoned-ai';
 import shocked from './shocked-ai';
 import scared from './scared-ai';
+import suicidal from './suicidal-ai';
 
 export default function takeMonstersTurn() {
     return (dispatch, getState) => {
@@ -15,6 +16,10 @@ export default function takeMonstersTurn() {
 
         Object.entries(components[currentMap]).forEach(([, monster]) => {
             switch (monster.ai) {
+                case 'suicidal':
+                    dispatch(suicidal(sightBox, currentMap, monster));
+                    break;
+                case 'boss':
                 case 'normal':
                     dispatch(moveNormally(sightBox, currentMap, monster));
                     break;

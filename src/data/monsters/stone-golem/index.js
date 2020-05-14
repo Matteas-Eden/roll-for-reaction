@@ -10,6 +10,7 @@ const StoneGolem = {
     type: 'stone-golem',
     sprite: GolemSprite,
     ai: 'normal',
+    originalAI: 'normal',
     aiTurns: 0,
 };
 

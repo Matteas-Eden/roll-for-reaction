@@ -10,6 +10,7 @@ const Goblin = {
     type: 'goblin',
     sprite: GoblinSprite,
     ai: 'normal',
+    originalAI: 'normal',
     aiTurns: 0,
 };
 

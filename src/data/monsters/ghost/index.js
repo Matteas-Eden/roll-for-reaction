@@ -10,6 +10,7 @@ const Ghost = {
     type: 'ghost',
     sprite: GhostSprite,
     ai: 'normal',
+    originalAI: 'normal',
     aiTurns: 0,
 };
 

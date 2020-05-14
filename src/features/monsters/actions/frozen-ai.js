@@ -38,7 +38,7 @@ export default function frozen(sightBox, currentMap, monster) {
                 type: 'CHANGE_AI',
                 payload: {
                     map: currentMap,
-                    ai: 'normal',
+                    ai: monster.originalAI,
                     id,
                     from: 'frozen',
                     turns: 0,

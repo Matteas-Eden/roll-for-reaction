@@ -10,6 +10,7 @@ const Medusa = {
     type: 'medusa',
     sprite: MedusaSprite,
     ai: 'normal',
+    originalAI: 'normal',
     aiTurns: 0,
 };
 

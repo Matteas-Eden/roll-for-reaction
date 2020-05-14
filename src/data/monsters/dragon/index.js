@@ -10,6 +10,7 @@ const Dragon = {
     type: 'dragon',
     sprite: DragonSprite,
     ai: 'normal',
+    originalAI: 'normal',
     aiTurns: 0,
 };
 

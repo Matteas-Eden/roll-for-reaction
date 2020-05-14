@@ -10,6 +10,7 @@ const Imp = {
     type: 'imp',
     sprite: ImpSprite,
     ai: 'normal',
+    originalAI: 'normal',
     aiTurns: 0,
 };
 
