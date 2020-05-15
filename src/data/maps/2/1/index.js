@@ -44,8 +44,8 @@ const stairs = {
 
 const message = {
     title:
-        '<> notices the walls are now a vibrant blue. But before they can do anything, a deep voice is heard from every direction.',
-    body: `"AS LONG AS OUR SPIRITS RESIDE IN THESE WALLS, THE OLD SPIRIT REMAINS OUR PRISONER..."`,
+        '<> noticed the walls were now a vibrant blue. But before they could do anything, a deep voice was heard from every direction.',
+    body: `"AS LONG AS OUR SPIRITS RESIDE IN THESE WALLS, THE OLD SWORD REMAINS OUR PRISONER..."`,
 };
 
 export default {

@@ -46,9 +46,16 @@ const stairs = {
     up: '4_3',
 };
 
+const message = {
+    title:
+        '<> had delved deep into the dungeon, but still had not found the old sword they were here for.',
+    body: `What was so special about a mystical talking sword anyway?`,
+};
+
 export default {
     tiles,
     wallType,
     monsters,
     stairs,
+    message,
 };
