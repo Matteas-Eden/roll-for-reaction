@@ -20,7 +20,7 @@ const wallType = 'skull';
 
 const monsters = [
     {
-        type: 'cerebus',
+        type: 'cerberus',
         position: [8, 8],
     },
 ];
