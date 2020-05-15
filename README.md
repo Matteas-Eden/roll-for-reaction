@@ -17,9 +17,9 @@ _Roll For Reaction_ is an open-source fork of [react-rpg](https://github.com/ASt
 | ![check][checkmark] DnD Ability Scores for Player | ![check][checkmark] UI/UX Improvements         | ![cross][cross] Particle Effects         |
 | ![check][checkmark] DnD Classes and Races         | ![cross][cross] Tutorial                       | ![cross][cross] Class-specific Abilities |
 | ![check][checkmark] Dice-based Combat             | ![check][checkmark] Save/Load System           | ![cross][cross] Party System             |
-| ![cross][checkmark] New Maps/Levels               | ![check][checkmark] New Enemies                | ![cross][cross] Additional Game Modes    |
+| ![check][checkmark] New Maps/Levels               | ![check][checkmark] New Enemies                | ![cross][cross] Additional Game Modes    |
 | ![check][checkmark] Character Creation            | ![check][checkmark] Customisable Outfit Colour |                                          |
-| ![check][checkmark] Additional Items in Shop      | ![cross][checkmark] Diversity in Enemy Attacks |                                          |
+| ![check][checkmark] Additional Items in Shop      | ![check][checkmark] Diversity in Enemy Attacks |                                          |
 | ![check][checkmark] Spellcasting System           |                                                |                                          |
 
 > Classes include Fighter, Ranger and Wizard
@@ -78,5 +78,5 @@ Thanks goes to all of these wonderful people who helped in making this project a
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-[checkmark]: https://api.iconify.design/octicon:check.svg?color=green 'cross'
-[cross]: https://api.iconify.design/octicon:x.svg?color=red&height=16 'check'
+[checkmark]: https://api.iconify.design/octicon:check.svg?color=green 'check'
+[cross]: https://api.iconify.design/octicon:x.svg?color=red&height=16 'cross'
