@@ -5,7 +5,7 @@ const Cerberus = {
     maxHp: 100,
     attackValue: '4d20 + 20',
     defence: 12,
-    dice: '2d20',
+    dice: '3d20',
     exp: 1000,
     type: 'cerberus',
     sprite: CerberusSprite,
