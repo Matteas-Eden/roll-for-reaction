@@ -100,3 +100,6 @@ export const AI_CHANGE_TURNS = 3;
 export const POISON_DAMAGE = '1d4';
 export const TURNS_FOR_POISON = 3;
 export const SHOCK_DAMAGE = '1d4';
+
+// The maximum amount of journal entries. If this is too large it can slow the game down
+export const MAX_JOURNAL_ENTRIES = 100;
