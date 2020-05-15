@@ -46,9 +46,15 @@ const stairs = {
     down: '1_1',
 };
 
+const message = {
+    title: '<> noticed a shop around the corner.',
+    body: `'I wonder if they have any food,' <> wondered, 'I'm hungry'`,
+};
+
 export default {
     tiles,
     wallType,
     monsters,
     stairs,
+    message,
 };
