@@ -38,9 +38,15 @@ const stairs = {
     up: '2_1',
 };
 
+const message = {
+    title: `<> hadn't eaten or slept since before entering the dungeon.  Their stomach grumbled, but <> passed it off as the sound of monsters.`,
+    body: `<> blinked againt the fatigue and pushed on.  Sleep when you're dead.`,
+};
+
 export default {
     tiles,
     wallType,
     monsters,
     stairs,
+    message,
 };

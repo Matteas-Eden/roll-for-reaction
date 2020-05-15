@@ -38,9 +38,16 @@ const stairs = {
     up: '2_5',
 };
 
+const message = {
+    title:
+        '<>  kneeled against dungeon wall, ruffling through their spellbook.',
+    body: `I'm sure there must be something here about teleporting out safely. What if I really need to go?`,
+};
+
 export default {
     tiles,
     wallType,
     monsters,
     stairs,
+    message,
 };
