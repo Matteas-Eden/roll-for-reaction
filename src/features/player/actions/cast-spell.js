@@ -125,7 +125,7 @@ export default function castSpell() {
                             y: monsterPos[1] / SPRITE_SIZE,
                         },
                     });
-                } else {
+                } else if (damage > 0) {
                     if (spell.effects && spell.effects.changeAI) {
                         const { to, turns, proc } = spell.effects.changeAI;
 

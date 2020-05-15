@@ -238,7 +238,7 @@ const journalReducer = (state = initialState, { type, payload }) => {
 
             newState = cloneDeep(state);
 
-            if (from !== 'normal') {
+            if (from !== 'normal' && from !== ai) {
                 newState.entries.push({
                     key: uuidv4(),
                     entry: (
