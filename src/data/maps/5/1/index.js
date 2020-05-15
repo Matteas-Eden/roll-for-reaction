@@ -60,7 +60,7 @@ const stairs = {
 
 const message = {
     title:
-        '<> stumbled out the forest and looked around in awe at their new surroundings.',
+        '<> stumbled out of the forest and looked around in awe at their new surroundings.',
     body: `It seemed as if <> had stumbled across a lost world, with inca designs etched into the stonework. Faces seemed to pop out at <> from all around.`,
 };
 

@@ -42,9 +42,9 @@ const stairs = {
 };
 
 const message = {
-    title: '<> stares down the crossroads wondering which way to go.',
+    title: '<> stared down the crossroads wondering which way to go.',
     body:
-        'The warm air touches their skin and <> smiles.  Adventure and treasure will face them no matter which direction they trek.',
+        'The warm air touched their skin and <> smiles.  Adventure and treasure will face them no matter which direction they trek.',
 };
 
 export default {

@@ -32,7 +32,7 @@ const stairs = {
 
 const message = {
     title:
-        '<> feels a strong force in this area as they notice the skull covered walls. The voice speaks once more...',
+        '<> felt a strong force in the area as they noticed the skull covered walls. The voice spoke once more...',
     body: `"THIS IS IT! COME BOW BEFORE ME MORTAL....."`,
 };
 

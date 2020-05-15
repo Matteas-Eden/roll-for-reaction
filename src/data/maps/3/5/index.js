@@ -31,9 +31,9 @@ const stairs = {
 };
 
 const message = {
-    title: 'The narrow corridor opens up suddenly to an expansive room.',
+    title: 'The narrow corridor opened up suddenly to an expansive room.',
     body:
-        'From accross the well-lit hall, <> can see the exit... but a monster stands in their way',
+        'From accross the well-lit hall, <> could see the exit... but a monster stood in their way',
 };
 
 export default {

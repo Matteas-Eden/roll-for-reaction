@@ -44,7 +44,7 @@ const stairs = {
 
 const message = {
     title:
-        'Startled, <> finds out what the green light shining through the cracks was from.',
+        'Startled, <> found out what the green light shining through the cracks was from.',
     body: `The jungle was intruding through the walls, the vines and moss making their home in the monster-filled dungeon.`,
 };
 

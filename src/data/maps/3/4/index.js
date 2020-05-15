@@ -44,9 +44,9 @@ const stairs = {
 
 const message = {
     title:
-        'As <> looks around, they notice the rooms appear to be placed in a curious pattern.',
+        'As <> looked around, they notice the rooms appeared to be placed in a curious pattern.',
     body:
-        'Up ahead, the shopkeeper tosses a coin and <> wonders how they can keep their business going unbothered by all the monsters',
+        'Up ahead, the shopkeeper tossed a coin and <> wondered how they could keep their business going unbothered by all the monsters',
 };
 
 export default {

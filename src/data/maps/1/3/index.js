@@ -47,7 +47,7 @@ const stairs = {
 };
 
 const message = {
-    title: 'As <> inspects the walls, they notice a faint purple glow.',
+    title: 'As <> inspected the walls, they noticed a faint purple glow.',
     body: 'Something definitely seemed off about those rats...',
 };
 

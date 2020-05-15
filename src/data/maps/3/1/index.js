@@ -44,8 +44,8 @@ const stairs = {
 
 const message = {
     title:
-        '<> prevailed over the Lich, but more adventure lies ahead with many monsters to be slain.',
-    body: `As <> delves deeper into the dungeon, the walls change tone yet again. It is almost as if magic itself is imbued into the very stones`,
+        '<> prevailed over the Lich, but more adventure lay ahead with many more monsters to be slain.',
+    body: `As <> delved deeper into the dungeon, the walls changed tone yet again. It was almost as if magic itself was imbued into the very stones`,
 };
 
 export default {

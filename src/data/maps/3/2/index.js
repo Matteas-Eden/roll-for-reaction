@@ -48,7 +48,7 @@ const stairs = {
 
 const message = {
     title: 'The flames flickered brightly.',
-    body: `<> cocks their head to the side and frowns.  Who was lighting them?.`,
+    body: `<> cocked their head to the side and frowned.  'Who was lighting them?'`,
 };
 
 export default {

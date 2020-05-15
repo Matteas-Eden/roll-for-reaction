@@ -40,7 +40,7 @@ const stairs = {
 
 const message = {
     title:
-        '<>  kneeled against dungeon wall, ruffling through their spellbook.',
+        '<>  kneeled against the dungeon wall, ruffling through their spellbook.',
     body: `I'm sure there must be something here about teleporting out safely. What if I really need to go?`,
 };
 
