@@ -3,7 +3,7 @@ import MedusaSprite from './medusa.png';
 const Medusa = {
     hp: 40,
     maxHp: 40,
-    attackValue: 10,
+    attackValue: '3d10 + 20',
     defence: 5,
     dice: '2d4 + 4',
     exp: 320,

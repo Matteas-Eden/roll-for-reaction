@@ -3,7 +3,7 @@ import GolemSprite from './stone-golem.png';
 const StoneGolem = {
     hp: 30,
     maxHp: 30,
-    attackValue: 8,
+    attackValue: '1d10 + 15',
     defence: 5,
     dice: '1d8 + 2',
     exp: 60,
