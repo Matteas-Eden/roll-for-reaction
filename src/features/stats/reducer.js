@@ -158,7 +158,7 @@ const statsReducer = (state = initialState, { type, payload }) => {
             // see what type of item it is
             switch (item.type) {
                 case 'weapon':
-                    if (newState.equippedItems.weapon) {
+                    if (newState.equippedItems.weapon.effect) {
                         removeEffects(newState.equippedItems.weapon, newState);
                     }
                     newState.equippedItems.weapon = item;
