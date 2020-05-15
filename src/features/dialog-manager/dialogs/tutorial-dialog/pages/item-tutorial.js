@@ -5,7 +5,7 @@ import './styles.scss';
 const ItemTutorial = () => {
     return (
         <div className="flex-column tutorial-item__container">
-            <div className="tutorial-item__title">{'ITEMS'}</div>
+            <div className="tutorial-page__title">{'ITEMS'}</div>
         </div>
     );
 };
