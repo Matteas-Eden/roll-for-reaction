@@ -9,8 +9,8 @@ const Warlock = {
     exp: 320,
     type: 'warlock',
     sprite: WarlockSprite,
-    ai: 'normal',
-    originalAI: 'normal',
+    ai: 'magical',
+    originalAI: 'magical',
     aiTurns: 0,
 };
 

@@ -9,10 +9,14 @@ export function getRandomDirection() {
     return directions[randomNumber];
 }
 
-export function playerInRange(playerPos, monsterPos) {
+export function playerInRange(
+    playerPos,
+    monsterPos,
+    range = MONSTER_ATTACK_RADIUS
+) {
     let inRange = false;
     // for each tile around the monster
-    radiusTiles(MONSTER_ATTACK_RADIUS).forEach(tile => {
+    radiusTiles(range).forEach(tile => {
         // add the monsters location
         const offsetX = tile.x + monsterPos[0];
         const offsetY = tile.y + monsterPos[1];

@@ -4,8 +4,8 @@ import {
     playerInRange,
     getRandomDirection,
 } from './move-monster';
-import { calculateDamage } from '../../../utils/dice';
-import { SPRITE_SIZE } from '../../../config/constants';
+import { SPRITE_SIZE, SIGHT_RADIUS } from '../../../config/constants';
+import monsterCastSpell from './monster-cast-spell';
 
 // recursive function for moving the monster to the next available tile
 // will try to go towards the player if possible
@@ -197,10 +197,9 @@ function move(direction, position, currentMap, id, count, preference = false) {
     };
 }
 
-export default function suicidal(sightBox, currentMap, monster) {
+export default function magical(sightBox, currentMap, monster) {
     return (dispatch, getState) => {
-        const { stats } = getState();
-        const { id, position, dice, type } = monster;
+        const { id, position } = monster;
 
         const monsterPosition = position.map(pos => pos / SPRITE_SIZE);
 
@@ -221,73 +220,12 @@ export default function suicidal(sightBox, currentMap, monster) {
 
             const { player } = getState();
             // check if player is in range
-            if (playerInRange(player.position, monsterPosition)) {
-                const calculatedMonsterDamage = calculateDamage(dice);
-                dispatch({
-                    type: 'DAMAGE_TO_PLAYER',
-                    payload: {
-                        damage: calculatedMonsterDamage,
-                        entity: type,
-                        kind: 'suicide',
-                    },
-                });
-
-                // check if player died
-                if (stats.hp - calculatedMonsterDamage <= 0) {
-                    // play death sound
-                    dispatch({
-                        type: 'PLAYER_DIED',
-                        payload: null,
-                    });
-                    // if it did, game over
-                    dispatch({
-                        type: 'PAUSE',
-                        payload: {
-                            gameOver: true,
-                            pause: true,
-                        },
-                    });
-                }
-                // deal damage to monster
-                dispatch({
-                    type: 'DAMAGE_TO_MONSTER',
-                    payload: {
-                        damage: monster.hp,
-                        id: monster.id,
-                        map: currentMap,
-                        entity: monster.type,
-                        from: 'suicide',
-                    },
-                });
-
-                dispatch({
-                    type: 'GET_EXP',
-                    payload: monster.exp,
-                });
-
-                if (stats.exp + monster.exp >= stats.expToLevel) {
-                    dispatch({
-                        type: 'PAUSE',
-                        payload: {
-                            pause: true,
-                            levelUp: true,
-                        },
-                    });
-                }
-                // play death sound
-                dispatch({
-                    type: 'MONSTER_DIED',
-                    payload: monster.type,
-                });
-                // replace monster will blood spill
-                // need to pass relative tile index
-                dispatch({
-                    type: 'ADD_BLOOD_SPILL',
-                    payload: {
-                        x: position[0] / SPRITE_SIZE,
-                        y: position[1] / SPRITE_SIZE,
-                    },
-                });
+            if (
+                playerInRange(player.position, monsterPosition, SIGHT_RADIUS) &&
+                (player.position[0] === position[0] ||
+                    player.position[1] === position[1])
+            ) {
+                dispatch(monsterCastSpell(monster));
             } else {
                 // no player in range, time to move!
                 // get the monsters actual position in pixels

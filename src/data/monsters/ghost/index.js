@@ -9,8 +9,8 @@ const Ghost = {
     exp: 200,
     type: 'ghost',
     sprite: GhostSprite,
-    ai: 'normal',
-    originalAI: 'normal',
+    ai: 'magical',
+    originalAI: 'magical',
     aiTurns: 0,
 };
 

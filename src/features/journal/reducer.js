@@ -216,6 +216,23 @@ const journalReducer = (state = initialState, { type, payload }) => {
             return newState;
         }
 
+        case 'MONSTER_CAST_SPELL': {
+            const { entity, spell } = payload;
+
+            newState = cloneDeep(state);
+            newState.entries.push({
+                key: uuidv4(),
+                entry: (
+                    <p key={uuidv4()}>
+                        The {colourise(entity, 'type')} cast{' '}
+                        {colourise(spell.name, 'spell')}!
+                    </p>
+                ),
+            });
+
+            return newState;
+        }
+
         case 'CHANGE_AI': {
             const { from, ai, entity } = payload;
 

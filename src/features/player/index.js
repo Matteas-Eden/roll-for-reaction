@@ -42,6 +42,7 @@ class Player extends Component {
             animationAttackSound: null,
             monsterAttackAnimationPlay: 'paused',
             monsterAnimationAttackSound: null,
+            monsterSpellAnimation: null,
             monsterDeath: null,
             playerDeath: null,
             leftSideStride: true,
@@ -239,6 +240,7 @@ class Player extends Component {
             this.props.player.monsterAttacked
         ) {
             let monsterAnimationAttackSound = null;
+            let monsterSpellAnimation = null;
             if (this.props.gameMenu.sound) {
                 monsterAnimationAttackSound = (
                     <Sound
@@ -249,10 +251,26 @@ class Player extends Component {
                     />
                 );
             }
+            if (
+                prevProps.player.monsterCastSpell !==
+                this.props.player.monsterCastSpell
+            ) {
+                monsterSpellAnimation = (
+                    <Animation
+                        projectile={this.props.player.monsterSpell}
+                        startPosition={
+                            this.props.player.monsterSpellCastPosition
+                        }
+                        endPosition={[0, 0]}
+                        direction={this.props.player.monsterSpellCastDirection}
+                    />
+                );
+            }
             // animate the player
             this.setState({
                 monsterAttackAnimationPlay: 'running',
                 monsterAnimationAttackSound,
+                monsterSpellAnimation,
             });
             // pause the infinite animation after 1 iteration plus delay time (250ms)
             this.props.setTimeout(
@@ -260,6 +278,7 @@ class Player extends Component {
                     this.setState({
                         monsterAttackAnimationPlay: 'paused',
                         monsterAnimationAttackSound: null,
+                        monsterSpellAnimation: null,
                     }),
                 ANIMATION_SPEED + 250
             );
@@ -369,6 +388,7 @@ class Player extends Component {
             animationAttackSound,
             monsterAnimationAttackSound,
             monsterAttackAnimationPlay,
+            monsterSpellAnimation,
             monsterDeath,
             playerDeath,
         } = this.state;
@@ -400,6 +420,7 @@ class Player extends Component {
                 {monsterAnimationAttackSound}
                 {monsterDeath}
                 {playerDeath}
+                {monsterSpellAnimation}
 
                 {monsterAttackAnimationPlay === 'running' && (
                     <div

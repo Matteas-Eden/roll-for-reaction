@@ -12,6 +12,10 @@ const initialState = {
     targetPosition: [],
     spell: null,
     turnsOutOfCombat: 0,
+    monsterCastSpell: false,
+    monsterSpellCastPosition: [],
+    monsterSpellCastDirection: '',
+    monsterSpell: null,
 };
 
 const playerReducer = (state = initialState, { type, payload }) => {
@@ -30,6 +34,17 @@ const playerReducer = (state = initialState, { type, payload }) => {
                 ...state,
                 monsterAttacked: !state.monsterAttacked,
                 turnsOutOfCombat: 0,
+            };
+
+        case 'MONSTER_CAST_SPELL':
+            return {
+                ...state,
+                monsterAttacked: !state.monsterAttacked,
+                turnsOutOfCombat: 0,
+                monsterCastSpell: !state.monsterCastSpell,
+                monsterSpellCastPosition: payload.position,
+                monsterSpellCastDirection: payload.direction,
+                monsterSpell: payload.spell,
             };
 
         case 'SET_ACTIVE_SPELL':
