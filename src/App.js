@@ -26,10 +26,10 @@ const App = ({ appState, world, dialog }) => {
 
     const { sideMenu, journalSideMenu } = appState;
     const { gameMode, floorNum } = world;
-    const { gameStart, gameOver, journalDialog } = dialog;
+    const { gameStart, gameOver, journalSideMenuOpen } = dialog;
 
     const disableJournal =
-        gameStart || gameOver || !journalSideMenu || !journalDialog;
+        gameStart || gameOver || !journalSideMenu || !journalSideMenuOpen;
 
     let showFooter = true;
 
@@ -42,14 +42,17 @@ const App = ({ appState, world, dialog }) => {
 
     return (
         <>
-            <div className={`centered flex-row`}>
-                <div
-                    style={{
-                        display: journalSideMenu ? 'block' : 'none',
-                    }}
-                >
-                    <JournalSide disabled={disableJournal} />
-                </div>
+            <div style={{ float: 'left' }}>
+                <JournalSide disabled={disableJournal} />
+            </div>
+            <div
+                className={`centered flex-row`}
+                style={{
+                    position: 'relative',
+                    top: '-410px',
+                    width: '100%',
+                }}
+            >
                 <div
                     className={`centered ${
                         sideMenu ? 'flex-row' : 'flex-column'

@@ -11,7 +11,7 @@ import Journal from '../journal';
 import './styles.scss';
 
 const GameMenus = ({ appState, dialog }) => {
-    const { sideMenu, largeView, journalSideMenu } = appState;
+    const { sideMenu, largeView } = appState;
     const {
         gameOver,
         gameStart,

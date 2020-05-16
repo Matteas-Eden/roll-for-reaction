@@ -47,9 +47,4 @@ const mapStateToProps = ({ journal }) => ({
     journal,
 });
 
-const actions = {
-    // toggleJournal,
-    // setJournalScrolling,
-};
-
-export default connect(mapStateToProps, actions)(JournalSide);
+export default connect(mapStateToProps)(JournalSide);
