@@ -7,7 +7,7 @@ const WaterSpirit = {
     defence: 1,
     dice: '1d4',
     exp: 28,
-    type: 'water-spirit',
+    type: 'water spirit',
     sprite: WaterSpiritSprite,
     ai: 'normal',
     aiTurns: 0,

@@ -7,7 +7,7 @@ const GasCloud = {
     defence: 1,
     dice: '1d4',
     exp: 35,
-    type: 'gas-cloud',
+    type: 'gas cloud',
     sprite: GasCloudSprite,
     ai: 'normal',
     aiTurns: 0,

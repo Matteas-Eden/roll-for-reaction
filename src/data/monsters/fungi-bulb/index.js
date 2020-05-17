@@ -7,7 +7,7 @@ const FungiBulb = {
     defence: 2,
     dice: '1d6',
     exp: 38,
-    type: 'fungi-bulb',
+    type: 'fungi bulb',
     sprite: FungiBulbSprite,
     ai: 'normal',
     aiTurns: 0,

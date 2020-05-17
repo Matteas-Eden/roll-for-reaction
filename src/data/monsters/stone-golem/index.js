@@ -7,7 +7,7 @@ const StoneGolem = {
     defence: 5,
     dice: '2d8 + 2',
     exp: 200,
-    type: 'stone-golem',
+    type: 'stone golem',
     sprite: GolemSprite,
     ai: 'normal',
     aiTurns: 0,

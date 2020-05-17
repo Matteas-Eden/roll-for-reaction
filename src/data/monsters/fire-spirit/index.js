@@ -7,7 +7,7 @@ const FireSpirit = {
     defence: 2,
     dice: '3d4',
     exp: 180,
-    type: 'fire-spirit',
+    type: 'fire spirit',
     sprite: FireSpiritSprite,
     ai: 'normal',
     aiTurns: 0,
