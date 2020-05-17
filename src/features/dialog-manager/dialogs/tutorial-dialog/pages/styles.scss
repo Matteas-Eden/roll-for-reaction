@@ -51,6 +51,7 @@
     justify-content: space-between;
     position: relative;
     padding: 10px 5px 5px 5px;
+    line-height: 1;
     text-transform: none;
 }
 
@@ -58,6 +59,7 @@
     text-align: left;
 }
 .tutorial-page__ability-description {
+    margin-left: 10px;
     text-align: right;
 }
 
