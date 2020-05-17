@@ -12,7 +12,7 @@ import './styles.scss';
 const HotkeyPage = () => {
     return (
         <div className="flex-column tutorial-hotkeys__container">
-            <div className="tutorial-page__title">{'HOTKEYS'}</div>
+            <div className="tutorial-page__title">{'MENU HOTKEYS'}</div>
             <div className="tutorial-page__hotkeys">
                 <Hotkey img={BKey} label={'Spellbook'} />
                 <Hotkey img={IKey} label={'Inventory'} />
