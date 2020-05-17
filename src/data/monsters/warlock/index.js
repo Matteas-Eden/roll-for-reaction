@@ -1,4 +1,5 @@
 import WarlockSprite from './warlock.png';
+import Fireball from '../../spells/fireball';
 
 const Warlock = {
     hp: 30,
@@ -11,6 +12,7 @@ const Warlock = {
     sprite: WarlockSprite,
     ai: 'magical',
     originalAI: 'magical',
+    projectile: Fireball,
     aiTurns: 0,
 };
 

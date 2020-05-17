@@ -1,4 +1,5 @@
 import GhostSprite from './ghost.png';
+import LightningBolt from '../../spells/lightning-bolt';
 
 const Ghost = {
     hp: 20,
@@ -11,6 +12,7 @@ const Ghost = {
     sprite: GhostSprite,
     ai: 'magical',
     originalAI: 'magical',
+    projectile: LightningBolt,
     aiTurns: 0,
 };
 

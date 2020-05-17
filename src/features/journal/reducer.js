@@ -189,6 +189,22 @@ const journalReducer = (state = initialState, { type, payload }) => {
             return newState;
         }
 
+        case 'MONSTER_HEAL_HP': {
+            const { entity, healAmount } = payload;
+
+            newState = cloneDeep(state);
+            newState.entries.push({
+                key: uuidv4(),
+                entry: (
+                    <p key={uuidv4()}>
+                        The {colourise(entity, 'type')} healed{' '}
+                        {colourise(healAmount, 'health-gain')} health!
+                    </p>
+                ),
+            });
+            return newState;
+        }
+
         case 'MONSTER_DIED': {
             newState = cloneDeep(state);
             newState.entries.push({

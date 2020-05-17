@@ -237,7 +237,9 @@ class Player extends Component {
         // see if a monster attacked the player
         else if (
             prevProps.player.monsterAttacked !==
-            this.props.player.monsterAttacked
+                this.props.player.monsterAttacked ||
+            prevProps.player.monsterCastSpell !==
+                this.props.player.monsterCastSpell
         ) {
             let monsterAnimationAttackSound = null;
             let monsterSpellAnimation = null;
@@ -251,6 +253,7 @@ class Player extends Component {
                     />
                 );
             }
+
             if (
                 prevProps.player.monsterCastSpell !==
                 this.props.player.monsterCastSpell

@@ -33,6 +33,19 @@ const monstersReducer = (state = initialState, { type, payload }) => {
 
             return newState;
 
+        case 'MONSTER_HEAL_HP':
+            newState = _cloneDeep(state);
+            newState.components[payload.map][payload.id].hp +=
+                payload.healAmount;
+            const health = newState.components[payload.map][payload.id].hp;
+            const maxHealth =
+                newState.components[payload.map][payload.id].maxHp;
+            if (health > maxHealth) {
+                newState.components[payload.map][payload.id].hp = maxHealth;
+            }
+
+            return newState;
+
         // load a new set of monsters
         case 'ADD_MONSTERS':
             newState = _cloneDeep(state);

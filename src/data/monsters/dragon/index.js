@@ -1,4 +1,5 @@
 import DragonSprite from './dragon.png';
+import Mend from '../../spells/mend';
 
 const Dragon = {
     hp: 60,
@@ -9,8 +10,9 @@ const Dragon = {
     exp: 400,
     type: 'dragon',
     sprite: DragonSprite,
-    ai: 'normal',
-    originalAI: 'normal',
+    ai: 'healer',
+    originalAI: 'healer',
+    projectile: Mend,
     aiTurns: 0,
 };
 
