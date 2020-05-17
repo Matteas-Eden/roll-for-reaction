@@ -8,7 +8,7 @@ import './styles.scss';
 const SpellTutorial = () => {
     return (
         <div className="flex-column tutorial-spell__container">
-            <div className="tutorial-page__title">{'SPELL'}</div>
+            <div className="tutorial-page__title">{'SPELLS'}</div>
             <div className="tutorial-page__spell">
                 {'Spells are powerful, but require mana.'}
                 <br />
