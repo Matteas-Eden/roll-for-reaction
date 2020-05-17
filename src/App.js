@@ -13,7 +13,9 @@ import useGameViewportScaling from './features/app-state/actions/use-game-viewpo
 import Spellbook from './features/spellbook';
 import Tutorial from './features/tutorial';
 
-const App = ({ appState, world }) => {
+import JournalSide from './components/journal-side';
+
+const App = ({ appState, world, dialog }) => {
     useGameViewportScaling();
 
     // disable scrolling of the page
@@ -23,8 +25,11 @@ const App = ({ appState, world }) => {
         return clearAllBodyScrollLocks;
     }, []);
 
-    const { sideMenu } = appState;
+    const { sideMenu, journalSideMenu } = appState;
     const { gameMode, floorNum } = world;
+    const { gameStart, gameOver } = dialog;
+
+    const disableJournal = gameStart || gameOver || !journalSideMenu;
 
     let showFooter = true;
 
@@ -37,22 +42,28 @@ const App = ({ appState, world }) => {
 
     return (
         <>
-            <div
-                className={`centered ${sideMenu ? 'flex-row' : 'flex-column'}`}
-            >
-                <Viewport>
-                    <World />
-                    <DialogManager />
-                    <Tutorial />
-                    <Spellbook />
+            <div className={`centered flex-row`}>
+                <JournalSide disabled={disableJournal} />
+                <div
+                    className={`centered ${
+                        sideMenu ? 'flex-row' : 'flex-column'
+                    }`}
+                >
+                    <div className={'centered flex-row'}>
+                        <Viewport>
+                            <World />
+                            <DialogManager />
+                            <Spellbook />
 
-                    {/* Show the floor counter when playing endless mode */}
-                    {gameMode === 'endless' && (
-                        <EndlessFloorCounter floor={floorNum} />
-                    )}
-                </Viewport>
+                            {/* Show the floor counter when playing endless mode */}
+                            {gameMode === 'endless' && (
+                                <EndlessFloorCounter floor={floorNum} />
+                            )}
+                        </Viewport>
+                    </div>
 
-                <GameMenus />
+                    <GameMenus />
+                </div>
             </div>
 
             {showFooter && <Footer />}
@@ -60,6 +71,10 @@ const App = ({ appState, world }) => {
     );
 };
 
-const mapStateToProps = ({ appState, world }) => ({ appState, world });
+const mapStateToProps = ({ appState, world, dialog }) => ({
+    appState,
+    world,
+    dialog,
+});
 
 export default connect(mapStateToProps)(App);

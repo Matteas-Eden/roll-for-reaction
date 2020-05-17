@@ -158,19 +158,27 @@ const statsReducer = (state = initialState, { type, payload }) => {
             // see what type of item it is
             switch (item.type) {
                 case 'weapon':
+                    if (
+                        newState.equippedItems.weapon &&
+                        newState.equippedItems.weapon.effect
+                    ) {
+                        removeEffects(newState.equippedItems.weapon, newState);
+                    }
                     newState.equippedItems.weapon = item;
                     break;
 
                 case 'armor::body':
-                    // if there's already armor
                     if (
                         newState.equippedItems.armor &&
-                        newState.equippedItems.armor.body
+                        newState.equippedItems.armor.body &&
+                        newState.equippedItems.armor.body.effect
                     ) {
-                        // subtract it's benefits
-                        newState.defence -=
-                            newState.equippedItems.armor.body.defence;
+                        removeEffects(
+                            newState.equippedItems.armor.body,
+                            newState
+                        );
                     }
+                    // if there's already armor
                     // safely add new armor peice to object
                     newState.equippedItems.armor = {
                         ...newState.equippedItems.armor,
@@ -182,11 +190,13 @@ const statsReducer = (state = initialState, { type, payload }) => {
                     // if there's already armor
                     if (
                         newState.equippedItems.armor &&
-                        newState.equippedItems.armor.helmet
+                        newState.equippedItems.armor.helmet &&
+                        newState.equippedItems.armor.helmet.effect
                     ) {
-                        // subtract it's benefits
-                        newState.defence -=
-                            newState.equippedItems.armor.helmet.defence;
+                        removeEffects(
+                            newState.equippedItems.armor.helmet,
+                            newState
+                        );
                     }
                     // safely add new armor peice to object
                     newState.equippedItems.armor = {
@@ -199,11 +209,13 @@ const statsReducer = (state = initialState, { type, payload }) => {
                     // if there's already armor
                     if (
                         newState.equippedItems.armor &&
-                        newState.equippedItems.armor.pants
+                        newState.equippedItems.armor.pants &&
+                        newState.equippedItems.armor.pants.effect
                     ) {
-                        // subtract it's benefits
-                        newState.defence -=
-                            newState.equippedItems.armor.pants.defence;
+                        removeEffects(
+                            newState.equippedItems.armor.pants,
+                            newState
+                        );
                     }
                     // safely add new armor peice to object
                     newState.equippedItems.armor = {
@@ -216,11 +228,13 @@ const statsReducer = (state = initialState, { type, payload }) => {
                     // if there's already armor
                     if (
                         newState.equippedItems.armor &&
-                        newState.equippedItems.armor.gloves
+                        newState.equippedItems.armor.gloves &&
+                        newState.equippedItems.armor.gloves.effect
                     ) {
-                        // subtract it's benefits
-                        newState.defence -=
-                            newState.equippedItems.armor.gloves.defence;
+                        removeEffects(
+                            newState.equippedItems.armor.gloves,
+                            newState
+                        );
                     }
                     // safely add new armor peice to object
                     newState.equippedItems.armor = {
@@ -233,11 +247,13 @@ const statsReducer = (state = initialState, { type, payload }) => {
                     // if there's already armor
                     if (
                         newState.equippedItems.armor &&
-                        newState.equippedItems.armor.boots
+                        newState.equippedItems.armor.boots &&
+                        newState.equippedItems.armor.boots.effect
                     ) {
-                        // subtract it's benefits
-                        newState.defence -=
-                            newState.equippedItems.armor.boots.defence;
+                        removeEffects(
+                            newState.equippedItems.armor.boots,
+                            newState
+                        );
                     }
                     // safely add new armor peice to object
                     newState.equippedItems.armor = {
@@ -316,7 +332,7 @@ const statsReducer = (state = initialState, { type, payload }) => {
             return { ...state, mana: _mana };
 
         case 'CAST_SPELL':
-            return { ...state, mana: state.mana - payload.spell.manaCost };
+            return { ...state, mana: state.mana - payload.projectile.manaCost };
 
         case 'DAMAGE_TO_PLAYER':
             return { ...state, hp: state.hp - payload.damage };
@@ -385,6 +401,30 @@ const statsReducer = (state = initialState, { type, payload }) => {
         default:
             return state;
     }
+};
+
+const removeEffects = (item, newState) => {
+    Object.keys(item.effect).forEach(effectName => {
+        switch (effectName) {
+            case 'defence':
+                newState.defence -= item.effect[effectName];
+                break;
+
+            case 'hp':
+                newState.hp -= item.effect[effectName];
+                if (newState.hp < 1) newState.hp = 1;
+                newState.maxHp -= item.effect[effectName];
+                break;
+
+            case 'mana':
+                newState.mana -= item.effect[effectName];
+                if (newState.mana < 1) newState.mana = 1;
+                newState.maxMana -= item.effect[effectName];
+                break;
+
+            default:
+        }
+    });
 };
 
 export default statsReducer;

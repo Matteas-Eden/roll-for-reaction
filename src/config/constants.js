@@ -33,6 +33,8 @@ export const SCREEN_SMALL_WIDTH = 410;
 export const SCREEN_SMALL_HEIGHT = 410;
 export const SCREEN_MEDIUM_WIDTH = 600;
 export const SCREEN_MEDIUM_HEIGHT = 680;
+export const MIN_WIDTH_FOR_JOURNAL = 825;
+export const MIN_SIDESCREEN_WIDTH_FOR_JOURNAL = 1230;
 // set the number of tiles to pad the map with (so the player cant see edge)
 export const MAP_PADDING_DISTANCE = 5;
 // set the time for the map to transition in/out
@@ -44,14 +46,16 @@ export const STARTING_ABILITY_SCORE_VALUE = 8;
 // The default value of an ability score with race bonus
 export const RACE_ABILITY_BONUS = 2;
 // The starting points a player can allocate
-export const STARTING_ABILITY_POINTS = 12;
+export const STARTING_ABILITY_POINTS = 8;
+// The number of levels a player needs to level up to gain ability points
+export const LEVELS_BETWEEN_ABILITY_POINT_GAIN = 3;
 // The number of ability points the player gets to allocate on levelling up
 export const LEVEL_UP_ABILITY_POINTS = 2;
 // Base player health/mana values
 export const BASE_HEALTH = 10;
 export const BASE_MANA = 5;
 // Base health/mana level up values
-export const MIN_HEALTH_BONUS = 1;
+export const MIN_HEALTH_BONUS = 2;
 export const MIN_MANA_BONUS = 5;
 // Set macros for key codes
 export const UP_KEY = 38;
@@ -74,6 +78,13 @@ export const ESC_KEY = 27;
 
 // If the player is unarmed, we need them to still be able to attack
 export const UNARMED_DAMAGE = '1d4';
+export const FISTS = {
+    name: 'fists',
+    kind: 'melee',
+    range: 1,
+    damage: UNARMED_DAMAGE,
+    type: 'weapon',
+};
 
 export const PASSIVE_MANA_RESTORE_TURNS = 5;
 export const OUT_OF_COMBAT_RANGE = 4;
@@ -82,3 +93,10 @@ export const OUT_OF_COMBAT_RANGE = 4;
 export const MIN_PRICE_PERCENT = 0.1;
 export const MID_PRICE_PERCENT = 0.6;
 export const MAX_PRICE_PERCENT = 1.2;
+
+// The number of turns an AI change stays in effect
+export const AI_CHANGE_TURNS = 3;
+// Damage inflicted by poison every time it hits
+export const POISON_DAMAGE = '1d4';
+export const TURNS_FOR_POISON = 3;
+export const SHOCK_DAMAGE = '1d4';
