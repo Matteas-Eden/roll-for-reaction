@@ -28,7 +28,7 @@ const monsters = [
         position: [12, 8],
     },
     {
-        type: 'medusa',
+        type: 'pumpkin-ghost',
         position: [7, 10],
     },
     {

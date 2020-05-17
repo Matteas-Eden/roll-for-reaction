@@ -28,11 +28,11 @@ const monsters = [
         position: [9, 11],
     },
     {
-        type: 'dragon',
+        type: 'pumpkin-ghost',
         position: [15, 5],
     },
     {
-        type: 'stone-golem',
+        type: 'plantera-golem',
         position: [6, 12],
     },
 ];

@@ -20,7 +20,7 @@ const wallType = 'inca-dark';
 
 const monsters = [
     {
-        type: 'warlock',
+        type: 'poison-cloud',
         position: [4, 4],
     },
     {
@@ -36,7 +36,7 @@ const monsters = [
         position: [2, 1],
     },
     {
-        type: 'black-orc',
+        type: 'poison-cloud',
         position: [11, 1],
     },
     {
