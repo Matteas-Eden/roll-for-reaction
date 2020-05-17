@@ -106,7 +106,8 @@ export default function attackMonster() {
                         : 'intelligence';
 
                 const modifier = calculateModifier(stats.abilities[ability]);
-                const attackValue = d20() + modifier;
+                const roll = d20();
+                const attackValue = roll + modifier;
 
                 if (weapon.projectile) {
                     dispatch({
@@ -118,22 +119,48 @@ export default function attackMonster() {
                     });
                 }
 
-                dispatch({
-                    type: 'ABILITY_CHECK',
-                    payload: {
-                        notation: 'd20 + ' + modifier,
-                        roll: attackValue,
-                        ability,
-                        check: currMonster.defence,
-                        entity: currMonster.type,
-                        against: 'defence',
-                    },
-                });
+                if (roll === 20) {
+                    dispatch({
+                        type: 'CRITICAL_HIT',
+                        payload: {
+                            notation: 'd20 + ' + modifier,
+                            roll: roll,
+                            ability,
+                        },
+                    });
+                } else {
+                    dispatch({
+                        type: 'ABILITY_CHECK',
+                        payload: {
+                            notation: 'd20 + ' + modifier,
+                            roll: attackValue,
+                            ability,
+                            check: currMonster.defence,
+                            entity: currMonster.type,
+                            against: 'defence',
+                        },
+                    });
+                }
 
-                const damage =
+                let damage =
                     attackValue >= currMonster.defence
                         ? calculateDamage(weapon.damage)
                         : 0;
+
+                //critical hit
+                if (roll === 20) {
+                    const weaponFront = weapon.damage.slice(0);
+                    const weaponBack = weapon.damage.slice(
+                        1,
+                        weapon.damage.length
+                    );
+                    const diceValue = (parseInt(weaponFront) * 2).toString();
+                    const weaponDamage = diceValue.concat(weaponBack);
+                    damage =
+                        attackValue >= currMonster.defence
+                            ? calculateDamage(weaponDamage)
+                            : 0;
+                }
 
                 if (damage > 0) {
                     // Only show the attack animation if they hit the monster
