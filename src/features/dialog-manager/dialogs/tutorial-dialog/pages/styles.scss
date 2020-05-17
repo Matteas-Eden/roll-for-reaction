@@ -36,8 +36,14 @@
 
 .tutorial-page__combat {
     position: relative;
-    padding: 10px 5px 5px 5px;
+    padding: 15px 5px 5px 5px;
     text-transform: none;
+}
+
+.tutorial-page__combat-buttons {
+    display: flex;
+    flex: 1;
+    justify-content: space-evenly;
 }
 
 .tutorial-page__ability {
@@ -56,12 +62,6 @@
 }
 
 .tutorial-page__spell {
-    position: relative;
-    padding: 10px 5px 5px 5px;
-    text-transform: none;
-}
-
-.tutorial-page__shop {
     position: relative;
     padding: 10px 5px 5px 5px;
     text-transform: none;
