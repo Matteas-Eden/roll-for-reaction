@@ -73,6 +73,7 @@ export default function castSpell() {
                         payload: {
                             notation: 'd20 + ' + modifier,
                             roll: roll,
+                            ability: 'intelligence',
                         },
                     });
                 } else {
