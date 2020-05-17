@@ -10,6 +10,8 @@ export default function getPreviousPage(page) {
             return 'spell';
         case 'ability':
             return 'item';
+        case 'hotkey':
+            return 'ability';
         default:
             return null;
     }

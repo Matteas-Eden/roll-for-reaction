@@ -9,6 +9,8 @@ export default function getNextPage(page) {
         case 'item':
             return 'ability';
         case 'ability':
+            return 'hotkey';
+        case 'hotkey':
             return null;
         default:
             return null;
