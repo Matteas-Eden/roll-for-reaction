@@ -12,7 +12,7 @@ const AbilityTutorial = () => {
                 </span>
                 <br />
                 <span className="tutorial-page__ability-description">
-                    Increases attack
+                    Affects attack for melee weapons.
                 </span>
             </div>
             <div className="tutorial-page__ability">
@@ -21,7 +21,7 @@ const AbilityTutorial = () => {
                 </span>
                 <br />
                 <span className="tutorial-page__ability-description">
-                    Increases health
+                    Increases player health.
                 </span>
             </div>
             <div className="tutorial-page__ability">
@@ -30,7 +30,16 @@ const AbilityTutorial = () => {
                 </span>
                 <br />
                 <span className="tutorial-page__ability-description">
-                    Increases defence
+                    Increases defence and affects attack for ranged weapons.
+                </span>
+            </div>
+            <div className="tutorial-page__ability">
+                <span className="tutorial-page__ability-name">
+                    {'CHARISMA'}
+                </span>
+                <br />
+                <span className="tutorial-page__ability-description">
+                    Affects buy and sell prices in the shop.
                 </span>
             </div>
             <div className="tutorial-page__ability">
@@ -39,14 +48,14 @@ const AbilityTutorial = () => {
                 </span>
                 <br />
                 <span className="tutorial-page__ability-description">
-                    Increases mana and spell attack
+                    Increases mana and affects attack for spells.
                 </span>
             </div>
             <div className="tutorial-page__ability">
                 <span className="tutorial-page__ability-name">{'WISDOM'}</span>
                 <br />
                 <span className="tutorial-page__ability-description">
-                    Increases restoration from potions
+                    Affects health and mana restored from potions.
                 </span>
             </div>
         </div>
