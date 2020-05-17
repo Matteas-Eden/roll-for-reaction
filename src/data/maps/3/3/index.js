@@ -27,7 +27,7 @@ const monsters = [
         position: [8, 6],
     },
     {
-        type: 'black-orc',
+        type: 'black orc',
         position: [10, 6],
     },
     {

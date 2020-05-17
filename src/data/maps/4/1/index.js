@@ -23,11 +23,11 @@ const monsters = [
         position: [14, 5],
     },
     {
-        type: 'black-orc',
+        type: 'black orc',
         position: [14, 13],
     },
     {
-        type: 'black-orc',
+        type: 'black orc',
         position: [4, 2],
     },
     {

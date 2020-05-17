@@ -40,7 +40,7 @@ const monsters = [
         position: [10, 7],
     },
     {
-        type: 'water-spirit',
+        type: 'water spirit',
         position: [10, 5],
     },
     {
@@ -48,11 +48,11 @@ const monsters = [
         position: [10, 2],
     },
     {
-        type: 'gas-cloud',
+        type: 'gas cloud',
         position: [11, 3],
     },
     {
-        type: 'fungi-bulb',
+        type: 'fungi bulb',
         position: [11, 6],
     },
     {
@@ -64,7 +64,7 @@ const monsters = [
         position: [12, 8],
     },
     {
-        type: 'stone-golem',
+        type: 'stone golem',
         position: [12, 4],
     },
     {
@@ -72,11 +72,11 @@ const monsters = [
         position: [13, 2],
     },
     {
-        type: 'poison-cloud',
+        type: 'poison cloud',
         position: [13, 6],
     },
     {
-        type: 'fire-spirit',
+        type: 'fire spirit',
         position: [13, 10],
     },
     {
@@ -84,7 +84,7 @@ const monsters = [
         position: [14, 6],
     },
     {
-        type: 'black-orc',
+        type: 'black orc',
         position: [14, 4],
     },
     {
@@ -96,7 +96,7 @@ const monsters = [
         position: [15, 9],
     },
     {
-        type: 'pumpkin-ghost',
+        type: 'pumpkin ghost',
         position: [16, 4],
     },
     {

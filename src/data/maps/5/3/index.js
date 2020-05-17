@@ -24,7 +24,7 @@ const monsters = [
         position: [0, 12],
     },
     {
-        type: 'pumpkin-ghost',
+        type: 'pumpkin ghost',
         position: [4, 12],
     },
     {
@@ -32,7 +32,7 @@ const monsters = [
         position: [0, 7],
     },
     {
-        type: 'pumpkin-ghost',
+        type: 'pumpkin ghost',
         position: [4, 7],
     },
     {
@@ -48,7 +48,7 @@ const monsters = [
         position: [18, 6],
     },
     {
-        type: 'firs-spirit',
+        type: 'firs spirit',
         position: [14, 6],
     },
 ];
