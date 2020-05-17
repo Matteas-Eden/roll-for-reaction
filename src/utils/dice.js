@@ -207,6 +207,7 @@ const rpn = (postfix, die) => {
 };
 
 const parse = (notation, dice) => rpn(yard(lex(notation)), dice);
+const crit = sides => 2 * unbiased(sides);
 
 export const calculateDamageRange = notation => {
     const min = parse(notation, biased('min'));
@@ -215,6 +216,8 @@ export const calculateDamageRange = notation => {
 };
 
 // Calculates damage to deal based on Dice Notation (https://en.wikipedia.org/wiki/Dice_notation)
-export const calculateDamage = notation => parse(notation, unbiased);
+//export const calculateDamage = notation => parse(notation, unbiased);
+export const calculateDamage = (notation, criticalHit) =>
+    parse(notation, criticalHit ? crit : unbiased);
 
 export const d20 = () => Math.floor(Math.random() * 20) + 1;
