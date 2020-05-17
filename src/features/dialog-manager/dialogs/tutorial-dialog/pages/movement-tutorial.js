@@ -1,9 +1,6 @@
 import React from 'react';
 
 import ArrowKeys from './assets/keyboard/arrow_keys.png';
-import DoubleTap from './assets/double-tap.png';
-import Space from './assets/keyboard/space_key.png';
-import Swipe from './assets/swipe.png';
 import WASDKeys from './assets/keyboard/wasd_keys.png';
 
 import './styles.scss';
