@@ -32,7 +32,7 @@ const monsters = [
         position: [15, 5],
     },
     {
-        type: 'plantera-golem',
+        type: 'plantera',
         position: [6, 12],
     },
 ];
