@@ -23,7 +23,8 @@ export default function attackMonster(
                 attackValue: attackValue,
                 check: Math.max(defence, 0),
                 against: 'defence',
-                entity: type,
+                entity: attackingMonster.type,
+                defender: type,
             },
         });
 
@@ -37,7 +38,13 @@ export default function attackMonster(
 
         dispatch({
             type: 'DAMAGE_TO_MONSTER',
-            payload: { damage: calculatedMonsterDamage, entity: type },
+            payload: {
+                damage: calculatedMonsterDamage,
+                id: defendingMonsterID,
+                map: currentMap,
+                from: attackingMonster.type,
+                entity: type,
+            },
         });
 
         // check if player died

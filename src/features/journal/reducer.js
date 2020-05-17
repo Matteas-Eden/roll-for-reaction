@@ -24,20 +24,36 @@ const journalReducer = (state = initialState, { type, payload }) => {
 
     switch (type) {
         case 'MONSTER_ABILITY_CHECK': {
-            const { entity, attackValue, check, against } = payload;
+            const { entity, attackValue, check, against, defender } = payload;
 
             newState = cloneDeep(state);
-            newState.entries.push({
-                key: uuidv4(),
-                entry: (
-                    <p key={uuidv4()}>
-                        The {colourise(entity, 'type')} attacked you with an
-                        attack value of {colourise(attackValue, 'score')}{' '}
-                        against your {colourise(against, 'ability')} value of{' '}
-                        {colourise(check, 'score')}
-                    </p>
-                ),
-            });
+
+            if (defender === 'player') {
+                newState.entries.push({
+                    key: uuidv4(),
+                    entry: (
+                        <p key={uuidv4()}>
+                            The {colourise(defender, 'type')} attacked you with
+                            an attack value of {colourise(attackValue, 'score')}{' '}
+                            against your {colourise(against, 'ability')} value
+                            of {colourise(check, 'score')}
+                        </p>
+                    ),
+                });
+            } else {
+                newState.entries.push({
+                    key: uuidv4(),
+                    entry: (
+                        <p key={uuidv4()}>
+                            The {colourise(entity, 'type')} attacked the{' '}
+                            {colourise(defender, '')} with an attack value of{' '}
+                            {colourise(attackValue, 'score')} against their{' '}
+                            {colourise(against, 'ability')} value of{' '}
+                            {colourise(check, 'score')}
+                        </p>
+                    ),
+                });
+            }
             return newState;
         }
 
@@ -164,8 +180,8 @@ const journalReducer = (state = initialState, { type, payload }) => {
                     entry: (
                         <p key={uuidv4()}>
                             The {colourise(entity, 'type')} took{' '}
-                            {colourise(damage, 'damage-to-monster')} damage from{' '}
-                            {colourise(from, 'damage-type')}!
+                            {colourise(damage, 'damage-to-monster')} damage from
+                            the {colourise(from, 'damage-type')}!
                         </p>
                     ),
                 });

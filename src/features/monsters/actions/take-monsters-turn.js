@@ -15,7 +15,13 @@ export default function takeMonstersTurn() {
         const { currentMap } = world;
         // find each monster
 
-        Object.entries(components[currentMap]).forEach(([, monster]) => {
+        Object.keys(components[currentMap]).forEach(monsterID => {
+            const monster = getState().monsters.components[currentMap][
+                monsterID
+            ];
+            // In the case that one of the other monsters before this one attacked it and killed it
+            if (monster === undefined) return;
+
             switch (monster.ai) {
                 case 'suicidal':
                     dispatch(suicidal(sightBox, currentMap, monster));

@@ -16,6 +16,7 @@ export default function attackPlayer(attackValue, dice, type) {
                 check: Math.max(stats.defence, 0),
                 against: 'defence',
                 entity: type,
+                defender: 'player',
             },
         });
 

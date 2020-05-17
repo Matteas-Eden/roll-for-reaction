@@ -19,6 +19,7 @@ export default function monsterCastSpell(monster) {
                 check: Math.max(stats.defence, 0),
                 against: 'defence',
                 entity: type,
+                defender: 'player',
             },
         });
 
