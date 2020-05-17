@@ -45,18 +45,16 @@ export function checkForOtherMonster(id, position, currentMap) {
         // get current monsters
         const monsterList = getState().monsters.components[currentMap];
         // check list of monsters
-        Object.keys(monsterList).forEach(monsterId => {
-            // see if there's another monster in the next position
-            if (
-                JSON.stringify(monsterList[monsterId].position) ===
-                JSON.stringify(position)
-            ) {
-                if (monsterId !== id) {
-                    return monsterId;
-                }
-            }
-        });
-
-        return undefined;
+        return Object.keys(monsterList)
+            .filter(monsterID => {
+                const monster = monsterList[monsterID];
+                // see if there's another monster in the next position
+                return (
+                    monsterID !== id &&
+                    monster.position[0] === position[0] &&
+                    monster.position[1] === position[1]
+                );
+            })
+            .pop();
     };
 }
