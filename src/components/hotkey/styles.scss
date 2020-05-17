@@ -1,0 +1,17 @@
+.hotkey_container {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.hotkey__text {
+    font-family: Montserrat;
+    text-transform: none;
+
+    letter-spacing: 2px;
+
+    text-align: right;
+    display: inline-block;
+
+    margin-bottom: 5px;
+}
