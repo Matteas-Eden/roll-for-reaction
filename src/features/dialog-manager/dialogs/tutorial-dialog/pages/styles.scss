@@ -1,25 +1,68 @@
 .tutorial-page__title {
     position: relative;
     top: 5px;
+    width: 20rem;
     text-align: center;
     font-size: 25px;
     font-weight: 400;
+    padding-left: 30px;
 }
 
-.tutorial-movement__container {
+.tutorial-page__movement {
+    position: relative;
+    margin-top: 10px;
+    padding: 0px 5px 5px 5px;
+    text-transform: none;
 }
 
-.tutorial-combat__container {
+.tutorial-page__item {
+    position: relative;
+    margin-top: 10px;
+    padding: 0px 5px 5px 5px;
+    text-transform: none;
 }
 
-.tutorial-ability__container {
+.tutorial-page__item-locations {
+    display: flex;
+    flex: 1;
+    justify-content: space-evenly;
 }
 
-.tutorial-spell__container {
+.tutorial-page__item-types {
+    display: flex;
+    flex: 1;
+    justify-content: space-evenly;
 }
 
-.tutorial-item__container {
+.tutorial-page__combat {
+    position: relative;
+    padding: 10px 5px 5px 5px;
+    text-transform: none;
 }
 
-.tutorial-shop__container {
+.tutorial-page__ability {
+    flex: 1;
+    justify-content: space-between;
+    position: relative;
+    padding: 10px 5px 5px 5px;
+    text-transform: none;
+}
+
+.tutorial-page__ability-text {
+    text-align: left;
+}
+.tutorial-page__ability-description {
+    text-align: right;
+}
+
+.tutorial-page__spell {
+    position: relative;
+    padding: 10px 5px 5px 5px;
+    text-transform: none;
+}
+
+.tutorial-page__shop {
+    position: relative;
+    padding: 10px 5px 5px 5px;
+    text-transform: none;
 }
