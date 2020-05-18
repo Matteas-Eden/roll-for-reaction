@@ -9,8 +9,8 @@ const Plantera = {
     exp: 330,
     type: 'Plantera',
     sprite: { WEST: PlanteraSprite, EAST: PlanteraSprite },
-    ai: 'normal',
-    originalAI: 'normal',
+    ai: 'ranged',
+    originalAI: 'ranged',
     direction: 'WEST',
     aiTurns: 0,
 };

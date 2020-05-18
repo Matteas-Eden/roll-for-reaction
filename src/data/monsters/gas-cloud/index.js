@@ -9,8 +9,8 @@ const GasCloud = {
     exp: 35,
     type: 'gas cloud',
     sprite: { WEST: GasCloudSprite, EAST: GasCloudSprite },
-    ai: 'normal',
-    originalAI: 'normal',
+    ai: 'suicidal',
+    originalAI: 'suicidal',
     direction: 'WEST',
     aiTurns: 0,
 };

@@ -9,8 +9,8 @@ const FungiBulb = {
     exp: 38,
     type: 'fungi bulb',
     sprite: { WEST: FungiBulbSprite, EAST: FungiBulbSprite },
-    ai: 'normal',
-    originalAI: 'normal',
+    ai: 'suicidal',
+    originalAI: 'suicidal',
     direction: 'WEST',
     aiTurns: 0,
 };

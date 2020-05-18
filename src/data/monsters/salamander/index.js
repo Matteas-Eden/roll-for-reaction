@@ -9,8 +9,8 @@ const Salamander = {
     exp: 25,
     type: 'salamander',
     sprite: { WEST: SalamanderSprite, EAST: SalamanderSprite },
-    ai: 'normal',
-    originalAI: 'normal',
+    ai: 'ranged',
+    originalAI: 'ranged',
     direction: 'WEST',
     aiTurns: 0,
 };

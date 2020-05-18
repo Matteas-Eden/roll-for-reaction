@@ -1,4 +1,5 @@
 import SnakeSprite from './snake.png';
+import PoisonDart from '../../spells/poison-dart';
 
 const Snake = {
     hp: 8,
@@ -9,8 +10,9 @@ const Snake = {
     exp: 18,
     type: 'snake',
     sprite: { WEST: SnakeSprite, EAST: SnakeSprite },
-    ai: 'normal',
-    originalAI: 'normal',
+    ai: 'magical',
+    originalAI: 'magical',
+    projectile: PoisonDart,
     direction: 'WEST',
     aiTurns: 0,
 };

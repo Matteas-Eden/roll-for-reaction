@@ -9,8 +9,8 @@ const PumpkinGhost = {
     exp: 370,
     type: 'pumpkin ghost',
     sprite: { WEST: PumpkinGhostSprite, EAST: PumpkinGhostSprite },
-    ai: 'normal',
-    originalAI: 'normal',
+    ai: 'ranged',
+    originalAI: 'ranged',
     direction: 'WEST',
     aiTurns: 0,
 };

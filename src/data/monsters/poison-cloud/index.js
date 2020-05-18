@@ -9,8 +9,8 @@ const PoisonCloud = {
     exp: 230,
     type: 'poison cloud',
     sprite: { WEST: PoisonCloudSprite, EAST: PoisonCloudSprite },
-    ai: 'normal',
-    originalAI: 'normal',
+    ai: 'suicidal',
+    originalAI: 'suicidal',
     direction: 'WEST',
     aiTurns: 0,
 };

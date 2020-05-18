@@ -10,8 +10,8 @@ const Rat = {
     exp: 8,
     type: 'rat',
     sprite: { WEST: RatSprite, EAST: RatFloppedSprite },
-    ai: 'suicidal',
-    originalAI: 'suicidal',
+    ai: 'normal',
+    originalAI: 'normal',
     direction: 'WEST',
     aiTurns: 0,
 };

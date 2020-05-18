@@ -27,6 +27,7 @@ export default function takeMonstersTurn() {
                 case 'suicidal':
                     dispatch(suicidal(sightBox, currentMap, monster));
                     break;
+                case 'ranged':
                 case 'boss':
                 case 'normal':
                     dispatch(moveNormally(sightBox, currentMap, monster));
