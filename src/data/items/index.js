@@ -135,7 +135,8 @@ export const randomItemsT1 = [
     LeatherPants,
     OldRing,
     BlackRobes,
-    BlackStaff,
+    BrownRobes,
+    BrownStaff,
     Slingshot,
 ];
 
@@ -148,8 +149,8 @@ export const randomItemsT2 = [
     IronGloves,
     IronPants,
     AmethystRing,
-    BrownRobes,
-    BrownStaff,
+    RedStaff,
+    RedRobes,
     HellsPheonix,
 ];
 
@@ -161,9 +162,7 @@ export const randomItemsT3 = [
     SteelHelm,
     SteelGloves,
     SteelPants,
-    RedRobes,
     TealRobes,
-    RedStaff,
     TealStaff,
     DiamondRing,
     MidnightsFury,
