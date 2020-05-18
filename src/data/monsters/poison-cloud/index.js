@@ -1,4 +1,5 @@
 import PoisonCloudSprite from './poison-cloud.png';
+import PoisonCloudSpell from '../../spells/poison-cloud';
 
 const PoisonCloud = {
     hp: 30,
@@ -9,8 +10,9 @@ const PoisonCloud = {
     exp: 230,
     type: 'poison cloud',
     sprite: { WEST: PoisonCloudSprite, EAST: PoisonCloudSprite },
-    ai: 'suicidal',
-    originalAI: 'suicidal',
+    ai: 'magical',
+    originalAI: 'magical',
+    projectile: PoisonCloudSpell,
     direction: 'WEST',
     aiTurns: 0,
 };
