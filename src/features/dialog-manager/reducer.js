@@ -62,7 +62,13 @@ const initialState = {
 };
 
 const dialogManagerReducer = (state = initialState, { type, payload }) => {
-    const { abilities, abilities_minimum, character, appearance } = state;
+    const {
+        abilities,
+        abilities_minimum,
+        character,
+        appearance,
+        tutorialPage,
+    } = state;
     const {
         constitution,
         intelligence,
@@ -423,7 +429,9 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
         case 'CHANGE_TUTORIAL_PAGE':
             return {
                 ...state,
-                tutorialPage: payload.tutorialPage,
+                tutorialPage: payload.tutorialPage
+                    ? payload.tutorialPage
+                    : tutorialPage,
             };
 
         case 'RESET':

@@ -16,6 +16,8 @@ import getPreviousPage from './actions/get-previous-page';
 import changeTutorialPage from './actions/change-tutorial-page';
 import toggleTutorial from '../../actions/toggle-tutorial';
 
+import { H_KEY } from '../../../../config/constants';
+
 import './styles.scss';
 
 const TutorialDialog = ({ dialog, toggleTutorial, changeTutorialPage }) => {
@@ -43,7 +45,9 @@ const TutorialDialog = ({ dialog, toggleTutorial, changeTutorialPage }) => {
 
     return (
         <MicroDialog
-            onClose={() => toggleTutorial()}
+            keys={[H_KEY]}
+            onClose={toggleTutorial}
+            onKeyPress={() => changeTutorialPage(nextPage)}
             fullsize
             className="centered"
         >
