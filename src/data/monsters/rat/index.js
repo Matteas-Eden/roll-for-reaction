@@ -4,7 +4,7 @@ import RatFloppedSprite from './rat-flopped.png';
 const Rat = {
     hp: 6,
     maxHp: 6,
-    attackValue: 3,
+    attackValue: 2,
     defence: 0,
     dice: '1d4',
     exp: 8,
