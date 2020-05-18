@@ -6,7 +6,7 @@ const BlackStaff = {
     type: 'weapon',
     kind: 'magic',
     effect: {
-        mana: 1,
+        mana: 5,
     },
     range: 1,
     damage: '1d4',

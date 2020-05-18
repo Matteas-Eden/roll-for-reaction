@@ -6,7 +6,7 @@ const RedStaff = {
     type: 'weapon',
     kind: 'magic',
     effect: {
-        mana: 7,
+        mana: 15,
     },
     range: 1,
     damage: '1d8',

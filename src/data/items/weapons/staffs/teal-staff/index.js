@@ -6,10 +6,10 @@ const TealStaff = {
     type: 'weapon',
     kind: 'magic',
     effect: {
-        mana: 10,
+        mana: 20,
     },
     range: 1,
-    damage: '2d8 + 3',
+    damage: '1d8 + 3',
     image: TealStaffImg,
     value: 300,
 };

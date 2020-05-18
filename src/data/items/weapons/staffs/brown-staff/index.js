@@ -6,7 +6,7 @@ const BrownStaff = {
     type: 'weapon',
     kind: 'magic',
     effect: {
-        mana: 4,
+        mana: 10,
     },
     range: 1,
     damage: '1d4+2',
