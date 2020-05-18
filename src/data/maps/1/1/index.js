@@ -20,7 +20,7 @@ const wallType = 'brick';
 
 const monsters = [
     {
-        type: 'salamander',
+        type: 'rat',
         position: [6, 5],
     },
     {
