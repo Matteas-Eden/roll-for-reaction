@@ -3,16 +3,16 @@ import CrossbowImg from './crossbow.png';
 import { SIGHT_RADIUS } from '../../../../../config/constants';
 import Bolt from '../../../../ammo/bolt';
 
-const Crossbow = {
-    name: 'Crossbow',
+const PhantasmCrossbow = {
+    name: 'Phantasm Crossbow',
     type: 'weapon',
     kind: 'ranged',
     effect: {},
     range: SIGHT_RADIUS,
-    damage: '4d8 + 4',
+    damage: '2d10 + 4',
     image: CrossbowImg,
     projectile: Bolt,
     value: 666,
 };
 
-export default Crossbow;
+export default PhantasmCrossbow;

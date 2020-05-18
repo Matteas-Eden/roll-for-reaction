@@ -7,6 +7,7 @@ import suicidal from './suicidal-ai';
 import magical from './magical-ai';
 import healer from './healer-ai';
 import ranged from './ranged-ai';
+import frightened from './frightened-ai';
 
 export default function takeMonstersTurn() {
     return (dispatch, getState) => {
@@ -40,6 +41,9 @@ export default function takeMonstersTurn() {
                     break;
                 case 'poisoned':
                     dispatch(poisoned(sightBox, currentMap, monster));
+                    break;
+                case 'frightened':
+                    dispatch(frightened(sightBox, currentMap, monster));
                     break;
                 case 'shocked':
                     dispatch(shocked(sightBox, currentMap, monster));
