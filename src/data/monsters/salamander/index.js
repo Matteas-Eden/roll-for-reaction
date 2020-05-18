@@ -1,4 +1,5 @@
 import SalamanderSprite from './salamander.png';
+import Stone from '../../ammo/stone';
 
 const Salamander = {
     hp: 12,
@@ -11,6 +12,7 @@ const Salamander = {
     sprite: { WEST: SalamanderSprite, EAST: SalamanderSprite },
     ai: 'ranged',
     originalAI: 'ranged',
+    projectile: Stone,
     direction: 'WEST',
     aiTurns: 0,
 };

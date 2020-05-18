@@ -12,10 +12,10 @@ const initialState = {
     targetPosition: [],
     spell: null,
     turnsOutOfCombat: 0,
-    monsterCastSpell: false,
-    monsterSpellCastPosition: [],
-    monsterSpellCastDirection: '',
-    monsterSpell: null,
+    monsterUseProjectile: false,
+    monsterProjectileTargetPosition: [],
+    monsterProjectileDirection: '',
+    monsterProjectile: null,
 };
 
 const playerReducer = (state = initialState, { type, payload }) => {
@@ -41,10 +41,10 @@ const playerReducer = (state = initialState, { type, payload }) => {
                 ...state,
                 monsterAttacked: !state.monsterAttacked,
                 turnsOutOfCombat: 0,
-                monsterCastSpell: !state.monsterCastSpell,
-                monsterSpellCastPosition: payload.position,
-                monsterSpellCastDirection: payload.direction,
-                monsterSpell: payload.spell,
+                monsterUseProjectile: !state.monsterUseProjectile,
+                monsterProjectileTargetPosition: payload.position,
+                monsterProjectileDirection: payload.direction,
+                monsterProjectile: payload.spell,
             };
 
         case 'SET_ACTIVE_SPELL':
@@ -56,6 +56,17 @@ const playerReducer = (state = initialState, { type, payload }) => {
                 playerAttacked: !state.playerAttacked,
                 targetPosition: payload ? payload.position : [],
                 turnsOutOfCombat: 0,
+            };
+
+        case 'MONSTER_USE_PROJECTILE':
+            return {
+                ...state,
+                monsterAttacked: !state.monsterAttacked,
+                turnsOutOfCombat: 0,
+                monsterUseProjectile: !state.monsterUseProjectile,
+                monsterProjectileTargetPosition: payload.position,
+                monsterProjectileDirection: payload.direction,
+                monsterProjectile: payload.projectile,
             };
 
         case 'CAST_SPELL':

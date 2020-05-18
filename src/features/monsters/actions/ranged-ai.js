@@ -1,10 +1,9 @@
 import { playerInRange, getRandomDirection } from './move-monster';
 import { move } from './normal-ai';
+import { SPRITE_SIZE, SIGHT_RADIUS } from '../../../config/constants';
 import attackPlayer from './attack-player';
-import { SPRITE_SIZE } from '../../../config/constants';
-import monsterCastSpell from './monster-cast-spell';
 
-export default function healer(sightBox, currentMap, monster) {
+export default function ranged(sightBox, currentMap, monster) {
     return (dispatch, getState) => {
         const { id, position } = monster;
 
@@ -26,10 +25,12 @@ export default function healer(sightBox, currentMap, monster) {
             });
 
             const { player } = getState();
-            if (monster.hp <= monster.maxHp / 2) {
-                dispatch(monsterCastSpell(monster));
-            } else if (playerInRange(player.position, monsterPosition)) {
-                // check if player is in range
+            // check if player is in range
+            if (
+                playerInRange(player.position, monsterPosition, SIGHT_RADIUS) &&
+                (player.position[0] === position[0] ||
+                    player.position[1] === position[1])
+            ) {
                 dispatch(attackPlayer(monster));
             } else {
                 // no player in range, time to move!

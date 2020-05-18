@@ -29,15 +29,16 @@ export default function monsterCastSpell(monster) {
                 });
             }
         } else {
+            const attack = calculateDamage(attackValue);
             const calculatedMonsterDamage =
-                attackValue >= Math.max(stats.defence, 0)
+                attack >= Math.max(stats.defence, 0)
                     ? calculateDamage(dice)
                     : 0;
 
             dispatch({
                 type: 'MONSTER_ABILITY_CHECK',
                 payload: {
-                    attackValue: attackValue,
+                    attackValue: attack,
                     check: Math.max(stats.defence, 0),
                     against: 'defence',
                     entity: type,

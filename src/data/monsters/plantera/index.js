@@ -1,4 +1,5 @@
 import PlanteraSprite from './plantera.png';
+import Stone from '../../ammo/stone';
 
 const Plantera = {
     hp: 40,
@@ -11,6 +12,7 @@ const Plantera = {
     sprite: { WEST: PlanteraSprite, EAST: PlanteraSprite },
     ai: 'ranged',
     originalAI: 'ranged',
+    projectile: Stone,
     direction: 'WEST',
     aiTurns: 0,
 };

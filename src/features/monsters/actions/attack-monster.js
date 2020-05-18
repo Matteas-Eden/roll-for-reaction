@@ -14,13 +14,14 @@ export default function attackMonster(
         const { dice, attackValue } = attackingMonster;
         const { defence, type, hp, position } = defender;
 
+        const attack = calculateDamage(attackValue);
         const calculatedMonsterDamage =
-            attackValue >= Math.max(defence, 0) ? calculateDamage(dice) : 0;
+            attack >= Math.max(defence, 0) ? calculateDamage(dice) : 0;
 
         dispatch({
             type: 'MONSTER_ABILITY_CHECK',
             payload: {
-                attackValue: attackValue,
+                attackValue: attack,
                 check: Math.max(defence, 0),
                 against: 'defence',
                 entity: attackingMonster.type,

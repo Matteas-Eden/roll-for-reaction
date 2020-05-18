@@ -213,7 +213,7 @@ export function move(
 
 export default function moveNormally(sightBox, currentMap, monster) {
     return (dispatch, getState) => {
-        const { id, position, attackValue, dice, type } = monster;
+        const { id, position } = monster;
 
         const monsterPosition = position.map(pos => pos / SPRITE_SIZE);
 
@@ -235,7 +235,7 @@ export default function moveNormally(sightBox, currentMap, monster) {
             const { player } = getState();
             // check if player is in range
             if (playerInRange(player.position, monsterPosition)) {
-                dispatch(attackPlayer(attackValue, dice, type));
+                dispatch(attackPlayer(monster));
             } else {
                 // no player in range, time to move!
                 // get the monsters actual position in pixels

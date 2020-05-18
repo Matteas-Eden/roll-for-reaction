@@ -33,8 +33,8 @@ const journalReducer = (state = initialState, { type, payload }) => {
                     key: uuidv4(),
                     entry: (
                         <p key={uuidv4()}>
-                            The {colourise(defender, 'type')} attacked you with
-                            an attack value of {colourise(attackValue, 'score')}{' '}
+                            The {colourise(entity, 'type')} attacked you with an
+                            attack value of {colourise(attackValue, 'score')}{' '}
                             against your {colourise(against, 'ability')} value
                             of {colourise(check, 'score')}
                         </p>
@@ -228,6 +228,25 @@ const journalReducer = (state = initialState, { type, payload }) => {
                 entry: (
                     <p key={uuidv4()}>
                         You {information} {colourise(name, 'projectile')}
+                    </p>
+                ),
+            });
+
+            return newState;
+        }
+
+        case 'MONSTER_USE_PROJECTILE': {
+            const { projectile, entity } = payload;
+            const { name, information } = projectile;
+
+            newState = cloneDeep(state);
+
+            newState.entries.push({
+                key: uuidv4(),
+                entry: (
+                    <p key={uuidv4()}>
+                        The {colourise(entity, 'type')} {information}{' '}
+                        {colourise(name, 'projectile')}
                     </p>
                 ),
             });

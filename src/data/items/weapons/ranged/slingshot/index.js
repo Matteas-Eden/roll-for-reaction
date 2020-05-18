@@ -1,7 +1,7 @@
 // Credit: https://shikashiassets.itch.io/shikashis-fantasy-icons-pack
 import SlingshotImg from './slingshot.png';
-import StoneImg from './stone.png';
 import { SIGHT_RADIUS } from '../../../../../config/constants';
+import Stone from '../../../../ammo/stone';
 
 const Slingshot = {
     name: 'Slingshot',
@@ -11,13 +11,7 @@ const Slingshot = {
     range: SIGHT_RADIUS,
     damage: '2d8',
     image: SlingshotImg,
-    projectile: {
-        name: 'stone',
-        target: 'enemy',
-        size: { width: 40, height: 40, total: 560 },
-        sprite: StoneImg,
-        information: 'flung a',
-    },
+    projectile: Stone,
     value: 110,
 };
 

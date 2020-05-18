@@ -6,6 +6,7 @@ import scared from './scared-ai';
 import suicidal from './suicidal-ai';
 import magical from './magical-ai';
 import healer from './healer-ai';
+import ranged from './ranged-ai';
 
 export default function takeMonstersTurn() {
     return (dispatch, getState) => {
@@ -28,6 +29,8 @@ export default function takeMonstersTurn() {
                     dispatch(suicidal(sightBox, currentMap, monster));
                     break;
                 case 'ranged':
+                    dispatch(ranged(sightBox, currentMap, monster));
+                    break;
                 case 'boss':
                 case 'normal':
                     dispatch(moveNormally(sightBox, currentMap, monster));

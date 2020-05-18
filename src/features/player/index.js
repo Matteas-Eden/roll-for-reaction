@@ -42,7 +42,7 @@ class Player extends Component {
             animationAttackSound: null,
             monsterAttackAnimationPlay: 'paused',
             monsterAnimationAttackSound: null,
-            monsterSpellAnimation: null,
+            monsterProjectileAnimation: null,
             monsterDeath: null,
             playerDeath: null,
             leftSideStride: true,
@@ -238,11 +238,11 @@ class Player extends Component {
         else if (
             prevProps.player.monsterAttacked !==
                 this.props.player.monsterAttacked ||
-            prevProps.player.monsterCastSpell !==
-                this.props.player.monsterCastSpell
+            prevProps.player.monsterUseProjectile !==
+                this.props.player.monsterUseProjectile
         ) {
             let monsterAnimationAttackSound = null;
-            let monsterSpellAnimation = null;
+            let monsterProjectileAnimation = null;
             if (this.props.gameMenu.sound) {
                 monsterAnimationAttackSound = (
                     <Sound
@@ -255,25 +255,28 @@ class Player extends Component {
             }
 
             if (
-                prevProps.player.monsterCastSpell !==
-                this.props.player.monsterCastSpell
+                prevProps.player.monsterUseProjectile !==
+                this.props.player.monsterUseProjectile
             ) {
-                monsterSpellAnimation = (
+                monsterProjectileAnimation = (
                     <Animation
-                        projectile={this.props.player.monsterSpell}
+                        projectile={this.props.player.monsterProjectile}
                         startPosition={
-                            this.props.player.monsterSpellCastPosition
+                            this.props.player.monsterProjectileTargetPosition
                         }
                         endPosition={[0, 0]}
-                        direction={this.props.player.monsterSpellCastDirection}
+                        direction={this.props.player.monsterProjectileDirection}
                     />
                 );
             }
+
+            console.log(monsterProjectileAnimation);
+
             // animate the player
             this.setState({
                 monsterAttackAnimationPlay: 'running',
                 monsterAnimationAttackSound,
-                monsterSpellAnimation,
+                monsterProjectileAnimation,
             });
             // pause the infinite animation after 1 iteration plus delay time (250ms)
             this.props.setTimeout(
@@ -281,7 +284,7 @@ class Player extends Component {
                     this.setState({
                         monsterAttackAnimationPlay: 'paused',
                         monsterAnimationAttackSound: null,
-                        monsterSpellAnimation: null,
+                        monsterProjectileAnimation: null,
                     }),
                 ANIMATION_SPEED + 250
             );
@@ -391,7 +394,7 @@ class Player extends Component {
             animationAttackSound,
             monsterAnimationAttackSound,
             monsterAttackAnimationPlay,
-            monsterSpellAnimation,
+            monsterProjectileAnimation,
             monsterDeath,
             playerDeath,
         } = this.state;
@@ -423,7 +426,7 @@ class Player extends Component {
                 {monsterAnimationAttackSound}
                 {monsterDeath}
                 {playerDeath}
-                {monsterSpellAnimation}
+                {monsterProjectileAnimation}
 
                 {monsterAttackAnimationPlay === 'running' && (
                     <div
