@@ -9,7 +9,7 @@ const Crossbow = {
     kind: 'ranged',
     effect: {},
     range: SIGHT_RADIUS,
-    damage: '4d8 + 4',
+    damage: '3d10 + 4',
     image: CrossbowImg,
     projectile: {
         name: 'bolt',

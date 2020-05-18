@@ -9,7 +9,7 @@ const Slingshot = {
     kind: 'ranged',
     effect: {},
     range: SIGHT_RADIUS,
-    damage: '2d8',
+    damage: '1d8 + 2',
     image: SlingshotImg,
     projectile: {
         name: 'stone',

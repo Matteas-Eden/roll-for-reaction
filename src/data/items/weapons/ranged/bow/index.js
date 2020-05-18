@@ -9,7 +9,7 @@ const Bow = {
     kind: 'ranged',
     effect: {},
     range: SIGHT_RADIUS,
-    damage: '2d10 + 2',
+    damage: '2d8',
     image: BowImg,
     projectile: {
         name: 'arrow',

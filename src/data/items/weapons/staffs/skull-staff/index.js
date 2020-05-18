@@ -6,10 +6,10 @@ const SkullStaff = {
     type: 'weapon',
     kind: 'magic',
     effect: {
-        mana: 9,
+        mana: 13,
     },
     range: 1,
-    damage: '1d4 + 4',
+    damage: '3d8 + 2',
     image: SkullStaffImg,
     value: 55,
 };
