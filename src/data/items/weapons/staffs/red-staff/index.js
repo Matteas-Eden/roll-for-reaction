@@ -11,7 +11,7 @@ const RedStaff = {
     range: 1,
     damage: '1d8',
     image: RedStaffImg,
-    value: 45,
+    value: 110,
 };
 
 export default RedStaff;

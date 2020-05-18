@@ -18,7 +18,7 @@ const Bow = {
         sprite: ArrowImg,
         information: 'fired an',
     },
-    value: 300,
+    value: 110,
 };
 
 export default Bow;

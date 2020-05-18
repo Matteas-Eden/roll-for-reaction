@@ -18,7 +18,7 @@ const Slingshot = {
         sprite: StoneImg,
         information: 'flung a',
     },
-    value: 110,
+    value: 35,
 };
 
 export default Slingshot;

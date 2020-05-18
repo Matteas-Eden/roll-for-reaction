@@ -11,7 +11,7 @@ const TealStaff = {
     range: 1,
     damage: '2d8 + 3',
     image: TealStaffImg,
-    value: 45,
+    value: 300,
 };
 
 export default TealStaff;

@@ -11,7 +11,7 @@ const SkullStaff = {
     range: 1,
     damage: '3d8 + 2',
     image: SkullStaffImg,
-    value: 55,
+    value: 666,
 };
 
 export default SkullStaff;
