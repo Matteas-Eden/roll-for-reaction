@@ -8,8 +8,10 @@ const WaterSpirit = {
     dice: '1d4',
     exp: 28,
     type: 'water spirit',
-    sprite: WaterSpiritSprite,
+    sprite: { WEST: WaterSpiritSprite, EAST: WaterSpiritSprite },
     ai: 'normal',
+    originalAI: 'normal',
+    direction: 'WEST',
     aiTurns: 0,
 };
 

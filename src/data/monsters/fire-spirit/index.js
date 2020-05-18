@@ -8,8 +8,10 @@ const FireSpirit = {
     dice: '3d4',
     exp: 180,
     type: 'fire spirit',
-    sprite: FireSpiritSprite,
+    sprite: { WEST: FireSpiritSprite, EAST: FireSpiritSprite },
     ai: 'normal',
+    originalAI: 'normal',
+    direction: 'WEST',
     aiTurns: 0,
 };
 

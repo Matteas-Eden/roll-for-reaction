@@ -8,8 +8,10 @@ const PumpkinGhost = {
     dice: '1d20+8',
     exp: 370,
     type: 'pumpkin ghost',
-    sprite: PumpkinGhostSprite,
+    sprite: { WEST: PumpkinGhostSprite, EAST: PumpkinGhostSprite },
     ai: 'normal',
+    originalAI: 'normal',
+    direction: 'WEST',
     aiTurns: 0,
 };
 

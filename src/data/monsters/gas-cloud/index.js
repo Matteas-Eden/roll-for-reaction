@@ -8,8 +8,10 @@ const GasCloud = {
     dice: '1d4',
     exp: 35,
     type: 'gas cloud',
-    sprite: GasCloudSprite,
+    sprite: { WEST: GasCloudSprite, EAST: GasCloudSprite },
     ai: 'normal',
+    originalAI: 'normal',
+    direction: 'WEST',
     aiTurns: 0,
 };
 

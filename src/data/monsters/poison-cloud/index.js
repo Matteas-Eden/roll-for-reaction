@@ -8,8 +8,10 @@ const PoisonCloud = {
     dice: '3d4+2',
     exp: 230,
     type: 'poison cloud',
-    sprite: PoisonCloudSprite,
+    sprite: { WEST: PoisonCloudSprite, EAST: PoisonCloudSprite },
     ai: 'normal',
+    originalAI: 'normal',
+    direction: 'WEST',
     aiTurns: 0,
 };
 

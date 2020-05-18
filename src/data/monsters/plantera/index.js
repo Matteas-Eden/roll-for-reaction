@@ -8,8 +8,10 @@ const Plantera = {
     dice: '3d8+2',
     exp: 330,
     type: 'Plantera',
-    sprite: PlanteraSprite,
+    sprite: { WEST: PlanteraSprite, EAST: PlanteraSprite },
     ai: 'normal',
+    originalAI: 'normal',
+    direction: 'WEST',
     aiTurns: 0,
 };
 

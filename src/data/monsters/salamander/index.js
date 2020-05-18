@@ -8,8 +8,10 @@ const Salamander = {
     dice: '1d4 + 1',
     exp: 25,
     type: 'salamander',
-    sprite: SalamanderSprite,
+    sprite: { WEST: SalamanderSprite, EAST: SalamanderSprite },
     ai: 'normal',
+    originalAI: 'normal',
+    direction: 'WEST',
     aiTurns: 0,
 };
 

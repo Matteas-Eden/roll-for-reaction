@@ -8,8 +8,10 @@ const Snake = {
     dice: '1d4',
     exp: 18,
     type: 'snake',
-    sprite: SnakeSprite,
+    sprite: { WEST: SnakeSprite, EAST: SnakeSprite },
     ai: 'normal',
+    originalAI: 'normal',
+    direction: 'WEST',
     aiTurns: 0,
 };
 
