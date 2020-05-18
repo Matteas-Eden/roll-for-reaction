@@ -40,6 +40,37 @@ const App = ({ appState, world, dialog }) => {
         showFooter = false;
     }
 
+    if (sideMenu) {
+        return (
+            <>
+                <div className={`centered flex-row`}>
+                    <JournalSide disabled={disableJournal} />
+                    <div
+                        className={`centered ${
+                            sideMenu ? 'flex-row' : 'flex-column'
+                        }`}
+                    >
+                        <div className={'centered flex-row'}>
+                            <Viewport>
+                                <World />
+                                <DialogManager />
+                                <Spellbook />
+
+                                {/* Show the floor counter when playing endless mode */}
+                                {gameMode === 'endless' && (
+                                    <EndlessFloorCounter floor={floorNum} />
+                                )}
+                            </Viewport>
+                        </div>
+
+                        <GameMenus />
+                    </div>
+                </div>
+                {showFooter && <Footer />}
+            </>
+        );
+    }
+
     return (
         <>
             <div style={{ float: 'left' }}>
@@ -74,8 +105,9 @@ const App = ({ appState, world, dialog }) => {
                     <GameMenus />
                 </div>
             </div>
-
-            {showFooter && <Footer />}
+            <div style={{ position: 'absolute', top: '700px' }}>
+                {showFooter && <Footer />}
+            </div>
         </>
     );
 };
