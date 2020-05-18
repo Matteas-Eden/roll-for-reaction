@@ -127,17 +127,17 @@ const items = {
 };
 
 export const randomItemsT1 = [
-    SteelSword,
     LeatherArmor,
     LeatherBoots,
     LeatherCap,
     LeatherGloves,
     LeatherPants,
+    SteelSword,
+    Slingshot,
+    BrownStaff,
     OldRing,
     BlackRobes,
     BrownRobes,
-    BrownStaff,
-    Slingshot,
 ];
 
 export const randomItemsT2 = [
