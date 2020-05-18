@@ -64,7 +64,7 @@ const TutorialDialog = ({ dialog, toggleTutorial, changeTutorialPage }) => {
                         <Button
                             onClick={() => changeTutorialPage(nextPage)}
                             title={'Next'}
-                            icon={'arrow-right'}
+                            iconRight={'arrow-right'}
                         />
                     </div>
                 )}
