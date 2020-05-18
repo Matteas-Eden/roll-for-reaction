@@ -2,9 +2,9 @@ import GhostSprite from './ghost.png';
 import LightningBolt from '../../spells/lightning-bolt';
 
 const Ghost = {
-    hp: 16,
-    maxHp: 16,
-    attackValue: 22,
+    hp: 20,
+    maxHp: 20,
+    attackValue: '1d8 + 4',
     defence: 4,
     dice: '1d8',
     exp: 80,
