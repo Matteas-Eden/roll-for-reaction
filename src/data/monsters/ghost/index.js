@@ -6,7 +6,7 @@ const Ghost = {
     attackValue: '1d8 + 4',
     defence: 4,
     dice: '1d8',
-    exp: 200,
+    exp: 80,
     type: 'ghost',
     sprite: GhostSprite,
     ai: 'normal',

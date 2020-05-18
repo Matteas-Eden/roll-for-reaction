@@ -6,7 +6,7 @@ const Bat = {
     attackValue: '1d4 + 2',
     defence: 0,
     dice: '1d4',
-    exp: 16,
+    exp: 14,
     type: 'bat',
     sprite: BatSprite,
     ai: 'normal',

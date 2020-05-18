@@ -6,7 +6,7 @@ const Medusa = {
     attackValue: '3d10 + 20',
     defence: 5,
     dice: '1d20 + 4',
-    exp: 320,
+    exp: 350,
     type: 'medusa',
     sprite: MedusaSprite,
     ai: 'normal',

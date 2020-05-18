@@ -6,7 +6,7 @@ const Goblin = {
     attackValue: '2d6 + 3',
     defence: 3,
     dice: '1d6',
-    exp: 25,
+    exp: 30,
     type: 'goblin',
     sprite: GoblinSprite,
     ai: 'normal',
