@@ -9,7 +9,7 @@ const MidnightsFury = {
     kind: 'ranged',
     effect: {},
     range: SIGHT_RADIUS,
-    damage: '2d10 + 4',
+    damage: '3d10 + 4',
     image: BowImg,
     projectile: {
         name: 'arrow',
@@ -18,7 +18,7 @@ const MidnightsFury = {
         sprite: ArrowImg,
         information: 'fired an',
     },
-    value: 300,
+    value: 666,
 };
 
 export default MidnightsFury;

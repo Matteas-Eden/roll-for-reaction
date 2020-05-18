@@ -9,7 +9,7 @@ const PhantasmCrossbow = {
     kind: 'ranged',
     effect: {},
     range: SIGHT_RADIUS,
-    damage: '3d10 + 4',
+    damage: '2d10 + 4',
     image: CrossbowImg,
     projectile: {
         name: 'bolt',
@@ -18,7 +18,7 @@ const PhantasmCrossbow = {
         sprite: BoltImg,
         information: 'discharged a',
     },
-    value: 666,
+    value: 300,
 };
 
 export default PhantasmCrossbow;
