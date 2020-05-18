@@ -9,10 +9,11 @@ const Warlock = {
     dice: '3d6+4',
     exp: 320,
     type: 'warlock',
-    sprite: WarlockSprite,
+    sprite: { WEST: WarlockSprite, EAST: WarlockSprite },
     ai: 'magical',
     originalAI: 'magical',
     projectile: Fireball,
+    direction: 'WEST',
     aiTurns: 0,
 };
 

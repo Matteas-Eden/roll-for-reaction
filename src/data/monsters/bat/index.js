@@ -8,9 +8,10 @@ const Bat = {
     dice: '1d4',
     exp: 16,
     type: 'bat',
-    sprite: BatSprite,
+    sprite: { WEST: BatSprite, EAST: BatSprite },
     ai: 'normal',
     originalAI: 'normal',
+    direction: 'WEST',
     aiTurns: 0,
 };
 

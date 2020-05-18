@@ -1,4 +1,5 @@
 import LichSprite from './lich.png';
+import LichFloppedSprite from './lich-flopped.png';
 
 const Lich = {
     hp: 80,
@@ -8,9 +9,10 @@ const Lich = {
     dice: '2d20',
     exp: 1000,
     type: 'lich',
-    sprite: LichSprite,
+    sprite: { WEST: LichSprite, EAST: LichFloppedSprite },
     ai: 'boss',
     originalAI: 'boss',
+    direction: 'WEST',
     aiTurns: 0,
 };
 

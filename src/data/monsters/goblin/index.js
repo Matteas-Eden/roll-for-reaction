@@ -8,9 +8,10 @@ const Goblin = {
     dice: '1d6',
     exp: 25,
     type: 'goblin',
-    sprite: GoblinSprite,
+    sprite: { WEST: GoblinSprite, EAST: GoblinSprite },
     ai: 'normal',
     originalAI: 'normal',
+    direction: 'WEST',
     aiTurns: 0,
 };
 

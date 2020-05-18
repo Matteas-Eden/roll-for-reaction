@@ -9,10 +9,11 @@ const Ghost = {
     dice: '1d8',
     exp: 200,
     type: 'ghost',
-    sprite: GhostSprite,
+    sprite: { WEST: GhostSprite, EAST: GhostSprite },
     ai: 'magical',
     originalAI: 'magical',
     projectile: LightningBolt,
+    direction: 'WEST',
     aiTurns: 0,
 };
 

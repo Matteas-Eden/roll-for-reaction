@@ -20,6 +20,9 @@ const monstersReducer = (state = initialState, { type, payload }) => {
 
             newState.components[payload.map][payload.id].aiTurns -= 1;
 
+            newState.components[payload.map][payload.id].direction =
+                payload.direction;
+
             return newState;
 
         case 'DAMAGE_TO_MONSTER':
