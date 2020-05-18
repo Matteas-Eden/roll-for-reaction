@@ -18,8 +18,9 @@ import AbilityScores from './dialogs/ability-dialog';
 import CharacterCustomisation from './dialogs/character-customisation';
 import JournalDialog from './dialogs/journal-dialog';
 import SpellbookDialog from './dialogs/spellbook-dialog';
+import TutorialDialog from './dialogs/tutorial-dialog';
 
-const DialogManager = ({ dialog }) => {
+const DialogManager = ({ dialog, appState }) => {
     const {
         chest,
         inventory,
@@ -39,6 +40,7 @@ const DialogManager = ({ dialog }) => {
         characterCustomisation,
         journalDialog,
         spellbookDialog,
+        tutorialDialog,
     } = dialog;
 
     let PauseComp = null;
@@ -49,8 +51,10 @@ const DialogManager = ({ dialog }) => {
         if (chest) PauseComp = <ChestLoot />;
         if (shop) PauseComp = <ShopDialog />;
         if (inventory) PauseComp = <InventoryDialog />;
-        if (journalDialog) PauseComp = <JournalDialog />;
+        if (journalDialog && !appState.journalSideMenu)
+            PauseComp = <JournalDialog />;
         if (spellbookDialog) PauseComp = <SpellbookDialog />;
+        if (tutorialDialog) PauseComp = <TutorialDialog />;
         if (gameText)
             PauseComp = (
                 <GameTextDialog
@@ -93,6 +97,6 @@ const DialogManager = ({ dialog }) => {
     );
 };
 
-const mapStateToProps = ({ dialog }) => ({ dialog });
+const mapStateToProps = ({ dialog, appState }) => ({ dialog, appState });
 
 export default connect(mapStateToProps)(DialogManager);

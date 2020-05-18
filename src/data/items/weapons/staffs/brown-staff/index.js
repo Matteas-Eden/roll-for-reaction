@@ -4,11 +4,12 @@ import BrownStaffImg from './brown-staff.png';
 const BrownStaff = {
     name: 'Brown Staff',
     type: 'weapon',
+    kind: 'magic',
     effect: {
-        mana: 3,
+        mana: 10,
     },
-    range: 'melee',
-    damage: '1d4 + 1',
+    range: 1,
+    damage: '1d4+2',
     image: BrownStaffImg,
     value: 35,
 };

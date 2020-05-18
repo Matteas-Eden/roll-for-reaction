@@ -20,26 +20,26 @@ const purchaseOnlyT2 = [
 
 const purchaseOnlyT3 = [
     ...purchaseOnlyT2,
-    items.potions.MightyManaPotion,
+    items.potions.MightyMpPotion,
     items.potions.MightyHpPotion,
 ];
 
 const purchaseOnlyT4 = [
     ...purchaseOnlyT3,
     items.potions.DivineHpPotion,
-    items.potions.DivineManaPotion,
+    items.potions.DivineMpPotion,
 ];
 
 // returns the correct tier of items depending on player level
 export default function shopItems(level) {
     if (level < TIER_2) {
-        return [...randomItemsT1, ...purchaseOnlyT1];
+        return [...purchaseOnlyT1, ...randomItemsT1];
     }
     if (level < TIER_3) {
-        return [...randomItemsT2, ...purchaseOnlyT2];
+        return [...purchaseOnlyT2, ...randomItemsT2];
     }
     if (level < TIER_4) {
-        return [...randomItemsT3, ...purchaseOnlyT3];
+        return [...purchaseOnlyT3, ...randomItemsT3];
     }
-    return [...randomItemsT4, ...purchaseOnlyT4];
+    return [...purchaseOnlyT4, ...randomItemsT4];
 }

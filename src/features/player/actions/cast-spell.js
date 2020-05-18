@@ -26,9 +26,14 @@ export default function castSpell() {
                 payload: { position: position, projectile: spell },
             });
 
+            const intelligenceModifier = calculateModifier(
+                stats.abilities.intelligence
+            );
             const healAmount =
                 calculateDamage(spell.damage) +
-                calculateModifier(stats.abilities.intelligence);
+                (intelligenceModifier > 0 ? intelligenceModifier : 0);
+
+            console.log(intelligenceModifier, healAmount);
 
             if (target[1] === 'heal') {
                 dispatch({
@@ -59,28 +64,42 @@ export default function castSpell() {
                     stats.abilities.intelligence
                 );
 
-                const attackValue = d20() + modifier;
+                const roll = d20();
+                const attackValue = roll + modifier;
 
                 dispatch({
                     type: 'CAST_SPELL',
                     payload: { position: spellPosition, projectile: spell },
                 });
 
-                dispatch({
-                    type: 'ABILITY_CHECK',
-                    payload: {
-                        notation: 'd20 + ' + modifier,
-                        roll: attackValue,
-                        ability: 'intelligence',
-                        check: currMonster.defence,
-                        entity: currMonster.type,
-                        against: 'defence',
-                    },
-                });
+                if (roll === 20) {
+                    dispatch({
+                        type: 'CRITICAL_HIT',
+                        payload: {
+                            notation: 'd20 + ' + modifier,
+                            roll: roll,
+                            ability: 'intelligence',
+                        },
+                    });
+                } else {
+                    dispatch({
+                        type: 'ABILITY_CHECK',
+                        payload: {
+                            notation: 'd20 + ' + modifier,
+                            roll: attackValue,
+                            ability: 'intelligence',
+                            check: currMonster.defence,
+                            entity: currMonster.type,
+                            against: 'defence',
+                        },
+                    });
+                }
 
                 const damage =
-                    attackValue >= currMonster.defence
-                        ? calculateDamage(spell.damage)
+                    roll === 20
+                        ? calculateDamage(spell.damage, true)
+                        : attackValue >= currMonster.defence
+                        ? calculateDamage(spell.damage, false)
                         : 0;
 
                 // deal damage to monster
@@ -91,6 +110,7 @@ export default function castSpell() {
                         id: currMonster.id,
                         map: currentMap,
                         entity: currMonster.type,
+                        from: 'player',
                     },
                 });
 
@@ -124,6 +144,40 @@ export default function castSpell() {
                             y: monsterPos[1] / SPRITE_SIZE,
                         },
                     });
+                } else {
+                    if (spell.effects && spell.effects.changeAI) {
+                        const { to, turns, proc } = spell.effects.changeAI;
+
+                        // If we have a probabilty to hit, then use that to check if we do
+                        if (proc) {
+                            if (proc()) {
+                                dispatch({
+                                    type: 'CHANGE_AI',
+                                    payload: {
+                                        from: currMonster.ai,
+                                        ai: to,
+                                        turns,
+                                        id: currMonster.id,
+                                        map: currentMap,
+                                        entity: currMonster.type,
+                                    },
+                                });
+                            }
+                        } else {
+                            // Otherwise, just set the AI to whatever it is
+                            dispatch({
+                                type: 'CHANGE_AI',
+                                payload: {
+                                    from: currMonster.ai,
+                                    ai: to,
+                                    turns,
+                                    id: currMonster.id,
+                                    map: currentMap,
+                                    entity: currMonster.type,
+                                },
+                            });
+                        }
+                    }
                 }
 
                 // take a turn if the player attacked something

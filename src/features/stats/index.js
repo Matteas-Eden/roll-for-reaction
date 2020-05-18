@@ -23,7 +23,8 @@ class Stats extends Component {
         if (
             JSON.stringify(prevProps.stats) !==
                 JSON.stringify(this.props.stats) &&
-            !this.props.disabled
+            !this.props.disabled &&
+            prevProps.stats.level !== this.props.stats.level
         ) {
             // animate the container
             this.setState({ statsBgColor: 'var(--gray)' });
@@ -136,10 +137,10 @@ class Stats extends Component {
                                 }}
                             >
                                 <span className="stats__text--spacing">
-                                    {'LEVEL: '}
+                                    {'DEFENCE: '}
                                 </span>
-                                <span className="stats__text--level">
-                                    {level}
+                                <span className="stats__text--defence">
+                                    {defence}
                                 </span>
                             </div>
 
@@ -320,10 +321,10 @@ class Stats extends Component {
                                 }}
                             >
                                 <span className="stats__text--spacing">
-                                    {'DEFENCE: '}
+                                    {'LEVEL: '}
                                 </span>
-                                <span className="stats__text--defence">
-                                    {defence}
+                                <span className="stats__text--level">
+                                    {level}
                                 </span>
                             </div>
 

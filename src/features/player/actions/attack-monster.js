@@ -6,7 +6,7 @@ import {
 import { calculateDamage, d20 } from '../../../utils/dice';
 import calculateModifier from '../../../utils/calculate-modifier';
 import getNextTile from '../../../utils/get-next-tile';
-import { SPRITE_SIZE, UNARMED_DAMAGE } from '../../../config/constants';
+import { SPRITE_SIZE, FISTS } from '../../../config/constants';
 
 export const findTarget = (position, direction, range) => {
     return dispatch => {
@@ -15,7 +15,7 @@ export const findTarget = (position, direction, range) => {
             case 'NORTH':
                 for (
                     let y = position[1];
-                    y >= position[1] - range;
+                    y > position[1] - range;
                     y -= SPRITE_SIZE
                 ) {
                     const pos = getNewPosition([position[0], y], direction);
@@ -28,7 +28,7 @@ export const findTarget = (position, direction, range) => {
             case 'SOUTH':
                 for (
                     let y = position[1];
-                    y <= position[1] + range;
+                    y < position[1] + range;
                     y += SPRITE_SIZE
                 ) {
                     const pos = getNewPosition([position[0], y], direction);
@@ -41,7 +41,7 @@ export const findTarget = (position, direction, range) => {
             case 'EAST':
                 for (
                     let x = position[0];
-                    x <= position[0] + range;
+                    x < position[0] + range;
                     x += SPRITE_SIZE
                 ) {
                     const pos = getNewPosition([x, position[1]], direction);
@@ -54,7 +54,7 @@ export const findTarget = (position, direction, range) => {
             case 'WEST':
                 for (
                     let x = position[0];
-                    x >= position[0] - range;
+                    x > position[0] - range;
                     x -= SPRITE_SIZE
                 ) {
                     const pos = getNewPosition([x, position[1]], direction);
@@ -86,11 +86,7 @@ export default function attackMonster() {
             const { currentMap } = world;
             const { components } = monsters;
 
-            const { weapon } = stats.equippedItems || {
-                kind: 'melee',
-                range: 1,
-                damage: UNARMED_DAMAGE,
-            };
+            const weapon = stats.equippedItems.weapon || FISTS;
 
             const targetPosition = dispatch(
                 findTarget(position, direction, weapon.range * SPRITE_SIZE)
@@ -110,7 +106,8 @@ export default function attackMonster() {
                         : 'intelligence';
 
                 const modifier = calculateModifier(stats.abilities[ability]);
-                const attackValue = d20() + modifier;
+                const roll = d20();
+                const attackValue = roll + modifier;
 
                 if (weapon.projectile) {
                     dispatch({
@@ -122,21 +119,34 @@ export default function attackMonster() {
                     });
                 }
 
-                dispatch({
-                    type: 'ABILITY_CHECK',
-                    payload: {
-                        notation: 'd20 + ' + modifier,
-                        roll: attackValue,
-                        ability,
-                        check: currMonster.defence,
-                        entity: currMonster.type,
-                        against: 'defence',
-                    },
-                });
+                if (roll === 20) {
+                    dispatch({
+                        type: 'CRITICAL_HIT',
+                        payload: {
+                            notation: 'd20 + ' + modifier,
+                            roll: roll,
+                            ability,
+                        },
+                    });
+                } else {
+                    dispatch({
+                        type: 'ABILITY_CHECK',
+                        payload: {
+                            notation: 'd20 + ' + modifier,
+                            roll: attackValue,
+                            ability,
+                            check: currMonster.defence,
+                            entity: currMonster.type,
+                            against: 'defence',
+                        },
+                    });
+                }
 
                 const damage =
-                    attackValue >= currMonster.defence
-                        ? calculateDamage(weapon.damage)
+                    roll === 20
+                        ? calculateDamage(weapon.damage, true)
+                        : attackValue >= currMonster.defence
+                        ? calculateDamage(weapon.damage, false)
                         : 0;
 
                 if (damage > 0) {
@@ -155,6 +165,7 @@ export default function attackMonster() {
                         id: currMonster.id,
                         map: currentMap,
                         entity: currMonster.type,
+                        from: 'player',
                     },
                 });
 
@@ -197,7 +208,7 @@ export default function attackMonster() {
                 });
             } else {
                 // Hit a wall or something else
-                if (weapon.kind !== 'melee') {
+                if (weapon.kind === 'ranged') {
                     dispatch({
                         type: 'USE_PROJECTILE',
                         payload: {

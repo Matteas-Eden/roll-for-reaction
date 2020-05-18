@@ -11,6 +11,7 @@ import World from './features/world';
 import Viewport from './components/viewport';
 import useGameViewportScaling from './features/app-state/actions/use-game-viewport-scaling';
 import Spellbook from './features/spellbook';
+import Tutorial from './features/tutorial';
 
 import JournalSide from './components/journal-side';
 
@@ -26,9 +27,10 @@ const App = ({ appState, world, dialog }) => {
 
     const { sideMenu, journalSideMenu } = appState;
     const { gameMode, floorNum } = world;
-    const { gameStart, gameOver } = dialog;
+    const { gameStart, gameOver, journalSideMenuOpen } = dialog;
 
-    const disableJournal = gameStart || gameOver || !journalSideMenu;
+    const disableJournal =
+        gameStart || gameOver || !journalSideMenu || !journalSideMenuOpen;
 
     let showFooter = true;
 
@@ -39,10 +41,49 @@ const App = ({ appState, world, dialog }) => {
         showFooter = false;
     }
 
+    if (sideMenu) {
+        return (
+            <>
+                <div className={`centered flex-row`}>
+                    <JournalSide disabled={disableJournal} />
+                    <div
+                        className={`centered ${
+                            sideMenu ? 'flex-row' : 'flex-column'
+                        }`}
+                    >
+                        <div className={'centered flex-row'}>
+                            <Viewport>
+                                <World />
+                                <DialogManager />
+                                <Spellbook />
+
+                                {/* Show the floor counter when playing endless mode */}
+                                {gameMode === 'endless' && (
+                                    <EndlessFloorCounter floor={floorNum} />
+                                )}
+                            </Viewport>
+                        </div>
+
+                        <GameMenus />
+                    </div>
+                </div>
+                {showFooter && <Footer />}
+            </>
+        );
+    }
+
     return (
         <>
-            <div className={`centered flex-row`}>
+            <div
+                style={{
+                    float: 'left',
+                    marginRight: '-200px',
+                    display: disableJournal ? 'none' : 'block',
+                }}
+            >
                 <JournalSide disabled={disableJournal} />
+            </div>
+            <div className={`centered flex-row`}>
                 <div
                     className={`centered ${
                         sideMenu ? 'flex-row' : 'flex-column'
@@ -52,6 +93,7 @@ const App = ({ appState, world, dialog }) => {
                         <Viewport>
                             <World />
                             <DialogManager />
+                            <Tutorial />
                             <Spellbook />
 
                             {/* Show the floor counter when playing endless mode */}
@@ -64,7 +106,6 @@ const App = ({ appState, world, dialog }) => {
                     <GameMenus />
                 </div>
             </div>
-
             {showFooter && <Footer />}
         </>
     );
