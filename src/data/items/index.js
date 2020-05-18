@@ -39,8 +39,9 @@ import TealStaff from './weapons/staffs/teal-staff';
 import SkullStaff from './weapons/staffs/skull-staff';
 import Boomerang from './weapons/ranged/boomerang';
 import Slingshot from './weapons/ranged/slingshot';
-import Bow from './weapons/ranged/bow';
-import Crossbow from './weapons/ranged/crossbow';
+import HellsPheonix from './weapons/ranged/hells-pheonix';
+import MidnightsFury from './weapons/ranged/midnights-fury';
+import PhantasmCrossbow from './weapons/ranged/crossbow';
 import HpPotion from './potions/hp-potion';
 import GreatHpPotion from './potions/great-hp-potion';
 import MightyHpPotion from './potions/mighty-hp-potion';
@@ -53,17 +54,18 @@ import DivineMpPotion from './potions/divine-mp-potion';
 const items = {
     weapons: {
         swords: {
-            BroadSword,
             RustySword,
             SteelSword,
+            BroadSword,
             DragonsBane,
             LichBane,
         },
         ranged: {
             Boomerang,
             Slingshot,
-            Bow,
-            Crossbow,
+            HellsPheonix,
+            MidnightsFury,
+            Crossbow: PhantasmCrossbow,
         },
         staffs: {
             BlackStaff,
@@ -134,7 +136,7 @@ export const randomItemsT1 = [
     OldRing,
     BlackRobes,
     BlackStaff,
-    Boomerang,
+    Slingshot,
 ];
 
 export const randomItemsT2 = [
@@ -145,11 +147,10 @@ export const randomItemsT2 = [
     IronHelm,
     IronGloves,
     IronPants,
-    BroadSword,
     AmethystRing,
     BrownRobes,
     BrownStaff,
-    Slingshot,
+    HellsPheonix,
 ];
 
 export const randomItemsT3 = [
@@ -164,8 +165,8 @@ export const randomItemsT3 = [
     TealRobes,
     RedStaff,
     TealStaff,
-    Bow,
     DiamondRing,
+    MidnightsFury,
 ];
 
 export const randomItemsT4 = [
@@ -178,7 +179,7 @@ export const randomItemsT4 = [
     MithrilPants,
     SkullRobes,
     SkullStaff,
-    Crossbow,
+    PhantasmCrossbow,
 ];
 
 export default items;

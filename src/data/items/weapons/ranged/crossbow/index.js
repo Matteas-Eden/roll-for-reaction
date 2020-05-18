@@ -3,8 +3,8 @@ import CrossbowImg from './crossbow.png';
 import BoltImg from './bolt.png';
 import { SIGHT_RADIUS } from '../../../../../config/constants';
 
-const Crossbow = {
-    name: 'Crossbow',
+const PhantasmCrossbow = {
+    name: 'Phantasm Crossbow',
     type: 'weapon',
     kind: 'ranged',
     effect: {},
@@ -21,4 +21,4 @@ const Crossbow = {
     value: 666,
 };
 
-export default Crossbow;
+export default PhantasmCrossbow;

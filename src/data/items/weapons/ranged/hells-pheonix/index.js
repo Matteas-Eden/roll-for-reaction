@@ -3,8 +3,8 @@ import BowImg from './bow.png';
 import ArrowImg from './arrow.png';
 import { SIGHT_RADIUS } from '../../../../../config/constants';
 
-const Bow = {
-    name: 'Bow',
+const HellsPheonix = {
+    name: "Hell's Pheonix",
     type: 'weapon',
     kind: 'ranged',
     effect: {},
@@ -21,4 +21,4 @@ const Bow = {
     value: 110,
 };
 
-export default Bow;
+export default HellsPheonix;
