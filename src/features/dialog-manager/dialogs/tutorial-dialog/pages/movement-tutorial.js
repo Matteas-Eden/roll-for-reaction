@@ -10,10 +10,14 @@ const MovementTutorial = () => {
         <div className="flex-column tutorial-page__container">
             <div className="tutorial-page__title centered">{'MOVEMENT'}</div>
             <div className="tutorial-page__movement">
-                {'Move the player with WASD'} <br /> <br />
-                <img src={WASDKeys} alt="wasd-keys" width={150} /> <br /> <br />
-                {'Or with the arrow keys'} <br /> <br />
-                <img src={ArrowKeys} alt="arrow-keys" width={150} />
+                {'Move the player with WASD'}{' '}
+                <center>
+                    <img src={WASDKeys} alt="wasd-keys" width={150} />
+                </center>
+                {'Or with the arrow keys'}{' '}
+                <center>
+                    <img src={ArrowKeys} alt="arrow-keys" width={150} />
+                </center>
             </div>
         </div>
     );

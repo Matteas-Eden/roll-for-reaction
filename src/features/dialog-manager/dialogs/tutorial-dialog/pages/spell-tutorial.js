@@ -17,13 +17,15 @@ const SpellTutorial = () => {
                     "Open the spellbook with 'B' or the button on the top-right of the screen."
                 }
                 <br />
-                <img src={BKey} alt="b key" width={75} />
-                <br />
+                <center>
+                    <img src={BKey} alt="b key" width={75} />
+                </center>
                 {
                     "Cast spells with 'C' or the button on the top-right of the screen."
                 }
-                <br />
-                <img src={CKey} alt="c key" width={75} />
+                <center>
+                    <img src={CKey} alt="c key" width={75} />
+                </center>
             </div>
         </div>
     );
