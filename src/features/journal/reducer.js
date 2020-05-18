@@ -41,6 +41,25 @@ const journalReducer = (state = initialState, { type, payload }) => {
             return newState;
         }
 
+        case 'CRITICAL_HIT': {
+            const { ability, roll } = payload;
+
+            newState = cloneDeep(state);
+            newState.entries.push({
+                key: uuidv4(),
+                entry: (
+                    <p key={uuidv4()}>
+                        You performed {aOrAn(ability)}{' '}
+                        {colourise(ability, 'ability')} check and rolled a{' '}
+                        {colourise(roll, 'score')},
+                        {colourise(' critical hit!', 'damage-to-monster')}
+                    </p>
+                ),
+            });
+
+            return newState;
+        }
+
         case 'ABILITY_CHECK': {
             const { ability, entity, roll, check, against } = payload;
 
@@ -50,7 +69,7 @@ const journalReducer = (state = initialState, { type, payload }) => {
                 entry: (
                     <p key={uuidv4()}>
                         You performed {aOrAn(ability)}{' '}
-                        {colourise(ability, 'ability')} check and rolled a{' '}
+                        {colourise(ability, 'ability')} check and rolled{' '}
                         {colourise(roll, 'score')}, which{' '}
                         {roll >= check ? 'succeeded' : 'failed'} against the{' '}
                         {colourise(against, 'ability')} value of{' '}

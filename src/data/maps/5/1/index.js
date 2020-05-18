@@ -20,7 +20,7 @@ const wallType = 'inca-dark';
 
 const monsters = [
     {
-        type: 'warlock',
+        type: 'poison cloud',
         position: [4, 4],
     },
     {
@@ -36,11 +36,11 @@ const monsters = [
         position: [2, 1],
     },
     {
-        type: 'black-orc',
+        type: 'poison cloud',
         position: [11, 1],
     },
     {
-        type: 'black-orc',
+        type: 'black orc',
         position: [11, 18],
     },
     {
@@ -48,7 +48,7 @@ const monsters = [
         position: [9, 15],
     },
     {
-        type: 'stone-golem',
+        type: 'stone golem',
         position: [4, 15],
     },
 ];
@@ -61,7 +61,7 @@ const stairs = {
 const message = {
     title:
         '<> stumbled out of the forest and looked around in awe at their new surroundings.',
-    body: `It seemed as if <> had stumbled across a lost world, with inca designs etched into the stonework. Faces seemed to pop out at <> from all around.`,
+    body: `It seemed as if <> had stumbled across a lost world, with Inca designs etched into the stonework. Faces seemed to pop out at <> from all around.`,
 };
 
 export default {

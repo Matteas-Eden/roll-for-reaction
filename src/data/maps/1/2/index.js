@@ -36,7 +36,7 @@ const monsters = [
         position: [12, 10],
     },
     {
-        type: 'bat',
+        type: 'snake',
         position: [14, 12],
     },
 ];
@@ -48,7 +48,7 @@ const stairs = {
 
 const message = {
     title: '<> noticed a shop around the corner.',
-    body: `'I wonder if they have any food,' <> wondered, 'I'm hungry'`,
+    body: `"I wonder if they have any food," <> wondered, "I'm hungry"`,
 };
 
 export default {

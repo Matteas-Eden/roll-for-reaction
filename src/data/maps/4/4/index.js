@@ -20,11 +20,11 @@ const wallType = 'green-brick';
 
 const monsters = [
     {
-        type: 'black-orc',
+        type: 'black orc',
         position: [1, 4],
     },
     {
-        type: 'black-orc',
+        type: 'pumpkin ghost',
         position: [11, 7],
     },
     {
@@ -32,7 +32,7 @@ const monsters = [
         position: [0, 8],
     },
     {
-        type: 'black-orc',
+        type: 'black orc',
         position: [7, 4],
     },
 ];
@@ -45,7 +45,7 @@ const stairs = {
 const message = {
     title:
         '<> looked down a path that looked strangely familiar. Many people had gotten lost in the jungle before.',
-    body: `'Let's just hope I don't get lost in here,' <> thought, wishing they'd brought some breadcrumbs.`,
+    body: `"Let's just hope I don't get lost in here," <> thought, wishing they'd brought some breadcrumbs.`,
 };
 
 export default {

@@ -20,15 +20,15 @@ const wallType = 'ornate';
 
 const monsters = [
     {
-        type: 'goblin',
+        type: 'water spirit',
         position: [1, 9],
     },
     {
-        type: 'orc',
+        type: 'water spirit',
         position: [10, 9],
     },
     {
-        type: 'orc',
+        type: 'goblin',
         position: [18, 9],
     },
 ];
@@ -40,7 +40,7 @@ const stairs = {
 
 const message = {
     title: `<> hadn't eaten or slept since before entering the dungeon.  Their stomach grumbled, but <> passed it off as the sound of monsters.`,
-    body: `<> blinked against the fatigue and pushed on.  'Sleep when you're dead.'`,
+    body: `<> blinked against the fatigue and pushed on.  "Sleep when you're dead."`,
 };
 
 export default {
