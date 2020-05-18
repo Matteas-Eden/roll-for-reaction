@@ -39,7 +39,7 @@ import TealStaff from './weapons/staffs/teal-staff';
 import SkullStaff from './weapons/staffs/skull-staff';
 import Boomerang from './weapons/ranged/boomerang';
 import Slingshot from './weapons/ranged/slingshot';
-import HellsPheonix from './weapons/ranged/hells-pheonix';
+import HellsPhoenix from './weapons/ranged/hells-phoenix';
 import PhantasmCrossbow from './weapons/ranged/crossbow';
 import MidnightsFury from './weapons/ranged/midnights-fury';
 import HpPotion from './potions/hp-potion';
@@ -63,7 +63,7 @@ const items = {
         ranged: {
             Boomerang,
             Slingshot,
-            HellsPheonix,
+            HellsPhoenix,
             PhantasmCrossbow,
             MidnightsFury,
         },
@@ -151,7 +151,7 @@ export const randomItemsT2 = [
     AmethystRing,
     RedStaff,
     RedRobes,
-    HellsPheonix,
+    HellsPhoenix,
 ];
 
 export const randomItemsT3 = [
