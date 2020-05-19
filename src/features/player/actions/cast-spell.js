@@ -1,4 +1,4 @@
-import { checkForMonster } from './move-player';
+import { checkForMonster, applyEffects } from './move-player';
 import { calculateDamage, d20 } from '../../../utils/dice';
 import calculateModifier from '../../../utils/calculate-modifier';
 import { SPRITE_SIZE } from '../../../config/constants';
@@ -44,6 +44,7 @@ export default function castSpell() {
                 type: 'TAKE_TURN',
                 payload: null,
             });
+            dispatch(applyEffects());
         } else if (target[0] === 'enemy') {
             const spellPosition = dispatch(
                 findTarget(position, direction, spell.range * SPRITE_SIZE)
@@ -183,6 +184,8 @@ export default function castSpell() {
                     type: 'TAKE_TURN',
                     payload: null,
                 });
+
+                dispatch(applyEffects());
             } else {
                 // Hit a wall or something else
                 dispatch({

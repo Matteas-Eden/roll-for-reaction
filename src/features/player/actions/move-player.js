@@ -9,6 +9,25 @@ import {
     PASSIVE_MANA_RESTORE_TURNS,
     OUT_OF_COMBAT_RANGE,
 } from '../../../config/constants';
+import { calculateDamage } from '../../../utils/dice';
+
+export function applyEffects() {
+    return (dispatch, getState) => {
+        const { player } = getState();
+
+        Object.keys(player.effects).forEach(effect => {
+            const props = player.effects[effect];
+            if (props.turns > 0) {
+                const damage = Math.floor(calculateDamage(props.damage) / 2);
+
+                dispatch({
+                    type: 'DAMAGE_TO_PLAYER',
+                    payload: { damage, effect: props.from },
+                });
+            }
+        });
+    };
+}
 
 export default function movePlayer(direction) {
     return (dispatch, getState) => {
@@ -35,12 +54,15 @@ export default function movePlayer(direction) {
                     direction,
                 },
             });
+
             // if we do anything but use stairs, count a turn
             if (handleInteractWithTile(nextTile, newPos)) {
                 dispatch({
                     type: 'TAKE_TURN',
                     payload: null,
                 });
+
+                dispatch(applyEffects());
 
                 if (
                     getState().player.turnsOutOfCombat >=

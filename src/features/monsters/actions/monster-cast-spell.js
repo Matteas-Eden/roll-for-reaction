@@ -1,5 +1,9 @@
 import { calculateDamage } from '../../../utils/dice';
-import { SPRITE_SIZE } from '../../../config/constants';
+import {
+    SPRITE_SIZE,
+    AI_CHANGE_TURNS,
+    POISON_DAMAGE,
+} from '../../../config/constants';
 
 export default function monsterCastSpell(monster) {
     return (dispatch, getState) => {
@@ -86,6 +90,24 @@ export default function monsterCastSpell(monster) {
                     type: 'MONSTER_ATTACK',
                     payload: null,
                 });
+
+                const { changeAI } = monster.projectile.effects;
+                if (changeAI) {
+                    if (
+                        player.effects[changeAI.to] &&
+                        player.effects[changeAI.to].immunityTurns <= 0
+                    ) {
+                        dispatch({
+                            type: 'EFFECT_PLAYER',
+                            payload: {
+                                effect: changeAI.to,
+                                turns: AI_CHANGE_TURNS,
+                                damage: POISON_DAMAGE,
+                                from: changeAI.effect,
+                            },
+                        });
+                    }
+                }
             }
 
             dispatch({

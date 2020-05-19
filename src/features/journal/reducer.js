@@ -139,7 +139,7 @@ const journalReducer = (state = initialState, { type, payload }) => {
         }
 
         case 'DAMAGE_TO_PLAYER': {
-            const { entity, damage, kind } = payload;
+            const { entity, damage, kind, effect } = payload;
             newState = cloneDeep(state);
 
             if (kind === 'suicide') {
@@ -150,6 +150,17 @@ const journalReducer = (state = initialState, { type, payload }) => {
                             The {colourise(entity, 'type')} committed suicide,
                             dealing {colourise(damage, 'damage-to-player')}{' '}
                             damage to you!
+                        </p>
+                    ),
+                });
+            } else if (effect !== undefined) {
+                // The player was damaged by an effect applied to them
+                newState.entries.push({
+                    key: uuidv4(),
+                    entry: (
+                        <p key={uuidv4()}>
+                            You took {colourise(damage, 'damage-to-player')}{' '}
+                            damage from {colourise(effect, 'ai')}!
                         </p>
                     ),
                 });
@@ -307,6 +318,20 @@ const journalReducer = (state = initialState, { type, payload }) => {
                         The {colourise(entity, 'type')} cast{' '}
                         {colourise(spell.name, 'spell')}!
                     </p>
+                ),
+            });
+
+            return newState;
+        }
+
+        case 'EFFECT_PLAYER': {
+            const { effect } = payload;
+            newState = cloneDeep(state);
+
+            newState.entries.push({
+                key: uuidv4(),
+                entry: (
+                    <p key={uuidv4()}>You were {colourise(effect, 'ai')}!</p>
                 ),
             });
 
