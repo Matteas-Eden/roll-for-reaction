@@ -7,8 +7,12 @@ export default function getNextPage(page) {
         case 'spell':
             return 'item';
         case 'item':
+            return 'shop';
+        case 'shop':
             return 'ability';
         case 'ability':
+            return 'dice';
+        case 'dice':
             return 'hotkey';
         case 'hotkey':
             return null;
