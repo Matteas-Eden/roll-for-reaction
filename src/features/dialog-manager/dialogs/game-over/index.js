@@ -42,9 +42,11 @@ class GameOver extends Component {
 
                 <p className="game-over__text">
                     Here lies the grave of{' '}
-                    {characterName.length <= 11
-                        ? characterName
-                        : characterName.substr(0, 9) + '...'}
+                    <span className="game-over__player">
+                        {characterName.length <= 11
+                            ? characterName
+                            : characterName.substr(0, 9) + '...'}
+                    </span>
                     . They were slain by a mighty{' '}
                     <span className="game-over__killer">{dialog.diedFrom}</span>
                 </p>
