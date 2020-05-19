@@ -21,12 +21,15 @@ const initialState = {
     settings: false,
     inventory: false,
     journalDialog: false,
+    journalSideMenuOpen: false,
     spellbookDialog: false,
     levelUp: false,
     fromLevelUp: false,
     abilityDialog: false,
     characterCustomisation: false,
     playerOpenedAbilityDialog: false,
+    tutorialDialog: false,
+    tutorialPage: 'movement',
     abilities: {
         constitution: STARTING_ABILITY_SCORE_VALUE,
         dexterity: STARTING_ABILITY_SCORE_VALUE,
@@ -60,7 +63,13 @@ const initialState = {
 };
 
 const dialogManagerReducer = (state = initialState, { type, payload }) => {
-    const { abilities, abilities_minimum, character, appearance } = state;
+    const {
+        abilities,
+        abilities_minimum,
+        character,
+        appearance,
+        tutorialPage,
+    } = state;
     const {
         constitution,
         intelligence,
@@ -101,7 +110,12 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
                 pause,
                 journalDialog,
                 spellbookDialog,
+                tutorialDialog,
             } = payload;
+
+            if (journalDialog !== undefined) {
+                state.journalSideMenuOpen = journalDialog;
+            }
 
             return {
                 ...state,
@@ -123,7 +137,14 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
                 characterCreation: characterCreation || false,
                 journalDialog: journalDialog || false,
                 spellbookDialog: spellbookDialog || false,
+                tutorialDialog: tutorialDialog || false,
                 paused: pause,
+            };
+
+        case 'SET_SHOW_JOURNAL':
+            return {
+                ...state,
+                journalSideMenuOpen: payload,
             };
 
         case 'SET_CHEST_DATA':
@@ -414,6 +435,14 @@ const dialogManagerReducer = (state = initialState, { type, payload }) => {
                     intelligence: intelligence - 1,
                     points: points + 1,
                 },
+            };
+
+        case 'CHANGE_TUTORIAL_PAGE':
+            return {
+                ...state,
+                tutorialPage: payload.tutorialPage
+                    ? payload.tutorialPage
+                    : tutorialPage,
             };
 
         case 'RESET':
