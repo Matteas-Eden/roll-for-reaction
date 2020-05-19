@@ -29,7 +29,7 @@ const monsters = [
     },
     {
         type: 'medusa',
-        position: [2, 12],
+        position: [2, 11],
     },
     {
         type: 'medusa',
@@ -37,19 +37,19 @@ const monsters = [
     },
     {
         type: 'poison cloud',
-        position: [11, 1],
+        position: [11, 6],
     },
     {
         type: 'black orc',
-        position: [11, 18],
+        position: [8, 6],
     },
     {
         type: 'dragon',
-        position: [9, 15],
+        position: [18, 15],
     },
     {
         type: 'stone golem',
-        position: [4, 15],
+        position: [15, 7],
     },
 ];
 

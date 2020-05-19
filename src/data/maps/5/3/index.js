@@ -20,7 +20,7 @@ const wallType = 'inca-light';
 
 const monsters = [
     {
-        type: 'black-orc',
+        type: 'black orc',
         position: [0, 12],
     },
     {

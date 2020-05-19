@@ -33,7 +33,7 @@ const monsters = [
     },
     {
         type: 'black orc',
-        position: [3, 15],
+        position: [15, 15],
     },
     {
         type: 'medusa',
