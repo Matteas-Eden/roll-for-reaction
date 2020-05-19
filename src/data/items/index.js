@@ -127,35 +127,35 @@ const items = {
 };
 
 export const leatherEquipment = [
-    LeatherArmor,
-    LeatherBoots,
     LeatherCap,
+    LeatherArmor,
     LeatherGloves,
     LeatherPants,
+    LeatherBoots,
 ];
 
 export const ironEquipment = [
-    IronArmor,
-    IronBoots,
     IronHelm,
+    IronArmor,
     IronGloves,
     IronPants,
+    IronBoots,
 ];
 
 export const steelEquipment = [
-    SteelArmor,
-    SteelBoots,
     SteelHelm,
+    SteelArmor,
     SteelGloves,
     SteelPants,
+    SteelBoots,
 ];
 
 export const mithrilEquipment = [
-    MithrilArmor,
-    MithrilBoots,
     MithrilHelm,
+    MithrilArmor,
     MithrilGloves,
     MithrilPants,
+    MithrilBoots,
 ];
 
 export const randomItemsT1 = [
