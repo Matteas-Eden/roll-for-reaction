@@ -126,59 +126,111 @@ const items = {
     },
 };
 
-export const randomItemsT1 = [
+export const leatherEquipment = [
     LeatherArmor,
     LeatherBoots,
     LeatherCap,
     LeatherGloves,
     LeatherPants,
-    SteelSword,
-    Slingshot,
-    BrownStaff,
-    OldRing,
-    BlackRobes,
-    BrownRobes,
 ];
 
-export const randomItemsT2 = [
-    ...randomItemsT1,
-    BroadSword,
+export const ironEquipment = [
     IronArmor,
     IronBoots,
     IronHelm,
     IronGloves,
     IronPants,
-    AmethystRing,
-    RedStaff,
-    RedRobes,
-    HellsPhoenix,
 ];
 
-export const randomItemsT3 = [
-    ...randomItemsT2,
-    DragonsBane,
+export const steelEquipment = [
     SteelArmor,
     SteelBoots,
     SteelHelm,
     SteelGloves,
     SteelPants,
-    TealRobes,
-    TealStaff,
-    DiamondRing,
-    PhantasmCrossbow,
 ];
 
-export const randomItemsT4 = [
-    ...randomItemsT3,
-    LichBane,
+export const mithrilEquipment = [
     MithrilArmor,
     MithrilBoots,
     MithrilHelm,
     MithrilGloves,
     MithrilPants,
+];
+
+export const randomItemsT1 = [
+    ...leatherEquipment,
+    BlackRobes,
+    BrownRobes,
+    SteelSword,
+    Slingshot,
+    BrownStaff,
+    OldRing,
+];
+
+export const randomItemsT2 = [
+    ...leatherEquipment,
+    ...ironEquipment,
+    BlackRobes,
+    BrownRobes,
+    RedRobes,
+    SteelSword,
+    BroadSword,
+    Slingshot,
+    HellsPhoenix,
+    BrownStaff,
+    RedStaff,
+    OldRing,
+    AmethystRing,
+];
+
+export const randomItemsT3 = [
+    ...leatherEquipment,
+    ...ironEquipment,
+    ...steelEquipment,
+    BlackRobes,
+    BrownRobes,
+    RedRobes,
+    TealRobes,
+    SteelSword,
+    BroadSword,
+    DragonsBane,
+    Slingshot,
+    HellsPhoenix,
+    PhantasmCrossbow,
+    BrownStaff,
+    RedStaff,
+    TealStaff,
+    OldRing,
+    AmethystRing,
+    DiamondRing,
+];
+
+export const randomItemsT4 = [
+    ...leatherEquipment,
+    ...ironEquipment,
+    ...steelEquipment,
+    ...mithrilEquipment,
+    BlackRobes,
+    BrownRobes,
+    RedRobes,
+    TealRobes,
     SkullRobes,
-    SkullStaff,
+    SteelSword,
+    BroadSword,
+    DragonsBane,
+    LichBane,
+    Slingshot,
+    HellsPhoenix,
+    PhantasmCrossbow,
     MidnightsFury,
+    BrownStaff,
+    RedStaff,
+    TealStaff,
+    SkullStaff,
+    OldRing,
+    AmethystRing,
+    DiamondRing,
 ];
 
 export default items;
