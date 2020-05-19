@@ -31,6 +31,14 @@ const monsters = [
         type: 'goblin',
         position: [18, 9],
     },
+    {
+        type: 'salamander',
+        position: [5, 4],
+    },
+    {
+        type: 'salamander',
+        position: [15, 4],
+    },
 ];
 
 const stairs = {
