@@ -448,6 +448,7 @@ const journalReducer = (state = initialState, { type, payload }) => {
             newState.scroll = payload;
             return newState;
 
+        case 'persist/REHYDRATE':
         case 'LOAD_DATA':
             return { ...initialState, ...payload.journal };
 
