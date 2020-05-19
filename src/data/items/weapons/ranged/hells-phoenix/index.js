@@ -1,10 +1,10 @@
-// Credit: https://shikashiassets.itch.io/shikashis-fantasy-icons-pack
+// Credit: https://opengameart.org/content/dungeon-crawl-32x32-tiles-supplemental
 import BowImg from './bow.png';
 import { SIGHT_RADIUS } from '../../../../../config/constants';
 import Arrow from '../../../../ammo/arrow';
 
 const HellsPhoenix = {
-    name: "Hell's Pheonix",
+    name: "Hell's Phoenix",
     type: 'weapon',
     kind: 'ranged',
     effect: {},
