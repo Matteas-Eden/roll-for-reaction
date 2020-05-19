@@ -19,11 +19,12 @@ export function applyEffects() {
             const props = player.effects[effect];
             if (props.turns > 0) {
                 const damage = Math.floor(calculateDamage(props.damage) / 2);
-
-                dispatch({
-                    type: 'DAMAGE_TO_PLAYER',
-                    payload: { damage, effect: props.from },
-                });
+                if (damage > 0) {
+                    dispatch({
+                        type: 'DAMAGE_TO_PLAYER',
+                        payload: { damage, effect: props.from },
+                    });
+                }
             }
         });
     };
