@@ -61,7 +61,7 @@ describe('When you get a nat 20', () => {
         expect(range).toEqual(critRange);
     });
 
-    test('1d4 + 3 should be have the same range as 2d4 + 3', () => {
+    test('1d4 + 3 should have the same range as 2d4 + 3', () => {
         const notation = '1d4 + 3';
         const range = calculateDamageRange(notation, true);
         // The above should give the same result as this
