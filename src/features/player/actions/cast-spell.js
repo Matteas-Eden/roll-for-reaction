@@ -33,8 +33,6 @@ export default function castSpell() {
                 calculateDamage(spell.damage) +
                 (intelligenceModifier > 0 ? intelligenceModifier : 0);
 
-            console.log(intelligenceModifier, healAmount);
-
             if (target[1] === 'heal') {
                 dispatch({
                     type: 'HEAL_HP',

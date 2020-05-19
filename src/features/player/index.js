@@ -270,8 +270,6 @@ class Player extends Component {
                 );
             }
 
-            console.log(monsterProjectileAnimation);
-
             // animate the player
             this.setState({
                 monsterAttackAnimationPlay: 'running',
