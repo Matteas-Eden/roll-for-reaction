@@ -10,13 +10,13 @@ const Frighten = {
     kind: 'combat',
     range: SIGHT_RADIUS,
     damage: '2d6',
-    manaCost: 0,
+    manaCost: 27,
     size: { width: 40, height: 40, total: 200 },
     image: FrightenImage,
     sprite: FrightenSprite,
     description:
         'Everybody was kung-fu fighting! Those kicks were fast as lightning! In fact it was a little bit...',
-    unlockLevel: 0,
+    unlockLevel: 13,
     effects: {
         changeAI: {
             to: 'frightened',
