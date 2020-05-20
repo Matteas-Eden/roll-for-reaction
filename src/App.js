@@ -56,6 +56,8 @@ const App = ({ appState, world, dialog }) => {
                             <Viewport>
                                 <World />
                                 <DialogManager />
+                                <Tutorial />
+                                <Abilities />
                                 <Spellbook />
 
                                 {/* Show the floor counter when playing endless mode */}
@@ -78,7 +80,8 @@ const App = ({ appState, world, dialog }) => {
             <div
                 style={{
                     float: 'left',
-                    marginRight: '-200px',
+                    marginLeft: '100px',
+                    marginRight: '-300px',
                     display: disableJournal ? 'none' : 'block',
                 }}
             >
