@@ -26,22 +26,7 @@ function changeMonsterAI(spell, currMonster, criticalHit) {
         if (currMonster.ai !== currMonster.originalAI) return;
 
         // If we have a probabilty to hit, then use that to check if we do
-        if (proc) {
-            if (proc()) {
-                dispatch({
-                    type: 'CHANGE_AI',
-                    payload: {
-                        from: currMonster.ai,
-                        ai: to,
-                        turns,
-                        id: currMonster.id,
-                        map: currentMap,
-                        entity: currMonster.type,
-                    },
-                });
-            }
-        } else {
-            // Otherwise, just set the AI to whatever it is
+        if (!proc || proc()) {
             dispatch({
                 type: 'CHANGE_AI',
                 payload: {
@@ -51,6 +36,7 @@ function changeMonsterAI(spell, currMonster, criticalHit) {
                     id: currMonster.id,
                     map: currentMap,
                     entity: currMonster.type,
+                    original: currMonster.originalAI,
                 },
             });
         }

@@ -228,7 +228,7 @@ const ViewItem = ({
             <StatsItem
                 stats={{
                     name: 'value',
-                    value: sellPrice,
+                    value: buy ? buyPrice : sellPrice,
                 }}
                 key={uuidv4()}
             />
