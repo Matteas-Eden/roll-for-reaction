@@ -4,7 +4,7 @@ import { isMobile } from 'react-device-detect';
 import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 
 import DialogManager from './features/dialog-manager';
-import EndlessFloorCounter from './components/endless-floor-counter';
+import FloorCounter from './components/floor-counter';
 import Footer from './components/footer';
 import GameMenus from './features/game-menus';
 import World from './features/world';
@@ -27,7 +27,7 @@ const App = ({ appState, world, dialog }) => {
     }, []);
 
     const { sideMenu, journalSideMenu } = appState;
-    const { gameMode, floorNum } = world;
+    const { gameMode, floorNum, currentMap } = world;
     const { gameStart, gameOver, journalSideMenuOpen } = dialog;
 
     const disableJournal =
@@ -60,9 +60,14 @@ const App = ({ appState, world, dialog }) => {
                                 <Abilities />
                                 <Spellbook />
 
-                                {/* Show the floor counter when playing endless mode */}
-                                {gameMode === 'endless' && (
-                                    <EndlessFloorCounter floor={floorNum} />
+                                {gameMode === 'endless' ? (
+                                    <FloorCounter floor={floorNum} />
+                                ) : (
+                                    currentMap && (
+                                        <FloorCounter
+                                            floor={currentMap.replace('_', '-')}
+                                        />
+                                    )
                                 )}
                             </Viewport>
                         </div>
@@ -101,9 +106,14 @@ const App = ({ appState, world, dialog }) => {
                             <Abilities />
                             <Spellbook />
 
-                            {/* Show the floor counter when playing endless mode */}
-                            {gameMode === 'endless' && (
-                                <EndlessFloorCounter floor={floorNum} />
+                            {gameMode === 'endless' ? (
+                                <FloorCounter floor={floorNum} />
+                            ) : (
+                                currentMap && (
+                                    <FloorCounter
+                                        floor={currentMap.replace('_', '-')}
+                                    />
+                                )
                             )}
                         </Viewport>
                     </div>
