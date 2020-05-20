@@ -12,7 +12,7 @@ const MovementTutorial = () => {
         <div className="flex-column tutorial-page__container">
             <div className="tutorial-page__title centered">{'MOVEMENT'}</div>
             <div className="tutorial-page__movement">
-                {!isMobile ? (
+                {isMobile ? (
                     <>
                         {'Move the player by swiping in a direction.'}
                         <center>
