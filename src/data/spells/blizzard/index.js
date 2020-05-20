@@ -10,7 +10,7 @@ const Blizzard = {
     kind: 'combat',
     range: SIGHT_RADIUS,
     damage: '2d6',
-    manaCost: 40,
+    manaCost: 61,
     size: { width: 40, height: 40, total: 200 },
     image: BlizzardImage,
     sprite: BlizzardSprite,
