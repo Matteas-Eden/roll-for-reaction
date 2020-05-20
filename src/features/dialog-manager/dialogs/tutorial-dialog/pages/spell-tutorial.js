@@ -3,7 +3,7 @@ import { isMobile } from 'react-device-detect';
 
 import BKey from './assets/keyboard/b_key.png';
 import CKey from './assets/keyboard/c_key.png';
-import Fireball from '../../../../../data/spells/fireball/Fireball-image.png';
+import Fireball from './assets/fireball.png';
 
 import './styles.scss';
 

@@ -3,7 +3,7 @@ import { isMobile } from 'react-device-detect';
 
 import ArrowKeys from './assets/keyboard/arrow_keys.png';
 import WASDKeys from './assets/keyboard/wasd_keys.png';
-import Swipe from './assets/swipe-upscale.png';
+import Swipe from './assets/swipe.png';
 
 import './styles.scss';
 

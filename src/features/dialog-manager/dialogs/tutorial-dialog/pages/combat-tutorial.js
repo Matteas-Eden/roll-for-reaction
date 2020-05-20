@@ -2,7 +2,7 @@ import React from 'react';
 import { isMobile } from 'react-device-detect';
 
 import Spacebar from './assets/keyboard/space_key.png';
-import DoubleTap from './assets/double-tap-upscale.png';
+import DoubleTap from './assets/double-tap.png';
 
 import './styles.scss';
 
