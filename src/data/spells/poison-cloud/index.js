@@ -15,12 +15,12 @@ const PoisonCloud = {
     kind: 'combat',
     range: SIGHT_RADIUS,
     damage: '2d6 + 3',
-    manaCost: 68,
+    manaCost: 61,
     size: { width: 40, height: 40, total: 200 },
     image: PoisonCloudImage,
     sprite: PoisonCloudSprite,
     description: 'Eeeew. Who did that?',
-    unlockLevel: 23,
+    unlockLevel: 20,
     effects: {
         changeAI: {
             to: 'poisoned',

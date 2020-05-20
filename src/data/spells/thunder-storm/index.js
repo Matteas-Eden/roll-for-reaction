@@ -14,12 +14,12 @@ const ThunderStorm = {
     kind: 'combat',
     range: SIGHT_RADIUS,
     damage: '2d6 + 6',
-    manaCost: 73,
+    manaCost: 68,
     size: { width: 40, height: 40, total: 200 },
     image: ThunderStormImage,
     sprite: ThunderStormSprite,
     description: 'Thunder! Ah! Thunder! Ah! Thunder! Ah!',
-    unlockLevel: 25,
+    unlockLevel: 23,
     effects: {
         changeAI: {
             to: 'shocked',

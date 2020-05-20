@@ -10,12 +10,12 @@ const Fireball = {
     kind: 'combat',
     range: SIGHT_RADIUS,
     damage: '2d4 + 4',
-    manaCost: 15,
+    manaCost: 33,
     size: { width: 40, height: 40, total: 200 },
     image: FireballImage,
     sprite: FireballSprite,
     description: 'Throw a ball of fire at the enemy (or a wall, your choice)',
-    unlockLevel: 3,
+    unlockLevel: 11,
 };
 
 export default Fireball;
