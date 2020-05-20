@@ -67,14 +67,8 @@ const AbilityDialog = ({
         return (
             <MicroDialog
                 fullsize
-                keys={[ENTER_KEY, ESC_KEY, U_KEY]}
-                onKeyPress={key => {
-                    if (key === ENTER_KEY) {
-                        confirmAbilityScoreDialog();
-                    } else if (key === U_KEY || key === ESC_KEY) {
-                        closeDialog();
-                    }
-                }}
+                keys={[ESC_KEY, U_KEY]}
+                onKeyPress={confirmAbilityScoreDialog}
                 onClose={closeDialog}
             >
                 <span
