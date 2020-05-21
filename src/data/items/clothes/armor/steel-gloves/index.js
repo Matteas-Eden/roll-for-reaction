@@ -8,7 +8,7 @@ const SteelGloves = {
         defence: 7,
     },
     image: SteelGlovesImg,
-    value: 80,
+    value: 120,
 };
 
 export default SteelGloves;

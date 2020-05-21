@@ -8,7 +8,7 @@ const SteelHelm = {
         defence: 10,
     },
     image: SteelHelmImg,
-    value: 140,
+    value: 150,
 };
 
 export default SteelHelm;

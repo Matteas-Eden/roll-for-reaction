@@ -8,7 +8,7 @@ const MithrilPants = {
         defence: 16,
     },
     image: MithrilPantsImg,
-    value: 200,
+    value: 250,
 };
 
 export default MithrilPants;

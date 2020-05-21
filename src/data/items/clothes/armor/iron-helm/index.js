@@ -7,7 +7,7 @@ const IronHelm = {
         defence: 6,
     },
     image: IronHelmImg,
-    value: 90,
+    value: 70,
 };
 
 export default IronHelm;

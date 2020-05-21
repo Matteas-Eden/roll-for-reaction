@@ -7,7 +7,7 @@ const IronPants = {
         defence: 8,
     },
     image: IronPantsImg,
-    value: 100,
+    value: 85,
 };
 
 export default IronPants;

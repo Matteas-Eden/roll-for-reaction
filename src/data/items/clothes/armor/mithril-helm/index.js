@@ -8,7 +8,7 @@ const MithrilHelm = {
         defence: 14,
     },
     image: MithrilHelmImg,
-    value: 100,
+    value: 200,
 };
 
 export default MithrilHelm;

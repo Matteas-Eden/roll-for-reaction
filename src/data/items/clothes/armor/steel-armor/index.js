@@ -8,7 +8,7 @@ const SteelArmor = {
         defence: 15,
     },
     image: SteelArmorImg,
-    value: 210,
+    value: 200,
 };
 
 export default SteelArmor;
