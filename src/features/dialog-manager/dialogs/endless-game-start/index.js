@@ -41,6 +41,6 @@ const EndlessGameStart = ({ backToSelect, startEndlessGame }) => {
     );
 };
 
-const actions = { backToSelect, startEndlessGame };
+const actions = { backToSelect, toggleTutorial, startEndlessGame };
 
 export default connect(null, actions)(EndlessGameStart);

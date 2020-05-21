@@ -37,6 +37,6 @@ const MainGameStart = ({ startMainGame, backToSelect }) => {
     );
 };
 
-const actions = { backToSelect, startMainGame };
+const actions = { backToSelect, toggleTutorial, startMainGame };
 
 export default connect(null, actions)(MainGameStart);
