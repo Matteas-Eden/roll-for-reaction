@@ -1,18 +1,28 @@
-// calculates bonus damage to deal based on attacker's bonus and enemy's type
+/**
+ * Calculate bonus damage to deal based on attacker's bonus and enemy's type
+ *
+ * @deprecated
+ * @param {*} playerDamage The damage the player was about to deal
+ * @param {*} monsterType The type of the monster the player is attacking
+ * @param {*} weaponBonus The bonus the weapon has
+ */
 export default function calculateBonus(playerDamage, monsterType, weaponBonus) {
-    // if there are no bonuses, return normal damage
     if (!weaponBonus) {
+        // The weapon the player is using has no bonus
         return playerDamage;
     }
-    // parse the bonus
-    const [bonusType] = weaponBonus.split('::');
-    const bonusMult = parseFloat(weaponBonus.split('::')[1], 10);
-    // if we have a bonus with this monster
+
+    // Determine the type of bonus
+    const [bonusType, multiplier] = weaponBonus.split('::');
+    // As well as the bonus multiplier
+    const bonusMult = parseFloat(multiplier, 10);
+
+    // If the bonus is for this monsters type
     if (bonusType === monsterType) {
-        // apply the bonus
+        // Apply the bonus
         return playerDamage * bonusMult;
-    } // otherwise return normal damage
-    else {
+    } else {
+        // No bonus
         return playerDamage;
     }
 }
