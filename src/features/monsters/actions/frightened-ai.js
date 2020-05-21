@@ -126,6 +126,7 @@ export default function frightened(sightBox, currentMap, monster) {
                     from: 'frightened',
                     turns: 0,
                     entity: monster.type,
+                    original: monster.originalAI,
                 },
             });
         }
