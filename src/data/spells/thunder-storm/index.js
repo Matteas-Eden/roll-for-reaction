@@ -1,6 +1,8 @@
 // Credit: https://kvsr.itch.io/pixelarteffectfx017
-import ThunderStormSprite from './ThunderStorm.png';
-import ThunderStormImage from './ThunderStorm-image.png';
+// import ThunderStormSprite from './ThunderStorm.png';
+// import ThunderStormImage from './ThunderStorm-image.png';
+import ThunderStormSprite from './Tornado2.png';
+import ThunderStormImage from './Tornado2.png';
 import {
     SIGHT_RADIUS,
     AI_CHANGE_TURNS,
@@ -19,7 +21,7 @@ const ThunderStorm = {
     image: ThunderStormImage,
     sprite: ThunderStormSprite,
     description: 'Thunder! Ah! Thunder! Ah! Thunder! Ah!',
-    unlockLevel: 23,
+    unlockLevel: 1,
     effects: {
         changeAI: {
             to: 'shocked',

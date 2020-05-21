@@ -1,6 +1,8 @@
 // Credit: https://kvsr.itch.io/pixelarteffectfx017
-import BlizzardSprite from './Blizzard.png';
-import BlizzardImage from './Blizzard-image.png';
+// import BlizzardSprite from './Blizzard.png';
+// import BlizzardImage from './Blizzard-image.png';
+import BlizzardSprite from './IceCast2.png';
+import BlizzardImage from './IceCast2.png';
 import { SIGHT_RADIUS, AI_CHANGE_TURNS } from '../../../config/constants';
 
 const Blizzard = {
@@ -15,7 +17,7 @@ const Blizzard = {
     image: BlizzardImage,
     sprite: BlizzardSprite,
     description: 'I told you to chill out! You should have listened...',
-    unlockLevel: 17,
+    unlockLevel: 1,
     effects: {
         changeAI: {
             to: 'frozen',

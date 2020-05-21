@@ -1,6 +1,8 @@
 // Credit: https://kvsr.itch.io/pixelarteffectfx017
-import MeteorSprite from './Meteor.png';
-import MeteorImage from './Meteor-image.png';
+// import MeteorSprite from './Meteor.png';
+// import MeteorImage from './Meteor-image.png';
+import MeteorSprite from './FireCast2.png';
+import MeteorImage from './FireCast2.png';
 import { SIGHT_RADIUS } from '../../../config/constants';
 
 const Meteor = {
@@ -16,7 +18,7 @@ const Meteor = {
     sprite: MeteorSprite,
     description:
         "Fireballs weren't destroying enough walls? Maybe this will suit your destruction needs.",
-    unlockLevel: 25,
+    unlockLevel: 1,
 };
 
 export default Meteor;
