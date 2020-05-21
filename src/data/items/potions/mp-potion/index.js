@@ -5,8 +5,8 @@ const MpPotion = {
     name: 'Mana Potion',
     type: 'potion',
     kind: 'mana',
-    mp: 15,
-    mpReset: 15,
+    mp: 20,
+    mpReset: 20,
     image: MpPotionImg,
     value: 40,
 };

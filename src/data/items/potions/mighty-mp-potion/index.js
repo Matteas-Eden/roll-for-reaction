@@ -5,8 +5,8 @@ const MightyMpPotion = {
     name: 'Mighty Mana Potion',
     type: 'potion',
     kind: 'mana',
-    mp: 60,
-    mpReset: 60,
+    mp: 80,
+    mpReset: 80,
     image: MightyMpPotionImg,
     value: 100,
 };

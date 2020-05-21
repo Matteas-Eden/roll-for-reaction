@@ -5,10 +5,10 @@ const GreatHpPotion = {
     name: 'Great Health Potion',
     type: 'potion',
     kind: 'health',
-    hp: 30,
-    hpReset: 30,
+    hp: 40,
+    hpReset: 40,
     image: GreatHpPotionImg,
-    value: 60,
+    value: 80,
 };
 
 export default GreatHpPotion;
