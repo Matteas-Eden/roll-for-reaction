@@ -1,3 +1,4 @@
+//Credit: https://kyrise.itch.io/kyrises-free-16x16-rpg-icon-pack
 import HpPotionImg from './hp-potion.png';
 
 const HpPotion = {
