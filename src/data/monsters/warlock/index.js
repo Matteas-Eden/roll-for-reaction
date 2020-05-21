@@ -1,3 +1,4 @@
+// Credit: https://pipoya.itch.io/free-rpg-monster-pack
 import WarlockSprite from './warlock.png';
 import Fireball from '../../spells/fireball';
 

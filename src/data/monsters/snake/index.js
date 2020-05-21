@@ -1,3 +1,4 @@
+// Credit: https://pipoya.itch.io/free-rpg-monster-pack
 import SnakeSprite from './snake.png';
 import PoisonDart from '../../spells/poison-dart';
 

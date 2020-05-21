@@ -1,3 +1,4 @@
+// Credit: Made on www.pixelart.com by Kelvin Ngor
 import WolfSprite from './wolf.png';
 import WolfFloppedSprite from './wolf-flopped.png';
 

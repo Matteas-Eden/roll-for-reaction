@@ -1,3 +1,4 @@
+// Credit: https://pipoya.itch.io/free-rpg-monster-pack
 import FireSpiritSprite from './fire-spirit.png';
 import Fireball from '../../spells/fireball';
 

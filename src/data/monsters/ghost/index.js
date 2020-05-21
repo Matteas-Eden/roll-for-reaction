@@ -1,3 +1,4 @@
+// Credit: https://pipoya.itch.io/free-rpg-monster-pack
 import GhostSprite from './ghost.png';
 import LightningBolt from '../../spells/lightning-bolt';
 

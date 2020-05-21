@@ -1,3 +1,4 @@
+// Credit: https://pipoya.itch.io/free-rpg-monster-pack
 import PlanteraSprite from './plantera.png';
 import Stone from '../../ammo/stone';
 

@@ -1,3 +1,4 @@
+// Credit: https://pipoya.itch.io/free-rpg-monster-pack
 import WaterSpiritSprite from './water-spirit.png';
 import IceShard from '../../spells/ice-shard';
 

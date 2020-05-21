@@ -1,3 +1,4 @@
+// Credit: Made on www.pixelart.com by Kelvin Ngor
 import BatSprite from './bat.png';
 
 const Bat = {

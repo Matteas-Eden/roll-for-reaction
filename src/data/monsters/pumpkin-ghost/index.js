@@ -1,3 +1,4 @@
+// Credit: https://pipoya.itch.io/free-rpg-monster-pack
 import PumpkinGhostSprite from './pumpkin-ghost.png';
 import Pumpkin from '../../ammo/pumpkin';
 

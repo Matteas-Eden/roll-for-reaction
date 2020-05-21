@@ -1,3 +1,4 @@
+// Credit: https://mobilegamegraphics.itch.io/adventure-game-kit
 import MedusaSprite from './medusa.png';
 import MedusaFloppedSprite from './medusa-flopped.png';
 
