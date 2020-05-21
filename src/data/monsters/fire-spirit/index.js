@@ -5,7 +5,7 @@ import Fireball from '../../spells/fireball';
 const FireSpirit = {
     hp: 30,
     maxHp: 30,
-    attackValue: '1d20 + 13',
+    attackValue: '1d20 + 24',
     defence: 2,
     dice: '3d4',
     exp: 180,

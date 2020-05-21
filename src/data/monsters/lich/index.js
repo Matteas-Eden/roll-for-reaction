@@ -4,7 +4,7 @@ import LichFloppedSprite from './lich-flopped.png';
 const Lich = {
     hp: 80,
     maxHp: 80,
-    attackValue: '2d20',
+    attackValue: '3d20',
     defence: 12,
     dice: '2d8 + 10',
     exp: 1000,

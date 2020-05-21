@@ -4,7 +4,7 @@ import LichFloppedSprite from './lich-flopped.png';
 const LichKing = {
     hp: 100,
     maxHp: 100,
-    attackValue: '3d20 + 10',
+    attackValue: '3d20 + 30',
     defence: 12,
     dice: '1d20 + 10',
     exp: 1000,

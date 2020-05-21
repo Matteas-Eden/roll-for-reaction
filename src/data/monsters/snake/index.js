@@ -5,7 +5,7 @@ import PoisonDart from '../../spells/poison-dart';
 const Snake = {
     hp: 8,
     maxHp: 8,
-    attackValue: '1d8 + 2',
+    attackValue: '1d6 + 3',
     defence: 0,
     dice: '1d4',
     exp: 18,
