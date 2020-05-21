@@ -1,3 +1,4 @@
+//Credit: https://kyrise.itch.io/kyrises-free-16x16-rpg-icon-pack
 import PeaImg from './pea.png';
 
 const Pea = {
