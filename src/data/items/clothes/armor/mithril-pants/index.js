@@ -5,7 +5,7 @@ const MithrilPants = {
     name: 'Mithril Pants',
     type: 'armor::pants',
     effect: {
-        defence: 20,
+        defence: 16,
     },
     image: MithrilPantsImg,
     value: 200,

@@ -5,7 +5,7 @@ const MithrilHelm = {
     name: 'Mithril Helm',
     type: 'armor::helmet',
     effect: {
-        defence: 10,
+        defence: 14,
     },
     image: MithrilHelmImg,
     value: 100,

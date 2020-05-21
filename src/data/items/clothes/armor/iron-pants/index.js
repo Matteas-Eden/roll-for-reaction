@@ -4,7 +4,7 @@ const IronPants = {
     name: 'Iron Pants',
     type: 'armor::pants',
     effect: {
-        defence: 10,
+        defence: 8,
     },
     image: IronPantsImg,
     value: 100,

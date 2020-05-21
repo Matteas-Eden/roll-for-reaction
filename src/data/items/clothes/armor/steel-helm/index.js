@@ -5,7 +5,7 @@ const SteelHelm = {
     name: 'Steel Helm',
     type: 'armor::helmet',
     effect: {
-        defence: 14,
+        defence: 10,
     },
     image: SteelHelmImg,
     value: 140,
