@@ -90,7 +90,7 @@ const App = ({ appState, world, dialog }) => {
                 <div
                     style={{
                         float: 'left',
-                        marginLeft: '-100px',
+                        marginLeft: '-360px',
                         display: disableJournal ? 'none' : 'block',
                     }}
                 >
