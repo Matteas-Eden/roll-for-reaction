@@ -1,5 +1,5 @@
 // Credit: https://kvsr.itch.io/pixelarteffectfx017
-import IceShardSprite from './IcePick.png';
+import IceShardSprite from './IceShard.png';
 import IceShardImage from './IceShard-image.png';
 import { SIGHT_RADIUS, AI_CHANGE_TURNS } from '../../../config/constants';
 
