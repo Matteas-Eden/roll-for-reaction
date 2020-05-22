@@ -1,8 +1,6 @@
 // Credit: https://kvsr.itch.io/pixelarteffectfx017
-// import VoidSprite from './Void.png';
-// import VoidImage from './Void-image.png';
-import VoidSprite from './MediumStar.png';
-import VoidImage from './MediumStar.png';
+import VoidSprite from './Void.png';
+import VoidImage from './Void-image.png';
 import { SIGHT_RADIUS, AI_CHANGE_TURNS } from '../../../config/constants';
 
 const Void = {
@@ -17,7 +15,7 @@ const Void = {
     image: VoidImage,
     sprite: VoidSprite,
     description: 'This is not the value you were looking for...',
-    unlockLevel: 1,
+    unlockLevel: 27,
     effects: {
         changeAI: {
             to: 'scared',

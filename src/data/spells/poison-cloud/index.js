@@ -1,8 +1,6 @@
 // Credit: https://kvsr.itch.io/pixelarteffectfx017
-// import PoisonCloudSprite from './PoisonCloud.png';
-// import PoisonCloudImage from './PoisonCloud-image.png';
-import PoisonCloudSprite from './PoisonCast2.png';
-import PoisonCloudImage from './PoisonCast2.png';
+import PoisonCloudSprite from './PoisonCloud.png';
+import PoisonCloudImage from './PoisonCloud-image.png';
 import {
     SIGHT_RADIUS,
     AI_CHANGE_TURNS,
@@ -22,7 +20,7 @@ const PoisonCloud = {
     image: PoisonCloudImage,
     sprite: PoisonCloudSprite,
     description: 'Eeeew. Who did that?',
-    unlockLevel: 1,
+    unlockLevel: 20,
     effects: {
         changeAI: {
             to: 'poisoned',
