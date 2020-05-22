@@ -93,7 +93,9 @@ const ViewItem = ({
                     key={uuidv4()}
                 />
             );
+
             if (data.bonus) {
+                // Does this item have a bonus multiplier against a certain type of monster
                 const [bonusType] = data.bonus.split('::');
                 const bonusMult = parseFloat(data.bonus.split('::')[1], 10);
                 itemStats.push(
@@ -144,6 +146,7 @@ const ViewItem = ({
             break;
 
         case 'spell':
+            // Basically does that spell target the caster or something else
             if (data.target.includes('self')) {
                 itemStats.push(
                     <StatsItem
@@ -168,6 +171,7 @@ const ViewItem = ({
             );
 
             if (data.effects && data.effects.changeAI) {
+                // If this item has an effect that alters the AI of the target
                 itemStats.push(
                     <StatsItem
                         stats={{
@@ -179,6 +183,7 @@ const ViewItem = ({
                 );
 
                 if (data.effects.changeAI.proc) {
+                    // This item has a potential chance to do something else
                     itemStats.push(
                         <StatsItem
                             stats={{
@@ -191,6 +196,7 @@ const ViewItem = ({
                 }
 
                 if (data.effects.changeAI.extraDamage) {
+                    // If the item has an effect that does damage over time, e.g. poison
                     const { damage, times } = data.effects.changeAI.extraDamage;
                     itemStats.push(
                         <StatsItem
@@ -216,7 +222,7 @@ const ViewItem = ({
     }
 
     if (data.effect) {
-        // find each effect
+        // If the item has effects, then add those
         Object.keys(data.effect).forEach(name => {
             itemStats.push(
                 <StatsItem
@@ -228,6 +234,7 @@ const ViewItem = ({
     }
 
     if (data.value) {
+        // If this item has some kind of associated value, e.g. the price you buy/sell it for
         itemStats.push(
             <StatsItem
                 stats={{
@@ -330,6 +337,7 @@ const ViewItem = ({
             </>
         );
     }
+
     const HpDiff = stats.maxHp - stats.hp;
     const MpDiff = stats.maxMp - stats.mp;
 

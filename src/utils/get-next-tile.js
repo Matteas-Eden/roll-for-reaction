@@ -1,4 +1,3 @@
-import { SPRITE_SIZE } from '../config/constants';
 import { spriteToCoordinates } from './sprite-to-coordinates';
 
 /**
