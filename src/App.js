@@ -12,6 +12,7 @@ import Viewport from './components/viewport';
 import useGameViewportScaling from './features/app-state/actions/use-game-viewport-scaling';
 import Spellbook from './features/spellbook';
 import Tutorial from './features/tutorial';
+import Abilities from './features/abilities';
 
 import JournalSide from './components/journal-side';
 
@@ -27,10 +28,14 @@ const App = ({ appState, world, dialog }) => {
 
     const { sideMenu, journalSideMenu } = appState;
     const { gameMode, floorNum, currentMap } = world;
-    const { gameStart, gameOver, journalSideMenuOpen } = dialog;
+    const { gameStart, gameOver, gameRunning, journalSideMenuOpen } = dialog;
 
     const disableJournal =
-        gameStart || gameOver || !journalSideMenu || !journalSideMenuOpen;
+        gameStart ||
+        gameOver ||
+        !gameRunning ||
+        !journalSideMenu ||
+        !journalSideMenuOpen;
 
     let showFooter = true;
 
@@ -56,6 +61,7 @@ const App = ({ appState, world, dialog }) => {
                                 <World />
                                 <DialogManager />
                                 <Tutorial />
+                                <Abilities />
                                 <Spellbook />
 
                                 {gameMode === 'endless' ? (
@@ -83,7 +89,8 @@ const App = ({ appState, world, dialog }) => {
             <div
                 style={{
                     float: 'left',
-                    marginRight: '-200px',
+                    marginLeft: '100px',
+                    marginRight: '-300px',
                     display: disableJournal ? 'none' : 'block',
                 }}
             >
@@ -100,6 +107,7 @@ const App = ({ appState, world, dialog }) => {
                             <World />
                             <DialogManager />
                             <Tutorial />
+                            <Abilities />
                             <Spellbook />
 
                             {gameMode === 'endless' ? (

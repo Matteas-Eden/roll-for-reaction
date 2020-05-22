@@ -10,7 +10,7 @@ const Medusa = {
     dice: '1d20 + 4',
     exp: 350,
     type: 'medusa',
-    sprite: { WEST: MedusaSprite, EAST: MedusaFloppedSprite },
+    sprite: { WEST: MedusaFloppedSprite, EAST: MedusaSprite },
     ai: 'normal',
     originalAI: 'normal',
     direction: 'WEST',
