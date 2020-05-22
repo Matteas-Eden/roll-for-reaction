@@ -9,7 +9,7 @@ const DiamondRing = {
         mana: 15,
     },
     image: DiamondRingImg,
-    value: 150,
+    value: 250,
 };
 
 export default DiamondRing;

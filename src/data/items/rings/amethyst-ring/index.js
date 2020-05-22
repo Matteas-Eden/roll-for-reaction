@@ -9,7 +9,7 @@ const AmethystRing = {
         mana: 3,
     },
     image: AmethystRingImg,
-    value: 120,
+    value: 125,
 };
 
 export default AmethystRing;
