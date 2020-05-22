@@ -5,6 +5,8 @@ const SaphireRing = {
     type: 'ring',
     effect: {
         defence: 10,
+        hp: 15,
+        mana: 10,
     },
     image: SaphireRingImg,
     value: 150,

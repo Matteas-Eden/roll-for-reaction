@@ -4,7 +4,9 @@ const DiamondRing = {
     name: 'Diamond Ring',
     type: 'ring',
     effect: {
-        defence: 10,
+        defence: 15,
+        hp: 20,
+        mana: 15,
     },
     image: DiamondRingImg,
     value: 150,
