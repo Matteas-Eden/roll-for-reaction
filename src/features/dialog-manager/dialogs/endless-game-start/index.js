@@ -9,7 +9,11 @@ import startEndlessGame from '../../../world/actions/start-endless-game';
 
 import './styles.scss';
 
-const EndlessGameStart = ({ backToSelect, startEndlessGame }) => {
+const EndlessGameStart = ({
+    backToSelect,
+    toggleTutorial,
+    startEndlessGame,
+}) => {
     return (
         <Dialog goBack={backToSelect} onKeyPress={startEndlessGame}>
             <span className="flex-row endless-start__title">

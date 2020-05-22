@@ -9,7 +9,7 @@ import startMainGame from '../../../world/actions/start-main-game';
 
 import './styles.scss';
 
-const MainGameStart = ({ startMainGame, backToSelect }) => {
+const MainGameStart = ({ startMainGame, toggleTutorial, backToSelect }) => {
     return (
         <Dialog goBack={backToSelect} onKeyPress={startMainGame}>
             <span className="flex-row game-start__title">{'Story Mode'}</span>
