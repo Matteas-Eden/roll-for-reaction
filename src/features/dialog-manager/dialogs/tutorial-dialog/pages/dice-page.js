@@ -14,7 +14,7 @@ const DicePage = () => {
             <div className="tutorial-page__title">{'DICE NOTATION'}</div>
             <div className="tutorial-page__dice">
                 {
-                    'This game uses dice notation for representing various values, such as damage dealt in combat.'
+                    'This game uses dice notation for representing various values, such as the damage dealt in combat.'
                 }
                 <br />
                 <br />
