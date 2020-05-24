@@ -93,21 +93,6 @@ const ViewItem = ({
                     key={uuidv4()}
                 />
             );
-
-            if (data.bonus) {
-                // Does this item have a bonus multiplier against a certain type of monster
-                const [bonusType] = data.bonus.split('::');
-                const bonusMult = parseFloat(data.bonus.split('::')[1], 10);
-                itemStats.push(
-                    <StatsItem
-                        stats={{
-                            name: `VS. ${bonusType}`,
-                            value: `${bonusMult}x`,
-                        }}
-                        key={uuidv4()}
-                    />
-                );
-            }
             break;
 
         case 'ring':
