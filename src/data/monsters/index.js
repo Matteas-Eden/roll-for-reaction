@@ -35,7 +35,7 @@ const monsters = {
     ghost: Ghost,
     imp: Imp,
     lich: Lich,
-    'lich king': LichKing,
+    'lich king': LicKing,
     medusa: Medusa,
     orc: Orc,
     plantera: Plantera,
